@@ -44,7 +44,7 @@
 <span class="kn">import</span> <span class="nn">cassiopeia.type.core.common</span>
 <span class="kn">import</span> <span class="nn">cassiopeia.type.core.stats</span>
 
-<div class="viewcode-block" id="get_ranked_stats"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.core.statsapi.get_ranked_stats">[docs]</a><span class="k">def</span> <span class="nf">get_ranked_stats</span><span class="p">(</span><span class="n">summoner</span><span class="p">,</span> <span class="n">season</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="viewcode-block" id="get_ranked_stats"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_ranked_stats">[docs]</a><span class="k">def</span> <span class="nf">get_ranked_stats</span><span class="p">(</span><span class="n">summoner</span><span class="p">,</span> <span class="n">season</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets a summoner&#39;s ranked stats</span>
 
 <span class="sd">    summoner    Summoner                           the summoner to get ranked stats for</span>
@@ -61,7 +61,7 @@
 
     <span class="k">return</span> <span class="p">{</span><span class="n">champions</span><span class="p">[</span><span class="n">stat</span><span class="o">.</span><span class="n">id</span><span class="p">]:</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">AggregatedStats</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">stats</span><span class="p">)</span> <span class="k">for</span> <span class="n">stat</span> <span class="ow">in</span> <span class="n">stats</span><span class="o">.</span><span class="n">champions</span><span class="p">}</span>
 </div>
-<div class="viewcode-block" id="get_stats"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.core.statsapi.get_stats">[docs]</a><span class="k">def</span> <span class="nf">get_stats</span><span class="p">(</span><span class="n">summoner</span><span class="p">,</span> <span class="n">season</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="viewcode-block" id="get_stats"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_stats">[docs]</a><span class="k">def</span> <span class="nf">get_stats</span><span class="p">(</span><span class="n">summoner</span><span class="p">,</span> <span class="n">season</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets a summoner&#39;s stats</span>
 
 <span class="sd">    summoner    Summoner                               the summoner to get stats for</span>

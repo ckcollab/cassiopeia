@@ -41,7 +41,7 @@
 <span class="kn">import</span> <span class="nn">cassiopeia.dto.requests</span>
 <span class="kn">import</span> <span class="nn">cassiopeia.type.dto.league</span>
 
-<div class="viewcode-block" id="get_leagues_by_summoner"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.leagueapi.get_leagues_by_summoner">[docs]</a><span class="k">def</span> <span class="nf">get_leagues_by_summoner</span><span class="p">(</span><span class="n">summoner_ids</span><span class="p">):</span>
+<div class="viewcode-block" id="get_leagues_by_summoner"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_leagues_by_summoner">[docs]</a><span class="k">def</span> <span class="nf">get_leagues_by_summoner</span><span class="p">(</span><span class="n">summoner_ids</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/985/3351</span>
 
 <span class="sd">    summoner_ids    int | list&lt;int&gt;            the summoner ID(s) to get leagues for</span>
@@ -65,7 +65,7 @@
 
     <span class="k">return</span> <span class="n">response</span>
 </div>
-<div class="viewcode-block" id="get_league_entries_by_summoner"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.leagueapi.get_league_entries_by_summoner">[docs]</a><span class="k">def</span> <span class="nf">get_league_entries_by_summoner</span><span class="p">(</span><span class="n">summoner_ids</span><span class="p">):</span>
+<div class="viewcode-block" id="get_league_entries_by_summoner"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_league_entries_by_summoner">[docs]</a><span class="k">def</span> <span class="nf">get_league_entries_by_summoner</span><span class="p">(</span><span class="n">summoner_ids</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/985/3356</span>
 
 <span class="sd">    summoner_ids    int | list&lt;int&gt;            the summoner ID(s) to get league entries for</span>
@@ -89,7 +89,7 @@
 
     <span class="k">return</span> <span class="n">response</span>
 </div>
-<div class="viewcode-block" id="get_leagues_by_team"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.leagueapi.get_leagues_by_team">[docs]</a><span class="k">def</span> <span class="nf">get_leagues_by_team</span><span class="p">(</span><span class="n">team_ids</span><span class="p">):</span>
+<div class="viewcode-block" id="get_leagues_by_team"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_leagues_by_team">[docs]</a><span class="k">def</span> <span class="nf">get_leagues_by_team</span><span class="p">(</span><span class="n">team_ids</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/985/3352</span>
 
 <span class="sd">    team_ids    str | list&lt;str&gt;            the team ID(s) to get leagues for</span>
@@ -112,7 +112,7 @@
 
     <span class="k">return</span> <span class="n">response</span>
 </div>
-<div class="viewcode-block" id="get_league_entries_by_team"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.leagueapi.get_league_entries_by_team">[docs]</a><span class="k">def</span> <span class="nf">get_league_entries_by_team</span><span class="p">(</span><span class="n">team_ids</span><span class="p">):</span>
+<div class="viewcode-block" id="get_league_entries_by_team"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_league_entries_by_team">[docs]</a><span class="k">def</span> <span class="nf">get_league_entries_by_team</span><span class="p">(</span><span class="n">team_ids</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/985/3355</span>
 
 <span class="sd">    team_ids    str | list&lt;str&gt;            the team ID(s) to get league entries for</span>
@@ -135,7 +135,7 @@
 
     <span class="k">return</span> <span class="n">response</span>
 </div>
-<div class="viewcode-block" id="get_challenger"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.leagueapi.get_challenger">[docs]</a><span class="k">def</span> <span class="nf">get_challenger</span><span class="p">(</span><span class="n">queue_type</span><span class="p">):</span>
+<div class="viewcode-block" id="get_challenger"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_challenger">[docs]</a><span class="k">def</span> <span class="nf">get_challenger</span><span class="p">(</span><span class="n">queue_type</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/985/3353</span>
 
 <span class="sd">    queue_type    str       the queue type to get the challenger league for (&quot;RANKED_SOLO_5x5&quot;, &quot;RANKED_TEAM_3x3&quot;, &quot;RANKED_TEAM_5x5&quot;)</span>
@@ -145,7 +145,7 @@
     <span class="n">request</span> <span class="o">=</span> <span class="s">&quot;{version}/league/challenger&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">api_versions</span><span class="p">[</span><span class="s">&quot;league&quot;</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">league</span><span class="o">.</span><span class="n">League</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="p">{</span><span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="n">queue_type</span><span class="p">}))</span>
 </div>
-<div class="viewcode-block" id="get_master"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.leagueapi.get_master">[docs]</a><span class="k">def</span> <span class="nf">get_master</span><span class="p">(</span><span class="n">queue_type</span><span class="p">):</span>
+<div class="viewcode-block" id="get_master"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_master">[docs]</a><span class="k">def</span> <span class="nf">get_master</span><span class="p">(</span><span class="n">queue_type</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/985/3354</span>
 
 <span class="sd">    queue_type    str       the queue type to get the master league for (&quot;RANKED_SOLO_5x5&quot;, &quot;RANKED_TEAM_3x3&quot;, &quot;RANKED_TEAM_5x5&quot;)</span>

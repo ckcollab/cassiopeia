@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.type.dto package &mdash; Cassiopeia 0.0.1 documentation</title>
+    <title>cassiopeia.type.dto &mdash; Cassiopeia 0.0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Cassiopeia 0.0.1 documentation" href="index.html" />
-    <link rel="up" title="cassiopeia.type package" href="cassiopeia.type.html" />
-    <link rel="prev" title="cassiopeia.type.core package" href="cassiopeia.type.core.html" />
+    <link rel="up" title="cassiopeia.type" href="cassiopeia.type.html" />
+    <link rel="prev" title="cassiopeia.type.core" href="cassiopeia.type.core.html" />
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
@@ -38,13 +38,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="cassiopeia-type-dto-package">
-<h1>cassiopeia.type.dto package<a class="headerlink" href="#cassiopeia-type-dto-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-</div>
+  <div class="section" id="cassiopeia-type-dto">
+<h1>cassiopeia.type.dto<a class="headerlink" href="#cassiopeia-type-dto" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-cassiopeia.type.dto.champion">
-<span id="cassiopeia-type-dto-champion-module"></span><h2>cassiopeia.type.dto.champion module<a class="headerlink" href="#module-cassiopeia.type.dto.champion" title="Permalink to this headline">¶</a></h2>
+<span id="cassiopeia-type-dto-champion"></span><h2>cassiopeia.type.dto.champion<a class="headerlink" href="#module-cassiopeia.type.dto.champion" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cassiopeia.type.dto.champion.Champion">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.dto.champion.</code><code class="descname">Champion</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/champion.html#Champion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.champion.Champion" title="Permalink to this definition">¶</a></dt>
@@ -55,6 +52,12 @@ botMmEnabled         bool    bot Match Made enabled flag (for Co-op vs. AI games
 freeToPlay           bool    indicates if the champion is free to play. Free to play champions are rotated periodically
 id                   int     champion ID. For static information correlating to champion IDs, please refer to the LoL Static Data API.
 rankedPlayEnabled    bool    ranked play enabled flag</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.champion.Champion.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.champion.Champion.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -66,6 +69,12 @@ rankedPlayEnabled    bool    ranked play enabled flag</p>
 <dt id="cassiopeia.type.dto.champion.ChampionList.champion_ids">
 <code class="descname">champion_ids</code><a class="headerlink" href="#cassiopeia.type.dto.champion.ChampionList.champion_ids" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all champion IDs contained in this object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.champion.ChampionList.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.champion.ChampionList.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
 </dd></dl>
 
 </dd></dl>
@@ -82,7 +91,13 @@ rankedPlayEnabled    bool    ranked play enabled flag</p>
 
 </div>
 <div class="section" id="module-cassiopeia.type.dto.common">
-<span id="cassiopeia-type-dto-common-module"></span><h2>cassiopeia.type.dto.common module<a class="headerlink" href="#module-cassiopeia.type.dto.common" title="Permalink to this headline">¶</a></h2>
+<span id="cassiopeia-type-dto-common"></span><h2>cassiopeia.type.dto.common<a class="headerlink" href="#module-cassiopeia.type.dto.common" title="Permalink to this headline">¶</a></h2>
+<dl class="attribute">
+<dt id="cassiopeia.type.dto.common.BaseDB">
+<code class="descclassname">cassiopeia.type.dto.common.</code><code class="descname">BaseDB</code><a class="headerlink" href="#cassiopeia.type.dto.common.BaseDB" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">Base</span></code></p>
+</dd></dl>
+
 <dl class="class">
 <dt id="cassiopeia.type.dto.common.CassiopeiaDto">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.dto.common.</code><code class="descname">CassiopeiaDto</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/common.html#CassiopeiaDto"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="Permalink to this definition">¶</a></dt>
@@ -101,27 +116,716 @@ rankedPlayEnabled    bool    ranked play enabled flag</p>
 <em class="property">class </em><code class="descclassname">cassiopeia.type.dto.common.</code><code class="descname">JSONEncoded</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/common.html#JSONEncoded"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">sqlalchemy.sql.type_api.TypeDecorator</span></code></p>
 <p>JSON encoded storage for SQLAlchemy</p>
+<dl class="class">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator">
+<em class="property">class </em><code class="descname">Comparator</code><span class="sig-paren">(</span><em>expr</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">sqlalchemy.sql.type_api.Comparator</span></code></p>
+<dl class="attribute">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.BOOLEANTYPE">
+<code class="descname">BOOLEANTYPE</code><em class="property"> = Boolean()</em><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.BOOLEANTYPE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.asc">
+<code class="descname">asc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.asc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce a <code class="xref py py-func docutils literal"><span class="pre">asc()</span></code> clause against the
+parent object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.between">
+<code class="descname">between</code><span class="sig-paren">(</span><em>cleft</em>, <em>cright</em>, <em>symmetric=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.between" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce a <code class="xref py py-func docutils literal"><span class="pre">between()</span></code> clause against
+the parent object, given the lower and upper range.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.collate">
+<code class="descname">collate</code><span class="sig-paren">(</span><em>collation</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.collate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce a <code class="xref py py-func docutils literal"><span class="pre">collate()</span></code> clause against
+the parent object, given the collation string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.concat">
+<code class="descname">concat</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.concat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement the &#8216;concat&#8217; operator.</p>
+<p>In a column context, produces the clause <code class="docutils literal"><span class="pre">a</span> <span class="pre">||</span> <span class="pre">b</span></code>,
+or uses the <code class="docutils literal"><span class="pre">concat()</span></code> operator on MySQL.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.contains">
+<code class="descname">contains</code><span class="sig-paren">(</span><em>other</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.contains" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement the &#8216;contains&#8217; operator.</p>
+<p>In a column context, produces the clause <code class="docutils literal"><span class="pre">LIKE</span> <span class="pre">'%&lt;other&gt;%'</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.default_comparator">
+<code class="descname">default_comparator</code><em class="property"> = None</em><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.default_comparator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.desc">
+<code class="descname">desc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.desc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce a <code class="xref py py-func docutils literal"><span class="pre">desc()</span></code> clause against the
+parent object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.distinct">
+<code class="descname">distinct</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.distinct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce a <code class="xref py py-func docutils literal"><span class="pre">distinct()</span></code> clause against the
+parent object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.endswith">
+<code class="descname">endswith</code><span class="sig-paren">(</span><em>other</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.endswith" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement the &#8216;endswith&#8217; operator.</p>
+<p>In a column context, produces the clause <code class="docutils literal"><span class="pre">LIKE</span> <span class="pre">'%&lt;other&gt;'</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.expr">
+<code class="descname">expr</code><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.expr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.ilike">
+<code class="descname">ilike</code><span class="sig-paren">(</span><em>other</em>, <em>escape=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.ilike" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement the <code class="docutils literal"><span class="pre">ilike</span></code> operator.</p>
+<p>In a column context, produces the clause <code class="docutils literal"><span class="pre">a</span> <span class="pre">ILIKE</span> <span class="pre">other</span></code>.</p>
+<p>E.g.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">select</span><span class="p">([</span><span class="n">sometable</span><span class="p">])</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sometable</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">column</span><span class="o">.</span><span class="n">ilike</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%f</span><span class="s">oobar%&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>other</strong> &#8211; expression to be compared</li>
+<li><strong>escape</strong> &#8211; <p>optional escape character, renders the <code class="docutils literal"><span class="pre">ESCAPE</span></code>
+keyword, e.g.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">somecolumn</span><span class="o">.</span><span class="n">ilike</span><span class="p">(</span><span class="s">&quot;foo/%bar&quot;</span><span class="p">,</span> <span class="n">escape</span><span class="o">=</span><span class="s">&quot;/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-meth docutils literal"><span class="pre">ColumnOperators.like()</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.in_">
+<code class="descname">in_</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.in_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement the <code class="docutils literal"><span class="pre">in</span></code> operator.</p>
+<p>In a column context, produces the clause <code class="docutils literal"><span class="pre">a</span> <span class="pre">IN</span> <span class="pre">other</span></code>.
+&#8220;other&#8221; may be a tuple/list of column expressions,
+or a <code class="xref py py-func docutils literal"><span class="pre">select()</span></code> construct.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.is_">
+<code class="descname">is_</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.is_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement the <code class="docutils literal"><span class="pre">IS</span></code> operator.</p>
+<p>Normally, <code class="docutils literal"><span class="pre">IS</span></code> is generated automatically when comparing to a
+value of <code class="docutils literal"><span class="pre">None</span></code>, which resolves to <code class="docutils literal"><span class="pre">NULL</span></code>.  However, explicit
+usage of <code class="docutils literal"><span class="pre">IS</span></code> may be desirable if comparing to boolean values
+on certain platforms.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.7.9.</span></p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-meth docutils literal"><span class="pre">ColumnOperators.isnot()</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.isnot">
+<code class="descname">isnot</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.isnot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement the <code class="docutils literal"><span class="pre">IS</span> <span class="pre">NOT</span></code> operator.</p>
+<p>Normally, <code class="docutils literal"><span class="pre">IS</span> <span class="pre">NOT</span></code> is generated automatically when comparing to a
+value of <code class="docutils literal"><span class="pre">None</span></code>, which resolves to <code class="docutils literal"><span class="pre">NULL</span></code>.  However, explicit
+usage of <code class="docutils literal"><span class="pre">IS</span> <span class="pre">NOT</span></code> may be desirable if comparing to boolean values
+on certain platforms.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.7.9.</span></p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-meth docutils literal"><span class="pre">ColumnOperators.is_()</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.like">
+<code class="descname">like</code><span class="sig-paren">(</span><em>other</em>, <em>escape=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.like" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement the <code class="docutils literal"><span class="pre">like</span></code> operator.</p>
+<p>In a column context, produces the clause <code class="docutils literal"><span class="pre">a</span> <span class="pre">LIKE</span> <span class="pre">other</span></code>.</p>
+<p>E.g.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">select</span><span class="p">([</span><span class="n">sometable</span><span class="p">])</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sometable</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">column</span><span class="o">.</span><span class="n">like</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%f</span><span class="s">oobar%&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>other</strong> &#8211; expression to be compared</li>
+<li><strong>escape</strong> &#8211; <p>optional escape character, renders the <code class="docutils literal"><span class="pre">ESCAPE</span></code>
+keyword, e.g.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">somecolumn</span><span class="o">.</span><span class="n">like</span><span class="p">(</span><span class="s">&quot;foo/%bar&quot;</span><span class="p">,</span> <span class="n">escape</span><span class="o">=</span><span class="s">&quot;/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-meth docutils literal"><span class="pre">ColumnOperators.ilike()</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.match">
+<code class="descname">match</code><span class="sig-paren">(</span><em>other</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.match" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements a database-specific &#8216;match&#8217; operator.</p>
+<p><code class="xref py py-meth docutils literal"><span class="pre">match()</span></code> attempts to resolve to
+a MATCH-like function or operator provided by the backend.
+Examples include:</p>
+<ul class="simple">
+<li>Postgresql - renders <code class="docutils literal"><span class="pre">x</span> <span class="pre">&#64;&#64;</span> <span class="pre">to_tsquery(y)</span></code></li>
+<li>MySQL - renders <code class="docutils literal"><span class="pre">MATCH</span> <span class="pre">(x)</span> <span class="pre">AGAINST</span> <span class="pre">(y</span> <span class="pre">IN</span> <span class="pre">BOOLEAN</span> <span class="pre">MODE)</span></code></li>
+<li>Oracle - renders <code class="docutils literal"><span class="pre">CONTAINS(x,</span> <span class="pre">y)</span></code></li>
+<li>other backends may provide special implementations.</li>
+<li>Backends without any special implementation will emit
+the operator as &#8220;MATCH&#8221;.  This is compatible with SQlite, for
+example.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.notilike">
+<code class="descname">notilike</code><span class="sig-paren">(</span><em>other</em>, <em>escape=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.notilike" title="Permalink to this definition">¶</a></dt>
+<dd><p>implement the <code class="docutils literal"><span class="pre">NOT</span> <span class="pre">ILIKE</span></code> operator.</p>
+<p>This is equivalent to using negation with
+<code class="xref py py-meth docutils literal"><span class="pre">ColumnOperators.ilike()</span></code>, i.e. <code class="docutils literal"><span class="pre">~x.ilike(y)</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.8.</span></p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-meth docutils literal"><span class="pre">ColumnOperators.ilike()</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.notin_">
+<code class="descname">notin_</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.notin_" title="Permalink to this definition">¶</a></dt>
+<dd><p>implement the <code class="docutils literal"><span class="pre">NOT</span> <span class="pre">IN</span></code> operator.</p>
+<p>This is equivalent to using negation with
+<code class="xref py py-meth docutils literal"><span class="pre">ColumnOperators.in_()</span></code>, i.e. <code class="docutils literal"><span class="pre">~x.in_(y)</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.8.</span></p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-meth docutils literal"><span class="pre">ColumnOperators.in_()</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.notlike">
+<code class="descname">notlike</code><span class="sig-paren">(</span><em>other</em>, <em>escape=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.notlike" title="Permalink to this definition">¶</a></dt>
+<dd><p>implement the <code class="docutils literal"><span class="pre">NOT</span> <span class="pre">LIKE</span></code> operator.</p>
+<p>This is equivalent to using negation with
+<code class="xref py py-meth docutils literal"><span class="pre">ColumnOperators.like()</span></code>, i.e. <code class="docutils literal"><span class="pre">~x.like(y)</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.8.</span></p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-meth docutils literal"><span class="pre">ColumnOperators.like()</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.nullsfirst">
+<code class="descname">nullsfirst</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.nullsfirst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce a <code class="xref py py-func docutils literal"><span class="pre">nullsfirst()</span></code> clause against the
+parent object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.nullslast">
+<code class="descname">nullslast</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.nullslast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce a <code class="xref py py-func docutils literal"><span class="pre">nullslast()</span></code> clause against the
+parent object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.op">
+<code class="descname">op</code><span class="sig-paren">(</span><em>opstring</em>, <em>precedence=0</em>, <em>is_comparison=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.op" title="Permalink to this definition">¶</a></dt>
+<dd><p>produce a generic operator function.</p>
+<p>e.g.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">somecolumn</span><span class="o">.</span><span class="n">op</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">)(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>produces:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">somecolumn</span> <span class="o">*</span> <span class="mi">5</span>
+</pre></div>
+</div>
+<p>This function can also be used to make bitwise operators explicit. For
+example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">somecolumn</span><span class="o">.</span><span class="n">op</span><span class="p">(</span><span class="s">&#39;&amp;&#39;</span><span class="p">)(</span><span class="mh">0xff</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>is a bitwise AND of the value in <code class="docutils literal"><span class="pre">somecolumn</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>operator</strong> &#8211; a string which will be output as the infix operator
+between this element and the expression passed to the
+generated function.</li>
+<li><strong>precedence</strong> &#8211; <p>precedence to apply to the operator, when
+parenthesizing expressions.  A lower number will cause the expression
+to be parenthesized when applied against another operator with
+higher precedence.  The default value of <code class="docutils literal"><span class="pre">0</span></code> is lower than all
+operators except for the comma (<code class="docutils literal"><span class="pre">,</span></code>) and <code class="docutils literal"><span class="pre">AS</span></code> operators.
+A value of 100 will be higher or equal to all operators, and -100
+will be lower than or equal to all operators.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.8: </span>- added the &#8216;precedence&#8217; argument.</p>
+</div>
+</li>
+<li><strong>is_comparison</strong> &#8211; <p>if True, the operator will be considered as a
+&#8220;comparison&#8221; operator, that is which evaluates to a boolean
+true/false value, like <code class="docutils literal"><span class="pre">==</span></code>, <code class="docutils literal"><span class="pre">&gt;</span></code>, etc.  This flag should be set
+so that ORM relationships can establish that the operator is a
+comparison operator when used in a custom join condition.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.9.2: </span>- added the
+<a href="#id1"><span class="problematic" id="id2">:paramref:`.Operators.op.is_comparison`</span></a> flag.</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p><span class="xref std std-ref">types_operators</span></p>
+<p class="last"><span class="xref std std-ref">relationship_custom_operator</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.operate">
+<code class="descname">operate</code><span class="sig-paren">(</span><em>op</em>, <em>*other</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.operate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.reverse_operate">
+<code class="descname">reverse_operate</code><span class="sig-paren">(</span><em>op</em>, <em>other</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.reverse_operate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.startswith">
+<code class="descname">startswith</code><span class="sig-paren">(</span><em>other</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.startswith" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement the <code class="docutils literal"><span class="pre">startwith</span></code> operator.</p>
+<p>In a column context, produces the clause <code class="docutils literal"><span class="pre">LIKE</span> <span class="pre">'&lt;other&gt;%'</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.timetuple">
+<code class="descname">timetuple</code><em class="property"> = None</em><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.timetuple" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.Comparator.type">
+<code class="descname">type</code><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.Comparator.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.adapt">
+<code class="descclassname">JSONEncoded.</code><code class="descname">adapt</code><span class="sig-paren">(</span><em>cls</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.adapt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce an &#8220;adapted&#8221; form of this type, given an &#8220;impl&#8221; class
+to work with.</p>
+<p>This method is used internally to associate generic
+types with &#8220;implementation&#8221; types that are specific to a particular
+dialect.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.bind_expression">
+<code class="descclassname">JSONEncoded.</code><code class="descname">bind_expression</code><span class="sig-paren">(</span><em>bindvalue</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.bind_expression" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#8220;Given a bind value (i.e. a <code class="xref py py-class docutils literal"><span class="pre">BindParameter</span></code> instance),
+return a SQL expression in its place.</p>
+<p>This is typically a SQL function that wraps the existing bound
+parameter within the statement.  It is used for special data types
+that require literals being wrapped in some special database function
+in order to coerce an application-level value into a database-specific
+format.  It is the SQL analogue of the
+<code class="xref py py-meth docutils literal"><span class="pre">TypeEngine.bind_processor()</span></code> method.</p>
+<p>The method is evaluated at statement compile time, as opposed
+to statement construction time.</p>
+<p>Note that this method, when implemented, should always return
+the exact same structure, without any conditional logic, as it
+may be used in an executemany() call against an arbitrary number
+of bound parameter sets.</p>
+<p>See also:</p>
+<p><span class="xref std std-ref">types_sql_value_processing</span></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.bind_processor">
+<code class="descclassname">JSONEncoded.</code><code class="descname">bind_processor</code><span class="sig-paren">(</span><em>dialect</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.bind_processor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide a bound value processing function for the
+given <code class="xref py py-class docutils literal"><span class="pre">Dialect</span></code>.</p>
+<p>This is the method that fulfills the <code class="xref py py-class docutils literal"><span class="pre">TypeEngine</span></code>
+contract for bound value conversion.   <code class="xref py py-class docutils literal"><span class="pre">TypeDecorator</span></code>
+will wrap a user-defined implementation of
+<a class="reference internal" href="#cassiopeia.type.dto.common.JSONEncoded.process_bind_param" title="cassiopeia.type.dto.common.JSONEncoded.process_bind_param"><code class="xref py py-meth docutils literal"><span class="pre">process_bind_param()</span></code></a> here.</p>
+<p>User-defined code can override this method directly,
+though its likely best to use <a class="reference internal" href="#cassiopeia.type.dto.common.JSONEncoded.process_bind_param" title="cassiopeia.type.dto.common.JSONEncoded.process_bind_param"><code class="xref py py-meth docutils literal"><span class="pre">process_bind_param()</span></code></a> so that
+the processing provided by <code class="docutils literal"><span class="pre">self.impl</span></code> is maintained.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dialect</strong> &#8211; Dialect instance in use.</td>
+</tr>
+</tbody>
+</table>
+<p>This method is the reverse counterpart to the
+<a class="reference internal" href="#cassiopeia.type.dto.common.JSONEncoded.result_processor" title="cassiopeia.type.dto.common.JSONEncoded.result_processor"><code class="xref py py-meth docutils literal"><span class="pre">result_processor()</span></code></a> method of this class.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.coerce_compared_value">
+<code class="descclassname">JSONEncoded.</code><code class="descname">coerce_compared_value</code><span class="sig-paren">(</span><em>op</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.coerce_compared_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Suggest a type for a &#8216;coerced&#8217; Python value in an expression.</p>
+<p>By default, returns self.   This method is called by
+the expression system when an object using this type is
+on the left or right side of an expression against a plain Python
+object which does not yet have a SQLAlchemy type assigned:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">expr</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">somecolumn</span> <span class="o">+</span> <span class="mi">35</span>
+</pre></div>
+</div>
+<p>Where above, if <code class="docutils literal"><span class="pre">somecolumn</span></code> uses this type, this method will
+be called with the value <code class="docutils literal"><span class="pre">operator.add</span></code>
+and <code class="docutils literal"><span class="pre">35</span></code>.  The return value is whatever SQLAlchemy type should
+be used for <code class="docutils literal"><span class="pre">35</span></code> for this particular operation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.coerce_to_is_types">
+<code class="descclassname">JSONEncoded.</code><code class="descname">coerce_to_is_types</code><em class="property"> = (&lt;class 'NoneType'&gt;,)</em><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.coerce_to_is_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.column_expression">
+<code class="descclassname">JSONEncoded.</code><code class="descname">column_expression</code><span class="sig-paren">(</span><em>colexpr</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.column_expression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a SELECT column expression, return a wrapping SQL expression.</p>
+<p>This is typically a SQL function that wraps a column expression
+as rendered in the columns clause of a SELECT statement.
+It is used for special data types that require
+columns to be wrapped in some special database function in order
+to coerce the value before being sent back to the application.
+It is the SQL analogue of the <code class="xref py py-meth docutils literal"><span class="pre">TypeEngine.result_processor()</span></code>
+method.</p>
+<p>The method is evaluated at statement compile time, as opposed
+to statement construction time.</p>
+<p>See also:</p>
+<p><span class="xref std std-ref">types_sql_value_processing</span></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.comparator_factory">
+<code class="descclassname">JSONEncoded.</code><code class="descname">comparator_factory</code><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.comparator_factory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.compare_against_backend">
+<code class="descclassname">JSONEncoded.</code><code class="descname">compare_against_backend</code><span class="sig-paren">(</span><em>dialect</em>, <em>conn_type</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.compare_against_backend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compare this type against the given backend type.</p>
+<p>This function is currently not implemented for SQLAlchemy
+types, and for all built in types will return <code class="docutils literal"><span class="pre">None</span></code>.  However,
+it can be implemented by a user-defined type
+where it can be consumed by schema comparison tools such as
+Alembic autogenerate.</p>
+<p>A future release of SQLAlchemy will potentially impement this method
+for builtin types as well.</p>
+<p>The function should return True if this type is equivalent to the
+given type; the type is typically reflected from the database
+so should be database specific.  The dialect in use is also
+passed.   It can also return False to assert that the type is
+not equivalent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dialect</strong> &#8211; a <code class="xref py py-class docutils literal"><span class="pre">Dialect</span></code> that is involved in the comparison.</li>
+<li><strong>conn_type</strong> &#8211; the type object reflected from the backend.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.3.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.compare_values">
+<code class="descclassname">JSONEncoded.</code><code class="descname">compare_values</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.compare_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given two values, compare them for equality.</p>
+<p>By default this calls upon <code class="xref py py-meth docutils literal"><span class="pre">TypeEngine.compare_values()</span></code>
+of the underlying &#8220;impl&#8221;, which in turn usually
+uses the Python equals operator <code class="docutils literal"><span class="pre">==</span></code>.</p>
+<p>This function is used by the ORM to compare
+an original-loaded value with an intercepted
+&#8220;changed&#8221; value, to determine if a net change
+has occurred.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.compile">
+<code class="descclassname">JSONEncoded.</code><code class="descname">compile</code><span class="sig-paren">(</span><em>dialect=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.compile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce a string-compiled form of this <code class="xref py py-class docutils literal"><span class="pre">TypeEngine</span></code>.</p>
+<p>When called with no arguments, uses a &#8220;default&#8221; dialect
+to produce a string result.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dialect</strong> &#8211; a <code class="xref py py-class docutils literal"><span class="pre">Dialect</span></code> instance.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.copy">
+<code class="descclassname">JSONEncoded.</code><code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce a copy of this <code class="xref py py-class docutils literal"><span class="pre">TypeDecorator</span></code> instance.</p>
+<p>This is a shallow copy and is provided to fulfill part of
+the <code class="xref py py-class docutils literal"><span class="pre">TypeEngine</span></code> contract.  It usually does not
+need to be overridden unless the user-defined <code class="xref py py-class docutils literal"><span class="pre">TypeDecorator</span></code>
+has local state that should be deep-copied.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.copy_value">
+<code class="descclassname">JSONEncoded.</code><code class="descname">copy_value</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.copy_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.dialect_impl">
+<code class="descclassname">JSONEncoded.</code><code class="descname">dialect_impl</code><span class="sig-paren">(</span><em>dialect</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.dialect_impl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dialect-specific implementation for this
+<code class="xref py py-class docutils literal"><span class="pre">TypeEngine</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.get_dbapi_type">
+<code class="descclassname">JSONEncoded.</code><code class="descname">get_dbapi_type</code><span class="sig-paren">(</span><em>dbapi</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.get_dbapi_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the DBAPI type object represented by this
+<code class="xref py py-class docutils literal"><span class="pre">TypeDecorator</span></code>.</p>
+<p>By default this calls upon <code class="xref py py-meth docutils literal"><span class="pre">TypeEngine.get_dbapi_type()</span></code> of the
+underlying &#8220;impl&#8221;.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.hashable">
+<code class="descclassname">JSONEncoded.</code><code class="descname">hashable</code><em class="property"> = True</em><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.hashable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="attribute">
 <dt id="cassiopeia.type.dto.common.JSONEncoded.impl">
-<code class="descname">impl</code><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.impl" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">JSONEncoded.</code><code class="descname">impl</code><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.impl" title="Permalink to this definition">¶</a></dt>
 <dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">Text</span></code></p>
 </dd></dl>
 
 <dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.literal_processor">
+<code class="descclassname">JSONEncoded.</code><code class="descname">literal_processor</code><span class="sig-paren">(</span><em>dialect</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.literal_processor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide a literal processing function for the given
+<code class="xref py py-class docutils literal"><span class="pre">Dialect</span></code>.</p>
+<p>Subclasses here will typically override
+<code class="xref py py-meth docutils literal"><span class="pre">TypeDecorator.process_literal_param()</span></code> instead of this method
+directly.</p>
+<p>By default, this method makes use of
+<code class="xref py py-meth docutils literal"><span class="pre">TypeDecorator.process_bind_param()</span></code> if that method is
+implemented, where <code class="xref py py-meth docutils literal"><span class="pre">TypeDecorator.process_literal_param()</span></code> is
+not.  The rationale here is that <code class="xref py py-class docutils literal"><span class="pre">TypeDecorator</span></code> typically
+deals with Python conversions of data that are above the layer of
+database presentation.  With the value converted by
+<code class="xref py py-meth docutils literal"><span class="pre">TypeDecorator.process_bind_param()</span></code>, the underlying type will
+then handle whether it needs to be presented to the DBAPI as a bound
+parameter or to the database as an inline SQL value.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.9.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.load_dialect_impl">
+<code class="descclassname">JSONEncoded.</code><code class="descname">load_dialect_impl</code><span class="sig-paren">(</span><em>dialect</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.load_dialect_impl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a <code class="xref py py-class docutils literal"><span class="pre">TypeEngine</span></code> object corresponding to a dialect.</p>
+<p>This is an end-user override hook that can be used to provide
+differing types depending on the given dialect.  It is used
+by the <code class="xref py py-class docutils literal"><span class="pre">TypeDecorator</span></code> implementation of <a class="reference internal" href="#cassiopeia.type.dto.common.JSONEncoded.type_engine" title="cassiopeia.type.dto.common.JSONEncoded.type_engine"><code class="xref py py-meth docutils literal"><span class="pre">type_engine()</span></code></a>
+to help determine what type should ultimately be returned
+for a given <code class="xref py py-class docutils literal"><span class="pre">TypeDecorator</span></code>.</p>
+<p>By default returns <code class="docutils literal"><span class="pre">self.impl</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="cassiopeia.type.dto.common.JSONEncoded.process_bind_param">
-<code class="descname">process_bind_param</code><span class="sig-paren">(</span><em>value</em>, <em>dialect</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/common.html#JSONEncoded.process_bind_param"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.process_bind_param" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">JSONEncoded.</code><code class="descname">process_bind_param</code><span class="sig-paren">(</span><em>value</em>, <em>dialect</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/common.html#JSONEncoded.process_bind_param"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.process_bind_param" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.process_literal_param">
+<code class="descclassname">JSONEncoded.</code><code class="descname">process_literal_param</code><span class="sig-paren">(</span><em>value</em>, <em>dialect</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.process_literal_param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receive a literal parameter value to be rendered inline within
+a statement.</p>
+<p>This method is used when the compiler renders a
+literal value without using binds, typically within DDL
+such as in the &#8220;server default&#8221; of a column or an expression
+within a CHECK constraint.</p>
+<p>The returned string will be rendered into the output string.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.9.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="cassiopeia.type.dto.common.JSONEncoded.process_result_value">
-<code class="descname">process_result_value</code><span class="sig-paren">(</span><em>value</em>, <em>dialect</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/common.html#JSONEncoded.process_result_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.process_result_value" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">JSONEncoded.</code><code class="descname">process_result_value</code><span class="sig-paren">(</span><em>value</em>, <em>dialect</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/common.html#JSONEncoded.process_result_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.process_result_value" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.python_type">
+<code class="descclassname">JSONEncoded.</code><code class="descname">python_type</code><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.python_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the Python type object expected to be returned
+by instances of this type, if known.</p>
+<p>Basically, for those types which enforce a return type,
+or are known across the board to do such for all common
+DBAPIs (like <code class="docutils literal"><span class="pre">int</span></code> for example), will return that type.</p>
+<p>If a return type is not defined, raises
+<code class="docutils literal"><span class="pre">NotImplementedError</span></code>.</p>
+<p>Note that any type also accommodates NULL in SQL which
+means you can also get back <code class="docutils literal"><span class="pre">None</span></code> from any type
+in practice.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.result_processor">
+<code class="descclassname">JSONEncoded.</code><code class="descname">result_processor</code><span class="sig-paren">(</span><em>dialect</em>, <em>coltype</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.result_processor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide a result value processing function for the given
+<code class="xref py py-class docutils literal"><span class="pre">Dialect</span></code>.</p>
+<p>This is the method that fulfills the <code class="xref py py-class docutils literal"><span class="pre">TypeEngine</span></code>
+contract for result value conversion.   <code class="xref py py-class docutils literal"><span class="pre">TypeDecorator</span></code>
+will wrap a user-defined implementation of
+<a class="reference internal" href="#cassiopeia.type.dto.common.JSONEncoded.process_result_value" title="cassiopeia.type.dto.common.JSONEncoded.process_result_value"><code class="xref py py-meth docutils literal"><span class="pre">process_result_value()</span></code></a> here.</p>
+<p>User-defined code can override this method directly,
+though its likely best to use <a class="reference internal" href="#cassiopeia.type.dto.common.JSONEncoded.process_result_value" title="cassiopeia.type.dto.common.JSONEncoded.process_result_value"><code class="xref py py-meth docutils literal"><span class="pre">process_result_value()</span></code></a> so that
+the processing provided by <code class="docutils literal"><span class="pre">self.impl</span></code> is maintained.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dialect</strong> &#8211; Dialect instance in use.</li>
+<li><strong>coltype</strong> &#8211; An SQLAlchemy data type</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This method is the reverse counterpart to the
+<a class="reference internal" href="#cassiopeia.type.dto.common.JSONEncoded.bind_processor" title="cassiopeia.type.dto.common.JSONEncoded.bind_processor"><code class="xref py py-meth docutils literal"><span class="pre">bind_processor()</span></code></a> method of this class.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.type_engine">
+<code class="descclassname">JSONEncoded.</code><code class="descname">type_engine</code><span class="sig-paren">(</span><em>dialect</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.type_engine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dialect-specific <code class="xref py py-class docutils literal"><span class="pre">TypeEngine</span></code> instance
+for this <code class="xref py py-class docutils literal"><span class="pre">TypeDecorator</span></code>.</p>
+<p>In most cases this returns a dialect-adapted form of
+the <code class="xref py py-class docutils literal"><span class="pre">TypeEngine</span></code> type represented by <code class="docutils literal"><span class="pre">self.impl</span></code>.
+Makes usage of <a class="reference internal" href="#cassiopeia.type.dto.common.JSONEncoded.dialect_impl" title="cassiopeia.type.dto.common.JSONEncoded.dialect_impl"><code class="xref py py-meth docutils literal"><span class="pre">dialect_impl()</span></code></a> but also traverses
+into wrapped <code class="xref py py-class docutils literal"><span class="pre">TypeDecorator</span></code> instances.
+Behavior can be customized here by overriding
+<a class="reference internal" href="#cassiopeia.type.dto.common.JSONEncoded.load_dialect_impl" title="cassiopeia.type.dto.common.JSONEncoded.load_dialect_impl"><code class="xref py py-meth docutils literal"><span class="pre">load_dialect_impl()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.common.JSONEncoded.with_variant">
+<code class="descclassname">JSONEncoded.</code><code class="descname">with_variant</code><span class="sig-paren">(</span><em>type_</em>, <em>dialect_name</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.common.JSONEncoded.with_variant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce a new type object that will utilize the given
+type when applied to the dialect of the given name.</p>
+<p>e.g.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">sqlalchemy.types</span> <span class="kn">import</span> <span class="n">String</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.dialects</span> <span class="kn">import</span> <span class="n">mysql</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">with_variant</span><span class="p">(</span><span class="n">mysql</span><span class="o">.</span><span class="n">VARCHAR</span><span class="p">(</span><span class="n">collation</span><span class="o">=</span><span class="s">&#39;foo&#39;</span><span class="p">),</span> <span class="s">&#39;mysql&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The construction of <code class="xref py py-meth docutils literal"><span class="pre">TypeEngine.with_variant()</span></code> is always
+from the &#8220;fallback&#8221; type to that which is dialect specific.
+The returned type is an instance of <code class="xref py py-class docutils literal"><span class="pre">Variant</span></code>, which
+itself provides a <code class="xref py py-meth docutils literal"><span class="pre">Variant.with_variant()</span></code>
+that can be called repeatedly.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> &#8211; a <code class="xref py py-class docutils literal"><span class="pre">TypeEngine</span></code> that will be selected
+as a variant from the originating type, when a dialect
+of the given name is in use.</li>
+<li><strong>dialect_name</strong> &#8211; base name of the dialect which uses
+this type. (i.e. <code class="docutils literal"><span class="pre">'postgresql'</span></code>, <code class="docutils literal"><span class="pre">'mysql'</span></code>, etc.)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.7.2.</span></p>
+</div>
+</dd></dl>
 
 </dd></dl>
 
 </div>
 <div class="section" id="module-cassiopeia.type.dto.currentgame">
-<span id="cassiopeia-type-dto-currentgame-module"></span><h2>cassiopeia.type.dto.currentgame module<a class="headerlink" href="#module-cassiopeia.type.dto.currentgame" title="Permalink to this headline">¶</a></h2>
+<span id="cassiopeia-type-dto-currentgame"></span><h2>cassiopeia.type.dto.currentgame<a class="headerlink" href="#module-cassiopeia.type.dto.currentgame" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cassiopeia.type.dto.currentgame.BannedChampion">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.dto.currentgame.</code><code class="descname">BannedChampion</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/currentgame.html#BannedChampion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.currentgame.BannedChampion" title="Permalink to this definition">¶</a></dt>
@@ -129,6 +833,12 @@ rankedPlayEnabled    bool    ranked play enabled flag</p>
 <p>championId    int    the ID of the banned champion
 pickTurn      int    the turn during which the champion was banned
 teamId        int    the ID of the team that banned the champion</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.currentgame.BannedChampion.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.currentgame.BannedChampion.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -176,6 +886,12 @@ platformId           str                             the ID of the platform on w
 <dd><p>Gets all summoner spell IDs contained in this object</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cassiopeia.type.dto.currentgame.CurrentGameInfo.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.currentgame.CurrentGameInfo.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -192,6 +908,12 @@ spell2Id         int              the ID of the second summoner spell used by th
 summonerId       int              the summoner ID of this participant
 summonerName     str              the summoner name of this participant
 teamId           int              the team ID of this participant, indicating the participant&#8217;s team</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.currentgame.CurrentGameParticipant.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.currentgame.CurrentGameParticipant.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -200,6 +922,12 @@ teamId           int              the team ID of this participant, indicating th
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>masteryId    int    the ID of the mastery
 rank         int    the number of points put into this mastery by the user</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.currentgame.Mastery.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.currentgame.Mastery.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -207,6 +935,12 @@ rank         int    the number of points put into this mastery by the user</p>
 <em class="property">class </em><code class="descclassname">cassiopeia.type.dto.currentgame.</code><code class="descname">Observer</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/currentgame.html#Observer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.currentgame.Observer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>encryptionKey    str    key used to decrypt the spectator grid game data for playback</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.currentgame.Observer.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.currentgame.Observer.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -215,6 +949,12 @@ rank         int    the number of points put into this mastery by the user</p>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>count     int    the count of this rune used by the participant
 runeId    int    the ID of the rune</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.currentgame.Rune.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.currentgame.Rune.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="function">
@@ -254,7 +994,7 @@ runeId    int    the ID of the rune</p>
 
 </div>
 <div class="section" id="module-cassiopeia.type.dto.featuredgames">
-<span id="cassiopeia-type-dto-featuredgames-module"></span><h2>cassiopeia.type.dto.featuredgames module<a class="headerlink" href="#module-cassiopeia.type.dto.featuredgames" title="Permalink to this headline">¶</a></h2>
+<span id="cassiopeia-type-dto-featuredgames"></span><h2>cassiopeia.type.dto.featuredgames<a class="headerlink" href="#module-cassiopeia.type.dto.featuredgames" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cassiopeia.type.dto.featuredgames.BannedChampion">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.dto.featuredgames.</code><code class="descname">BannedChampion</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/featuredgames.html#BannedChampion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.featuredgames.BannedChampion" title="Permalink to this definition">¶</a></dt>
@@ -262,6 +1002,12 @@ runeId    int    the ID of the rune</p>
 <p>championId    int    the ID of the banned champion
 pickTurn      int    the turn during which the champion was banned
 teamId        int    the ID of the team that banned the champion</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.featuredgames.BannedChampion.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.featuredgames.BannedChampion.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -291,6 +1037,12 @@ platformId           str                     the ID of the platform on which the
 <dd><p>Gets all summoner spell IDs contained in this object</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cassiopeia.type.dto.featuredgames.FeaturedGameInfo.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.featuredgames.FeaturedGameInfo.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -311,6 +1063,12 @@ gameList                 list&lt;FeaturedGameInfo&gt;    the list of featured ga
 <dd><p>Gets all summoner spell IDs contained in this object</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cassiopeia.type.dto.featuredgames.FeaturedGames.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.featuredgames.FeaturedGames.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -318,6 +1076,12 @@ gameList                 list&lt;FeaturedGameInfo&gt;    the list of featured ga
 <em class="property">class </em><code class="descclassname">cassiopeia.type.dto.featuredgames.</code><code class="descname">Observer</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/featuredgames.html#Observer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.featuredgames.Observer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>encryptionKey    str    key used to decrypt the spectator grid game data for playback</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.featuredgames.Observer.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.featuredgames.Observer.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -335,6 +1099,12 @@ encryptionKey    str     key used to decrypt the spectator grid game data for pl
 championId       int     the ID of the banned champion
 pickTurn         int     the turn during which the champion was banned
 teamId           int     the ID of the team that banned the champion</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.featuredgames.Participant.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.featuredgames.Participant.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="function">
@@ -364,7 +1134,7 @@ teamId           int     the ID of the team that banned the champion</p>
 
 </div>
 <div class="section" id="module-cassiopeia.type.dto.game">
-<span id="cassiopeia-type-dto-game-module"></span><h2>cassiopeia.type.dto.game module<a class="headerlink" href="#module-cassiopeia.type.dto.game" title="Permalink to this headline">¶</a></h2>
+<span id="cassiopeia-type-dto-game"></span><h2>cassiopeia.type.dto.game<a class="headerlink" href="#module-cassiopeia.type.dto.game" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cassiopeia.type.dto.game.Game">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.dto.game.</code><code class="descname">Game</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/game.html#Game"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.game.Game" title="Permalink to this definition">¶</a></dt>
@@ -408,6 +1178,12 @@ teamId           int             team ID associated with game. Team ID 100 is bl
 <dd><p>Gets all summoner spell IDs contained in this object</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cassiopeia.type.dto.game.Game.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.game.Game.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -417,6 +1193,12 @@ teamId           int             team ID associated with game. Team ID 100 is bl
 <p>championId    int    champion id associated with player
 summonerId    int    summoner id associated with player
 teamId        int    team id associated with player</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.game.Player.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.game.Player.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -501,6 +1283,12 @@ visionWardsBought                  int     number of vision wards bought
 wardKilled                         int     number of wards killed
 wardPlaced                         int     number of wards placed
 win                                bool    flag specifying whether or not this game was won</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.game.RawStats.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.game.RawStats.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -533,6 +1321,12 @@ summonerId    int           summoner ID</p>
 <dd><p>Gets all sumoner spell IDs contained in this object</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cassiopeia.type.dto.game.RecentGames.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.game.RecentGames.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="function">
@@ -557,7 +1351,7 @@ summonerId    int           summoner ID</p>
 
 </div>
 <div class="section" id="module-cassiopeia.type.dto.league">
-<span id="cassiopeia-type-dto-league-module"></span><h2>cassiopeia.type.dto.league module<a class="headerlink" href="#module-cassiopeia.type.dto.league" title="Permalink to this headline">¶</a></h2>
+<span id="cassiopeia-type-dto-league"></span><h2>cassiopeia.type.dto.league<a class="headerlink" href="#module-cassiopeia.type.dto.league" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cassiopeia.type.dto.league.League">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.dto.league.</code><code class="descname">League</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/league.html#League"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.league.League" title="Permalink to this definition">¶</a></dt>
@@ -579,6 +1373,12 @@ tier             str                  the league&#8217;s tier (Legal values: CHA
 <dd><p>Gets all team IDs contained in this object</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cassiopeia.type.dto.league.League.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.league.League.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -596,6 +1396,12 @@ miniSeries          MiniSeries    mini series data for the participant. Only pre
 playerOrTeamId      str           the ID of the participant (i.e., summoner or team) represented by this entry
 playerOrTeamName    str           the name of the the participant (i.e., summoner or team) represented by this entry
 wins                int           the number of wins for the participant</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.league.LeagueEntry.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.league.LeagueEntry.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -606,6 +1412,12 @@ wins                int           the number of wins for the participant</p>
 progress    str    string showing the current, sequential mini series progress where &#8216;W&#8217; represents a win, &#8216;L&#8217; represents a loss, and &#8216;N&#8217; represents a game that hasn&#8217;t been played yet
 target      int    number of wins required for promotion
 wins        int    number of current wins in the mini series</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.league.MiniSeries.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.league.MiniSeries.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="function">
@@ -630,13 +1442,19 @@ wins        int    number of current wins in the mini series</p>
 
 </div>
 <div class="section" id="module-cassiopeia.type.dto.match">
-<span id="cassiopeia-type-dto-match-module"></span><h2>cassiopeia.type.dto.match module<a class="headerlink" href="#module-cassiopeia.type.dto.match" title="Permalink to this headline">¶</a></h2>
+<span id="cassiopeia-type-dto-match"></span><h2>cassiopeia.type.dto.match<a class="headerlink" href="#module-cassiopeia.type.dto.match" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cassiopeia.type.dto.match.BannedChampion">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.dto.match.</code><code class="descname">BannedChampion</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/match.html#BannedChampion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.match.BannedChampion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>championId    int    banned champion ID
 pickTurn      int    turn during which the champion was banned</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.match.BannedChampion.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.BannedChampion.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -664,6 +1482,12 @@ timestamp                  int          represents how many milliseconds into th
 towerType                  str          the tower type of the event. Only present if relevant. (Legal values: BASE_TURRET, FOUNTAIN_TURRET, INNER_TURRET, NEXUS_TURRET, OUTER_TURRET, UNDEFINED_TURRET)
 victimId                   int          the victim ID of the event. Only present if relevant.
 wardType                   str          the ward type of the event. Only present if relevant. (Legal values: SIGHT_WARD, TEEMO_MUSHROOM, UNDEFINED, VISION_WARD, YELLOW_TRINKET, YELLOW_TRINKET_UPGRADE)</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.match.Event.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Event.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -673,6 +1497,12 @@ wardType                   str          the ward type of the event. Only present
 <p>events               list&lt;Event&gt;                    list of events for this frame
 participantFrames    dict&lt;str, ParticipantFrame&gt;    map of each participant ID to the participant&#8217;s information for the frame
 timestamp            int                            represents how many milliseconds into the game the frame occurred</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.match.Frame.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Frame.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -681,6 +1511,12 @@ timestamp            int                            represents how many millisec
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>masteryId    int    mastery ID
 rank         int    mastery rank</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.match.Mastery.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Mastery.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -738,6 +1574,12 @@ timeline                 Timeline                     match timeline data (not i
 <dd><p>Gets all summoner spell IDs contained in this object</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cassiopeia.type.dto.match.MatchDetail.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.MatchDetail.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -754,6 +1596,12 @@ spell2Id                     int                    second summoner spell ID
 stats                        ParticipantStats       participant statistics
 teamId                       int                    team ID
 timeline                     ParticipantTimeline    timeline data. Delta fields refer to values for the specified period (e.g., the gold per minute over the first 10 minutes of the game versus the second 20 minutes of the game. Diffs fields refer to the deltas versus the calculated lane opponent(s).</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.match.Participant.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Participant.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -770,6 +1618,12 @@ position               Position    participant&#8217;s position
 teamScore              int         team score of the participant
 totalGold              int         participant&#8217;s total gold
 xp                     int         experience earned by participant</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.match.ParticipantFrame.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.ParticipantFrame.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -778,6 +1632,12 @@ xp                     int         experience earned by participant</p>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>participantId    int       participant ID
 player           Player    player information</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.match.ParticipantIdentity.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.ParticipantIdentity.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -847,6 +1707,12 @@ visionWardsBoughtInGame            int     vision wards purchased
 wardsKilled                        int     number of wards killed
 wardsPlaced                        int     number of wards placed
 winner                             bool    flag indicating whether or not the participant won</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.match.ParticipantStats.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.ParticipantStats.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -880,6 +1746,12 @@ vilemawKillsPerMinCounts           ParticipantTimelineData    vilemaw kills per 
 wardsPerMinDeltas                  ParticipantTimelineData    wards placed per minute timeline data
 xpDiffPerMinDeltas                 ParticipantTimelineData    experience difference per minute timeline data
 xpPerMinDeltas                     ParticipantTimelineData    experience per minute timeline data</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.match.ParticipantTimeline.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.ParticipantTimeline.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -893,6 +1765,12 @@ tenToTwenty          float                          value per minute from 10 min
 thirtyToEnd          float                          value per minute from 30 min to the end of the game
 twentyToThirty       float                          value per minute from 20 min to 30 min
 zeroToTen            float                          value per minute from the beginning of the game to 10 min</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.match.ParticipantTimelineData.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.ParticipantTimelineData.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -903,6 +1781,12 @@ zeroToTen            float                          value per minute from the be
 profileIcon        int    profile icon ID
 summonerId         int    summoner ID
 summonerName       str    summoner name</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.match.Player.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Player.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -911,6 +1795,12 @@ summonerName       str    summoner name</p>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>x    int    x position
 y    int    y position</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.match.Position.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Position.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -919,6 +1809,12 @@ y    int    y position</p>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>rank      int    rune rank
 runeId    int    rune ID</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.match.Rune.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Rune.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -939,6 +1835,12 @@ teamId                  int                     team ID
 towerKills              int                     number of towers the team destroyed
 vilemawKills            int                     number of times the team killed vilemaw
 winner                  bool                    flag indicating whether or not the team won</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.match.Team.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Team.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -947,6 +1849,12 @@ winner                  bool                    flag indicating whether or not t
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>frameInterval    int            time between each returned frame in milliseconds
 frames           list&lt;Frame&gt;    list of timeline frames for the game</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.match.Timeline.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Timeline.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="function">
@@ -1036,13 +1944,19 @@ frames           list&lt;Frame&gt;    list of timeline frames for the game</p>
 
 </div>
 <div class="section" id="module-cassiopeia.type.dto.matchhistory">
-<span id="cassiopeia-type-dto-matchhistory-module"></span><h2>cassiopeia.type.dto.matchhistory module<a class="headerlink" href="#module-cassiopeia.type.dto.matchhistory" title="Permalink to this headline">¶</a></h2>
+<span id="cassiopeia-type-dto-matchhistory"></span><h2>cassiopeia.type.dto.matchhistory<a class="headerlink" href="#module-cassiopeia.type.dto.matchhistory" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cassiopeia.type.dto.matchhistory.Mastery">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.dto.matchhistory.</code><code class="descname">Mastery</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/matchhistory.html#Mastery"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Mastery" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>masteryId    int    mastery ID
 rank         int    mastery rank</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.matchhistory.Mastery.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Mastery.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1098,6 +2012,12 @@ season                   str                          season match was played (L
 <dd><p>Gets all summoner spell IDs contained in this object</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cassiopeia.type.dto.matchhistory.MatchSummary.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.MatchSummary.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1114,6 +2034,12 @@ spell2Id                     int                    second summoner spell ID
 stats                        ParticipantStats       participant statistics
 teamId                       int                    team ID
 timeline                     ParticipantTimeline    timeline data. Delta fields refer to values for the specified period (e.g., the gold per minute over the first 10 minutes of the game versus the second 20 minutes of the game. Diffs fields refer to the deltas versus the calculated lane opponent(s).</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.matchhistory.Participant.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Participant.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1122,6 +2048,12 @@ timeline                     ParticipantTimeline    timeline data. Delta fields 
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>participantId    int       participant ID
 player           Player    player information</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.matchhistory.ParticipantIdentity.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.ParticipantIdentity.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1191,6 +2123,12 @@ visionWardsBoughtInGame            int     vision wards purchased
 wardsKilled                        int     number of wards killed
 wardsPlaced                        int     number of wards placed
 winner                             bool    flag indicating whether or not the participant won</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.matchhistory.ParticipantStats.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.ParticipantStats.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1224,6 +2162,12 @@ vilemawKillsPerMinCounts           ParticipantTimelineData    vilemaw kills per 
 wardsPerMinDeltas                  ParticipantTimelineData    wards placed per minute timeline data
 xpDiffPerMinDeltas                 ParticipantTimelineData    experience difference per minute timeline data
 xpPerMinDeltas                     ParticipantTimelineData    experience per minute timeline data</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.matchhistory.ParticipantTimeline.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.ParticipantTimeline.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1234,6 +2178,12 @@ xpPerMinDeltas                     ParticipantTimelineData    experience per min
 thirtyToEnd       float    value per minute from 30 min to the end of the game
 twentyToThirty    float    value per minute from 20 min to 30 min
 zeroToTen         float    value per minute from 20 min to 30 min</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.matchhistory.ParticipantTimelineData.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.ParticipantTimelineData.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1244,6 +2194,12 @@ zeroToTen         float    value per minute from 20 min to 30 min</p>
 profileIcon        int    profile icon ID
 summonerId         int    summoner ID
 summonerName       str    summoner name</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.matchhistory.Player.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Player.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1287,6 +2243,12 @@ summonerName       str    summoner name</p>
 <dd><p>Gets all summoner spell IDs contained in this object</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cassiopeia.type.dto.matchhistory.PlayerHistory.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.PlayerHistory.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1295,6 +2257,12 @@ summonerName       str    summoner name</p>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>rank      int    rune rank
 runeId    int    rune ID</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.matchhistory.Rune.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Rune.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="function">
@@ -1349,7 +2317,7 @@ runeId    int    rune ID</p>
 
 </div>
 <div class="section" id="module-cassiopeia.type.dto.matchlist">
-<span id="cassiopeia-type-dto-matchlist-module"></span><h2>cassiopeia.type.dto.matchlist module<a class="headerlink" href="#module-cassiopeia.type.dto.matchlist" title="Permalink to this headline">¶</a></h2>
+<span id="cassiopeia-type-dto-matchlist"></span><h2>cassiopeia.type.dto.matchlist<a class="headerlink" href="#module-cassiopeia.type.dto.matchlist" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cassiopeia.type.dto.matchlist.MatchList">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.dto.matchlist.</code><code class="descname">MatchList</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/matchlist.html#MatchList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.matchlist.MatchList" title="Permalink to this definition">¶</a></dt>
@@ -1362,6 +2330,12 @@ totalGames    int                     the number of games provided</p>
 <dt id="cassiopeia.type.dto.matchlist.MatchList.champion_ids">
 <code class="descname">champion_ids</code><a class="headerlink" href="#cassiopeia.type.dto.matchlist.MatchList.champion_ids" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all champion IDs contained in this object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.matchlist.MatchList.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchlist.MatchList.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
 </dd></dl>
 
 </dd></dl>
@@ -1378,6 +2352,12 @@ queue         str    the queue of the match. Legal values: RANKED_SOLO_5x5, RANK
 role          str    the role that the player played. Legal values: DUO, NONE, SOLO, DUO_CARRY, DUO_SUPPORT
 season        str    the season the match was played in. Legal values: PRESEASON3, SEASON3, PRESEASON2014, SEASON2014, PRESEASON2015, SEASON2015
 timestamp     int    the timestamp for the match</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.matchlist.MatchReference.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchlist.MatchReference.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="function">
@@ -1392,7 +2372,7 @@ timestamp     int    the timestamp for the match</p>
 
 </div>
 <div class="section" id="module-cassiopeia.type.dto.staticdata">
-<span id="cassiopeia-type-dto-staticdata-module"></span><h2>cassiopeia.type.dto.staticdata module<a class="headerlink" href="#module-cassiopeia.type.dto.staticdata" title="Permalink to this headline">¶</a></h2>
+<span id="cassiopeia-type-dto-staticdata"></span><h2>cassiopeia.type.dto.staticdata<a class="headerlink" href="#module-cassiopeia.type.dto.staticdata" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cassiopeia.type.dto.staticdata.BasicData">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.dto.staticdata.</code><code class="descname">BasicData</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/staticdata.html#BasicData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.staticdata.BasicData" title="Permalink to this definition">¶</a></dt>
@@ -1402,7 +2382,7 @@ consumeOnFull           bool               consume on full
 consumed                bool               consumed
 depth                   int                depth
 description             str                description
-<a href="#id1"><span class="problematic" id="id2">from_</span></a>                   list&lt;str&gt;          from
+<a href="#id3"><span class="problematic" id="id4">from_</span></a>                   list&lt;str&gt;          from
 gold                    Gold               data dragon includes the gold field for basic data, which is shared by both rune and item. However, only items have a gold field on them, representing their gold cost in the store. Since runes are not sold in the store, they have no gold cost.
 group                   str                group
 hideFromAll             bool               hide from all
@@ -1420,6 +2400,12 @@ specialRecipe           int                special recipe
 stacks                  int                stacks
 stats                   BasicDataStats     stats
 tags                    list[str]          tags</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.BasicData.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.BasicData.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1491,6 +2477,12 @@ rPercentMagicPenetrationModPerLevel    float    the rPercentMagicPenetrationModP
 rPercentMovementSpeedModPerLevel       float    the rPercentMovementSpeedModPerLevel
 rPercentTimeDeadMod                    float    the rPercentTimeDeadMod
 rPercentTimeDeadModPerLevel            float    the rPercentTimeDeadModPerLevel</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.BasicDataStats.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.BasicDataStats.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1500,6 +2492,12 @@ rPercentTimeDeadModPerLevel            float    the rPercentTimeDeadModPerLevel<
 <p>items      list&lt;BlockItem&gt;    the items
 recMath    bool               rec math
 type       str                type</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.Block.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Block.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1508,6 +2506,12 @@ type       str                type</p>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>count    int    item count
 id       int    item ID</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.BlockItem.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.BlockItem.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1537,6 +2541,12 @@ title          str                    title</p>
 <dd><p>Gets all item IDs contained in this object</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.Champion.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Champion.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1552,6 +2562,12 @@ version    str                    version</p>
 <dt id="cassiopeia.type.dto.staticdata.ChampionList.item_ids">
 <code class="descname">item_ids</code><a class="headerlink" href="#cassiopeia.type.dto.staticdata.ChampionList.item_ids" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all item IDs contained in this object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.ChampionList.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.ChampionList.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
 </dd></dl>
 
 </dd></dl>
@@ -1581,6 +2597,12 @@ sanitizedDescription    str                    sanitized description
 sanitizedTooltip        str                    sanitized tooltip
 tooltip                 str                    tooltip
 vars                    list&lt;SpellVars&gt;        vars</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.ChampionSpell.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.ChampionSpell.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1591,6 +2613,12 @@ vars                    list&lt;SpellVars&gt;        vars</p>
 purchasable    bool    is purchasable
 sell           int     sell price
 total          int     total price</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.Gold.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Gold.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1599,6 +2627,12 @@ total          int     total price</p>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>MaxGroupOwnable    str    max ownable of group
 key                str    key</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.Group.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Group.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1612,6 +2646,12 @@ sprite    str    sprite
 w         int    w
 x         int    x
 y         int    y</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.Image.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Image.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1622,6 +2662,12 @@ y         int    y</p>
 defense       int    defense rating
 difficulty    int    difficulty rating
 magic         int    magic rating</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.Info.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Info.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1633,7 +2679,7 @@ consumeOnFull           bool               consume on full
 consumed                bool               consumed
 depth                   int                depth
 description             str                description
-<a href="#id3"><span class="problematic" id="id4">from_</span></a>                   list&lt;str&gt;          from
+<a href="#id5"><span class="problematic" id="id6">from_</span></a>                   list&lt;str&gt;          from
 gold                    Gold               data dragon includes the gold field for basic data, which is shared by both rune and item. However, only items have a gold field on them, representing their gold cost in the store. Since runes are not sold in the store, they have no gold cost.
 group                   str                group
 hideFromAll             bool               hide from all
@@ -1656,6 +2702,12 @@ tags                    list&lt;str&gt;          tags</p>
 <dd><p>Gets all other item IDs contained in this object</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.Item.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Item.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1668,6 +2720,12 @@ groups     list&lt;Group&gt;       groups
 tree       list&lt;ItemTree&gt;    item tree
 type       str               type
 version    str               version</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.ItemList.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.ItemList.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1676,6 +2734,12 @@ version    str               version</p>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>header    str          the header
 tags      list[str]    tags</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.ItemTree.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.ItemTree.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1685,6 +2749,12 @@ tags      list[str]    tags</p>
 <p>data       dict&lt;str, str&gt;    language str data
 type       str               type
 version    str               version</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.LanguageStrings.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.LanguageStrings.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1693,6 +2763,12 @@ version    str               version</p>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>effect    list&lt;str&gt;    effects
 label     list&lt;str&gt;    labels</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.LevelTip.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.LevelTip.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1702,6 +2778,12 @@ label     list&lt;str&gt;    labels</p>
 <p>data       dict&lt;str, MapDetails&gt;    map data
 type       str                      type
 version    str                      version</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.MapData.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MapData.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1712,6 +2794,12 @@ version    str                      version</p>
 mapId                    int          ID
 mapName                  str          name
 unpurchasableItemList    list&lt;int&gt;    items that can&#8217;t be purchased on this map (IDs)</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.MapDetails.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MapDetails.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1732,6 +2820,12 @@ sanitizedDescription    list&lt;str&gt;    sanitized description</p>
 <dd><p>Gets all other mastery IDs contained in this object</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.Mastery.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Mastery.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1742,6 +2836,12 @@ sanitizedDescription    list&lt;str&gt;    sanitized description</p>
 tree       MasteryTree           mastery tree
 type       str                   type
 version    str                   version</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.MasteryList.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MasteryList.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1751,6 +2851,12 @@ version    str                   version</p>
 <p>Defense    list&lt;MasteryTreeList&gt;    defense tree
 Offense    list&lt;MasteryTreeList&gt;    offense tree
 Utility    list&lt;MasteryTreeList&gt;    utility tree</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.MasteryTree.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MasteryTree.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1759,6 +2865,12 @@ Utility    list&lt;MasteryTreeList&gt;    utility tree</p>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>masteryId    int    mastery ID
 prereq       str    prerequisites</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.MasteryTreeItem.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MasteryTreeItem.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1766,6 +2878,12 @@ prereq       str    prerequisites</p>
 <em class="property">class </em><code class="descclassname">cassiopeia.type.dto.staticdata.</code><code class="descname">MasteryTreeList</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/staticdata.html#MasteryTreeList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MasteryTreeList" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>masteryTreeItems    list&lt;MasteryTreeItem&gt;    mastery tree items</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.MasteryTreeList.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MasteryTreeList.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1775,6 +2893,12 @@ prereq       str    prerequisites</p>
 <p>isRune    bool    is a rune
 tier      str     tier
 type      str     type</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.MetaData.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MetaData.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1785,6 +2909,12 @@ type      str     type</p>
 image                   Image    image
 name                    str      name
 sanitizedDescription    str      sanitized description</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.Passive.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Passive.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1800,6 +2930,12 @@ n                 dict&lt;str, str&gt;    latest changed version for each data t
 profileiconmax    int               special behavior number identifying the largest profileicon id that can be used under 500.0 Any profileicon that is requested between this number and 500 should be mapped to 0.0
 store             str               additional api data drawn from other sources that may be related to data dragon functionality
 v                 str               current version of this file for this realm</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.Realm.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Realm.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1813,6 +2949,12 @@ mode        str            mode
 priority    bool           priority
 title       str            title
 type        str            type</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.Recommended.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Recommended.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1824,7 +2966,7 @@ consumeOnFull           bool               consume on full
 consumed                bool               consumed
 depth                   int                depth
 description             str                description
-<a href="#id5"><span class="problematic" id="id6">from_</span></a>                   list&lt;str&gt;          from
+<a href="#id7"><span class="problematic" id="id8">from_</span></a>                   list&lt;str&gt;          from
 group                   str                group
 hideFromAll             bool               hide from all
 id                      int                ID
@@ -1841,6 +2983,12 @@ specialRecipe           int                special recipe
 stacks                  int                stacks
 stats                   BasicDataStats     stats
 tags                    list&lt;str&gt;          tags</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.Rune.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Rune.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1851,6 +2999,12 @@ tags                    list&lt;str&gt;          tags</p>
 data       dict&lt;str, Rune&gt;    rune data
 type       str                type
 version    str                version</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.RuneList.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.RuneList.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1860,6 +3014,12 @@ version    str                version</p>
 <p>id      int    ID
 name    str    name
 num     int    number</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.Skin.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Skin.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1871,6 +3031,12 @@ dyn          str            dyn
 key          str            key
 link         str            link
 ranksWith    str            ranks with</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.SpellVars.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.SpellVars.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1897,6 +3063,12 @@ mpregen                 float    mana regen
 mpregenperlevel         float    mana regen per level
 spellblock              float    magic resist
 spellblockperlevel      float    magic resist per level</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.Stats.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Stats.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1926,6 +3098,12 @@ sanitizedTooltip        str                    sanitized tooltip
 summonerLevel           int                    summoner level
 tooltip                 str                    tooltip
 vars                    list&lt;SpellVars&gt;        spell vars</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.SummonerSpell.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.SummonerSpell.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1935,6 +3113,12 @@ vars                    list&lt;SpellVars&gt;        spell vars</p>
 <p>data       dict&lt;str, SummonerSpell&gt;    summoner spell data
 type       str                         type
 version    str                         version</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.staticdata.SummonerSpellList.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.SummonerSpellList.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="function">
@@ -2049,7 +3233,7 @@ version    str                         version</p>
 
 </div>
 <div class="section" id="module-cassiopeia.type.dto.stats">
-<span id="cassiopeia-type-dto-stats-module"></span><h2>cassiopeia.type.dto.stats module<a class="headerlink" href="#module-cassiopeia.type.dto.stats" title="Permalink to this headline">¶</a></h2>
+<span id="cassiopeia-type-dto-stats"></span><h2>cassiopeia.type.dto.stats<a class="headerlink" href="#module-cassiopeia.type.dto.stats" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cassiopeia.type.dto.stats.AggregatedStats">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.dto.stats.</code><code class="descname">AggregatedStats</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/stats.html#AggregatedStats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.stats.AggregatedStats" title="Permalink to this definition">¶</a></dt>
@@ -2110,6 +3294,12 @@ totalSessionsWon               int    totalSessionsWon
 totalTripleKills               int    totalTripleKills
 totalTurretsKilled             int    totalTurretsKilled
 totalUnrealKills               int    totalUnrealKills</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.stats.AggregatedStats.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.stats.AggregatedStats.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -2118,6 +3308,12 @@ totalUnrealKills               int    totalUnrealKills</p>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>id       int                champion ID. Note that champion ID 0 represents the combined stats for all champions. For static information correlating to champion IDs, please refer to the LoL Static Data API.
 stats    AggregatedStats    aggregated stats associated with the champion.</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.stats.ChampionStats.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.stats.ChampionStats.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -2128,6 +3324,12 @@ stats    AggregatedStats    aggregated stats associated with the champion.</p>
 modifyDate               int    date stats were last modified specified as epoch milliseconds
 playerStatSummaryType    str    player stats summary type (Legal values: AramUnranked5x5, Ascension, CAP5x5, CoopVsAI, CoopVsAI3x3, CounterPick, FirstBlood1x1, FirstBlood2x2, Hexakill, KingPoro, NightmareBot, OdinUnranked, OneForAll5x5, RankedPremade3x3, RankedPremade5x5, RankedSolo5x5, RankedTeam3x3, RankedTeam5x5, SummonersRift6x6, Unranked, Unranked3x3, URF, URFBots)
 wins                     int    number of wins for this queue type</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.stats.PlayerStatsSummary.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.stats.PlayerStatsSummary.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -2136,6 +3338,12 @@ wins                     int    number of wins for this queue type</p>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>playerStatSummaries    list&lt;PlayerStatsSummary&gt;    collection of player stats summaries associated with the summoner
 summonerId             int                         summoner ID</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.stats.PlayerStatsSummaryList.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.stats.PlayerStatsSummaryList.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -2149,6 +3357,12 @@ summonerId    int                    summoner ID</p>
 <dt id="cassiopeia.type.dto.stats.RankedStats.champion_ids">
 <code class="descname">champion_ids</code><a class="headerlink" href="#cassiopeia.type.dto.stats.RankedStats.champion_ids" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all champion IDs contained in this object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.stats.RankedStats.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.stats.RankedStats.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
 </dd></dl>
 
 </dd></dl>
@@ -2170,7 +3384,7 @@ summonerId    int                    summoner ID</p>
 
 </div>
 <div class="section" id="module-cassiopeia.type.dto.status">
-<span id="cassiopeia-type-dto-status-module"></span><h2>cassiopeia.type.dto.status module<a class="headerlink" href="#module-cassiopeia.type.dto.status" title="Permalink to this headline">¶</a></h2>
+<span id="cassiopeia-type-dto-status"></span><h2>cassiopeia.type.dto.status<a class="headerlink" href="#module-cassiopeia.type.dto.status" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cassiopeia.type.dto.status.Incident">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.dto.status.</code><code class="descname">Incident</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/status.html#Incident"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.status.Incident" title="Permalink to this definition">¶</a></dt>
@@ -2179,6 +3393,12 @@ summonerId    int                    summoner ID</p>
 created_at    str              timestamp created
 id            int              ID
 updates       list&lt;Message&gt;    updates</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.status.Incident.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.status.Incident.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -2192,6 +3412,12 @@ id              int                  ID
 severity        str                  legal values: Info, Alert, Error
 translations    list&lt;Translation&gt;    translations
 updated_at      str                  timestamp updated</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.status.Message.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.status.Message.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -2202,6 +3428,12 @@ updated_at      str                  timestamp updated</p>
 name         str               name
 slug         str               slug
 status       str               legal values: Online, Alert, Offline, Deploying</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.status.Service.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.status.Service.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -2213,6 +3445,12 @@ locales       list&lt;str&gt;    locales
 name          str          name
 region_tag    str          region tag
 slug          str          slug</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.status.Shard.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.status.Shard.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -2225,6 +3463,12 @@ name          str              name
 region_tag    str              region tag
 services      list&lt;Service&gt;    services
 slug          str              slug</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.status.ShardStatus.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.status.ShardStatus.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -2234,6 +3478,12 @@ slug          str              slug</p>
 <p>content       str    content
 locale        str    locale
 updated_at    str    timestamp</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.status.Translation.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.status.Translation.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="function">
@@ -2273,13 +3523,19 @@ updated_at    str    timestamp</p>
 
 </div>
 <div class="section" id="module-cassiopeia.type.dto.summoner">
-<span id="cassiopeia-type-dto-summoner-module"></span><h2>cassiopeia.type.dto.summoner module<a class="headerlink" href="#module-cassiopeia.type.dto.summoner" title="Permalink to this headline">¶</a></h2>
+<span id="cassiopeia-type-dto-summoner"></span><h2>cassiopeia.type.dto.summoner<a class="headerlink" href="#module-cassiopeia.type.dto.summoner" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cassiopeia.type.dto.summoner.Mastery">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.dto.summoner.</code><code class="descname">Mastery</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/summoner.html#Mastery"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.summoner.Mastery" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>id      int    mastery ID. For static information correlating to masteries, please refer to the LoL Static Data API.
 rank    int    mastery rank (i.e. the number of points put into this mastery)</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.summoner.Mastery.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.Mastery.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -2296,6 +3552,12 @@ name         str                 mastery page name.</p>
 <dd><p>Gets all mastery IDs contained in this object</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cassiopeia.type.dto.summoner.MasteryPage.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.MasteryPage.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -2308,6 +3570,12 @@ summonerId    int                  summoner ID</p>
 <dt id="cassiopeia.type.dto.summoner.MasteryPages.mastery_ids">
 <code class="descname">mastery_ids</code><a class="headerlink" href="#cassiopeia.type.dto.summoner.MasteryPages.mastery_ids" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all mastery IDs contained in this object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.dto.summoner.MasteryPages.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.MasteryPages.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
 </dd></dl>
 
 </dd></dl>
@@ -2326,6 +3594,12 @@ slots      list&lt;RuneSlot&gt;    collection of rune slots associated with the 
 <dd><p>Gets all rune IDs contained in this object</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cassiopeia.type.dto.summoner.RunePage.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.RunePage.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -2340,6 +3614,12 @@ summonerId    int               summoner ID</p>
 <dd><p>Gets all rune IDs contained in this object</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cassiopeia.type.dto.summoner.RunePages.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.RunePages.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -2348,6 +3628,12 @@ summonerId    int               summoner ID</p>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>runeId        int    rune ID associated with the rune slot. For static information correlating to rune IDs, please refer to the LoL Static Data API.
 runeSlotId    int    rune slot ID.</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.summoner.RuneSlot.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.RuneSlot.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -2359,6 +3645,12 @@ name             str    summoner name
 profileIconId    int    ID of the summoner icon associated with the summoner
 revisionDate     int    date summoner was last modified specified as epoch milliseconds. The following events will update this timestamp: profile icon change, playing the tutorial or advanced tutorial, finishing a game, summoner name change.
 summonerLevel    int    summoner level associated with the summoner</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.summoner.Summoner.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.Summoner.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="function">
@@ -2393,7 +3685,7 @@ summonerLevel    int    summoner level associated with the summoner</p>
 
 </div>
 <div class="section" id="module-cassiopeia.type.dto.team">
-<span id="cassiopeia-type-dto-team-module"></span><h2>cassiopeia.type.dto.team module<a class="headerlink" href="#module-cassiopeia.type.dto.team" title="Permalink to this headline">¶</a></h2>
+<span id="cassiopeia-type-dto-team"></span><h2>cassiopeia.type.dto.team<a class="headerlink" href="#module-cassiopeia.type.dto.team" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cassiopeia.type.dto.team.MatchHistorySummary">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.dto.team.</code><code class="descname">MatchHistorySummary</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/team.html#MatchHistorySummary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.team.MatchHistorySummary" title="Permalink to this definition">¶</a></dt>
@@ -2409,6 +3701,12 @@ mapId                int     mapId
 opposingTeamKills    int     opposingTeamKills
 opposingTeamName     str     opposingTeamName
 win                  bool    win</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.team.MatchHistorySummary.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.team.MatchHistorySummary.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -2417,6 +3715,12 @@ win                  bool    win</p>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
 <p>memberList    list&lt;TeamMemberInfo&gt;    memberList
 ownerId       int                     ownerId</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.team.Roster.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.team.Roster.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -2443,6 +3747,12 @@ thirdLastJoinDate                int                          date that third to
 <dd><p>Gets all summoner IDs contained in this object</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cassiopeia.type.dto.team.Team.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.team.Team.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -2453,6 +3763,12 @@ thirdLastJoinDate                int                          date that third to
 joinDate      int    date that team member joined team specified as epoch milliseconds
 playerId      int    playerId
 status        str    status</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.team.TeamMemberInfo.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.team.TeamMemberInfo.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -2463,6 +3779,12 @@ status        str    status</p>
 losses                int    losses
 teamStatType          str    teamStatType
 wins                  int    wins</p>
+<dl class="method">
+<dt id="cassiopeia.type.dto.team.TeamStatDetail.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.team.TeamStatDetail.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON representation of the object</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="function">
@@ -2496,9 +3818,6 @@ wins                  int    wins</p>
 <dd></dd></dl>
 
 </div>
-<div class="section" id="module-cassiopeia.type.dto">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cassiopeia.type.dto" title="Permalink to this headline">¶</a></h2>
-</div>
 </div>
 
 
@@ -2509,23 +3828,21 @@ wins                  int    wins</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">cassiopeia.type.dto package</a><ul>
-<li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-cassiopeia.type.dto.champion">cassiopeia.type.dto.champion module</a></li>
-<li><a class="reference internal" href="#module-cassiopeia.type.dto.common">cassiopeia.type.dto.common module</a></li>
-<li><a class="reference internal" href="#module-cassiopeia.type.dto.currentgame">cassiopeia.type.dto.currentgame module</a></li>
-<li><a class="reference internal" href="#module-cassiopeia.type.dto.featuredgames">cassiopeia.type.dto.featuredgames module</a></li>
-<li><a class="reference internal" href="#module-cassiopeia.type.dto.game">cassiopeia.type.dto.game module</a></li>
-<li><a class="reference internal" href="#module-cassiopeia.type.dto.league">cassiopeia.type.dto.league module</a></li>
-<li><a class="reference internal" href="#module-cassiopeia.type.dto.match">cassiopeia.type.dto.match module</a></li>
-<li><a class="reference internal" href="#module-cassiopeia.type.dto.matchhistory">cassiopeia.type.dto.matchhistory module</a></li>
-<li><a class="reference internal" href="#module-cassiopeia.type.dto.matchlist">cassiopeia.type.dto.matchlist module</a></li>
-<li><a class="reference internal" href="#module-cassiopeia.type.dto.staticdata">cassiopeia.type.dto.staticdata module</a></li>
-<li><a class="reference internal" href="#module-cassiopeia.type.dto.stats">cassiopeia.type.dto.stats module</a></li>
-<li><a class="reference internal" href="#module-cassiopeia.type.dto.status">cassiopeia.type.dto.status module</a></li>
-<li><a class="reference internal" href="#module-cassiopeia.type.dto.summoner">cassiopeia.type.dto.summoner module</a></li>
-<li><a class="reference internal" href="#module-cassiopeia.type.dto.team">cassiopeia.type.dto.team module</a></li>
-<li><a class="reference internal" href="#module-cassiopeia.type.dto">Module contents</a></li>
+<li><a class="reference internal" href="#">cassiopeia.type.dto</a><ul>
+<li><a class="reference internal" href="#module-cassiopeia.type.dto.champion">cassiopeia.type.dto.champion</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.dto.common">cassiopeia.type.dto.common</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.dto.currentgame">cassiopeia.type.dto.currentgame</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.dto.featuredgames">cassiopeia.type.dto.featuredgames</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.dto.game">cassiopeia.type.dto.game</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.dto.league">cassiopeia.type.dto.league</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.dto.match">cassiopeia.type.dto.match</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.dto.matchhistory">cassiopeia.type.dto.matchhistory</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.dto.matchlist">cassiopeia.type.dto.matchlist</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.dto.staticdata">cassiopeia.type.dto.staticdata</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.dto.stats">cassiopeia.type.dto.stats</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.dto.status">cassiopeia.type.dto.status</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.dto.summoner">cassiopeia.type.dto.summoner</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.dto.team">cassiopeia.type.dto.team</a></li>
 </ul>
 </li>
 </ul>
@@ -2533,9 +3850,9 @@ wins                  int    wins</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-  <li><a href="cassiopeia.html">cassiopeia package</a><ul>
-  <li><a href="cassiopeia.type.html">cassiopeia.type package</a><ul>
-      <li>Previous: <a href="cassiopeia.type.core.html" title="previous chapter">cassiopeia.type.core package</a></li>
+  <li><a href="cassiopeia.html">cassiopeia.riotapi</a><ul>
+  <li><a href="cassiopeia.type.html">cassiopeia.type</a><ul>
+      <li>Previous: <a href="cassiopeia.type.core.html" title="previous chapter">cassiopeia.type.core</a></li>
   </ul></li>
   </ul></li>
   </ul></li>

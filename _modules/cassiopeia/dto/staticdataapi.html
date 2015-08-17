@@ -43,7 +43,7 @@
 
 <span class="n">_locale</span> <span class="o">=</span> <span class="bp">None</span>
 
-<div class="viewcode-block" id="get_champion"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.staticdataapi.get_champion">[docs]</a><span class="k">def</span> <span class="nf">get_champion</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
+<div class="viewcode-block" id="get_champion"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_champion">[docs]</a><span class="k">def</span> <span class="nf">get_champion</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/968/3322</span>
 
 <span class="sd">    id_       int         the ID of the champion to get</span>
@@ -58,7 +58,7 @@
 
     <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Champion</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
 </div>
-<div class="viewcode-block" id="get_champions"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.staticdataapi.get_champions">[docs]</a><span class="k">def</span> <span class="nf">get_champions</span><span class="p">():</span>
+<div class="viewcode-block" id="get_champions"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_champions">[docs]</a><span class="k">def</span> <span class="nf">get_champions</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/968/3326</span>
 
 <span class="sd">    return    ChampionList    all the champions</span>
@@ -71,7 +71,7 @@
 
     <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">ChampionList</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
 </div>
-<div class="viewcode-block" id="get_item"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.staticdataapi.get_item">[docs]</a><span class="k">def</span> <span class="nf">get_item</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
+<div class="viewcode-block" id="get_item"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_item">[docs]</a><span class="k">def</span> <span class="nf">get_item</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/968/3319</span>
 
 <span class="sd">    id_       int     the ID of the item to get</span>
@@ -86,7 +86,7 @@
 
     <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
 </div>
-<div class="viewcode-block" id="get_items"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.staticdataapi.get_items">[docs]</a><span class="k">def</span> <span class="nf">get_items</span><span class="p">():</span>
+<div class="viewcode-block" id="get_items"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_items">[docs]</a><span class="k">def</span> <span class="nf">get_items</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/968/3314</span>
 
 <span class="sd">    return    ItemList    all the items</span>
@@ -99,7 +99,7 @@
 
     <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">ItemList</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
 </div>
-<div class="viewcode-block" id="get_language_strings"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.staticdataapi.get_language_strings">[docs]</a><span class="k">def</span> <span class="nf">get_language_strings</span><span class="p">():</span>
+<div class="viewcode-block" id="get_language_strings"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_language_strings">[docs]</a><span class="k">def</span> <span class="nf">get_language_strings</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/968/3316</span>
 
 <span class="sd">    return    LanguageStrings    the locale-based string replacements for various game constants</span>
@@ -112,7 +112,7 @@
 
     <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">LanguageStrings</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
 </div>
-<div class="viewcode-block" id="get_languages"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.staticdataapi.get_languages">[docs]</a><span class="k">def</span> <span class="nf">get_languages</span><span class="p">():</span>
+<div class="viewcode-block" id="get_languages"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_languages">[docs]</a><span class="k">def</span> <span class="nf">get_languages</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/968/3324</span>
 
 <span class="sd">    return    list&lt;str&gt;    the valid locale strings for the API</span>
@@ -120,7 +120,7 @@
     <span class="n">request</span> <span class="o">=</span> <span class="s">&quot;{version}/languages&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">api_versions</span><span class="p">[</span><span class="s">&quot;staticdata&quot;</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="p">{},</span> <span class="bp">True</span><span class="p">)</span>
 </div>
-<div class="viewcode-block" id="get_maps"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.staticdataapi.get_maps">[docs]</a><span class="k">def</span> <span class="nf">get_maps</span><span class="p">():</span>
+<div class="viewcode-block" id="get_maps"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_maps">[docs]</a><span class="k">def</span> <span class="nf">get_maps</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/968/3328</span>
 
 <span class="sd">    return    MapData    specific information about each map</span>
@@ -133,7 +133,7 @@
 
     <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">MapData</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
 </div>
-<div class="viewcode-block" id="get_mastery"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.staticdataapi.get_mastery">[docs]</a><span class="k">def</span> <span class="nf">get_mastery</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
+<div class="viewcode-block" id="get_mastery"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_mastery">[docs]</a><span class="k">def</span> <span class="nf">get_mastery</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/968/3318</span>
 
 <span class="sd">    id_       int        the ID of the mastery to get</span>
@@ -148,7 +148,7 @@
 
     <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Mastery</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
 </div>
-<div class="viewcode-block" id="get_masteries"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.staticdataapi.get_masteries">[docs]</a><span class="k">def</span> <span class="nf">get_masteries</span><span class="p">():</span>
+<div class="viewcode-block" id="get_masteries"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_masteries">[docs]</a><span class="k">def</span> <span class="nf">get_masteries</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/968/3317</span>
 
 <span class="sd">    return    MasteryList    all the masteries</span>
@@ -161,7 +161,7 @@
 
     <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">MasteryList</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
 </div>
-<div class="viewcode-block" id="get_realm"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.staticdataapi.get_realm">[docs]</a><span class="k">def</span> <span class="nf">get_realm</span><span class="p">():</span>
+<div class="viewcode-block" id="get_realm"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_realm">[docs]</a><span class="k">def</span> <span class="nf">get_realm</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/968/3325</span>
 
 <span class="sd">    return    Realm    the realm for the current region</span>
@@ -169,7 +169,7 @@
     <span class="n">request</span> <span class="o">=</span> <span class="s">&quot;{version}/realm&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">api_versions</span><span class="p">[</span><span class="s">&quot;staticdata&quot;</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Realm</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="p">{},</span> <span class="bp">True</span><span class="p">))</span>
 </div>
-<div class="viewcode-block" id="get_rune"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.staticdataapi.get_rune">[docs]</a><span class="k">def</span> <span class="nf">get_rune</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
+<div class="viewcode-block" id="get_rune"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_rune">[docs]</a><span class="k">def</span> <span class="nf">get_rune</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/968/3321</span>
 
 <span class="sd">    id_       int     the ID of the rune to get</span>
@@ -184,7 +184,7 @@
 
     <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Rune</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
 </div>
-<div class="viewcode-block" id="get_runes"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.staticdataapi.get_runes">[docs]</a><span class="k">def</span> <span class="nf">get_runes</span><span class="p">():</span>
+<div class="viewcode-block" id="get_runes"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_runes">[docs]</a><span class="k">def</span> <span class="nf">get_runes</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/968/3315</span>
 
 <span class="sd">    return    RuneList    all the runes</span>
@@ -197,7 +197,7 @@
 
     <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">RuneList</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
 </div>
-<div class="viewcode-block" id="get_summoner_spell"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.staticdataapi.get_summoner_spell">[docs]</a><span class="k">def</span> <span class="nf">get_summoner_spell</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
+<div class="viewcode-block" id="get_summoner_spell"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_summoner_spell">[docs]</a><span class="k">def</span> <span class="nf">get_summoner_spell</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/968/3320</span>
 
 <span class="sd">    id_       int              the ID of the summoner spell to get</span>
@@ -212,7 +212,7 @@
 
     <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">SummonerSpell</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
 </div>
-<div class="viewcode-block" id="get_summoner_spells"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.staticdataapi.get_summoner_spells">[docs]</a><span class="k">def</span> <span class="nf">get_summoner_spells</span><span class="p">():</span>
+<div class="viewcode-block" id="get_summoner_spells"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_summoner_spells">[docs]</a><span class="k">def</span> <span class="nf">get_summoner_spells</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/968/3327</span>
 
 <span class="sd">    return    SummonerSpellList    all the summoner spells</span>
@@ -225,7 +225,7 @@
 
     <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">SummonerSpellList</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
 </div>
-<div class="viewcode-block" id="get_versions"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.staticdataapi.get_versions">[docs]</a><span class="k">def</span> <span class="nf">get_versions</span><span class="p">():</span>
+<div class="viewcode-block" id="get_versions"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_versions">[docs]</a><span class="k">def</span> <span class="nf">get_versions</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/968/3323</span>
 
 <span class="sd">    return    list&lt;str&gt;    the valid API versions</span>

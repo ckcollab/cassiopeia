@@ -41,7 +41,7 @@
 <span class="kn">import</span> <span class="nn">cassiopeia.dto.requests</span>
 <span class="kn">import</span> <span class="nn">cassiopeia.type.dto.status</span>
 
-<div class="viewcode-block" id="get_shards"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.statusapi.get_shards">[docs]</a><span class="k">def</span> <span class="nf">get_shards</span><span class="p">():</span>
+<div class="viewcode-block" id="get_shards"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_shards">[docs]</a><span class="k">def</span> <span class="nf">get_shards</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/908/3143</span>
 
 <span class="sd">    return    list&lt;Shard&gt;    the shards (unfortunately neither Crystal nor Kirby&#39;s)</span>
@@ -49,7 +49,7 @@
     <span class="n">request</span> <span class="o">=</span> <span class="s">&quot;http://status.leagueoflegends.com/shards&quot;</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">Shard</span><span class="p">(</span><span class="n">shard</span><span class="p">)</span> <span class="k">for</span> <span class="n">shard</span> <span class="ow">in</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">static</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">include_base</span><span class="o">=</span><span class="bp">False</span><span class="p">)]</span>
 </div>
-<div class="viewcode-block" id="get_shard"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.statusapi.get_shard">[docs]</a><span class="k">def</span> <span class="nf">get_shard</span><span class="p">():</span>
+<div class="viewcode-block" id="get_shard"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_shard">[docs]</a><span class="k">def</span> <span class="nf">get_shard</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/908/3142</span>
 
 <span class="sd">    return    ShardStatus    the status of the current region&#39;s shard</span>

@@ -41,7 +41,7 @@
 <span class="kn">import</span> <span class="nn">cassiopeia.dto.requests</span>
 <span class="kn">import</span> <span class="nn">cassiopeia.type.dto.champion</span>
 
-<div class="viewcode-block" id="get_champion_status"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.championapi.get_champion_status">[docs]</a><span class="k">def</span> <span class="nf">get_champion_status</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
+<div class="viewcode-block" id="get_champion_status"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_champion_status">[docs]</a><span class="k">def</span> <span class="nf">get_champion_status</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/1015/3443</span>
 
 <span class="sd">    id        int         the ID of the champion to look up</span>
@@ -51,7 +51,7 @@
     <span class="n">request</span> <span class="o">=</span> <span class="s">&quot;{version}/champion/{id_}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">api_versions</span><span class="p">[</span><span class="s">&quot;champion&quot;</span><span class="p">],</span> <span class="n">id_</span><span class="o">=</span><span class="n">id_</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">champion</span><span class="o">.</span><span class="n">Champion</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="p">))</span>
 </div>
-<div class="viewcode-block" id="get_champion_statuses"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.dto.championapi.get_champion_statuses">[docs]</a><span class="k">def</span> <span class="nf">get_champion_statuses</span><span class="p">(</span><span class="n">freeToPlay</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+<div class="viewcode-block" id="get_champion_statuses"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.baseriotapi.get_champion_statuses">[docs]</a><span class="k">def</span> <span class="nf">get_champion_statuses</span><span class="p">(</span><span class="n">freeToPlay</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/1015/3444</span>
 
 <span class="sd">    freeToPlay    bool              whether to only get free to play champions (default False)</span>

@@ -9,8 +9,35 @@
  *
  */
 
+/* -- cassiopeia overrides -------------------------------------------------- */
+
 dd p {
     white-space: pre;
+    cursor: text;
+}
+
+dd a:link {
+    color: inherit;
+    text-decoration: inherit;
+    pointer-events: none;
+}
+
+dd a:visited {
+    color: inherit;
+    text-decoration: inherit;
+    pointer-events: none;
+}
+
+dd a:hover {
+    color: inherit;
+    text-decoration: inherit;
+    pointer-events: none;
+}
+
+dd a:active {
+    color: inherit;
+    text-decoration: inherit;
+    pointer-events: none;
 }
 
 /* -- main layout ----------------------------------------------------------- */
@@ -79,7 +106,7 @@ div.sphinxsidebar form {
 
 div.sphinxsidebar input {
     border: 1px solid #98dbcc;
-    font-family: sans-serif;
+    font-family: 'Consolas', 'Menlo', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
     font-size: 1em;
 }
 
@@ -470,7 +497,7 @@ dl.glossary dt {
 }
 
 .guilabel, .menuselection {
-    font-family: sans-serif;
+    font-family: 'Consolas', 'Menlo', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
 }
 
 .accelerator {
@@ -562,7 +589,7 @@ h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
 
 .viewcode-back {
     float: right;
-    font-family: sans-serif;
+    font-family: 'Consolas', 'Menlo', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
 }
 
 div.viewcode-block:target {

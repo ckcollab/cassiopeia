@@ -1,39 +1,28 @@
-cassiopeia package
-==================
+cassiopeia.riotapi
+------------------
 
-Subpackages
------------
+.. automodule:: cassiopeia.riotapi
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :imported-members:
+    :show-inheritance:
+
+cassiopeia.baseriotapi
+----------------------
+
+.. automodule:: cassiopeia.baseriotapi
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :imported-members:
+    :show-inheritance:
+
+submodules
+----------
 
 .. toctree::
 
     cassiopeia.core
     cassiopeia.dto
     cassiopeia.type
-
-Submodules
-----------
-
-cassiopeia.baseriotapi module
------------------------------
-
-.. automodule:: cassiopeia.baseriotapi
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-cassiopeia.riotapi module
--------------------------
-
-.. automodule:: cassiopeia.riotapi
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-
-Module contents
----------------
-
-.. automodule:: cassiopeia
-    :members:
-    :undoc-members:
-    :show-inheritance:

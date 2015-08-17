@@ -1,6 +1,3 @@
-cassiopeia
-==========
-
 .. toctree::
    :maxdepth: 4
 

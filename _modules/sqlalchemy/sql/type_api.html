@@ -1,0 +1,1252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>sqlalchemy.sql.type_api &mdash; Cassiopeia 0.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="Cassiopeia 0.0.1 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for sqlalchemy.sql.type_api</h1><div class="highlight"><pre>
+<span class="c"># sql/types_api.py</span>
+<span class="c"># Copyright (C) 2005-2015 the SQLAlchemy authors and contributors</span>
+<span class="c"># &lt;see AUTHORS file&gt;</span>
+<span class="c">#</span>
+<span class="c"># This module is part of SQLAlchemy and is released under</span>
+<span class="c"># the MIT License: http://www.opensource.org/licenses/mit-license.php</span>
+
+<span class="sd">&quot;&quot;&quot;Base types API.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">exc</span><span class="p">,</span> <span class="n">util</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">operators</span>
+<span class="kn">from</span> <span class="nn">.visitors</span> <span class="kn">import</span> <span class="n">Visitable</span><span class="p">,</span> <span class="n">VisitableType</span>
+
+<span class="c"># these are back-assigned by sqltypes.</span>
+<span class="n">BOOLEANTYPE</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">INTEGERTYPE</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">NULLTYPE</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">STRINGTYPE</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">MATCHTYPE</span> <span class="o">=</span> <span class="bp">None</span>
+
+
+<span class="k">class</span> <span class="nc">TypeEngine</span><span class="p">(</span><span class="n">Visitable</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The ultimate base class for all SQL datatypes.</span>
+
+<span class="sd">    Common subclasses of :class:`.TypeEngine` include</span>
+<span class="sd">    :class:`.String`, :class:`.Integer`, and :class:`.Boolean`.</span>
+
+<span class="sd">    For an overview of the SQLAlchemy typing system, see</span>
+<span class="sd">    :ref:`types_toplevel`.</span>
+
+<span class="sd">    .. seealso::</span>
+
+<span class="sd">        :ref:`types_toplevel`</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_sqla_type</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">_isnull</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="k">class</span> <span class="nc">Comparator</span><span class="p">(</span><span class="n">operators</span><span class="o">.</span><span class="n">ColumnOperators</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Base class for custom comparison operations defined at the</span>
+<span class="sd">        type level.  See :attr:`.TypeEngine.comparator_factory`.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">__slots__</span> <span class="o">=</span> <span class="s">&#39;expr&#39;</span><span class="p">,</span> <span class="s">&#39;type&#39;</span>
+
+        <span class="n">default_comparator</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">expr</span> <span class="o">=</span> <span class="n">expr</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">type</span>
+
+        <span class="nd">@util.dependencies</span><span class="p">(</span><span class="s">&#39;sqlalchemy.sql.default_comparator&#39;</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">operate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">default_comparator</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="o">*</span><span class="n">other</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">o</span> <span class="o">=</span> <span class="n">default_comparator</span><span class="o">.</span><span class="n">operator_lookup</span><span class="p">[</span><span class="n">op</span><span class="o">.</span><span class="n">__name__</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">o</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">expr</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">other</span> <span class="o">+</span> <span class="n">o</span><span class="p">[</span><span class="mi">1</span><span class="p">:]),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="nd">@util.dependencies</span><span class="p">(</span><span class="s">&#39;sqlalchemy.sql.default_comparator&#39;</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">reverse_operate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">default_comparator</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">o</span> <span class="o">=</span> <span class="n">default_comparator</span><span class="o">.</span><span class="n">operator_lookup</span><span class="p">[</span><span class="n">op</span><span class="o">.</span><span class="n">__name__</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">o</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">expr</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span>
+                        <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="o">*</span><span class="n">o</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">_adapt_expression</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">other_comparator</span><span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;evaluate the return type of &lt;self&gt; &lt;op&gt; &lt;othertype&gt;,</span>
+<span class="sd">            and apply any adaptations to the given operator.</span>
+
+<span class="sd">            This method determines the type of a resulting binary expression</span>
+<span class="sd">            given two source types and an operator.   For example, two</span>
+<span class="sd">            :class:`.Column` objects, both of the type :class:`.Integer`, will</span>
+<span class="sd">            produce a :class:`.BinaryExpression` that also has the type</span>
+<span class="sd">            :class:`.Integer` when compared via the addition (``+``) operator.</span>
+<span class="sd">            However, using the addition operator with an :class:`.Integer`</span>
+<span class="sd">            and a :class:`.Date` object will produce a :class:`.Date`, assuming</span>
+<span class="sd">            &quot;days delta&quot; behavior by the database (in reality, most databases</span>
+<span class="sd">            other than Postgresql don&#39;t accept this particular operation).</span>
+
+<span class="sd">            The method returns a tuple of the form &lt;operator&gt;, &lt;type&gt;.</span>
+<span class="sd">            The resulting operator and type will be those applied to the</span>
+<span class="sd">            resulting :class:`.BinaryExpression` as the final operator and the</span>
+<span class="sd">            right-hand side of the expression.</span>
+
+<span class="sd">            Note that only a subset of operators make usage of</span>
+<span class="sd">            :meth:`._adapt_expression`,</span>
+<span class="sd">            including math operators and user-defined operators, but not</span>
+<span class="sd">            boolean comparison or special SQL keywords like MATCH or BETWEEN.</span>
+
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">return</span> <span class="n">op</span><span class="p">,</span> <span class="n">other_comparator</span><span class="o">.</span><span class="n">type</span>
+
+        <span class="k">def</span> <span class="nf">__reduce__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">_reconstitute_comparator</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expr</span><span class="p">,</span> <span class="p">)</span>
+
+    <span class="n">hashable</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="sd">&quot;&quot;&quot;Flag, if False, means values from this type aren&#39;t hashable.</span>
+
+<span class="sd">    Used by the ORM when uniquing result lists.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">comparator_factory</span> <span class="o">=</span> <span class="n">Comparator</span>
+    <span class="sd">&quot;&quot;&quot;A :class:`.TypeEngine.Comparator` class which will apply</span>
+<span class="sd">    to operations performed by owning :class:`.ColumnElement` objects.</span>
+
+<span class="sd">    The :attr:`.comparator_factory` attribute is a hook consulted by</span>
+<span class="sd">    the core expression system when column and SQL expression operations</span>
+<span class="sd">    are performed.   When a :class:`.TypeEngine.Comparator` class is</span>
+<span class="sd">    associated with this attribute, it allows custom re-definition of</span>
+<span class="sd">    all existing operators, as well as definition of new operators.</span>
+<span class="sd">    Existing operators include those provided by Python operator overloading</span>
+<span class="sd">    such as :meth:`.operators.ColumnOperators.__add__` and</span>
+<span class="sd">    :meth:`.operators.ColumnOperators.__eq__`,</span>
+<span class="sd">    those provided as standard</span>
+<span class="sd">    attributes of :class:`.operators.ColumnOperators` such as</span>
+<span class="sd">    :meth:`.operators.ColumnOperators.like`</span>
+<span class="sd">    and :meth:`.operators.ColumnOperators.in_`.</span>
+
+<span class="sd">    Rudimentary usage of this hook is allowed through simple subclassing</span>
+<span class="sd">    of existing types, or alternatively by using :class:`.TypeDecorator`.</span>
+<span class="sd">    See the documentation section :ref:`types_operators` for examples.</span>
+
+<span class="sd">    .. versionadded:: 0.8  The expression system was enhanced to support</span>
+<span class="sd">      customization of operators on a per-type level.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">compare_against_backend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dialect</span><span class="p">,</span> <span class="n">conn_type</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compare this type against the given backend type.</span>
+
+<span class="sd">        This function is currently not implemented for SQLAlchemy</span>
+<span class="sd">        types, and for all built in types will return ``None``.  However,</span>
+<span class="sd">        it can be implemented by a user-defined type</span>
+<span class="sd">        where it can be consumed by schema comparison tools such as</span>
+<span class="sd">        Alembic autogenerate.</span>
+
+<span class="sd">        A future release of SQLAlchemy will potentially impement this method</span>
+<span class="sd">        for builtin types as well.</span>
+
+<span class="sd">        The function should return True if this type is equivalent to the</span>
+<span class="sd">        given type; the type is typically reflected from the database</span>
+<span class="sd">        so should be database specific.  The dialect in use is also</span>
+<span class="sd">        passed.   It can also return False to assert that the type is</span>
+<span class="sd">        not equivalent.</span>
+
+<span class="sd">        :param dialect: a :class:`.Dialect` that is involved in the comparison.</span>
+
+<span class="sd">        :param conn_type: the type object reflected from the backend.</span>
+
+<span class="sd">        .. versionadded:: 1.0.3</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">copy_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">literal_processor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a conversion function for processing literal values that are</span>
+<span class="sd">        to be rendered directly without using binds.</span>
+
+<span class="sd">        This function is used when the compiler makes use of the</span>
+<span class="sd">        &quot;literal_binds&quot; flag, typically used in DDL generation as well</span>
+<span class="sd">        as in certain scenarios where backends don&#39;t accept bound parameters.</span>
+
+<span class="sd">        .. versionadded:: 0.9.0</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">bind_processor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a conversion function for processing bind values.</span>
+
+<span class="sd">        Returns a callable which will receive a bind parameter value</span>
+<span class="sd">        as the sole positional argument and will return a value to</span>
+<span class="sd">        send to the DB-API.</span>
+
+<span class="sd">        If processing is not necessary, the method should return ``None``.</span>
+
+<span class="sd">        :param dialect: Dialect instance in use.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">result_processor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dialect</span><span class="p">,</span> <span class="n">coltype</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a conversion function for processing result row values.</span>
+
+<span class="sd">        Returns a callable which will receive a result row column</span>
+<span class="sd">        value as the sole positional argument and will return a value</span>
+<span class="sd">        to return to the user.</span>
+
+<span class="sd">        If processing is not necessary, the method should return ``None``.</span>
+
+<span class="sd">        :param dialect: Dialect instance in use.</span>
+
+<span class="sd">        :param coltype: DBAPI coltype argument received in cursor.description.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">column_expression</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">colexpr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Given a SELECT column expression, return a wrapping SQL expression.</span>
+
+<span class="sd">        This is typically a SQL function that wraps a column expression</span>
+<span class="sd">        as rendered in the columns clause of a SELECT statement.</span>
+<span class="sd">        It is used for special data types that require</span>
+<span class="sd">        columns to be wrapped in some special database function in order</span>
+<span class="sd">        to coerce the value before being sent back to the application.</span>
+<span class="sd">        It is the SQL analogue of the :meth:`.TypeEngine.result_processor`</span>
+<span class="sd">        method.</span>
+
+<span class="sd">        The method is evaluated at statement compile time, as opposed</span>
+<span class="sd">        to statement construction time.</span>
+
+<span class="sd">        See also:</span>
+
+<span class="sd">        :ref:`types_sql_value_processing`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="nd">@util.memoized_property</span>
+    <span class="k">def</span> <span class="nf">_has_column_expression</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;memoized boolean, check if column_expression is implemented.</span>
+
+<span class="sd">        Allows the method to be skipped for the vast majority of expression</span>
+<span class="sd">        types that don&#39;t use this feature.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">column_expression</span><span class="o">.</span><span class="n">__code__</span> \
+            <span class="ow">is</span> <span class="ow">not</span> <span class="n">TypeEngine</span><span class="o">.</span><span class="n">column_expression</span><span class="o">.</span><span class="n">__code__</span>
+
+    <span class="k">def</span> <span class="nf">bind_expression</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bindvalue</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;&quot;Given a bind value (i.e. a :class:`.BindParameter` instance),</span>
+<span class="sd">        return a SQL expression in its place.</span>
+
+<span class="sd">        This is typically a SQL function that wraps the existing bound</span>
+<span class="sd">        parameter within the statement.  It is used for special data types</span>
+<span class="sd">        that require literals being wrapped in some special database function</span>
+<span class="sd">        in order to coerce an application-level value into a database-specific</span>
+<span class="sd">        format.  It is the SQL analogue of the</span>
+<span class="sd">        :meth:`.TypeEngine.bind_processor` method.</span>
+
+<span class="sd">        The method is evaluated at statement compile time, as opposed</span>
+<span class="sd">        to statement construction time.</span>
+
+<span class="sd">        Note that this method, when implemented, should always return</span>
+<span class="sd">        the exact same structure, without any conditional logic, as it</span>
+<span class="sd">        may be used in an executemany() call against an arbitrary number</span>
+<span class="sd">        of bound parameter sets.</span>
+
+<span class="sd">        See also:</span>
+
+<span class="sd">        :ref:`types_sql_value_processing`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="nd">@util.memoized_property</span>
+    <span class="k">def</span> <span class="nf">_has_bind_expression</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;memoized boolean, check if bind_expression is implemented.</span>
+
+<span class="sd">        Allows the method to be skipped for the vast majority of expression</span>
+<span class="sd">        types that don&#39;t use this feature.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">bind_expression</span><span class="o">.</span><span class="n">__code__</span> \
+            <span class="ow">is</span> <span class="ow">not</span> <span class="n">TypeEngine</span><span class="o">.</span><span class="n">bind_expression</span><span class="o">.</span><span class="n">__code__</span>
+
+    <span class="k">def</span> <span class="nf">compare_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compare two values for equality.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span>
+
+    <span class="k">def</span> <span class="nf">get_dbapi_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dbapi</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the corresponding type object from the underlying DB-API, if</span>
+<span class="sd">        any.</span>
+
+<span class="sd">         This can be useful for calling ``setinputsizes()``, for example.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">python_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the Python type object expected to be returned</span>
+<span class="sd">        by instances of this type, if known.</span>
+
+<span class="sd">        Basically, for those types which enforce a return type,</span>
+<span class="sd">        or are known across the board to do such for all common</span>
+<span class="sd">        DBAPIs (like ``int`` for example), will return that type.</span>
+
+<span class="sd">        If a return type is not defined, raises</span>
+<span class="sd">        ``NotImplementedError``.</span>
+
+<span class="sd">        Note that any type also accommodates NULL in SQL which</span>
+<span class="sd">        means you can also get back ``None`` from any type</span>
+<span class="sd">        in practice.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">with_variant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">type_</span><span class="p">,</span> <span class="n">dialect_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Produce a new type object that will utilize the given</span>
+<span class="sd">        type when applied to the dialect of the given name.</span>
+
+<span class="sd">        e.g.::</span>
+
+<span class="sd">            from sqlalchemy.types import String</span>
+<span class="sd">            from sqlalchemy.dialects import mysql</span>
+
+<span class="sd">            s = String()</span>
+
+<span class="sd">            s = s.with_variant(mysql.VARCHAR(collation=&#39;foo&#39;), &#39;mysql&#39;)</span>
+
+<span class="sd">        The construction of :meth:`.TypeEngine.with_variant` is always</span>
+<span class="sd">        from the &quot;fallback&quot; type to that which is dialect specific.</span>
+<span class="sd">        The returned type is an instance of :class:`.Variant`, which</span>
+<span class="sd">        itself provides a :meth:`.Variant.with_variant`</span>
+<span class="sd">        that can be called repeatedly.</span>
+
+<span class="sd">        :param type_: a :class:`.TypeEngine` that will be selected</span>
+<span class="sd">         as a variant from the originating type, when a dialect</span>
+<span class="sd">         of the given name is in use.</span>
+<span class="sd">        :param dialect_name: base name of the dialect which uses</span>
+<span class="sd">         this type. (i.e. ``&#39;postgresql&#39;``, ``&#39;mysql&#39;``, etc.)</span>
+
+<span class="sd">        .. versionadded:: 0.7.2</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Variant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">{</span><span class="n">dialect_name</span><span class="p">:</span> <span class="n">to_instance</span><span class="p">(</span><span class="n">type_</span><span class="p">)})</span>
+
+    <span class="nd">@util.memoized_property</span>
+    <span class="k">def</span> <span class="nf">_type_affinity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a rudimental &#39;affinity&#39; value expressing the general class</span>
+<span class="sd">        of type.&quot;&quot;&quot;</span>
+
+        <span class="n">typ</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__mro__</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">(</span><span class="n">TypeEngine</span><span class="p">,</span> <span class="n">UserDefinedType</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">typ</span>
+            <span class="k">elif</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="p">(</span><span class="n">TypeEngine</span><span class="p">,</span> <span class="n">UserDefinedType</span><span class="p">)):</span>
+                <span class="n">typ</span> <span class="o">=</span> <span class="n">t</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span>
+
+    <span class="k">def</span> <span class="nf">dialect_impl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a dialect-specific implementation for this</span>
+<span class="sd">        :class:`.TypeEngine`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">dialect</span><span class="o">.</span><span class="n">_type_memos</span><span class="p">[</span><span class="bp">self</span><span class="p">][</span><span class="s">&#39;impl&#39;</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dialect_info</span><span class="p">(</span><span class="n">dialect</span><span class="p">)[</span><span class="s">&#39;impl&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_cached_literal_processor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a dialect-specific literal processor for this type.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">dialect</span><span class="o">.</span><span class="n">_type_memos</span><span class="p">[</span><span class="bp">self</span><span class="p">][</span><span class="s">&#39;literal&#39;</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dialect_info</span><span class="p">(</span><span class="n">dialect</span><span class="p">)</span>
+            <span class="n">d</span><span class="p">[</span><span class="s">&#39;literal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lp</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s">&#39;impl&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">literal_processor</span><span class="p">(</span><span class="n">dialect</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">lp</span>
+
+    <span class="k">def</span> <span class="nf">_cached_bind_processor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a dialect-specific bind processor for this type.&quot;&quot;&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">dialect</span><span class="o">.</span><span class="n">_type_memos</span><span class="p">[</span><span class="bp">self</span><span class="p">][</span><span class="s">&#39;bind&#39;</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dialect_info</span><span class="p">(</span><span class="n">dialect</span><span class="p">)</span>
+            <span class="n">d</span><span class="p">[</span><span class="s">&#39;bind&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bp</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s">&#39;impl&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">bind_processor</span><span class="p">(</span><span class="n">dialect</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">bp</span>
+
+    <span class="k">def</span> <span class="nf">_cached_result_processor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dialect</span><span class="p">,</span> <span class="n">coltype</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a dialect-specific result processor for this type.&quot;&quot;&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">dialect</span><span class="o">.</span><span class="n">_type_memos</span><span class="p">[</span><span class="bp">self</span><span class="p">][</span><span class="n">coltype</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dialect_info</span><span class="p">(</span><span class="n">dialect</span><span class="p">)</span>
+            <span class="c"># key assumption: DBAPI type codes are</span>
+            <span class="c"># constants.  Else this dictionary would</span>
+            <span class="c"># grow unbounded.</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">coltype</span><span class="p">]</span> <span class="o">=</span> <span class="n">rp</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s">&#39;impl&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">result_processor</span><span class="p">(</span><span class="n">dialect</span><span class="p">,</span> <span class="n">coltype</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">rp</span>
+
+    <span class="k">def</span> <span class="nf">_dialect_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a dialect-specific registry which</span>
+<span class="sd">        caches a dialect-specific implementation, bind processing</span>
+<span class="sd">        function, and one or more result processing functions.&quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span> <span class="ow">in</span> <span class="n">dialect</span><span class="o">.</span><span class="n">_type_memos</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">dialect</span><span class="o">.</span><span class="n">_type_memos</span><span class="p">[</span><span class="bp">self</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">impl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gen_dialect_impl</span><span class="p">(</span><span class="n">dialect</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">impl</span> <span class="ow">is</span> <span class="bp">self</span><span class="p">:</span>
+                <span class="n">impl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adapt</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+            <span class="c"># this can&#39;t be self, else we create a cycle</span>
+            <span class="k">assert</span> <span class="n">impl</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span>
+            <span class="n">dialect</span><span class="o">.</span><span class="n">_type_memos</span><span class="p">[</span><span class="bp">self</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;impl&#39;</span><span class="p">:</span> <span class="n">impl</span><span class="p">}</span>
+            <span class="k">return</span> <span class="n">d</span>
+
+    <span class="k">def</span> <span class="nf">_gen_dialect_impl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">dialect</span><span class="o">.</span><span class="n">type_descriptor</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">adapt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cls</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Produce an &quot;adapted&quot; form of this type, given an &quot;impl&quot; class</span>
+<span class="sd">        to work with.</span>
+
+<span class="sd">        This method is used internally to associate generic</span>
+<span class="sd">        types with &quot;implementation&quot; types that are specific to a particular</span>
+<span class="sd">        dialect.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">util</span><span class="o">.</span><span class="n">constructor_copy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cls</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">coerce_compared_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Suggest a type for a &#39;coerced&#39; Python value in an expression.</span>
+
+<span class="sd">        Given an operator and value, gives the type a chance</span>
+<span class="sd">        to return a type which the value should be coerced into.</span>
+
+<span class="sd">        The default behavior here is conservative; if the right-hand</span>
+<span class="sd">        side is already coerced into a SQL type based on its</span>
+<span class="sd">        Python type, it is usually left alone.</span>
+
+<span class="sd">        End-user functionality extension here should generally be via</span>
+<span class="sd">        :class:`.TypeDecorator`, which provides more liberal behavior in that</span>
+<span class="sd">        it defaults to coercing the other side of the expression into this</span>
+<span class="sd">        type, thus applying special Python conversions above and beyond those</span>
+<span class="sd">        needed by the DBAPI to both ides. It also provides the public method</span>
+<span class="sd">        :meth:`.TypeDecorator.coerce_compared_value` which is intended for</span>
+<span class="sd">        end-user customization of this behavior.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_coerced_type</span> <span class="o">=</span> <span class="n">_type_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="n">NULLTYPE</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">_coerced_type</span> <span class="ow">is</span> <span class="n">NULLTYPE</span> <span class="ow">or</span> <span class="n">_coerced_type</span><span class="o">.</span><span class="n">_type_affinity</span> \
+                <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">_type_affinity</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_coerced_type</span>
+
+    <span class="k">def</span> <span class="nf">_compare_type_affinity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_type_affinity</span> <span class="ow">is</span> <span class="n">other</span><span class="o">.</span><span class="n">_type_affinity</span>
+
+    <span class="k">def</span> <span class="nf">compile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dialect</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Produce a string-compiled form of this :class:`.TypeEngine`.</span>
+
+<span class="sd">        When called with no arguments, uses a &quot;default&quot; dialect</span>
+<span class="sd">        to produce a string result.</span>
+
+<span class="sd">        :param dialect: a :class:`.Dialect` instance.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># arg, return value is inconsistent with</span>
+        <span class="c"># ClauseElement.compile()....this is a mistake.</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">dialect</span><span class="p">:</span>
+            <span class="n">dialect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_default_dialect</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">dialect</span><span class="o">.</span><span class="n">type_compiler</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="nd">@util.dependencies</span><span class="p">(</span><span class="s">&quot;sqlalchemy.engine.default&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_default_dialect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">default</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__module__</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&quot;sqlalchemy.dialects&quot;</span><span class="p">):</span>
+            <span class="n">tokens</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__module__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+            <span class="n">mod</span> <span class="o">=</span> <span class="s">&quot;.&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="nb">__import__</span><span class="p">(</span><span class="n">mod</span><span class="p">)</span><span class="o">.</span><span class="n">dialects</span><span class="p">,</span> <span class="n">tokens</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">dialect</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">default</span><span class="o">.</span><span class="n">DefaultDialect</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">py2k</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">unicode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">compile</span><span class="p">())</span><span class="o">.</span>\
+                <span class="n">encode</span><span class="p">(</span><span class="s">&#39;ascii&#39;</span><span class="p">,</span> <span class="s">&#39;backslashreplace&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">compile</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">util</span><span class="o">.</span><span class="n">generic_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">VisitableCheckKWArg</span><span class="p">(</span><span class="n">util</span><span class="o">.</span><span class="n">EnsureKWArgType</span><span class="p">,</span> <span class="n">VisitableType</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<span class="k">class</span> <span class="nc">UserDefinedType</span><span class="p">(</span><span class="n">util</span><span class="o">.</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">VisitableCheckKWArg</span><span class="p">,</span> <span class="n">TypeEngine</span><span class="p">)):</span>
+    <span class="sd">&quot;&quot;&quot;Base for user defined types.</span>
+
+<span class="sd">    This should be the base of new types.  Note that</span>
+<span class="sd">    for most cases, :class:`.TypeDecorator` is probably</span>
+<span class="sd">    more appropriate::</span>
+
+<span class="sd">      import sqlalchemy.types as types</span>
+
+<span class="sd">      class MyType(types.UserDefinedType):</span>
+<span class="sd">          def __init__(self, precision = 8):</span>
+<span class="sd">              self.precision = precision</span>
+
+<span class="sd">          def get_col_spec(self, **kw):</span>
+<span class="sd">              return &quot;MYTYPE(%s)&quot; % self.precision</span>
+
+<span class="sd">          def bind_processor(self, dialect):</span>
+<span class="sd">              def process(value):</span>
+<span class="sd">                  return value</span>
+<span class="sd">              return process</span>
+
+<span class="sd">          def result_processor(self, dialect, coltype):</span>
+<span class="sd">              def process(value):</span>
+<span class="sd">                  return value</span>
+<span class="sd">              return process</span>
+
+<span class="sd">    Once the type is made, it&#39;s immediately usable::</span>
+
+<span class="sd">      table = Table(&#39;foo&#39;, meta,</span>
+<span class="sd">          Column(&#39;id&#39;, Integer, primary_key=True),</span>
+<span class="sd">          Column(&#39;data&#39;, MyType(16))</span>
+<span class="sd">          )</span>
+
+<span class="sd">    The ``get_col_spec()`` method will in most cases receive a keyword</span>
+<span class="sd">    argument ``type_expression`` which refers to the owning expression</span>
+<span class="sd">    of the type as being compiled, such as a :class:`.Column` or</span>
+<span class="sd">    :func:`.cast` construct.  This keyword is only sent if the method</span>
+<span class="sd">    accepts keyword arguments (e.g. ``**kw``) in its argument signature;</span>
+<span class="sd">    introspection is used to check for this in order to support legacy</span>
+<span class="sd">    forms of this function.</span>
+
+<span class="sd">    .. versionadded:: 1.0.0 the owning expression is passed to</span>
+<span class="sd">       the ``get_col_spec()`` method via the keyword argument</span>
+<span class="sd">       ``type_expression``, if it receives ``**kw`` in its signature.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__visit_name__</span> <span class="o">=</span> <span class="s">&quot;user_defined&quot;</span>
+
+    <span class="n">ensure_kwarg</span> <span class="o">=</span> <span class="s">&#39;get_col_spec&#39;</span>
+
+    <span class="k">class</span> <span class="nc">Comparator</span><span class="p">(</span><span class="n">TypeEngine</span><span class="o">.</span><span class="n">Comparator</span><span class="p">):</span>
+        <span class="n">__slots__</span> <span class="o">=</span> <span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">_adapt_expression</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">other_comparator</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="s">&#39;adapt_operator&#39;</span><span class="p">):</span>
+                <span class="n">util</span><span class="o">.</span><span class="n">warn_deprecated</span><span class="p">(</span>
+                    <span class="s">&quot;UserDefinedType.adapt_operator is deprecated.  Create &quot;</span>
+                    <span class="s">&quot;a UserDefinedType.Comparator subclass instead which &quot;</span>
+                    <span class="s">&quot;generates the desired expression constructs, given a &quot;</span>
+                    <span class="s">&quot;particular operator.&quot;</span>
+                <span class="p">)</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">adapt_operator</span><span class="p">(</span><span class="n">op</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">op</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span>
+
+    <span class="n">comparator_factory</span> <span class="o">=</span> <span class="n">Comparator</span>
+
+    <span class="k">def</span> <span class="nf">coerce_compared_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Suggest a type for a &#39;coerced&#39; Python value in an expression.</span>
+
+<span class="sd">        Default behavior for :class:`.UserDefinedType` is the</span>
+<span class="sd">        same as that of :class:`.TypeDecorator`; by default it returns</span>
+<span class="sd">        ``self``, assuming the compared value should be coerced into</span>
+<span class="sd">        the same type as this one.  See</span>
+<span class="sd">        :meth:`.TypeDecorator.coerce_compared_value` for more detail.</span>
+
+<span class="sd">        .. versionchanged:: 0.8 :meth:`.UserDefinedType.coerce_compared_value`</span>
+<span class="sd">           now returns ``self`` by default, rather than falling onto the</span>
+<span class="sd">           more fundamental behavior of</span>
+<span class="sd">           :meth:`.TypeEngine.coerce_compared_value`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span>
+
+
+<span class="k">class</span> <span class="nc">TypeDecorator</span><span class="p">(</span><span class="n">TypeEngine</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Allows the creation of types which add additional functionality</span>
+<span class="sd">    to an existing type.</span>
+
+<span class="sd">    This method is preferred to direct subclassing of SQLAlchemy&#39;s</span>
+<span class="sd">    built-in types as it ensures that all required functionality of</span>
+<span class="sd">    the underlying type is kept in place.</span>
+
+<span class="sd">    Typical usage::</span>
+
+<span class="sd">      import sqlalchemy.types as types</span>
+
+<span class="sd">      class MyType(types.TypeDecorator):</span>
+<span class="sd">          &#39;&#39;&#39;Prefixes Unicode values with &quot;PREFIX:&quot; on the way in and</span>
+<span class="sd">          strips it off on the way out.</span>
+<span class="sd">          &#39;&#39;&#39;</span>
+
+<span class="sd">          impl = types.Unicode</span>
+
+<span class="sd">          def process_bind_param(self, value, dialect):</span>
+<span class="sd">              return &quot;PREFIX:&quot; + value</span>
+
+<span class="sd">          def process_result_value(self, value, dialect):</span>
+<span class="sd">              return value[7:]</span>
+
+<span class="sd">          def copy(self):</span>
+<span class="sd">              return MyType(self.impl.length)</span>
+
+<span class="sd">    The class-level &quot;impl&quot; attribute is required, and can reference any</span>
+<span class="sd">    TypeEngine class.  Alternatively, the load_dialect_impl() method</span>
+<span class="sd">    can be used to provide different type classes based on the dialect</span>
+<span class="sd">    given; in this case, the &quot;impl&quot; variable can reference</span>
+<span class="sd">    ``TypeEngine`` as a placeholder.</span>
+
+<span class="sd">    Types that receive a Python type that isn&#39;t similar to the ultimate type</span>
+<span class="sd">    used may want to define the :meth:`TypeDecorator.coerce_compared_value`</span>
+<span class="sd">    method. This is used to give the expression system a hint when coercing</span>
+<span class="sd">    Python objects into bind parameters within expressions. Consider this</span>
+<span class="sd">    expression::</span>
+
+<span class="sd">        mytable.c.somecol + datetime.date(2009, 5, 15)</span>
+
+<span class="sd">    Above, if &quot;somecol&quot; is an ``Integer`` variant, it makes sense that</span>
+<span class="sd">    we&#39;re doing date arithmetic, where above is usually interpreted</span>
+<span class="sd">    by databases as adding a number of days to the given date.</span>
+<span class="sd">    The expression system does the right thing by not attempting to</span>
+<span class="sd">    coerce the &quot;date()&quot; value into an integer-oriented bind parameter.</span>
+
+<span class="sd">    However, in the case of ``TypeDecorator``, we are usually changing an</span>
+<span class="sd">    incoming Python type to something new - ``TypeDecorator`` by default will</span>
+<span class="sd">    &quot;coerce&quot; the non-typed side to be the same type as itself. Such as below,</span>
+<span class="sd">    we define an &quot;epoch&quot; type that stores a date value as an integer::</span>
+
+<span class="sd">        class MyEpochType(types.TypeDecorator):</span>
+<span class="sd">            impl = types.Integer</span>
+
+<span class="sd">            epoch = datetime.date(1970, 1, 1)</span>
+
+<span class="sd">            def process_bind_param(self, value, dialect):</span>
+<span class="sd">                return (value - self.epoch).days</span>
+
+<span class="sd">            def process_result_value(self, value, dialect):</span>
+<span class="sd">                return self.epoch + timedelta(days=value)</span>
+
+<span class="sd">    Our expression of ``somecol + date`` with the above type will coerce the</span>
+<span class="sd">    &quot;date&quot; on the right side to also be treated as ``MyEpochType``.</span>
+
+<span class="sd">    This behavior can be overridden via the</span>
+<span class="sd">    :meth:`~TypeDecorator.coerce_compared_value` method, which returns a type</span>
+<span class="sd">    that should be used for the value of the expression. Below we set it such</span>
+<span class="sd">    that an integer value will be treated as an ``Integer``, and any other</span>
+<span class="sd">    value is assumed to be a date and will be treated as a ``MyEpochType``::</span>
+
+<span class="sd">        def coerce_compared_value(self, op, value):</span>
+<span class="sd">            if isinstance(value, int):</span>
+<span class="sd">                return Integer()</span>
+<span class="sd">            else:</span>
+<span class="sd">                return self</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">__visit_name__</span> <span class="o">=</span> <span class="s">&quot;type_decorator&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Construct a :class:`.TypeDecorator`.</span>
+
+<span class="sd">        Arguments sent here are passed to the constructor</span>
+<span class="sd">        of the class assigned to the ``impl`` class level attribute,</span>
+<span class="sd">        assuming the ``impl`` is a callable, and the resulting</span>
+<span class="sd">        object is assigned to the ``self.impl`` instance attribute</span>
+<span class="sd">        (thus overriding the class attribute of the same name).</span>
+
+<span class="sd">        If the class level ``impl`` is not a callable (the unusual case),</span>
+<span class="sd">        it will be assigned to the same instance attribute &#39;as-is&#39;,</span>
+<span class="sd">        ignoring those arguments passed to the constructor.</span>
+
+<span class="sd">        Subclasses can override this to customize the generation</span>
+<span class="sd">        of ``self.impl`` entirely.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="p">,</span> <span class="s">&#39;impl&#39;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s">&quot;TypeDecorator implementations &quot;</span>
+                                 <span class="s">&quot;require a class-level variable &quot;</span>
+                                 <span class="s">&quot;&#39;impl&#39; which refers to the class of &quot;</span>
+                                 <span class="s">&quot;type being decorated&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">impl</span> <span class="o">=</span> <span class="n">to_instance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">impl</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="n">coerce_to_is_types</span> <span class="o">=</span> <span class="p">(</span><span class="n">util</span><span class="o">.</span><span class="n">NoneType</span><span class="p">,</span> <span class="p">)</span>
+    <span class="sd">&quot;&quot;&quot;Specify those Python types which should be coerced at the expression</span>
+<span class="sd">    level to &quot;IS &lt;constant&gt;&quot; when compared using ``==`` (and same for</span>
+<span class="sd">    ``IS NOT`` in conjunction with ``!=``.</span>
+
+<span class="sd">    For most SQLAlchemy types, this includes ``NoneType``, as well as</span>
+<span class="sd">    ``bool``.</span>
+
+<span class="sd">    :class:`.TypeDecorator` modifies this list to only include ``NoneType``,</span>
+<span class="sd">    as typedecorator implementations that deal with boolean types are common.</span>
+
+<span class="sd">    Custom :class:`.TypeDecorator` classes can override this attribute to</span>
+<span class="sd">    return an empty tuple, in which case no values will be coerced to</span>
+<span class="sd">    constants.</span>
+
+<span class="sd">    ..versionadded:: 0.8.2</span>
+<span class="sd">        Added :attr:`.TypeDecorator.coerce_to_is_types` to allow for easier</span>
+<span class="sd">        control of ``__eq__()`` ``__ne__()`` operations.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">class</span> <span class="nc">Comparator</span><span class="p">(</span><span class="n">TypeEngine</span><span class="o">.</span><span class="n">Comparator</span><span class="p">):</span>
+        <span class="n">__slots__</span> <span class="o">=</span> <span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">operate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="o">*</span><span class="n">other</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;_python_is_types&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">coerce_to_is_types</span>
+            <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">TypeDecorator</span><span class="o">.</span><span class="n">Comparator</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">operate</span><span class="p">(</span>
+                <span class="n">op</span><span class="p">,</span> <span class="o">*</span><span class="n">other</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">reverse_operate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;_python_is_types&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">coerce_to_is_types</span>
+            <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">TypeDecorator</span><span class="o">.</span><span class="n">Comparator</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">reverse_operate</span><span class="p">(</span>
+                <span class="n">op</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">comparator_factory</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">TypeDecorator</span><span class="o">.</span><span class="n">Comparator</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">impl</span><span class="o">.</span><span class="n">comparator_factory</span><span class="o">.</span><span class="n">__mro__</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">impl</span><span class="o">.</span><span class="n">comparator_factory</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="s">&quot;TDComparator&quot;</span><span class="p">,</span>
+                        <span class="p">(</span><span class="n">TypeDecorator</span><span class="o">.</span><span class="n">Comparator</span><span class="p">,</span>
+                         <span class="bp">self</span><span class="o">.</span><span class="n">impl</span><span class="o">.</span><span class="n">comparator_factory</span><span class="p">),</span>
+                        <span class="p">{})</span>
+
+    <span class="k">def</span> <span class="nf">_gen_dialect_impl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        #todo</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">adapted</span> <span class="o">=</span> <span class="n">dialect</span><span class="o">.</span><span class="n">type_descriptor</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">adapted</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">adapted</span>
+
+        <span class="c"># otherwise adapt the impl type, link</span>
+        <span class="c"># to a copy of this TypeDecorator and return</span>
+        <span class="c"># that.</span>
+        <span class="n">typedesc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_dialect_impl</span><span class="p">(</span><span class="n">dialect</span><span class="p">)</span><span class="o">.</span><span class="n">dialect_impl</span><span class="p">(</span><span class="n">dialect</span><span class="p">)</span>
+        <span class="n">tt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s">&#39;Type object </span><span class="si">%s</span><span class="s"> does not properly &#39;</span>
+                                 <span class="s">&#39;implement the copy() method, it must &#39;</span>
+                                 <span class="s">&#39;return an object of type </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span>
+                                 <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="p">))</span>
+        <span class="n">tt</span><span class="o">.</span><span class="n">impl</span> <span class="o">=</span> <span class="n">typedesc</span>
+        <span class="k">return</span> <span class="n">tt</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_type_affinity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        #todo</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">impl</span><span class="o">.</span><span class="n">_type_affinity</span>
+
+    <span class="k">def</span> <span class="nf">type_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a dialect-specific :class:`.TypeEngine` instance</span>
+<span class="sd">        for this :class:`.TypeDecorator`.</span>
+
+<span class="sd">        In most cases this returns a dialect-adapted form of</span>
+<span class="sd">        the :class:`.TypeEngine` type represented by ``self.impl``.</span>
+<span class="sd">        Makes usage of :meth:`dialect_impl` but also traverses</span>
+<span class="sd">        into wrapped :class:`.TypeDecorator` instances.</span>
+<span class="sd">        Behavior can be customized here by overriding</span>
+<span class="sd">        :meth:`load_dialect_impl`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">adapted</span> <span class="o">=</span> <span class="n">dialect</span><span class="o">.</span><span class="n">type_descriptor</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">adapted</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="n">adapted</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">impl</span><span class="p">,</span> <span class="n">TypeDecorator</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">impl</span><span class="o">.</span><span class="n">type_engine</span><span class="p">(</span><span class="n">dialect</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_dialect_impl</span><span class="p">(</span><span class="n">dialect</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">load_dialect_impl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a :class:`.TypeEngine` object corresponding to a dialect.</span>
+
+<span class="sd">        This is an end-user override hook that can be used to provide</span>
+<span class="sd">        differing types depending on the given dialect.  It is used</span>
+<span class="sd">        by the :class:`.TypeDecorator` implementation of :meth:`type_engine`</span>
+<span class="sd">        to help determine what type should ultimately be returned</span>
+<span class="sd">        for a given :class:`.TypeDecorator`.</span>
+
+<span class="sd">        By default returns ``self.impl``.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">impl</span>
+
+    <span class="k">def</span> <span class="nf">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Proxy all other undefined accessors to the underlying</span>
+<span class="sd">        implementation.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">impl</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">process_literal_param</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Receive a literal parameter value to be rendered inline within</span>
+<span class="sd">        a statement.</span>
+
+<span class="sd">        This method is used when the compiler renders a</span>
+<span class="sd">        literal value without using binds, typically within DDL</span>
+<span class="sd">        such as in the &quot;server default&quot; of a column or an expression</span>
+<span class="sd">        within a CHECK constraint.</span>
+
+<span class="sd">        The returned string will be rendered into the output string.</span>
+
+<span class="sd">        .. versionadded:: 0.9.0</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">process_bind_param</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Receive a bound parameter value to be converted.</span>
+
+<span class="sd">        Subclasses override this method to return the</span>
+<span class="sd">        value that should be passed along to the underlying</span>
+<span class="sd">        :class:`.TypeEngine` object, and from there to the</span>
+<span class="sd">        DBAPI ``execute()`` method.</span>
+
+<span class="sd">        The operation could be anything desired to perform custom</span>
+<span class="sd">        behavior, such as transforming or serializing data.</span>
+<span class="sd">        This could also be used as a hook for validating logic.</span>
+
+<span class="sd">        This operation should be designed with the reverse operation</span>
+<span class="sd">        in mind, which would be the process_result_value method of</span>
+<span class="sd">        this class.</span>
+
+<span class="sd">        :param value: Data to operate upon, of any type expected by</span>
+<span class="sd">         this method in the subclass.  Can be ``None``.</span>
+<span class="sd">        :param dialect: the :class:`.Dialect` in use.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">process_result_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Receive a result-row column value to be converted.</span>
+
+<span class="sd">        Subclasses should implement this method to operate on data</span>
+<span class="sd">        fetched from the database.</span>
+
+<span class="sd">        Subclasses override this method to return the</span>
+<span class="sd">        value that should be passed back to the application,</span>
+<span class="sd">        given a value that is already processed by</span>
+<span class="sd">        the underlying :class:`.TypeEngine` object, originally</span>
+<span class="sd">        from the DBAPI cursor method ``fetchone()`` or similar.</span>
+
+<span class="sd">        The operation could be anything desired to perform custom</span>
+<span class="sd">        behavior, such as transforming or serializing data.</span>
+<span class="sd">        This could also be used as a hook for validating logic.</span>
+
+<span class="sd">        :param value: Data to operate upon, of any type expected by</span>
+<span class="sd">         this method in the subclass.  Can be ``None``.</span>
+<span class="sd">        :param dialect: the :class:`.Dialect` in use.</span>
+
+<span class="sd">        This operation should be designed to be reversible by</span>
+<span class="sd">        the &quot;process_bind_param&quot; method of this class.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+    <span class="nd">@util.memoized_property</span>
+    <span class="k">def</span> <span class="nf">_has_bind_processor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;memoized boolean, check if process_bind_param is implemented.</span>
+
+<span class="sd">        Allows the base process_bind_param to raise</span>
+<span class="sd">        NotImplementedError without needing to test an expensive</span>
+<span class="sd">        exception throw.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">process_bind_param</span><span class="o">.</span><span class="n">__code__</span> \
+            <span class="ow">is</span> <span class="ow">not</span> <span class="n">TypeDecorator</span><span class="o">.</span><span class="n">process_bind_param</span><span class="o">.</span><span class="n">__code__</span>
+
+    <span class="nd">@util.memoized_property</span>
+    <span class="k">def</span> <span class="nf">_has_literal_processor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;memoized boolean, check if process_literal_param is implemented.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">process_literal_param</span><span class="o">.</span><span class="n">__code__</span> \
+            <span class="ow">is</span> <span class="ow">not</span> <span class="n">TypeDecorator</span><span class="o">.</span><span class="n">process_literal_param</span><span class="o">.</span><span class="n">__code__</span>
+
+    <span class="k">def</span> <span class="nf">literal_processor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Provide a literal processing function for the given</span>
+<span class="sd">        :class:`.Dialect`.</span>
+
+<span class="sd">        Subclasses here will typically override</span>
+<span class="sd">        :meth:`.TypeDecorator.process_literal_param` instead of this method</span>
+<span class="sd">        directly.</span>
+
+<span class="sd">        By default, this method makes use of</span>
+<span class="sd">        :meth:`.TypeDecorator.process_bind_param` if that method is</span>
+<span class="sd">        implemented, where :meth:`.TypeDecorator.process_literal_param` is</span>
+<span class="sd">        not.  The rationale here is that :class:`.TypeDecorator` typically</span>
+<span class="sd">        deals with Python conversions of data that are above the layer of</span>
+<span class="sd">        database presentation.  With the value converted by</span>
+<span class="sd">        :meth:`.TypeDecorator.process_bind_param`, the underlying type will</span>
+<span class="sd">        then handle whether it needs to be presented to the DBAPI as a bound</span>
+<span class="sd">        parameter or to the database as an inline SQL value.</span>
+
+<span class="sd">        .. versionadded:: 0.9.0</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_has_literal_processor</span><span class="p">:</span>
+            <span class="n">process_param</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_literal_param</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_has_bind_processor</span><span class="p">:</span>
+            <span class="c"># the bind processor should normally be OK</span>
+            <span class="c"># for TypeDecorator since it isn&#39;t doing DB-level</span>
+            <span class="c"># handling, the handling here won&#39;t be different for bound vs.</span>
+            <span class="c"># literals.</span>
+            <span class="n">process_param</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_bind_param</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">process_param</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="k">if</span> <span class="n">process_param</span><span class="p">:</span>
+            <span class="n">impl_processor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">impl</span><span class="o">.</span><span class="n">literal_processor</span><span class="p">(</span><span class="n">dialect</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">impl_processor</span><span class="p">:</span>
+                <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">impl_processor</span><span class="p">(</span><span class="n">process_param</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">process_param</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">process</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">impl</span><span class="o">.</span><span class="n">literal_processor</span><span class="p">(</span><span class="n">dialect</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">bind_processor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Provide a bound value processing function for the</span>
+<span class="sd">        given :class:`.Dialect`.</span>
+
+<span class="sd">        This is the method that fulfills the :class:`.TypeEngine`</span>
+<span class="sd">        contract for bound value conversion.   :class:`.TypeDecorator`</span>
+<span class="sd">        will wrap a user-defined implementation of</span>
+<span class="sd">        :meth:`process_bind_param` here.</span>
+
+<span class="sd">        User-defined code can override this method directly,</span>
+<span class="sd">        though its likely best to use :meth:`process_bind_param` so that</span>
+<span class="sd">        the processing provided by ``self.impl`` is maintained.</span>
+
+<span class="sd">        :param dialect: Dialect instance in use.</span>
+
+<span class="sd">        This method is the reverse counterpart to the</span>
+<span class="sd">        :meth:`result_processor` method of this class.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_has_bind_processor</span><span class="p">:</span>
+            <span class="n">process_param</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_bind_param</span>
+            <span class="n">impl_processor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">impl</span><span class="o">.</span><span class="n">bind_processor</span><span class="p">(</span><span class="n">dialect</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">impl_processor</span><span class="p">:</span>
+                <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">impl_processor</span><span class="p">(</span><span class="n">process_param</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">))</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">process_param</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">process</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">impl</span><span class="o">.</span><span class="n">bind_processor</span><span class="p">(</span><span class="n">dialect</span><span class="p">)</span>
+
+    <span class="nd">@util.memoized_property</span>
+    <span class="k">def</span> <span class="nf">_has_result_processor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;memoized boolean, check if process_result_value is implemented.</span>
+
+<span class="sd">        Allows the base process_result_value to raise</span>
+<span class="sd">        NotImplementedError without needing to test an expensive</span>
+<span class="sd">        exception throw.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">process_result_value</span><span class="o">.</span><span class="n">__code__</span> \
+            <span class="ow">is</span> <span class="ow">not</span> <span class="n">TypeDecorator</span><span class="o">.</span><span class="n">process_result_value</span><span class="o">.</span><span class="n">__code__</span>
+
+    <span class="k">def</span> <span class="nf">result_processor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dialect</span><span class="p">,</span> <span class="n">coltype</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Provide a result value processing function for the given</span>
+<span class="sd">        :class:`.Dialect`.</span>
+
+<span class="sd">        This is the method that fulfills the :class:`.TypeEngine`</span>
+<span class="sd">        contract for result value conversion.   :class:`.TypeDecorator`</span>
+<span class="sd">        will wrap a user-defined implementation of</span>
+<span class="sd">        :meth:`process_result_value` here.</span>
+
+<span class="sd">        User-defined code can override this method directly,</span>
+<span class="sd">        though its likely best to use :meth:`process_result_value` so that</span>
+<span class="sd">        the processing provided by ``self.impl`` is maintained.</span>
+
+<span class="sd">        :param dialect: Dialect instance in use.</span>
+<span class="sd">        :param coltype: An SQLAlchemy data type</span>
+
+<span class="sd">        This method is the reverse counterpart to the</span>
+<span class="sd">        :meth:`bind_processor` method of this class.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_has_result_processor</span><span class="p">:</span>
+            <span class="n">process_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_result_value</span>
+            <span class="n">impl_processor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">impl</span><span class="o">.</span><span class="n">result_processor</span><span class="p">(</span><span class="n">dialect</span><span class="p">,</span>
+                                                        <span class="n">coltype</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">impl_processor</span><span class="p">:</span>
+                <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">process_value</span><span class="p">(</span><span class="n">impl_processor</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="n">dialect</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">process_value</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">process</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">impl</span><span class="o">.</span><span class="n">result_processor</span><span class="p">(</span><span class="n">dialect</span><span class="p">,</span> <span class="n">coltype</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">coerce_compared_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Suggest a type for a &#39;coerced&#39; Python value in an expression.</span>
+
+<span class="sd">        By default, returns self.   This method is called by</span>
+<span class="sd">        the expression system when an object using this type is</span>
+<span class="sd">        on the left or right side of an expression against a plain Python</span>
+<span class="sd">        object which does not yet have a SQLAlchemy type assigned::</span>
+
+<span class="sd">            expr = table.c.somecolumn + 35</span>
+
+<span class="sd">        Where above, if ``somecolumn`` uses this type, this method will</span>
+<span class="sd">        be called with the value ``operator.add``</span>
+<span class="sd">        and ``35``.  The return value is whatever SQLAlchemy type should</span>
+<span class="sd">        be used for ``35`` for this particular operation.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Produce a copy of this :class:`.TypeDecorator` instance.</span>
+
+<span class="sd">        This is a shallow copy and is provided to fulfill part of</span>
+<span class="sd">        the :class:`.TypeEngine` contract.  It usually does not</span>
+<span class="sd">        need to be overridden unless the user-defined :class:`.TypeDecorator`</span>
+<span class="sd">        has local state that should be deep-copied.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">instance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__new__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="p">)</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">instance</span>
+
+    <span class="k">def</span> <span class="nf">get_dbapi_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dbapi</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the DBAPI type object represented by this</span>
+<span class="sd">        :class:`.TypeDecorator`.</span>
+
+<span class="sd">        By default this calls upon :meth:`.TypeEngine.get_dbapi_type` of the</span>
+<span class="sd">        underlying &quot;impl&quot;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">impl</span><span class="o">.</span><span class="n">get_dbapi_type</span><span class="p">(</span><span class="n">dbapi</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">compare_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Given two values, compare them for equality.</span>
+
+<span class="sd">        By default this calls upon :meth:`.TypeEngine.compare_values`</span>
+<span class="sd">        of the underlying &quot;impl&quot;, which in turn usually</span>
+<span class="sd">        uses the Python equals operator ``==``.</span>
+
+<span class="sd">        This function is used by the ORM to compare</span>
+<span class="sd">        an original-loaded value with an intercepted</span>
+<span class="sd">        &quot;changed&quot; value, to determine if a net change</span>
+<span class="sd">        has occurred.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">impl</span><span class="o">.</span><span class="n">compare_values</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">util</span><span class="o">.</span><span class="n">generic_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">to_inspect</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">impl</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Variant</span><span class="p">(</span><span class="n">TypeDecorator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A wrapping type that selects among a variety of</span>
+<span class="sd">    implementations based on dialect in use.</span>
+
+<span class="sd">    The :class:`.Variant` type is typically constructed</span>
+<span class="sd">    using the :meth:`.TypeEngine.with_variant` method.</span>
+
+<span class="sd">    .. versionadded:: 0.7.2</span>
+
+<span class="sd">    .. seealso:: :meth:`.TypeEngine.with_variant` for an example of use.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">mapping</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Construct a new :class:`.Variant`.</span>
+
+<span class="sd">        :param base: the base &#39;fallback&#39; type</span>
+<span class="sd">        :param mapping: dictionary of string dialect names to</span>
+<span class="sd">          :class:`.TypeEngine` instances.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">impl</span> <span class="o">=</span> <span class="n">base</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">mapping</span>
+
+    <span class="k">def</span> <span class="nf">load_dialect_impl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">dialect</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="p">[</span><span class="n">dialect</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">impl</span>
+
+    <span class="k">def</span> <span class="nf">with_variant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">type_</span><span class="p">,</span> <span class="n">dialect_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a new :class:`.Variant` which adds the given</span>
+<span class="sd">        type + dialect name to the mapping, in addition to the</span>
+<span class="sd">        mapping present in this :class:`.Variant`.</span>
+
+<span class="sd">        :param type_: a :class:`.TypeEngine` that will be selected</span>
+<span class="sd">         as a variant from the originating type, when a dialect</span>
+<span class="sd">         of the given name is in use.</span>
+<span class="sd">        :param dialect_name: base name of the dialect which uses</span>
+<span class="sd">         this type. (i.e. ``&#39;postgresql&#39;``, ``&#39;mysql&#39;``, etc.)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">dialect_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">exc</span><span class="o">.</span><span class="n">ArgumentError</span><span class="p">(</span>
+                <span class="s">&quot;Dialect &#39;</span><span class="si">%s</span><span class="s">&#39; is already present in &quot;</span>
+                <span class="s">&quot;the mapping for this Variant&quot;</span> <span class="o">%</span> <span class="n">dialect_name</span><span class="p">)</span>
+        <span class="n">mapping</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">mapping</span><span class="p">[</span><span class="n">dialect_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">type_</span>
+        <span class="k">return</span> <span class="n">Variant</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">impl</span><span class="p">,</span> <span class="n">mapping</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">comparator_factory</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;express comparison behavior in terms of the base type&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">impl</span><span class="o">.</span><span class="n">comparator_factory</span>
+
+
+<span class="k">def</span> <span class="nf">_reconstitute_comparator</span><span class="p">(</span><span class="n">expression</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">expression</span><span class="o">.</span><span class="n">comparator</span>
+
+
+<span class="k">def</span> <span class="nf">to_instance</span><span class="p">(</span><span class="n">typeobj</span><span class="p">,</span> <span class="o">*</span><span class="n">arg</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">typeobj</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">NULLTYPE</span>
+
+    <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">callable</span><span class="p">(</span><span class="n">typeobj</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">typeobj</span><span class="p">(</span><span class="o">*</span><span class="n">arg</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">typeobj</span>
+
+
+<span class="k">def</span> <span class="nf">adapt_type</span><span class="p">(</span><span class="n">typeobj</span><span class="p">,</span> <span class="n">colspecs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">typeobj</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+        <span class="n">typeobj</span> <span class="o">=</span> <span class="n">typeobj</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">typeobj</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__mro__</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">impltype</span> <span class="o">=</span> <span class="n">colspecs</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+            <span class="k">break</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c"># couldn&#39;t adapt - so just return the type itself</span>
+        <span class="c"># (it may be a user-defined type)</span>
+        <span class="k">return</span> <span class="n">typeobj</span>
+    <span class="c"># if we adapted the given generic type to a database-specific type,</span>
+    <span class="c"># but it turns out the originally given &quot;generic&quot; type</span>
+    <span class="c"># is actually a subclass of our resulting type, then we were already</span>
+    <span class="c"># given a more specific type than that required; so use that.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">typeobj</span><span class="o">.</span><span class="n">__class__</span><span class="p">,</span> <span class="n">impltype</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">typeobj</span>
+    <span class="k">return</span> <span class="n">typeobj</span><span class="o">.</span><span class="n">adapt</span><span class="p">(</span><span class="n">impltype</span><span class="p">)</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Rob Rua.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

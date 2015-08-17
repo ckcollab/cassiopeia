@@ -44,7 +44,7 @@
 <span class="kn">import</span> <span class="nn">cassiopeia.type.core.common</span>
 <span class="kn">import</span> <span class="nn">cassiopeia.type.core.league</span>
 
-<div class="viewcode-block" id="get_challenger"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.core.leagueapi.get_challenger">[docs]</a><span class="k">def</span> <span class="nf">get_challenger</span><span class="p">(</span><span class="n">queue_type</span><span class="o">=</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">Queue</span><span class="o">.</span><span class="n">ranked_solo</span><span class="p">):</span>
+<div class="viewcode-block" id="get_challenger"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_challenger">[docs]</a><span class="k">def</span> <span class="nf">get_challenger</span><span class="p">(</span><span class="n">queue_type</span><span class="o">=</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">Queue</span><span class="o">.</span><span class="n">ranked_solo</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets the challenger league</span>
 
 <span class="sd">    queue_type    Queue     the queue to get the challenger league for (default Queue.ranked_solo)</span>
@@ -65,7 +65,7 @@
 
     <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">league</span><span class="o">.</span><span class="n">League</span><span class="p">(</span><span class="n">league</span><span class="p">)</span>
 </div>
-<div class="viewcode-block" id="get_master"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.core.leagueapi.get_master">[docs]</a><span class="k">def</span> <span class="nf">get_master</span><span class="p">(</span><span class="n">queue_type</span><span class="o">=</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">Queue</span><span class="o">.</span><span class="n">ranked_solo</span><span class="p">):</span>
+<div class="viewcode-block" id="get_master"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_master">[docs]</a><span class="k">def</span> <span class="nf">get_master</span><span class="p">(</span><span class="n">queue_type</span><span class="o">=</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">Queue</span><span class="o">.</span><span class="n">ranked_solo</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets the master league</span>
 
 <span class="sd">    queue_type    Queue     the queue to get the master league for (default Queue.ranked_solo)</span>
@@ -105,7 +105,7 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">[[</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">league</span><span class="o">.</span><span class="n">League</span><span class="p">(</span><span class="n">league</span><span class="p">)</span> <span class="k">for</span> <span class="n">league</span> <span class="ow">in</span> <span class="n">leagues</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">id_</span><span class="p">)]]</span> <span class="k">for</span> <span class="n">id_</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">]</span>
 
-<div class="viewcode-block" id="get_leagues_by_summoner"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.core.leagueapi.get_leagues_by_summoner">[docs]</a><span class="k">def</span> <span class="nf">get_leagues_by_summoner</span><span class="p">(</span><span class="n">summoners</span><span class="p">):</span>
+<div class="viewcode-block" id="get_leagues_by_summoner"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_leagues_by_summoner">[docs]</a><span class="k">def</span> <span class="nf">get_leagues_by_summoner</span><span class="p">(</span><span class="n">summoners</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets the leagues that the summoner(s) belong(s) to. You probably don&#39;t want to call this with LoadPolicy.eager set.</span>
 
 <span class="sd">    summoners    Summoner | list&lt;Summoner&gt;            the summoner(s) to get leagues for</span>
@@ -136,7 +136,7 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">[[</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">league</span><span class="o">.</span><span class="n">League</span><span class="p">(</span><span class="n">league</span><span class="p">)</span> <span class="k">for</span> <span class="n">league</span> <span class="ow">in</span> <span class="n">leagues</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">id_</span><span class="p">)]]</span> <span class="k">for</span> <span class="n">id_</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">]</span>
 
-<div class="viewcode-block" id="get_league_entries_by_summoner"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.core.leagueapi.get_league_entries_by_summoner">[docs]</a><span class="k">def</span> <span class="nf">get_league_entries_by_summoner</span><span class="p">(</span><span class="n">summoners</span><span class="p">):</span>
+<div class="viewcode-block" id="get_league_entries_by_summoner"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_league_entries_by_summoner">[docs]</a><span class="k">def</span> <span class="nf">get_league_entries_by_summoner</span><span class="p">(</span><span class="n">summoners</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets the leagues that the summoner(s) belong(s) to, including only the requested summoner(s)&#39; entries</span>
 
 <span class="sd">    summoners    Summoner | list&lt;Summoner&gt;            the summoner(s) to get leagues for</span>
@@ -167,7 +167,7 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">[[</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">league</span><span class="o">.</span><span class="n">League</span><span class="p">(</span><span class="n">league</span><span class="p">)</span> <span class="k">for</span> <span class="n">league</span> <span class="ow">in</span> <span class="n">leagues</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">id_</span><span class="p">)]]</span> <span class="k">for</span> <span class="n">id_</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">]</span>
 
-<div class="viewcode-block" id="get_leagues_by_team"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.core.leagueapi.get_leagues_by_team">[docs]</a><span class="k">def</span> <span class="nf">get_leagues_by_team</span><span class="p">(</span><span class="n">teams</span><span class="p">):</span>
+<div class="viewcode-block" id="get_leagues_by_team"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_leagues_by_team">[docs]</a><span class="k">def</span> <span class="nf">get_leagues_by_team</span><span class="p">(</span><span class="n">teams</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets the leagues that the team(s) belong(s) to. You probably don&#39;t want to call this with LoadPolicy.eager set.</span>
 
 <span class="sd">    teams     Team | list&lt;Team&gt;                    the team(s) to get leagues for</span>
@@ -198,7 +198,7 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">[[</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">league</span><span class="o">.</span><span class="n">League</span><span class="p">(</span><span class="n">league</span><span class="p">)</span> <span class="k">for</span> <span class="n">league</span> <span class="ow">in</span> <span class="n">leagues</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">id_</span><span class="p">)]]</span> <span class="k">for</span> <span class="n">id_</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">]</span>
 
-<div class="viewcode-block" id="get_league_entries_by_team"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.core.leagueapi.get_league_entries_by_team">[docs]</a><span class="k">def</span> <span class="nf">get_league_entries_by_team</span><span class="p">(</span><span class="n">teams</span><span class="p">):</span>
+<div class="viewcode-block" id="get_league_entries_by_team"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_league_entries_by_team">[docs]</a><span class="k">def</span> <span class="nf">get_league_entries_by_team</span><span class="p">(</span><span class="n">teams</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets the leagues that the team(s) belong(s) to, including only the requested team(s)&#39; entries</span>
 
 <span class="sd">    teams     Team | list&lt;Team&gt;                    the team(s) to get leagues for</span>

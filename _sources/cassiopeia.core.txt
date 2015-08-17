@@ -1,126 +1,142 @@
-cassiopeia.core package
-=======================
+cassiopeia.core
+===============
 
-Submodules
-----------
-
-cassiopeia.core.championapi module
-----------------------------------
+cassiopeia.core.championapi
+---------------------------
 
 .. automodule:: cassiopeia.core.championapi
     :members:
     :undoc-members:
+    :inherited-members:
+    :imported-members:
     :show-inheritance:
 
-cassiopeia.core.currentgameapi module
--------------------------------------
+cassiopeia.core.currentgameapi
+------------------------------
 
 .. automodule:: cassiopeia.core.currentgameapi
     :members:
     :undoc-members:
+    :inherited-members:
+    :imported-members:
     :show-inheritance:
 
-cassiopeia.core.featuredgamesapi module
----------------------------------------
+cassiopeia.core.featuredgamesapi
+--------------------------------
 
 .. automodule:: cassiopeia.core.featuredgamesapi
     :members:
     :undoc-members:
+    :inherited-members:
+    :imported-members:
     :show-inheritance:
 
-cassiopeia.core.gameapi module
-------------------------------
+cassiopeia.core.gameapi
+-----------------------
 
 .. automodule:: cassiopeia.core.gameapi
     :members:
     :undoc-members:
+    :inherited-members:
+    :imported-members:
     :show-inheritance:
 
-cassiopeia.core.leagueapi module
---------------------------------
+cassiopeia.core.leagueapi
+-------------------------
 
 .. automodule:: cassiopeia.core.leagueapi
     :members:
     :undoc-members:
+    :inherited-members:
+    :imported-members:
     :show-inheritance:
 
-cassiopeia.core.matchapi module
--------------------------------
+cassiopeia.core.matchapi
+------------------------
 
 .. automodule:: cassiopeia.core.matchapi
     :members:
     :undoc-members:
+    :inherited-members:
+    :imported-members:
     :show-inheritance:
 
-cassiopeia.core.matchhistoryapi module
---------------------------------------
+cassiopeia.core.matchhistoryapi
+-------------------------------
 
 .. automodule:: cassiopeia.core.matchhistoryapi
     :members:
     :undoc-members:
+    :inherited-members:
+    :imported-members:
     :show-inheritance:
 
-cassiopeia.core.matchlistapi module
------------------------------------
+cassiopeia.core.matchlistapi
+----------------------------
 
 .. automodule:: cassiopeia.core.matchlistapi
     :members:
     :undoc-members:
+    :inherited-members:
+    :imported-members:
     :show-inheritance:
 
-cassiopeia.core.requests module
--------------------------------
+cassiopeia.core.requests
+------------------------
 
 .. automodule:: cassiopeia.core.requests
     :members:
     :undoc-members:
+    :inherited-members:
+    :imported-members:
     :show-inheritance:
 
-cassiopeia.core.staticdataapi module
-------------------------------------
+cassiopeia.core.staticdataapi
+-----------------------------
 
 .. automodule:: cassiopeia.core.staticdataapi
     :members:
     :undoc-members:
+    :inherited-members:
+    :imported-members:
     :show-inheritance:
 
-cassiopeia.core.statsapi module
--------------------------------
+cassiopeia.core.statsapi
+------------------------
 
 .. automodule:: cassiopeia.core.statsapi
     :members:
     :undoc-members:
+    :inherited-members:
+    :imported-members:
     :show-inheritance:
 
-cassiopeia.core.statusapi module
---------------------------------
+cassiopeia.core.statusapi
+-------------------------
 
 .. automodule:: cassiopeia.core.statusapi
     :members:
     :undoc-members:
+    :inherited-members:
+    :imported-members:
     :show-inheritance:
 
-cassiopeia.core.summonerapi module
-----------------------------------
+cassiopeia.core.summonerapi
+---------------------------
 
 .. automodule:: cassiopeia.core.summonerapi
     :members:
     :undoc-members:
+    :inherited-members:
+    :imported-members:
     :show-inheritance:
 
-cassiopeia.core.teamapi module
-------------------------------
+cassiopeia.core.teamapi
+-----------------------
 
 .. automodule:: cassiopeia.core.teamapi
     :members:
     :undoc-members:
-    :show-inheritance:
-
-
-Module contents
----------------
-
-.. automodule:: cassiopeia.core
-    :members:
-    :undoc-members:
+    :inherited-members:
+    :imported-members:
     :show-inheritance:

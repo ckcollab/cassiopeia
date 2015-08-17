@@ -61,7 +61,7 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">[[</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">summoner</span><span class="o">.</span><span class="n">MasteryPage</span><span class="p">(</span><span class="n">page</span><span class="p">)</span> <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">pages</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">id_</span><span class="p">)]</span><span class="o">.</span><span class="n">pages</span><span class="p">]</span> <span class="k">for</span> <span class="n">id_</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">]</span>
 
-<div class="viewcode-block" id="get_mastery_pages"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.core.summonerapi.get_mastery_pages">[docs]</a><span class="k">def</span> <span class="nf">get_mastery_pages</span><span class="p">(</span><span class="n">summoners</span><span class="p">):</span>
+<div class="viewcode-block" id="get_mastery_pages"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_mastery_pages">[docs]</a><span class="k">def</span> <span class="nf">get_mastery_pages</span><span class="p">(</span><span class="n">summoners</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Get the mastery pages for (a) summoner(s).</span>
 
 <span class="sd">    ids       Summoner | list&lt;Summoner&gt;                      the summoner(s) to get mastery pages for</span>
@@ -88,7 +88,7 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">[[</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">summoner</span><span class="o">.</span><span class="n">RunePage</span><span class="p">(</span><span class="n">page</span><span class="p">)</span> <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">pages</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">id_</span><span class="p">)]</span><span class="o">.</span><span class="n">pages</span><span class="p">]</span> <span class="k">for</span> <span class="n">id_</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">]</span>
 
-<div class="viewcode-block" id="get_rune_pages"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.core.summonerapi.get_rune_pages">[docs]</a><span class="k">def</span> <span class="nf">get_rune_pages</span><span class="p">(</span><span class="n">summoners</span><span class="p">):</span>
+<div class="viewcode-block" id="get_rune_pages"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_rune_pages">[docs]</a><span class="k">def</span> <span class="nf">get_rune_pages</span><span class="p">(</span><span class="n">summoners</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Get the rune pages for (a) summoner(s).</span>
 
 <span class="sd">    ids       Summoner | list&lt;Summoner&gt;                the summoner(s) to get rune pages for</span>
@@ -100,7 +100,7 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">__get_rune_pages_by_id</span><span class="p">(</span><span class="n">summoners</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
 </div>
-<div class="viewcode-block" id="get_summoner_by_id"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.core.summonerapi.get_summoner_by_id">[docs]</a><span class="k">def</span> <span class="nf">get_summoner_by_id</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
+<div class="viewcode-block" id="get_summoner_by_id"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_summoner_by_id">[docs]</a><span class="k">def</span> <span class="nf">get_summoner_by_id</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets a summoner by ID</span>
 
 <span class="sd">    id_       int         the ID of the summoner</span>
@@ -118,7 +118,7 @@
     <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">summoner</span><span class="p">,</span> <span class="n">summoner</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">summoner</span>
 </div>
-<div class="viewcode-block" id="get_summoner_by_name"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.core.summonerapi.get_summoner_by_name">[docs]</a><span class="k">def</span> <span class="nf">get_summoner_by_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<div class="viewcode-block" id="get_summoner_by_name"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_summoner_by_name">[docs]</a><span class="k">def</span> <span class="nf">get_summoner_by_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets a summoner by name</span>
 
 <span class="sd">    name      str         the name of the summoner</span>
@@ -136,7 +136,7 @@
     <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">summoner</span><span class="p">,</span> <span class="n">summoner</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">summoner</span>
 </div>
-<div class="viewcode-block" id="get_summoners_by_id"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.core.summonerapi.get_summoners_by_id">[docs]</a><span class="k">def</span> <span class="nf">get_summoners_by_id</span><span class="p">(</span><span class="n">ids</span><span class="p">):</span>
+<div class="viewcode-block" id="get_summoners_by_id"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_summoners_by_id">[docs]</a><span class="k">def</span> <span class="nf">get_summoners_by_id</span><span class="p">(</span><span class="n">ids</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets a bunch of summoners by ID</span>
 
 <span class="sd">    ids       list&lt;int&gt;         the IDs of the summoners</span>
@@ -167,7 +167,7 @@
     <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">missing</span><span class="p">,</span> <span class="p">[</span><span class="n">summoner</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">summoner</span> <span class="ow">in</span> <span class="n">missing</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">summoners</span>
 </div>
-<div class="viewcode-block" id="get_summoners_by_name"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.core.summonerapi.get_summoners_by_name">[docs]</a><span class="k">def</span> <span class="nf">get_summoners_by_name</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
+<div class="viewcode-block" id="get_summoners_by_name"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_summoners_by_name">[docs]</a><span class="k">def</span> <span class="nf">get_summoners_by_name</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets a bunch of summoners by name</span>
 
 <span class="sd">    names     list&lt;str&gt;         the names of the summoners</span>
@@ -198,7 +198,7 @@
     <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">missing</span><span class="p">,</span> <span class="p">[</span><span class="n">summoner</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">summoner</span> <span class="ow">in</span> <span class="n">missing</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">summoners</span>
 </div>
-<div class="viewcode-block" id="get_summoner_name"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.core.summonerapi.get_summoner_name">[docs]</a><span class="k">def</span> <span class="nf">get_summoner_name</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
+<div class="viewcode-block" id="get_summoner_name"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_summoner_name">[docs]</a><span class="k">def</span> <span class="nf">get_summoner_name</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets the name of a summoner by ID</span>
 
 <span class="sd">    id_       id     the summoner&#39;s ID</span>
@@ -211,7 +211,7 @@
 
     <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">summonerapi</span><span class="o">.</span><span class="n">get_summoner_names</span><span class="p">(</span><span class="n">id_</span><span class="p">)[</span><span class="nb">str</span><span class="p">(</span><span class="n">id_</span><span class="p">)]</span>
 </div>
-<div class="viewcode-block" id="get_summoner_names"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.core.summonerapi.get_summoner_names">[docs]</a><span class="k">def</span> <span class="nf">get_summoner_names</span><span class="p">(</span><span class="n">ids</span><span class="p">):</span>
+<div class="viewcode-block" id="get_summoner_names"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_summoner_names">[docs]</a><span class="k">def</span> <span class="nf">get_summoner_names</span><span class="p">(</span><span class="n">ids</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets the names of a bunch of summoners by ID</span>
 
 <span class="sd">    ids       list&lt;id&gt;     the summoners&#39; IDs</span>
