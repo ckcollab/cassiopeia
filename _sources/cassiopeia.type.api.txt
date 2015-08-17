@@ -1,0 +1,38 @@
+cassiopeia.type.api package
+===========================
+
+Submodules
+----------
+
+cassiopeia.type.api.exception module
+------------------------------------
+
+.. automodule:: cassiopeia.type.api.exception
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cassiopeia.type.api.rates module
+--------------------------------
+
+.. automodule:: cassiopeia.type.api.rates
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cassiopeia.type.api.store module
+--------------------------------
+
+.. automodule:: cassiopeia.type.api.store
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: cassiopeia.type.api
+    :members:
+    :undoc-members:
+    :show-inheritance:

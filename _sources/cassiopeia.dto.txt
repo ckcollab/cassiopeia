@@ -1,0 +1,126 @@
+cassiopeia.dto package
+======================
+
+Submodules
+----------
+
+cassiopeia.dto.championapi module
+---------------------------------
+
+.. automodule:: cassiopeia.dto.championapi
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cassiopeia.dto.currentgameapi module
+------------------------------------
+
+.. automodule:: cassiopeia.dto.currentgameapi
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cassiopeia.dto.featuredgamesapi module
+--------------------------------------
+
+.. automodule:: cassiopeia.dto.featuredgamesapi
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cassiopeia.dto.gameapi module
+-----------------------------
+
+.. automodule:: cassiopeia.dto.gameapi
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cassiopeia.dto.leagueapi module
+-------------------------------
+
+.. automodule:: cassiopeia.dto.leagueapi
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cassiopeia.dto.matchapi module
+------------------------------
+
+.. automodule:: cassiopeia.dto.matchapi
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cassiopeia.dto.matchhistoryapi module
+-------------------------------------
+
+.. automodule:: cassiopeia.dto.matchhistoryapi
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cassiopeia.dto.matchlistapi module
+----------------------------------
+
+.. automodule:: cassiopeia.dto.matchlistapi
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cassiopeia.dto.requests module
+------------------------------
+
+.. automodule:: cassiopeia.dto.requests
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cassiopeia.dto.staticdataapi module
+-----------------------------------
+
+.. automodule:: cassiopeia.dto.staticdataapi
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cassiopeia.dto.statsapi module
+------------------------------
+
+.. automodule:: cassiopeia.dto.statsapi
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cassiopeia.dto.statusapi module
+-------------------------------
+
+.. automodule:: cassiopeia.dto.statusapi
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cassiopeia.dto.summonerapi module
+---------------------------------
+
+.. automodule:: cassiopeia.dto.summonerapi
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cassiopeia.dto.teamapi module
+-----------------------------
+
+.. automodule:: cassiopeia.dto.teamapi
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: cassiopeia.dto
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,19 @@
+cassiopeia.type package
+=======================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    cassiopeia.type.api
+    cassiopeia.type.core
+    cassiopeia.type.dto
+
+Module contents
+---------------
+
+.. automodule:: cassiopeia.type
+    :members:
+    :undoc-members:
+    :show-inheritance:
