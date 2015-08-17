@@ -41,14 +41,14 @@
 <span class="kn">import</span> <span class="nn">cassiopeia.dto.statusapi</span>
 <span class="kn">import</span> <span class="nn">cassiopeia.type.core.status</span>
 
-<div class="viewcode-block" id="get_shards"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_shards">[docs]</a><span class="k">def</span> <span class="nf">get_shards</span><span class="p">():</span>
+<div class="viewcode-block" id="get_shards"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_shards">[docs]</a><span class="k">def</span> <span class="nf">get_shards</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Get the list of server shards</span>
 
 <span class="sd">    return    list&lt;Shard&gt;    the shards</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">Shard</span><span class="p">(</span><span class="n">shard</span><span class="p">)</span> <span class="k">for</span> <span class="n">shard</span> <span class="ow">in</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">statusapi</span><span class="o">.</span><span class="n">get_shards</span><span class="p">()]</span>
 </div>
-<div class="viewcode-block" id="get_shard"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_shard">[docs]</a><span class="k">def</span> <span class="nf">get_shard</span><span class="p">():</span>
+<div class="viewcode-block" id="get_shard"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_shard">[docs]</a><span class="k">def</span> <span class="nf">get_shard</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Gets the status of the current region&#39;s shard</span>
 
 <span class="sd">    return    ShardStatus    the status of the current region&#39;s shard</span>

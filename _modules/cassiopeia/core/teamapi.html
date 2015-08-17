@@ -43,7 +43,7 @@
 <span class="kn">import</span> <span class="nn">cassiopeia.core.requests</span>
 <span class="kn">import</span> <span class="nn">cassiopeia.type.core.team</span>
 
-<div class="viewcode-block" id="get_teams_by_summoner"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_teams_by_summoner">[docs]</a><span class="k">def</span> <span class="nf">get_teams_by_summoner</span><span class="p">(</span><span class="n">summoners</span><span class="p">):</span>
+<div class="viewcode-block" id="get_teams_by_summoner"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_teams_by_summoner">[docs]</a><span class="k">def</span> <span class="nf">get_teams_by_summoner</span><span class="p">(</span><span class="n">summoners</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets (a) summoner(s)&#39; teams</span>
 
 <span class="sd">    summoners    Summoner | list&lt;Summoner&gt;        the summoner(s) to get teams for</span>
@@ -66,7 +66,7 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">[[</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">team</span><span class="o">.</span><span class="n">Team</span><span class="p">(</span><span class="n">team</span><span class="p">)</span> <span class="k">for</span> <span class="n">team</span> <span class="ow">in</span> <span class="n">teams</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">id_</span><span class="p">)]]</span> <span class="k">for</span> <span class="n">id_</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">]</span>
 </div>
-<div class="viewcode-block" id="get_team"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_team">[docs]</a><span class="k">def</span> <span class="nf">get_team</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
+<div class="viewcode-block" id="get_team"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_team">[docs]</a><span class="k">def</span> <span class="nf">get_team</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets a team by ID</span>
 
 <span class="sd">    id_       str     the ID of the team</span>
@@ -82,7 +82,7 @@
 
     <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">team</span><span class="o">.</span><span class="n">Team</span><span class="p">(</span><span class="n">team</span><span class="p">)</span>
 </div>
-<div class="viewcode-block" id="get_teams"><a class="viewcode-back" href="../../../cassiopeia.html#cassiopeia.riotapi.get_teams">[docs]</a><span class="k">def</span> <span class="nf">get_teams</span><span class="p">(</span><span class="n">ids</span><span class="p">):</span>
+<div class="viewcode-block" id="get_teams"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_teams">[docs]</a><span class="k">def</span> <span class="nf">get_teams</span><span class="p">(</span><span class="n">ids</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets teams by ID</span>
 
 <span class="sd">    ids       list&lt;str&gt;     the IDs of the teams</span>

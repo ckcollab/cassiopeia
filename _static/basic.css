@@ -16,25 +16,25 @@ dd p {
     cursor: text;
 }
 
-dd a:link {
+dd a:not(.reference):link {
     color: inherit;
     text-decoration: inherit;
     pointer-events: none;
 }
 
-dd a:visited {
+dd a:not(.reference):visited {
     color: inherit;
     text-decoration: inherit;
     pointer-events: none;
 }
 
-dd a:hover {
+dd a:not(.reference):hover {
     color: inherit;
     text-decoration: inherit;
     pointer-events: none;
 }
 
-dd a:active {
+dd a:not(.reference):active {
     color: inherit;
     text-decoration: inherit;
     pointer-events: none;
