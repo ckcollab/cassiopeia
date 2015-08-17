@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cassiopeia.type.dto.featuredgames &mdash; Cassiopeia 0.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="top" title="Cassiopeia 0.0.1 documentation" href="../../../../index.html" />
+    <link rel="up" title="Module code" href="../../../index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for cassiopeia.type.dto.featuredgames</h1><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">sqlalchemy</span>
+<span class="kn">import</span> <span class="nn">sqlalchemy.orm</span>
+
+<span class="kn">import</span> <span class="nn">cassiopeia.type.dto.common</span>
+<span class="kn">import</span> <span class="nn">cassiopeia.type.core.common</span>
+
+<span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
+<div class="viewcode-block" id="Participant"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.featuredgames.Participant">[docs]</a><span class="k">class</span> <span class="nc">Participant</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">CassiopeiaDto</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    bot              bool    flag indicating whether or not this participant is a bot</span>
+<span class="sd">    championId       int     the ID of the champion played by this participant</span>
+<span class="sd">    profileIconId    int     the ID of the profile icon used by this participant</span>
+<span class="sd">    spell1Id         int     the ID of the first summoner spell used by this participant</span>
+<span class="sd">    spell2Id         int     the ID of the second summoner spell used by this participant</span>
+<span class="sd">    summonerName     str     the summoner name of this participant</span>
+<span class="sd">    teamId           int     the team ID of this participant, indicating the participant&#39;s team</span>
+<span class="sd">    encryptionKey    str     key used to decrypt the spectator grid game data for playback</span>
+<span class="sd">    championId       int     the ID of the banned champion</span>
+<span class="sd">    pickTurn         int     the turn during which the champion was banned</span>
+<span class="sd">    teamId           int     the ID of the team that banned the champion</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bot</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;bot&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">championId</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;championId&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">profileIconId</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;profileIconId&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spell1Id</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;spell1Id&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spell2Id</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;spell2Id&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">summonerName</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;summonerName&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teamId</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;teamId&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+</div>
+<span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
+<div class="viewcode-block" id="Observer"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.featuredgames.Observer">[docs]</a><span class="k">class</span> <span class="nc">Observer</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">CassiopeiaDto</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    encryptionKey    str    key used to decrypt the spectator grid game data for playback</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">encryptionKey</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;encryptionKey&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+
+</div>
+<span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
+<div class="viewcode-block" id="BannedChampion"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.featuredgames.BannedChampion">[docs]</a><span class="k">class</span> <span class="nc">BannedChampion</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">CassiopeiaDto</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    championId    int    the ID of the banned champion</span>
+<span class="sd">    pickTurn      int    the turn during which the champion was banned</span>
+<span class="sd">    teamId        int    the ID of the team that banned the champion</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">championId</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;championId&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pickTurn</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;pickTurn&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teamId</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;teamId&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+</div>
+<span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
+<div class="viewcode-block" id="FeaturedGameInfo"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.featuredgames.FeaturedGameInfo">[docs]</a><span class="k">class</span> <span class="nc">FeaturedGameInfo</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">CassiopeiaDto</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    bannedChampions      list&lt;BannedChampion&gt;    banned champion information</span>
+<span class="sd">    gameId               int                     the ID of the game</span>
+<span class="sd">    gameLength           int                     the amount of time in seconds that has passed since the game started</span>
+<span class="sd">    gameMode             str                     the game mode (Legal values: CLASSIC, ODIN, ARAM, TUTORIAL, ONEFORALL, ASCENSION, FIRSTBLOOD, KINGPORO)</span>
+<span class="sd">    gameQueueConfigId    int                     the queue type (queue types are documented on the Game Constants page)</span>
+<span class="sd">    gameStartTime        int                     the game start time represented in epoch milliseconds</span>
+<span class="sd">    gameType             str                     the game type (Legal values: CUSTOM_GAME, MATCHED_GAME, TUTORIAL_GAME)</span>
+<span class="sd">    mapId                int                     the ID of the map</span>
+<span class="sd">    observers            Observer                the observer information</span>
+<span class="sd">    participants         list&lt;Participant&gt;       the participant information</span>
+<span class="sd">    platformId           str                     the ID of the platform on which the game is being played</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bannedChampions</span> <span class="o">=</span> <span class="p">[(</span><span class="n">BannedChampion</span><span class="p">(</span><span class="n">ban</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ban</span><span class="p">,</span> <span class="n">BannedChampion</span><span class="p">)</span> <span class="k">else</span> <span class="n">ban</span><span class="p">)</span> <span class="k">for</span> <span class="n">ban</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;bannedChampions&quot;</span><span class="p">,</span> <span class="p">[])</span> <span class="k">if</span> <span class="n">ban</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameId</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;gameId&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameLength</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;gameLength&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameMode</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;gameMode&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameQueueConfigId</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;gameQueueConfigId&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameStartTime</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;gameStartTime&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameType</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;gameType&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mapId</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;mapId&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;observers&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">observers</span> <span class="o">=</span> <span class="n">Observer</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">if</span> <span class="n">val</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">Observer</span><span class="p">)</span> <span class="k">else</span> <span class="n">val</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">participants</span> <span class="o">=</span> <span class="p">[(</span><span class="n">Participant</span><span class="p">(</span><span class="n">participant</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="n">BannedChampion</span><span class="p">)</span> <span class="k">else</span> <span class="n">participant</span><span class="p">)</span> <span class="k">for</span> <span class="n">participant</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;participants&quot;</span><span class="p">,</span> <span class="p">[])</span> <span class="k">if</span> <span class="n">participant</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">platformId</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;platformId&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">champion_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets all champion IDs contained in this object&quot;&quot;&quot;</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">ban</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bannedChampions</span><span class="p">:</span>
+            <span class="n">ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ban</span><span class="o">.</span><span class="n">championId</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">participants</span><span class="p">:</span>
+            <span class="n">ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">championId</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ids</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">summoner_spell_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets all summoner spell IDs contained in this object&quot;&quot;&quot;</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">participants</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">spell1Id</span><span class="p">):</span>
+                <span class="n">ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">spell1Id</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">spell2Id</span><span class="p">):</span>
+                <span class="n">ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">spell2Id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ids</span>
+
+</div>
+<span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
+<div class="viewcode-block" id="FeaturedGames"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.featuredgames.FeaturedGames">[docs]</a><span class="k">class</span> <span class="nc">FeaturedGames</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">CassiopeiaDto</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    clientRefreshInterval    int                       the suggested interval to wait before requesting FeaturedGames again</span>
+<span class="sd">    gameList                 list&lt;FeaturedGameInfo&gt;    the list of featured games</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clientRefreshInterval</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;clientRefreshInterval&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameList</span> <span class="o">=</span> <span class="p">[(</span><span class="n">FeaturedGameInfo</span><span class="p">(</span><span class="n">game</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">game</span><span class="p">,</span> <span class="n">FeaturedGameInfo</span><span class="p">)</span> <span class="k">else</span> <span class="n">game</span><span class="p">)</span> <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;gameList&quot;</span><span class="p">,</span> <span class="p">[])</span> <span class="k">if</span> <span class="n">game</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">champion_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets all champion IDs contained in this object&quot;&quot;&quot;</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameList</span><span class="p">:</span>
+            <span class="n">ids</span> <span class="o">|=</span> <span class="n">game</span><span class="o">.</span><span class="n">champion_ids</span>
+        <span class="k">return</span> <span class="n">ids</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">summoner_spell_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets all summoner spell IDs contained in this object&quot;&quot;&quot;</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameList</span><span class="p">:</span>
+            <span class="n">ids</span> <span class="o">|=</span> <span class="n">game</span><span class="o">.</span><span class="n">summoner_spell_ids</span>
+        <span class="k">return</span> <span class="n">ids</span>
+
+<span class="c">###############################</span>
+<span class="c"># Dynamic SQLAlchemy bindings #</span>
+<span class="c">###############################</span>
+</div>
+<div class="viewcode-block" id="sa_bind_participant"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.featuredgames.sa_bind_participant">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_participant</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">Participant</span>
+    <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
+    <span class="k">class</span> <span class="nc">Participant</span><span class="p">(</span><span class="n">Participant</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
+        <span class="n">__tablename__</span> <span class="o">=</span> <span class="s">&quot;FeaturedGameParticipant&quot;</span>
+        <span class="n">bot</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Boolean</span><span class="p">)</span>
+        <span class="n">championId</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">profileIconId</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">spell1Id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">spell2Id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">summonerName</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
+        <span class="n">teamId</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">_game_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;FeaturedGameInfo.gameId&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="sa_bind_observer"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.featuredgames.sa_bind_observer">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_observer</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">Observer</span>
+    <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
+    <span class="k">class</span> <span class="nc">Observer</span><span class="p">(</span><span class="n">Observer</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
+        <span class="n">__tablename__</span> <span class="o">=</span> <span class="s">&quot;FeaturedGameObserver&quot;</span>
+        <span class="n">encryptionKey</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+        <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">_game_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;FeaturedGameInfo.gameId&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="sa_bind_banned_champion"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.featuredgames.sa_bind_banned_champion">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_banned_champion</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">BannedChampion</span>
+    <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
+    <span class="k">class</span> <span class="nc">BannedChampion</span><span class="p">(</span><span class="n">BannedChampion</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
+        <span class="n">__tablename__</span> <span class="o">=</span> <span class="s">&quot;FeaturedGameBannedChampion&quot;</span>
+        <span class="n">championId</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">pickTurn</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">teamId</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">_game_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;FeaturedGameInfo.gameId&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="sa_bind_featured_game_info"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.featuredgames.sa_bind_featured_game_info">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_featured_game_info</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">FeaturedGameInfo</span>
+    <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
+    <span class="k">class</span> <span class="nc">FeaturedGameInfo</span><span class="p">(</span><span class="n">FeaturedGameInfo</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
+        <span class="n">__tablename__</span> <span class="o">=</span> <span class="s">&quot;FeaturedGameInfo&quot;</span>
+        <span class="n">bannedChampions</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s">&quot;cassiopeia.type.dto.featuredgames.BannedChampion&quot;</span><span class="p">,</span> <span class="n">cascade</span><span class="o">=</span><span class="s">&quot;all, delete-orphan&quot;</span><span class="p">,</span> <span class="n">passive_deletes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">gameId</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">gameLength</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">gameMode</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
+        <span class="n">gameQueueConfigId</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">gameStartTime</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">BigInteger</span><span class="p">)</span>
+        <span class="n">gameType</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
+        <span class="n">mapId</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">observers</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s">&quot;cassiopeia.type.dto.featuredgames.Observer&quot;</span><span class="p">,</span> <span class="n">uselist</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">cascade</span><span class="o">=</span><span class="s">&quot;all, delete-orphan&quot;</span><span class="p">,</span> <span class="n">passive_deletes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">participants</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s">&quot;cassiopeia.type.dto.featuredgames.Participant&quot;</span><span class="p">,</span> <span class="n">cascade</span><span class="o">=</span><span class="s">&quot;all, delete-orphan&quot;</span><span class="p">,</span> <span class="n">passive_deletes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">platformId</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="sa_bind_all"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.featuredgames.sa_bind_all">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_all</span><span class="p">():</span>
+    <span class="n">sa_bind_participant</span><span class="p">()</span>
+    <span class="n">sa_bind_observer</span><span class="p">()</span>
+    <span class="n">sa_bind_banned_champion</span><span class="p">()</span>
+    <span class="n">sa_bind_featured_game_info</span><span class="p">()</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Rob Rua.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
