@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.type.dto.league &mdash; Cassiopeia 0.0.1 documentation</title>
+    <title>cassiopeia.type.dto.league &mdash; Cassiopeia 0.0.2 documentation</title>
     
     <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../../',
-        VERSION:     '0.0.1',
+        VERSION:     '0.0.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.1 documentation" href="../../../../index.html" />
+    <link rel="top" title="Cassiopeia 0.0.2 documentation" href="../../../../index.html" />
     <link rel="up" title="Module code" href="../../../index.html" />
    
   
@@ -149,7 +149,7 @@
 <span class="c"># Dynamic SQLAlchemy bindings #</span>
 <span class="c">###############################</span>
 </div>
-<div class="viewcode-block" id="sa_bind_mini_series"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.league.sa_bind_mini_series">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_mini_series</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">_sa_bind_mini_series</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">MiniSeries</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">MiniSeries</span><span class="p">(</span><span class="n">MiniSeries</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -160,8 +160,8 @@
         <span class="n">wins</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_entry_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;LeagueEntry._id&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_league_entry"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.league.sa_bind_league_entry">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_league_entry</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_league_entry</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">LeagueEntry</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">LeagueEntry</span><span class="p">(</span><span class="n">LeagueEntry</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -179,8 +179,8 @@
         <span class="n">wins</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_league_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;League._id&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_league"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.league.sa_bind_league">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_league</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_league</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">League</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">League</span><span class="p">(</span><span class="n">League</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -191,11 +191,11 @@
         <span class="n">queue</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
         <span class="n">tier</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-</div>
-<div class="viewcode-block" id="sa_bind_all"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.league.sa_bind_all">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_all</span><span class="p">():</span>
-    <span class="n">sa_bind_mini_series</span><span class="p">()</span>
-    <span class="n">sa_bind_league_entry</span><span class="p">()</span>
-    <span class="n">sa_bind_league</span><span class="p">()</span></div>
+
+<span class="k">def</span> <span class="nf">_sa_bind_all</span><span class="p">():</span>
+    <span class="n">_sa_bind_mini_series</span><span class="p">()</span>
+    <span class="n">_sa_bind_league_entry</span><span class="p">()</span>
+    <span class="n">_sa_bind_league</span><span class="p">()</span>
 </pre></div>
 
           </div>

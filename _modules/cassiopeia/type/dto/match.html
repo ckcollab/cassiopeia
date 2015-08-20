@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.type.dto.match &mdash; Cassiopeia 0.0.1 documentation</title>
+    <title>cassiopeia.type.dto.match &mdash; Cassiopeia 0.0.2 documentation</title>
     
     <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../../',
-        VERSION:     '0.0.1',
+        VERSION:     '0.0.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.1 documentation" href="../../../../index.html" />
+    <link rel="top" title="Cassiopeia 0.0.2 documentation" href="../../../../index.html" />
     <link rel="up" title="Module code" href="../../../index.html" />
    
   
@@ -636,7 +636,7 @@
 <span class="c"># Dynamic SQLAlchemy bindings #</span>
 <span class="c">###############################</span>
 </div>
-<div class="viewcode-block" id="sa_bind_match_detail"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.sa_bind_match_detail">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_match_detail</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">_sa_bind_match_detail</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">MatchDetail</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">MatchDetail</span><span class="p">(</span><span class="n">MatchDetail</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -656,8 +656,8 @@
         <span class="n">season</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
         <span class="n">teams</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s">&quot;cassiopeia.type.dto.match.Team&quot;</span><span class="p">,</span> <span class="n">cascade</span><span class="o">=</span><span class="s">&quot;all, delete-orphan&quot;</span><span class="p">,</span> <span class="n">passive_deletes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">timeline</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s">&quot;cassiopeia.type.dto.match.Timeline&quot;</span><span class="p">,</span> <span class="n">uselist</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">cascade</span><span class="o">=</span><span class="s">&quot;all, delete-orphan&quot;</span><span class="p">,</span> <span class="n">passive_deletes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-        </div>
-<div class="viewcode-block" id="sa_bind_participant"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.sa_bind_participant">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_participant</span><span class="p">():</span>
+        
+<span class="k">def</span> <span class="nf">_sa_bind_participant</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">Participant</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">Participant</span><span class="p">(</span><span class="n">Participant</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -674,8 +674,8 @@
         <span class="n">timeline</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s">&quot;cassiopeia.type.dto.match.ParticipantTimeline&quot;</span><span class="p">,</span> <span class="n">uselist</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">cascade</span><span class="o">=</span><span class="s">&quot;all, delete-orphan&quot;</span><span class="p">,</span> <span class="n">passive_deletes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_match_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;MatchDetail.matchId&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_participant_identity"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.sa_bind_participant_identity">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_participant_identity</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_participant_identity</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">ParticipantIdentity</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">ParticipantIdentity</span><span class="p">(</span><span class="n">ParticipantIdentity</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -684,8 +684,8 @@
         <span class="n">player</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s">&quot;cassiopeia.type.dto.match.Player&quot;</span><span class="p">,</span> <span class="n">uselist</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">cascade</span><span class="o">=</span><span class="s">&quot;all, delete-orphan&quot;</span><span class="p">,</span> <span class="n">passive_deletes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_match_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;MatchDetail.matchId&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_team"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.sa_bind_team">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_team</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_team</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">Team</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">Team</span><span class="p">(</span><span class="n">Team</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -706,8 +706,8 @@
         <span class="n">winner</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Boolean</span><span class="p">)</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_match_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;MatchDetail.matchId&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_timeline"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.sa_bind_timeline">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_timeline</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_timeline</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">Timeline</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">Timeline</span><span class="p">(</span><span class="n">Timeline</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -716,8 +716,8 @@
         <span class="n">frames</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s">&quot;cassiopeia.type.dto.match.Frame&quot;</span><span class="p">,</span> <span class="n">cascade</span><span class="o">=</span><span class="s">&quot;all, delete-orphan&quot;</span><span class="p">,</span> <span class="n">passive_deletes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_match_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;MatchDetail.matchId&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_mastery"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.sa_bind_mastery">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_mastery</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_mastery</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">Mastery</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">Mastery</span><span class="p">(</span><span class="n">Mastery</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -726,8 +726,8 @@
         <span class="n">rank</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_participant_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;MatchParticipant._id&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_participant_stats"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.sa_bind_participant_stats">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_participant_stats</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_participant_stats</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">ParticipantStats</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">ParticipantStats</span><span class="p">(</span><span class="n">ParticipantStats</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -797,8 +797,8 @@
         <span class="n">winner</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Boolean</span><span class="p">)</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_participant_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;MatchParticipant._id&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_participant_timeline"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.sa_bind_participant_timeline">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_participant_timeline</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_participant_timeline</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">ParticipantTimeline</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">ParticipantTimeline</span><span class="p">(</span><span class="n">ParticipantTimeline</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -832,8 +832,8 @@
         <span class="n">xpPerMinDeltas</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s">&quot;cassiopeia.type.dto.match.ParticipantTimelineData&quot;</span><span class="p">,</span> <span class="n">primaryjoin</span><span class="o">=</span><span class="s">&quot;and_(cassiopeia.type.dto.match.ParticipantTimeline._id==cassiopeia.type.dto.match.ParticipantTimelineData._timeline_id, cassiopeia.type.dto.match.ParticipantTimelineData._type==&#39;xpPerMinDeltas&#39;)&quot;</span><span class="p">,</span> <span class="n">uselist</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">cascade</span><span class="o">=</span><span class="s">&quot;all, delete-orphan&quot;</span><span class="p">,</span> <span class="n">passive_deletes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_participant_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;MatchParticipant._id&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_rune"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.sa_bind_rune">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_rune</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_rune</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">Rune</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">Rune</span><span class="p">(</span><span class="n">Rune</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -842,8 +842,8 @@
         <span class="n">runeId</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_participant_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;MatchParticipant._id&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_player"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.sa_bind_player">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_player</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_player</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">Player</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">Player</span><span class="p">(</span><span class="n">Player</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -854,8 +854,8 @@
         <span class="n">summonerName</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_participant_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;MatchParticipantIdentity._id&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_banned_champion"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.sa_bind_banned_champion">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_banned_champion</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_banned_champion</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">BannedChampion</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">BannedChampion</span><span class="p">(</span><span class="n">BannedChampion</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -864,8 +864,8 @@
         <span class="n">pickTurn</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_team_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;MatchTeam._id&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_frame"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.sa_bind_frame">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_frame</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_frame</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">Frame</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">Frame</span><span class="p">(</span><span class="n">Frame</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -875,8 +875,8 @@
         <span class="n">timestamp</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_timeline_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;MatchTimeline._id&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_participant_timeline_data"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.sa_bind_participant_timeline_data">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_participant_timeline_data</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_participant_timeline_data</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">ParticipantTimelineData</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">ParticipantTimelineData</span><span class="p">(</span><span class="n">ParticipantTimelineData</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -888,8 +888,8 @@
         <span class="n">_type</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_timeline_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;MatchParticipantTimeline._id&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_event"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.sa_bind_event">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_event</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_event</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">Event</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">Event</span><span class="p">(</span><span class="n">Event</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -917,8 +917,8 @@
         <span class="n">wardType</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_frame_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;MatchFrame._id&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_participant_frame"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.sa_bind_participant_frame">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_participant_frame</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_participant_frame</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">ParticipantFrame</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">ParticipantFrame</span><span class="p">(</span><span class="n">ParticipantFrame</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -935,8 +935,8 @@
         <span class="n">xp</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_frame_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;MatchFrame._id&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_position"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.sa_bind_position">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_position</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_position</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">Position</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">Position</span><span class="p">(</span><span class="n">Position</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -946,24 +946,24 @@
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_event_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;MatchEvent._id&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
         <span class="n">_frame_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;MatchParticipantFrame._id&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_all"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.sa_bind_all">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_all</span><span class="p">():</span>
-    <span class="n">sa_bind_match_detail</span><span class="p">()</span>
-    <span class="n">sa_bind_participant</span><span class="p">()</span>
-    <span class="n">sa_bind_participant_identity</span><span class="p">()</span>
-    <span class="n">sa_bind_team</span><span class="p">()</span>
-    <span class="n">sa_bind_timeline</span><span class="p">()</span>
-    <span class="n">sa_bind_mastery</span><span class="p">()</span>
-    <span class="n">sa_bind_participant_stats</span><span class="p">()</span>
-    <span class="n">sa_bind_participant_timeline</span><span class="p">()</span>
-    <span class="n">sa_bind_rune</span><span class="p">()</span>
-    <span class="n">sa_bind_player</span><span class="p">()</span>
-    <span class="n">sa_bind_banned_champion</span><span class="p">()</span>
-    <span class="n">sa_bind_frame</span><span class="p">()</span>
-    <span class="n">sa_bind_participant_timeline_data</span><span class="p">()</span>
-    <span class="n">sa_bind_event</span><span class="p">()</span>
-    <span class="n">sa_bind_participant_frame</span><span class="p">()</span>
-    <span class="n">sa_bind_position</span><span class="p">()</span></div>
+
+<span class="k">def</span> <span class="nf">_sa_bind_all</span><span class="p">():</span>
+    <span class="n">_sa_bind_match_detail</span><span class="p">()</span>
+    <span class="n">_sa_bind_participant</span><span class="p">()</span>
+    <span class="n">_sa_bind_participant_identity</span><span class="p">()</span>
+    <span class="n">_sa_bind_team</span><span class="p">()</span>
+    <span class="n">_sa_bind_timeline</span><span class="p">()</span>
+    <span class="n">_sa_bind_mastery</span><span class="p">()</span>
+    <span class="n">_sa_bind_participant_stats</span><span class="p">()</span>
+    <span class="n">_sa_bind_participant_timeline</span><span class="p">()</span>
+    <span class="n">_sa_bind_rune</span><span class="p">()</span>
+    <span class="n">_sa_bind_player</span><span class="p">()</span>
+    <span class="n">_sa_bind_banned_champion</span><span class="p">()</span>
+    <span class="n">_sa_bind_frame</span><span class="p">()</span>
+    <span class="n">_sa_bind_participant_timeline_data</span><span class="p">()</span>
+    <span class="n">_sa_bind_event</span><span class="p">()</span>
+    <span class="n">_sa_bind_participant_frame</span><span class="p">()</span>
+    <span class="n">_sa_bind_position</span><span class="p">()</span>
 </pre></div>
 
           </div>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.type.dto.summoner &mdash; Cassiopeia 0.0.1 documentation</title>
+    <title>cassiopeia.type.dto.summoner &mdash; Cassiopeia 0.0.2 documentation</title>
     
     <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../../',
-        VERSION:     '0.0.1',
+        VERSION:     '0.0.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.1 documentation" href="../../../../index.html" />
+    <link rel="top" title="Cassiopeia 0.0.2 documentation" href="../../../../index.html" />
     <link rel="up" title="Module code" href="../../../index.html" />
    
   
@@ -172,7 +172,7 @@
 <span class="c"># Dynamic SQLAlchemy bindings #</span>
 <span class="c">###############################</span>
 </div>
-<div class="viewcode-block" id="sa_bind_rune_page"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.summoner.sa_bind_rune_page">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_rune_page</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">_sa_bind_rune_page</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">RunePage</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">RunePage</span><span class="p">(</span><span class="n">RunePage</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -181,8 +181,8 @@
         <span class="nb">id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">name</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
         <span class="n">slots</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s">&quot;cassiopeia.type.dto.summoner.RuneSlot&quot;</span><span class="p">,</span> <span class="n">cascade</span><span class="o">=</span><span class="s">&quot;all, delete-orphan, delete, merge&quot;</span><span class="p">,</span> <span class="n">passive_deletes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-</div>
-<div class="viewcode-block" id="sa_bind_rune_slot"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.summoner.sa_bind_rune_slot">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_rune_slot</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_rune_slot</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">RuneSlot</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">RuneSlot</span><span class="p">(</span><span class="n">RuneSlot</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -191,8 +191,8 @@
         <span class="n">runeSlotId</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_page_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;RunePage.id&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_mastery_page"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.summoner.sa_bind_mastery_page">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_mastery_page</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_mastery_page</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">MasteryPage</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">MasteryPage</span><span class="p">(</span><span class="n">MasteryPage</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -201,8 +201,8 @@
         <span class="nb">id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">masteries</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s">&quot;cassiopeia.type.dto.summoner.Mastery&quot;</span><span class="p">,</span> <span class="n">cascade</span><span class="o">=</span><span class="s">&quot;all, delete-orphan, delete, merge&quot;</span><span class="p">,</span> <span class="n">passive_deletes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">name</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_mastery"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.summoner.sa_bind_mastery">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_mastery</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_mastery</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">Mastery</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">Mastery</span><span class="p">(</span><span class="n">Mastery</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -211,8 +211,8 @@
         <span class="n">rank</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_page_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;MasteryPage.id&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_summoner"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.summoner.sa_bind_summoner">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_summoner</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_summoner</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">Summoner</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">Summoner</span><span class="p">(</span><span class="n">Summoner</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -222,13 +222,13 @@
         <span class="n">profileIconId</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
         <span class="n">revisionDate</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">BigInteger</span><span class="p">)</span>
         <span class="n">summonerLevel</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
-</div>
-<div class="viewcode-block" id="sa_bind_all"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.summoner.sa_bind_all">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_all</span><span class="p">():</span>
-    <span class="n">sa_bind_rune_page</span><span class="p">()</span>
-    <span class="n">sa_bind_rune_slot</span><span class="p">()</span>
-    <span class="n">sa_bind_mastery_page</span><span class="p">()</span>
-    <span class="n">sa_bind_mastery</span><span class="p">()</span>
-    <span class="n">sa_bind_summoner</span><span class="p">()</span></div>
+
+<span class="k">def</span> <span class="nf">_sa_bind_all</span><span class="p">():</span>
+    <span class="n">_sa_bind_rune_page</span><span class="p">()</span>
+    <span class="n">_sa_bind_rune_slot</span><span class="p">()</span>
+    <span class="n">_sa_bind_mastery_page</span><span class="p">()</span>
+    <span class="n">_sa_bind_mastery</span><span class="p">()</span>
+    <span class="n">_sa_bind_summoner</span><span class="p">()</span>
 </pre></div>
 
           </div>

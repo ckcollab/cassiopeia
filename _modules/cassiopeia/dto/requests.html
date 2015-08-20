@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.dto.requests &mdash; Cassiopeia 0.0.1 documentation</title>
+    <title>cassiopeia.dto.requests &mdash; Cassiopeia 0.0.2 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.0.1',
+        VERSION:     '0.0.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.1 documentation" href="../../../index.html" />
+    <link rel="top" title="Cassiopeia 0.0.2 documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" />
    
   
@@ -106,11 +106,11 @@
     <span class="k">except</span> <span class="n">urllib</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">HTTPError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="c"># Reset rate limiter and retry on 429 (rate limit exceeded)</span>
         <span class="k">if</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="mi">429</span> <span class="ow">and</span> <span class="n">rate_limiter</span><span class="p">):</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">rate_limiter</span><span class="o">.</span><span class="n">reset_in</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">&quot;Retry-After&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-            <span class="k">except</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">):</span>
-                <span class="c"># Retry-Ater wasn&#39;t sent</span>
-                <span class="k">raise</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">APIError</span><span class="p">(</span><span class="s">&quot;Server returned error {code} on call: {url}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">code</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">),</span> <span class="n">e</span><span class="o">.</span><span class="n">code</span><span class="p">)</span>
+            <span class="n">retry_after</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">&quot;Retry-After&quot;</span><span class="p">]):</span>
+                <span class="n">retry_after</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">&quot;Retry-After&quot;</span><span class="p">])</span>
+                
+            <span class="n">rate_limiter</span><span class="o">.</span><span class="n">reset_in</span><span class="p">(</span><span class="n">retry_after</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">static</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">APIError</span><span class="p">(</span><span class="s">&quot;Server returned error {code} on call: {url}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">code</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">),</span> <span class="n">e</span><span class="o">.</span><span class="n">code</span><span class="p">)</span>

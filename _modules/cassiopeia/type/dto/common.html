@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.type.dto.common &mdash; Cassiopeia 0.0.1 documentation</title>
+    <title>cassiopeia.type.dto.common &mdash; Cassiopeia 0.0.2 documentation</title>
     
     <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../../',
-        VERSION:     '0.0.1',
+        VERSION:     '0.0.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.1 documentation" href="../../../../index.html" />
+    <link rel="top" title="Cassiopeia 0.0.2 documentation" href="../../../../index.html" />
     <link rel="up" title="Module code" href="../../../index.html" />
    
   
@@ -43,7 +43,7 @@
 <span class="kn">import</span> <span class="nn">sqlalchemy.types</span>
 <span class="kn">import</span> <span class="nn">sqlalchemy.ext.declarative</span>
 
-<div class="viewcode-block" id="CassiopeiaDto"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.dto.common.CassiopeiaDto">[docs]</a><span class="k">class</span> <span class="nc">CassiopeiaDto</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="CassiopeiaDto"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.CassiopeiaDto">[docs]</a><span class="k">class</span> <span class="nc">CassiopeiaDto</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;A Python representation of an object returned by the RiotAPI&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">):</span>
@@ -53,8 +53,11 @@
         <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
 
-<div class="viewcode-block" id="CassiopeiaDto.to_json"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.dto.common.CassiopeiaDto.to_json">[docs]</a>    <span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Gets a JSON representation of the object&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="CassiopeiaDto.to_json"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.CassiopeiaDto.to_json">[docs]</a>    <span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets a JSON representation of the object</span>
+<span class="sd">        </span>
+<span class="sd">        return    str    a JSON representation of the object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&quot;_&quot;</span><span class="p">)}</span>
         <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="k">lambda</span> <span class="n">o</span><span class="p">:</span> <span class="n">o</span><span class="o">.</span><span class="n">__dict__</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </div>
@@ -75,17 +78,17 @@
 </div>
 <span class="n">BaseDB</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">declarative</span><span class="o">.</span><span class="n">declarative_base</span><span class="p">()</span>
 
-<div class="viewcode-block" id="JSONEncoded"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.dto.common.JSONEncoded">[docs]</a><span class="k">class</span> <span class="nc">JSONEncoded</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">TypeDecorator</span><span class="p">):</span>
+<div class="viewcode-block" id="JSONEncoded"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.JSONEncoded">[docs]</a><span class="k">class</span> <span class="nc">JSONEncoded</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">TypeDecorator</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;JSON encoded storage for SQLAlchemy&quot;&quot;&quot;</span>
 
     <span class="n">impl</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Text</span>
 
-<div class="viewcode-block" id="JSONEncoded.process_bind_param"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.dto.common.JSONEncoded.process_bind_param">[docs]</a>    <span class="k">def</span> <span class="nf">process_bind_param</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+<div class="viewcode-block" id="JSONEncoded.process_bind_param"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.JSONEncoded.process_bind_param">[docs]</a>    <span class="k">def</span> <span class="nf">process_bind_param</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="n">value</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">value</span>
 </div>
-<div class="viewcode-block" id="JSONEncoded.process_result_value"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.dto.common.JSONEncoded.process_result_value">[docs]</a>    <span class="k">def</span> <span class="nf">process_result_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+<div class="viewcode-block" id="JSONEncoded.process_result_value"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.match.JSONEncoded.process_result_value">[docs]</a>    <span class="k">def</span> <span class="nf">process_result_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="n">value</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">value</span></div></div>

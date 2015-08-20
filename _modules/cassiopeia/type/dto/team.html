@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.type.dto.team &mdash; Cassiopeia 0.0.1 documentation</title>
+    <title>cassiopeia.type.dto.team &mdash; Cassiopeia 0.0.2 documentation</title>
     
     <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../../',
-        VERSION:     '0.0.1',
+        VERSION:     '0.0.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.1 documentation" href="../../../../index.html" />
+    <link rel="top" title="Cassiopeia 0.0.2 documentation" href="../../../../index.html" />
     <link rel="up" title="Module code" href="../../../index.html" />
    
   
@@ -162,7 +162,7 @@
 <span class="c"># Dynamic SQLAlchemy bindings #</span>
 <span class="c">###############################</span>
 </div>
-<div class="viewcode-block" id="sa_bind_team"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.team.sa_bind_team">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_team</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">_sa_bind_team</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">Team</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">Team</span><span class="p">(</span><span class="n">Team</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -181,8 +181,8 @@
         <span class="n">tag</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
         <span class="n">teamStatDetails</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s">&quot;cassiopeia.type.dto.team.TeamStatDetail&quot;</span><span class="p">,</span> <span class="n">cascade</span><span class="o">=</span><span class="s">&quot;all, delete-orphan&quot;</span><span class="p">,</span> <span class="n">passive_deletes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">thirdLastJoinDate</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">BigInteger</span><span class="p">)</span>
-</div>
-<div class="viewcode-block" id="sa_bind_match_history_summary"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.team.sa_bind_match_history_summary">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_match_history_summary</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_match_history_summary</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">MatchHistorySummary</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">MatchHistorySummary</span><span class="p">(</span><span class="n">MatchHistorySummary</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -200,8 +200,8 @@
         <span class="n">win</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Boolean</span><span class="p">)</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_team_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;Team.fullId&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_roster"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.team.sa_bind_roster">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_roster</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_roster</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">Roster</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">Roster</span><span class="p">(</span><span class="n">Roster</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -210,8 +210,8 @@
         <span class="n">ownerId</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_team_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;Team.fullId&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_team_stat_detail"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.team.sa_bind_team_stat_detail">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_team_stat_detail</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_team_stat_detail</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">TeamStatDetail</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">TeamStatDetail</span><span class="p">(</span><span class="n">TeamStatDetail</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -222,8 +222,8 @@
         <span class="n">wins</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_team_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;Team.fullId&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_team_member_info"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.team.sa_bind_team_member_info">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_team_member_info</span><span class="p">():</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_team_member_info</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">TeamMemberInfo</span>
     <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
     <span class="k">class</span> <span class="nc">TeamMemberInfo</span><span class="p">(</span><span class="n">TeamMemberInfo</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
@@ -234,13 +234,13 @@
         <span class="n">status</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">_roster_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;Roster._id&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
-</div>
-<div class="viewcode-block" id="sa_bind_all"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.team.sa_bind_all">[docs]</a><span class="k">def</span> <span class="nf">sa_bind_all</span><span class="p">():</span>
-    <span class="n">sa_bind_team</span><span class="p">()</span>
-    <span class="n">sa_bind_match_history_summary</span><span class="p">()</span>
-    <span class="n">sa_bind_roster</span><span class="p">()</span>
-    <span class="n">sa_bind_team_stat_detail</span><span class="p">()</span>
-    <span class="n">sa_bind_team_member_info</span><span class="p">()</span></div>
+
+<span class="k">def</span> <span class="nf">_sa_bind_all</span><span class="p">():</span>
+    <span class="n">_sa_bind_team</span><span class="p">()</span>
+    <span class="n">_sa_bind_match_history_summary</span><span class="p">()</span>
+    <span class="n">_sa_bind_roster</span><span class="p">()</span>
+    <span class="n">_sa_bind_team_stat_detail</span><span class="p">()</span>
+    <span class="n">_sa_bind_team_member_info</span><span class="p">()</span>
 </pre></div>
 
           </div>
