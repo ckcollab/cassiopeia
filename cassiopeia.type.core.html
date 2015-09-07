@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.type.core &mdash; Cassiopeia 0.0.2 documentation</title>
+    <title>cassiopeia.type.core &mdash; Cassiopeia 0.0.4 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.2',
+        VERSION:     '0.0.4',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.2 documentation" href="index.html" />
+    <link rel="top" title="Cassiopeia 0.0.4 documentation" href="index.html" />
     <link rel="up" title="cassiopeia.type" href="cassiopeia.type.html" />
     <link rel="next" title="cassiopeia.type.dto" href="cassiopeia.type.dto.html" />
     <link rel="prev" title="cassiopeia.type.api" href="cassiopeia.type.api.html" />
@@ -366,6 +366,12 @@
 <code class="descname">top_lane</code><em class="property"> = &lt;LaneType.top_lane: 'TOP_LANE'&gt;</em><a class="headerlink" href="#cassiopeia.type.core.common.LaneType.top_lane" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</dd></dl>
+
+<dl class="class">
+<dt id="cassiopeia.type.core.common.LazyProperty">
+<em class="property">class </em><code class="descclassname">cassiopeia.type.core.common.</code><code class="descname">LazyProperty</code><span class="sig-paren">(</span><em>method</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/common.html#LazyProperty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.common.LazyProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
@@ -1235,6 +1241,255 @@
 </dd></dl>
 
 <dl class="class">
+<dt id="cassiopeia.type.core.common.WeakDict">
+<em class="property">class </em><code class="descclassname">cassiopeia.type.core.common.</code><code class="descname">WeakDict</code><a class="reference internal" href="_modules/cassiopeia/type/core/common.html#WeakDict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.common.WeakDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/stdtypes.html#dict" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a></p>
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakDict.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None.  Remove all items from D.<a class="headerlink" href="#cassiopeia.type.core.common.WeakDict.clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakDict.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; a shallow copy of D<a class="headerlink" href="#cassiopeia.type.core.common.WeakDict.copy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakDict.fromkeys">
+<code class="descname">fromkeys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.common.WeakDict.fromkeys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new dict with keys from iterable and values equal to value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakDict.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>k</em><span class="optional">[</span>, <em>d</em><span class="optional">]</span><span class="sig-paren">)</span> &rarr; D[k] if k in D, else d.  d defaults to None.<a class="headerlink" href="#cassiopeia.type.core.common.WeakDict.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakDict.items">
+<code class="descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; a set-like object providing a view on D's items<a class="headerlink" href="#cassiopeia.type.core.common.WeakDict.items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakDict.keys">
+<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; a set-like object providing a view on D's keys<a class="headerlink" href="#cassiopeia.type.core.common.WeakDict.keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakDict.pop">
+<code class="descname">pop</code><span class="sig-paren">(</span><em>k</em><span class="optional">[</span>, <em>d</em><span class="optional">]</span><span class="sig-paren">)</span> &rarr; v, remove specified key and return the corresponding value.<a class="headerlink" href="#cassiopeia.type.core.common.WeakDict.pop" title="Permalink to this definition">¶</a></dt>
+<dd><p>If key is not found, d is returned if given, otherwise KeyError is raised</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakDict.popitem">
+<code class="descname">popitem</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; (k, v), remove and return some (key, value) pair as a<a class="headerlink" href="#cassiopeia.type.core.common.WeakDict.popitem" title="Permalink to this definition">¶</a></dt>
+<dd><p>2-tuple; but raise KeyError if D is empty.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakDict.setdefault">
+<code class="descname">setdefault</code><span class="sig-paren">(</span><em>k</em><span class="optional">[</span>, <em>d</em><span class="optional">]</span><span class="sig-paren">)</span> &rarr; D.get(k,d), also set D[k]=d if k not in D<a class="headerlink" href="#cassiopeia.type.core.common.WeakDict.setdefault" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakDict.update">
+<code class="descname">update</code><span class="sig-paren">(</span><span class="optional">[</span><em>E</em>, <span class="optional">]</span><em>**F</em><span class="sig-paren">)</span> &rarr; None.  Update D from dict/iterable E and F.<a class="headerlink" href="#cassiopeia.type.core.common.WeakDict.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>If E is present and has a .keys() method, then does:  for k in E: D[k] = E[k]
+If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v
+In either case, this is followed by: for k in F:  D[k] = F[k]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakDict.values">
+<code class="descname">values</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; an object providing a view on D's values<a class="headerlink" href="#cassiopeia.type.core.common.WeakDict.values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cassiopeia.type.core.common.WeakList">
+<em class="property">class </em><code class="descclassname">cassiopeia.type.core.common.</code><code class="descname">WeakList</code><a class="reference internal" href="_modules/cassiopeia/type/core/common.html#WeakList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.common.WeakList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a></p>
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakList.append">
+<code class="descname">append</code><span class="sig-paren">(</span><em>object</em><span class="sig-paren">)</span> &rarr; None -- append object to end<a class="headerlink" href="#cassiopeia.type.core.common.WeakList.append" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakList.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None -- remove all items from L<a class="headerlink" href="#cassiopeia.type.core.common.WeakList.clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakList.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; list -- a shallow copy of L<a class="headerlink" href="#cassiopeia.type.core.common.WeakList.copy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakList.count">
+<code class="descname">count</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span> &rarr; integer -- return number of occurrences of value<a class="headerlink" href="#cassiopeia.type.core.common.WeakList.count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakList.extend">
+<code class="descname">extend</code><span class="sig-paren">(</span><em>iterable</em><span class="sig-paren">)</span> &rarr; None -- extend list by appending elements from the iterable<a class="headerlink" href="#cassiopeia.type.core.common.WeakList.extend" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakList.index">
+<code class="descname">index</code><span class="sig-paren">(</span><em>value</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>stop</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &rarr; integer -- return first index of value.<a class="headerlink" href="#cassiopeia.type.core.common.WeakList.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raises ValueError if the value is not present.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakList.insert">
+<code class="descname">insert</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.common.WeakList.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>L.insert(index, object) &#8211; insert object before index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakList.pop">
+<code class="descname">pop</code><span class="sig-paren">(</span><span class="optional">[</span><em>index</em><span class="optional">]</span><span class="sig-paren">)</span> &rarr; item -- remove and return item at index (default last).<a class="headerlink" href="#cassiopeia.type.core.common.WeakList.pop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raises IndexError if list is empty or index is out of range.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakList.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span> &rarr; None -- remove first occurrence of value.<a class="headerlink" href="#cassiopeia.type.core.common.WeakList.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raises ValueError if the value is not present.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakList.reverse">
+<code class="descname">reverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.common.WeakList.reverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>L.reverse() &#8211; reverse <em>IN PLACE</em></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakList.sort">
+<code class="descname">sort</code><span class="sig-paren">(</span><em>key=None</em>, <em>reverse=False</em><span class="sig-paren">)</span> &rarr; None -- stable sort *IN PLACE*<a class="headerlink" href="#cassiopeia.type.core.common.WeakList.sort" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cassiopeia.type.core.common.WeakSet">
+<em class="property">class </em><code class="descclassname">cassiopeia.type.core.common.</code><code class="descname">WeakSet</code><a class="reference internal" href="_modules/cassiopeia/type/core/common.html#WeakSet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.common.WeakSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/stdtypes.html#set" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">set</span></code></a></p>
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakSet.add">
+<code class="descname">add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.common.WeakSet.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an element to a set.</p>
+<p>This has no effect if the element is already present.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakSet.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.common.WeakSet.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all elements from this set.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakSet.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.common.WeakSet.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a shallow copy of a set.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakSet.difference">
+<code class="descname">difference</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.common.WeakSet.difference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the difference of two or more sets as a new set.</p>
+<p>(i.e. all elements that are in this set but not the others.)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakSet.difference_update">
+<code class="descname">difference_update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.common.WeakSet.difference_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all elements of another set from this set.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakSet.discard">
+<code class="descname">discard</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.common.WeakSet.discard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove an element from a set if it is a member.</p>
+<p>If the element is not a member, do nothing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakSet.intersection">
+<code class="descname">intersection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.common.WeakSet.intersection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the intersection of two sets as a new set.</p>
+<p>(i.e. all elements that are in both sets.)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakSet.intersection_update">
+<code class="descname">intersection_update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.common.WeakSet.intersection_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a set with the intersection of itself and another.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakSet.isdisjoint">
+<code class="descname">isdisjoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.common.WeakSet.isdisjoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if two sets have a null intersection.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakSet.issubset">
+<code class="descname">issubset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.common.WeakSet.issubset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Report whether another set contains this set.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakSet.issuperset">
+<code class="descname">issuperset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.common.WeakSet.issuperset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Report whether this set contains another set.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakSet.pop">
+<code class="descname">pop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.common.WeakSet.pop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove and return an arbitrary set element.
+Raises KeyError if the set is empty.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakSet.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.common.WeakSet.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove an element from a set; it must be a member.</p>
+<p>If the element is not a member, raise a KeyError.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakSet.symmetric_difference">
+<code class="descname">symmetric_difference</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.common.WeakSet.symmetric_difference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the symmetric difference of two sets as a new set.</p>
+<p>(i.e. all elements that are in exactly one of the sets.)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakSet.symmetric_difference_update">
+<code class="descname">symmetric_difference_update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.common.WeakSet.symmetric_difference_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a set with the symmetric difference of itself and another.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakSet.union">
+<code class="descname">union</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.common.WeakSet.union" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the union of sets as a new set.</p>
+<p>(i.e. all elements that are in either set.)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cassiopeia.type.core.common.WeakSet.update">
+<code class="descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.common.WeakSet.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a set with the union of itself and others.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="cassiopeia.type.core.common.immutablemethod">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.common.</code><code class="descname">immutablemethod</code><span class="sig-paren">(</span><em>method</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/common.html#immutablemethod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.common.immutablemethod" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
@@ -1251,18 +1506,18 @@
 <p>return    class    the class with inherited documentation</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="function">
 <dt id="cassiopeia.type.core.common.lazyproperty">
-<em class="property">class </em><code class="descclassname">cassiopeia.type.core.common.</code><code class="descname">lazyproperty</code><span class="sig-paren">(</span><em>method</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/common.html#lazyproperty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.common.lazyproperty" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Makes a property load only once and store the result value to be returned to all later calls
-&#64;decorator</p>
+<code class="descclassname">cassiopeia.type.core.common.</code><code class="descname">lazyproperty</code><span class="sig-paren">(</span><em>method</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/common.html#lazyproperty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.common.lazyproperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes a property load only once and store the result value to be returned to all later calls</p>
+<p>method    function    the method to turn into a lazy property</p>
+<p>return    function    the method as a lazy property</p>
 </dd></dl>
 
 </div>
-<div class="section" id="cassiopeia-type-core-currentgame">
-<h2>cassiopeia.type.core.currentgame<a class="headerlink" href="#cassiopeia-type-core-currentgame" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-cassiopeia.type.core.currentgame"></span><dl class="class">
+<div class="section" id="module-cassiopeia.type.core.currentgame">
+<span id="cassiopeia-type-core-currentgame"></span><h2>cassiopeia.type.core.currentgame<a class="headerlink" href="#module-cassiopeia.type.core.currentgame" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
 <dt id="cassiopeia.type.core.currentgame.Ban">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.currentgame.</code><code class="descname">Ban</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/currentgame.html#Ban"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.currentgame.Ban" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.core.common.CassiopeiaObject" title="cassiopeia.type.core.common.CassiopeiaObject"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.core.common.CassiopeiaObject</span></code></a></p>
@@ -1304,9 +1559,27 @@
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.currentgame.</code><code class="descname">Game</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/currentgame.html#Game"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.currentgame.Game" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.core.common.CassiopeiaObject" title="cassiopeia.type.core.common.CassiopeiaObject"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.core.common.CassiopeiaObject</span></code></a></p>
 <dl class="attribute">
+<dt id="cassiopeia.type.core.currentgame.Game.bans">
+<code class="descname">bans</code><a class="headerlink" href="#cassiopeia.type.core.currentgame.Game.bans" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Ban&gt;    the bans for this game</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.currentgame.Game.creation">
+<code class="descname">creation</code><a class="headerlink" href="#cassiopeia.type.core.currentgame.Game.creation" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    the creation timestamp for this game</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.currentgame.Game.dto_type">
 <code class="descname">dto_type</code><a class="headerlink" href="#cassiopeia.type.core.currentgame.Game.dto_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">CurrentGameInfo</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.currentgame.Game.duration">
+<code class="descname">duration</code><a class="headerlink" href="#cassiopeia.type.core.currentgame.Game.duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>timedelta    current duration of the game</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1331,6 +1604,12 @@
 <dt id="cassiopeia.type.core.currentgame.Game.observer_token">
 <code class="descname">observer_token</code><a class="headerlink" href="#cassiopeia.type.core.currentgame.Game.observer_token" title="Permalink to this definition">¶</a></dt>
 <dd><p>str    the token associated with the observer for this game</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.currentgame.Game.participants">
+<code class="descname">participants</code><a class="headerlink" href="#cassiopeia.type.core.currentgame.Game.participants" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Participant&gt;    the game&#8217;s participants</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1383,9 +1662,21 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.currentgame.Participant.masteries">
+<code class="descname">masteries</code><a class="headerlink" href="#cassiopeia.type.core.currentgame.Participant.masteries" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Mastery&gt;    the participant&#8217;s masteries</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.currentgame.Participant.profile_icon_id">
 <code class="descname">profile_icon_id</code><a class="headerlink" href="#cassiopeia.type.core.currentgame.Participant.profile_icon_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>int    the participant&#8217;s profile icon&#8217;s id</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.currentgame.Participant.runes">
+<code class="descname">runes</code><a class="headerlink" href="#cassiopeia.type.core.currentgame.Participant.runes" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Rune&gt;    the participant&#8217;s rune</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1428,9 +1719,9 @@
 </dd></dl>
 
 </div>
-<div class="section" id="cassiopeia-type-core-featuredgames">
-<h2>cassiopeia.type.core.featuredgames<a class="headerlink" href="#cassiopeia-type-core-featuredgames" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-cassiopeia.type.core.featuredgames"></span><dl class="class">
+<div class="section" id="module-cassiopeia.type.core.featuredgames">
+<span id="cassiopeia-type-core-featuredgames"></span><h2>cassiopeia.type.core.featuredgames<a class="headerlink" href="#module-cassiopeia.type.core.featuredgames" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
 <dt id="cassiopeia.type.core.featuredgames.Ban">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.featuredgames.</code><code class="descname">Ban</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/featuredgames.html#Ban"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.featuredgames.Ban" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.core.common.CassiopeiaObject" title="cassiopeia.type.core.common.CassiopeiaObject"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.core.common.CassiopeiaObject</span></code></a></p>
@@ -1472,9 +1763,27 @@
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.featuredgames.</code><code class="descname">Game</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/featuredgames.html#Game"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.featuredgames.Game" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.core.common.CassiopeiaObject" title="cassiopeia.type.core.common.CassiopeiaObject"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.core.common.CassiopeiaObject</span></code></a></p>
 <dl class="attribute">
+<dt id="cassiopeia.type.core.featuredgames.Game.bans">
+<code class="descname">bans</code><a class="headerlink" href="#cassiopeia.type.core.featuredgames.Game.bans" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Ban&gt;    the bans for this game</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.featuredgames.Game.creation">
+<code class="descname">creation</code><a class="headerlink" href="#cassiopeia.type.core.featuredgames.Game.creation" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    the creation timestamp for this game</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.featuredgames.Game.dto_type">
 <code class="descname">dto_type</code><a class="headerlink" href="#cassiopeia.type.core.featuredgames.Game.dto_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">FeaturedGameInfo</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.featuredgames.Game.duration">
+<code class="descname">duration</code><a class="headerlink" href="#cassiopeia.type.core.featuredgames.Game.duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>timedelta    current duration of the game</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1499,6 +1808,12 @@
 <dt id="cassiopeia.type.core.featuredgames.Game.observer_token">
 <code class="descname">observer_token</code><a class="headerlink" href="#cassiopeia.type.core.featuredgames.Game.observer_token" title="Permalink to this definition">¶</a></dt>
 <dd><p>str    the token associated with the observer for this game</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.featuredgames.Game.participants">
+<code class="descname">participants</code><a class="headerlink" href="#cassiopeia.type.core.featuredgames.Game.participants" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Participant&gt;    the game&#8217;s participants</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1590,9 +1905,9 @@
 </dd></dl>
 
 </div>
-<div class="section" id="cassiopeia-type-core-game">
-<h2>cassiopeia.type.core.game<a class="headerlink" href="#cassiopeia-type-core-game" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-cassiopeia.type.core.game"></span><dl class="class">
+<div class="section" id="module-cassiopeia.type.core.game">
+<span id="cassiopeia-type-core-game"></span><h2>cassiopeia.type.core.game<a class="headerlink" href="#module-cassiopeia.type.core.game" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
 <dt id="cassiopeia.type.core.game.Game">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.game.</code><code class="descname">Game</code><span class="sig-paren">(</span><em>data</em>, <em>summoner_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/game.html#Game"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.game.Game" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.core.common.CassiopeiaObject" title="cassiopeia.type.core.common.CassiopeiaObject"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.core.common.CassiopeiaObject</span></code></a></p>
@@ -1600,6 +1915,12 @@
 <dt id="cassiopeia.type.core.game.Game.champion">
 <code class="descname">champion</code><a class="headerlink" href="#cassiopeia.type.core.game.Game.champion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Champion    the champion for the participant that this game was pulled using</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.game.Game.creation">
+<code class="descname">creation</code><a class="headerlink" href="#cassiopeia.type.core.game.Game.creation" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    the time when this game was created</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1645,9 +1966,21 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.game.Game.participants">
+<code class="descname">participants</code><a class="headerlink" href="#cassiopeia.type.core.game.Game.participants" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Participant&gt;    the participants in this game</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.game.Game.side">
 <code class="descname">side</code><a class="headerlink" href="#cassiopeia.type.core.game.Game.side" title="Permalink to this definition">¶</a></dt>
 <dd><p>Side    the side that the particpant was on (the one that this game was pulled using)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.game.Game.stats">
+<code class="descname">stats</code><a class="headerlink" href="#cassiopeia.type.core.game.Game.stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stats    the participant&#8217;s stats (the one that this game was pulled using)</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -2214,9 +2547,9 @@
 </dd></dl>
 
 </div>
-<div class="section" id="cassiopeia-type-core-league">
-<h2>cassiopeia.type.core.league<a class="headerlink" href="#cassiopeia-type-core-league" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-cassiopeia.type.core.league"></span><dl class="class">
+<div class="section" id="module-cassiopeia.type.core.league">
+<span id="cassiopeia-type-core-league"></span><h2>cassiopeia.type.core.league<a class="headerlink" href="#module-cassiopeia.type.core.league" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
 <dt id="cassiopeia.type.core.league.Entry">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.league.</code><code class="descname">Entry</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/league.html#Entry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.league.Entry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.core.common.CassiopeiaObject" title="cassiopeia.type.core.common.CassiopeiaObject"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.core.common.CassiopeiaObject</span></code></a></p>
@@ -2260,6 +2593,12 @@
 <dt id="cassiopeia.type.core.league.Entry.losses">
 <code class="descname">losses</code><a class="headerlink" href="#cassiopeia.type.core.league.Entry.losses" title="Permalink to this definition">¶</a></dt>
 <dd><p>int    the number of losses for the participant</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.league.Entry.series">
+<code class="descname">series</code><a class="headerlink" href="#cassiopeia.type.core.league.Entry.series" title="Permalink to this definition">¶</a></dt>
+<dd><p>Series    series data for the participant. Only present if the participant is currently in a mini series</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -2318,9 +2657,21 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.league.League.entries">
+<code class="descname">entries</code><a class="headerlink" href="#cassiopeia.type.core.league.League.entries" title="Permalink to this definition">¶</a></dt>
+<dd><p>a list of the requested league entries, sorted by LP</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.league.League.name">
 <code class="descname">name</code><a class="headerlink" href="#cassiopeia.type.core.league.League.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>str    the name of the league</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.league.League.participant_entry">
+<code class="descname">participant_entry</code><a class="headerlink" href="#cassiopeia.type.core.league.League.participant_entry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Entry    the entry for the relevant team or summoner that is a member of this league. Only present when full league is requested so that participant&#8217;s entry can be identified. None when individual entry is requested</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -2400,9 +2751,9 @@
 </dd></dl>
 
 </div>
-<div class="section" id="cassiopeia-type-core-match">
-<h2>cassiopeia.type.core.match<a class="headerlink" href="#cassiopeia-type-core-match" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-cassiopeia.type.core.match"></span><dl class="class">
+<div class="section" id="module-cassiopeia.type.core.match">
+<span id="cassiopeia-type-core-match"></span><h2>cassiopeia.type.core.match<a class="headerlink" href="#module-cassiopeia.type.core.match" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
 <dt id="cassiopeia.type.core.match.Ban">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.match.</code><code class="descname">Ban</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/match.html#Ban"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.match.Ban" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.core.common.CassiopeiaObject" title="cassiopeia.type.core.common.CassiopeiaObject"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.core.common.CassiopeiaObject</span></code></a></p>
@@ -2457,9 +2808,21 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.match.Event.assists">
+<code class="descname">assists</code><a class="headerlink" href="#cassiopeia.type.core.match.Event.assists" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Participant&gt;    the participants who assisted in the event</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.match.Event.building">
 <code class="descname">building</code><a class="headerlink" href="#cassiopeia.type.core.match.Event.building" title="Permalink to this definition">¶</a></dt>
 <dd><p>Building    the building type associated with the event, if any</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.Event.creator">
+<code class="descname">creator</code><a class="headerlink" href="#cassiopeia.type.core.match.Event.creator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Participant    the participant who created the event</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -2487,6 +2850,12 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.match.Event.killer">
+<code class="descname">killer</code><a class="headerlink" href="#cassiopeia.type.core.match.Event.killer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Participant    the participant who did the killing</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.match.Event.lane">
 <code class="descname">lane</code><a class="headerlink" href="#cassiopeia.type.core.match.Event.lane" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lane    the lane this event happened in</p>
@@ -2505,9 +2874,21 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.match.Event.participant">
+<code class="descname">participant</code><a class="headerlink" href="#cassiopeia.type.core.match.Event.participant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Participant    the primary participant that event happened to or who was involved in the event</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.match.Event.point_captured">
 <code class="descname">point_captured</code><a class="headerlink" href="#cassiopeia.type.core.match.Event.point_captured" title="Permalink to this definition">¶</a></dt>
 <dd><p>Point    dominion only, which point was captured</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.Event.position">
+<code class="descname">position</code><a class="headerlink" href="#cassiopeia.type.core.match.Event.position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Position    the position where the event occurred</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -2520,6 +2901,12 @@
 <dt id="cassiopeia.type.core.match.Event.skill_slot">
 <code class="descname">skill_slot</code><a class="headerlink" href="#cassiopeia.type.core.match.Event.skill_slot" title="Permalink to this definition">¶</a></dt>
 <dd><p>int    the skill slot of the event</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.Event.timestamp">
+<code class="descname">timestamp</code><a class="headerlink" href="#cassiopeia.type.core.match.Event.timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    the timestamp for this event</p>
 </dd></dl>
 
 <dl class="method">
@@ -2542,6 +2929,12 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.match.Event.victim">
+<code class="descname">victim</code><a class="headerlink" href="#cassiopeia.type.core.match.Event.victim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Participant    the victim!</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.match.Event.ward">
 <code class="descname">ward</code><a class="headerlink" href="#cassiopeia.type.core.match.Event.ward" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ward    the ward type associated with this event</p>
@@ -2559,6 +2952,24 @@
 <dd><p>alias of <a class="reference internal" href="#cassiopeia.type.core.match.Frame" title="cassiopeia.type.core.match.Frame"><code class="xref py py-class docutils literal"><span class="pre">Frame</span></code></a></p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.Frame.events">
+<code class="descname">events</code><a class="headerlink" href="#cassiopeia.type.core.match.Frame.events" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Event&gt;    the events in this frame</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.Frame.participant_frames">
+<code class="descname">participant_frames</code><a class="headerlink" href="#cassiopeia.type.core.match.Frame.participant_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>dict&lt;participantID:ParticipantFrame&gt;    the frames in for each participant</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.Frame.timestamp">
+<code class="descname">timestamp</code><a class="headerlink" href="#cassiopeia.type.core.match.Frame.timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    the timestamp for this match</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="cassiopeia.type.core.match.Frame.to_json">
 <code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.match.Frame.to_json" title="Permalink to this definition">¶</a></dt>
@@ -2573,9 +2984,33 @@
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.match.</code><code class="descname">Match</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/match.html#Match"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.match.Match" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.core.common.CassiopeiaObject" title="cassiopeia.type.core.common.CassiopeiaObject"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.core.common.CassiopeiaObject</span></code></a></p>
 <dl class="attribute">
+<dt id="cassiopeia.type.core.match.Match.blue_team">
+<code class="descname">blue_team</code><a class="headerlink" href="#cassiopeia.type.core.match.Match.blue_team" title="Permalink to this definition">¶</a></dt>
+<dd><p>Team   the team on the blue side</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.Match.creation">
+<code class="descname">creation</code><a class="headerlink" href="#cassiopeia.type.core.match.Match.creation" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    when the match was created</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.match.Match.dto_type">
 <code class="descname">dto_type</code><a class="headerlink" href="#cassiopeia.type.core.match.Match.dto_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">MatchDetail</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.Match.duration">
+<code class="descname">duration</code><a class="headerlink" href="#cassiopeia.type.core.match.Match.duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    duration of the match</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.Match.frames">
+<code class="descname">frames</code><a class="headerlink" href="#cassiopeia.type.core.match.Match.frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Frame&gt;    the frames in this match</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -2597,6 +3032,12 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.match.Match.participants">
+<code class="descname">participants</code><a class="headerlink" href="#cassiopeia.type.core.match.Match.participants" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Participant&gt;    the participants in this match</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.match.Match.platform">
 <code class="descname">platform</code><a class="headerlink" href="#cassiopeia.type.core.match.Match.platform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Platform    the platform (ie server) for this match</p>
@@ -2609,6 +3050,12 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.match.Match.red_team">
+<code class="descname">red_team</code><a class="headerlink" href="#cassiopeia.type.core.match.Match.red_team" title="Permalink to this definition">¶</a></dt>
+<dd><p>Team   the team on the red side</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.match.Match.region">
 <code class="descname">region</code><a class="headerlink" href="#cassiopeia.type.core.match.Match.region" title="Permalink to this definition">¶</a></dt>
 <dd><p>Region    the region the match was played in</p>
@@ -2618,6 +3065,12 @@
 <dt id="cassiopeia.type.core.match.Match.season">
 <code class="descname">season</code><a class="headerlink" href="#cassiopeia.type.core.match.Match.season" title="Permalink to this definition">¶</a></dt>
 <dd><p>Season    the season this match was played in</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.Match.timeline">
+<code class="descname">timeline</code><a class="headerlink" href="#cassiopeia.type.core.match.Match.timeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimeline    the participant&#8217;s timeline</p>
 </dd></dl>
 
 <dl class="method">
@@ -2664,6 +3117,12 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.match.Participant.masteries">
+<code class="descname">masteries</code><a class="headerlink" href="#cassiopeia.type.core.match.Participant.masteries" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Mastery&gt;    the participant&#8217;s masteries</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.match.Participant.match_history_uri">
 <code class="descname">match_history_uri</code><a class="headerlink" href="#cassiopeia.type.core.match.Participant.match_history_uri" title="Permalink to this definition">¶</a></dt>
 <dd><p>str    the the URI to access this player&#8217;s match history online</p>
@@ -2676,9 +3135,21 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.match.Participant.runes">
+<code class="descname">runes</code><a class="headerlink" href="#cassiopeia.type.core.match.Participant.runes" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Rune&gt;    the participant&#8217;s current runes</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.match.Participant.side">
 <code class="descname">side</code><a class="headerlink" href="#cassiopeia.type.core.match.Participant.side" title="Permalink to this definition">¶</a></dt>
 <dd><p>Side    the side this participant was on</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.Participant.stats">
+<code class="descname">stats</code><a class="headerlink" href="#cassiopeia.type.core.match.Participant.stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantStats    the participant&#8217;s stats</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -2703,6 +3174,12 @@
 <dt id="cassiopeia.type.core.match.Participant.summoner_spell_f">
 <code class="descname">summoner_spell_f</code><a class="headerlink" href="#cassiopeia.type.core.match.Participant.summoner_spell_f" title="Permalink to this definition">¶</a></dt>
 <dd><p>SummonerSpell    the participant&#8217;s second summoner spell</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.Participant.timeline">
+<code class="descname">timeline</code><a class="headerlink" href="#cassiopeia.type.core.match.Participant.timeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimeline    the participant&#8217;s timeline</p>
 </dd></dl>
 
 <dl class="method">
@@ -2752,6 +3229,12 @@
 <dt id="cassiopeia.type.core.match.ParticipantFrame.participant">
 <code class="descname">participant</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantFrame.participant" title="Permalink to this definition">¶</a></dt>
 <dd><p>Participant    the participant whose frames you are looking at</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantFrame.position">
+<code class="descname">position</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantFrame.position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Position    the participant&#8217;s position</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -3194,9 +3677,111 @@
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.match.</code><code class="descname">ParticipantTimeline</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/match.html#ParticipantTimeline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.core.common.CassiopeiaObject" title="cassiopeia.type.core.common.CassiopeiaObject"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.core.common.CassiopeiaObject</span></code></a></p>
 <dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.ancient_golem_assists_per_min_counts">
+<code class="descname">ancient_golem_assists_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.ancient_golem_assists_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    ancient golem assists per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.ancient_golem_kills_per_min_counts">
+<code class="descname">ancient_golem_kills_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.ancient_golem_kills_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    ancient golem kills per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.assisted_lane_deaths_per_min_deltas">
+<code class="descname">assisted_lane_deaths_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.assisted_lane_deaths_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    assisted lane deaths per minute timeline data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.assisted_lane_kills_per_min_deltas">
+<code class="descname">assisted_lane_kills_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.assisted_lane_kills_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    assisted lane kills per minute timeline data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.baron_assists_per_min_counts">
+<code class="descname">baron_assists_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.baron_assists_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    baron assists per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.baron_kills_per_min_counts">
+<code class="descname">baron_kills_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.baron_kills_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    baron kills per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.creeps_per_min_deltas">
+<code class="descname">creeps_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.creeps_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    creeps per minute timeline data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.cs_diff_per_min_deltas">
+<code class="descname">cs_diff_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.cs_diff_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    creep score difference per minute timeline data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.damage_taken_diff_per_min_deltas">
+<code class="descname">damage_taken_diff_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.damage_taken_diff_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    damage taken difference per minute timeline data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.damage_taken_per_min_deltas">
+<code class="descname">damage_taken_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.damage_taken_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    damage taken per minute timeline data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.dragon_assists_per_min_counts">
+<code class="descname">dragon_assists_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.dragon_assists_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    dragon assists per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.dragon_kills_per_min_counts">
+<code class="descname">dragon_kills_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.dragon_kills_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    dragon kills per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.match.ParticipantTimeline.dto_type">
 <code class="descname">dto_type</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.dto_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>alias of <a class="reference internal" href="#cassiopeia.type.core.match.ParticipantTimeline" title="cassiopeia.type.core.match.ParticipantTimeline"><code class="xref py py-class docutils literal"><span class="pre">ParticipantTimeline</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.elder_lizard_assists_per_min_counts">
+<code class="descname">elder_lizard_assists_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.elder_lizard_assists_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    elder lizard assists per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.elder_lizard_kills_per_min_counts">
+<code class="descname">elder_lizard_kills_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.elder_lizard_kills_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    elder lizard kills per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.gold_per_min_deltas">
+<code class="descname">gold_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.gold_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    gold per minute timeline data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.inhibitor_assists_per_min_counts">
+<code class="descname">inhibitor_assists_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.inhibitor_assists_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    inhibitor assists per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.inhibitor_kills_per_min_counts">
+<code class="descname">inhibitor_kills_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.inhibitor_kills_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    inhibitor kills per minute timeline counts</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -3211,11 +3796,59 @@
 <dd><p>Role    the role of this particiant</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.spider_assists_per_min_counts">
+<code class="descname">spider_assists_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.spider_assists_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    vilemaw assists per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.spider_kills_per_min_counts">
+<code class="descname">spider_kills_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.spider_kills_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    vilemaw kills per minute timeline counts</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="cassiopeia.type.core.match.ParticipantTimeline.to_json">
 <code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.turret_Kills_per_min_deltas">
+<code class="descname">turret_Kills_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.turret_Kills_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    tower kills per minute timeline data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.turret_assists_per_min_counts">
+<code class="descname">turret_assists_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.turret_assists_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    tower assists per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.turret_kills_per_min_counts">
+<code class="descname">turret_kills_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.turret_kills_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    tower kills per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.wards_per_min_deltas">
+<code class="descname">wards_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.wards_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    wards placed per minute timeline data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.xp_diff_per_min_deltas">
+<code class="descname">xp_diff_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.xp_diff_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    experience difference per minute timeline data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.ParticipantTimeline.xp_per_min_deltas">
+<code class="descname">xp_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.match.ParticipantTimeline.xp_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    experience per minute timeline data</p>
 </dd></dl>
 
 </dd></dl>
@@ -3298,6 +3931,12 @@
 <dt id="cassiopeia.type.core.match.Team">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.match.</code><code class="descname">Team</code><span class="sig-paren">(</span><em>data</em>, <em>participants</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/match.html#Team"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.match.Team" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.core.common.CassiopeiaObject" title="cassiopeia.type.core.common.CassiopeiaObject"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.core.common.CassiopeiaObject</span></code></a></p>
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.Team.bans">
+<code class="descname">bans</code><a class="headerlink" href="#cassiopeia.type.core.match.Team.bans" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Ban&gt;    the bans for this game</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="cassiopeia.type.core.match.Team.baron_kills">
 <code class="descname">baron_kills</code><a class="headerlink" href="#cassiopeia.type.core.match.Team.baron_kills" title="Permalink to this definition">¶</a></dt>
@@ -3407,6 +4046,18 @@
 <dd><p>alias of <a class="reference internal" href="#cassiopeia.type.core.match.Timeline" title="cassiopeia.type.core.match.Timeline"><code class="xref py py-class docutils literal"><span class="pre">Timeline</span></code></a></p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.Timeline.frame_interval">
+<code class="descname">frame_interval</code><a class="headerlink" href="#cassiopeia.type.core.match.Timeline.frame_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>timedelta    the number of milliseconds between frames</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.match.Timeline.frames">
+<code class="descname">frames</code><a class="headerlink" href="#cassiopeia.type.core.match.Timeline.frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Frame&gt;    the frames in this match</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="cassiopeia.type.core.match.Timeline.to_json">
 <code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.match.Timeline.to_json" title="Permalink to this definition">¶</a></dt>
@@ -3417,9 +4068,9 @@
 </dd></dl>
 
 </div>
-<div class="section" id="cassiopeia-type-core-matchhistory">
-<h2>cassiopeia.type.core.matchhistory<a class="headerlink" href="#cassiopeia-type-core-matchhistory" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-cassiopeia.type.core.matchhistory"></span><dl class="class">
+<div class="section" id="module-cassiopeia.type.core.matchhistory">
+<span id="cassiopeia-type-core-matchhistory"></span><h2>cassiopeia.type.core.matchhistory<a class="headerlink" href="#module-cassiopeia.type.core.matchhistory" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
 <dt id="cassiopeia.type.core.matchhistory.CombinedParticipant">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.matchhistory.</code><code class="descname">CombinedParticipant</code><span class="sig-paren">(</span><em>participant</em>, <em>identity</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/matchhistory.html#CombinedParticipant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.matchhistory.CombinedParticipant" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cassiopeia.type.dto.html#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
@@ -3437,9 +4088,21 @@
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.matchhistory.</code><code class="descname">MatchSummary</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/matchhistory.html#MatchSummary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.matchhistory.MatchSummary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.core.common.CassiopeiaObject" title="cassiopeia.type.core.common.CassiopeiaObject"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.core.common.CassiopeiaObject</span></code></a></p>
 <dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.MatchSummary.creation">
+<code class="descname">creation</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.MatchSummary.creation" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    when the match was created</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.matchhistory.MatchSummary.dto_type">
 <code class="descname">dto_type</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.MatchSummary.dto_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>alias of <a class="reference internal" href="#cassiopeia.type.core.matchhistory.MatchSummary" title="cassiopeia.type.core.matchhistory.MatchSummary"><code class="xref py py-class docutils literal"><span class="pre">MatchSummary</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.MatchSummary.duration">
+<code class="descname">duration</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.MatchSummary.duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    duration of the match</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -3456,7 +4119,7 @@
 
 <dl class="method">
 <dt id="cassiopeia.type.core.matchhistory.MatchSummary.match">
-<code class="descname">match</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.matchhistory.MatchSummary.match" title="Permalink to this definition">¶</a></dt>
+<code class="descname">match</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/matchhistory.html#MatchSummary.match"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.matchhistory.MatchSummary.match" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the full information for this match</p>
 <p>return    Match    the match</p>
 </dd></dl>
@@ -3465,6 +4128,12 @@
 <dt id="cassiopeia.type.core.matchhistory.MatchSummary.mode">
 <code class="descname">mode</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.MatchSummary.mode" title="Permalink to this definition">¶</a></dt>
 <dd><p>GameMode    the game mode of the match</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.MatchSummary.participants">
+<code class="descname">participants</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.MatchSummary.participants" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Participant&gt;    the participants in this match</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -3535,6 +4204,12 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.Participant.masteries">
+<code class="descname">masteries</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.Participant.masteries" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Mastery&gt;    the participant&#8217;s masteries</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.matchhistory.Participant.match_history_uri">
 <code class="descname">match_history_uri</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.Participant.match_history_uri" title="Permalink to this definition">¶</a></dt>
 <dd><p>str    the the URI to access this player&#8217;s match history online</p>
@@ -3544,6 +4219,12 @@
 <dt id="cassiopeia.type.core.matchhistory.Participant.previous_season_tier">
 <code class="descname">previous_season_tier</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.Participant.previous_season_tier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tier    the participant&#8217;s tier last season</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.Participant.runes">
+<code class="descname">runes</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.Participant.runes" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Rune&gt;    the participant&#8217;s current runes</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -3574,6 +4255,12 @@
 <dt id="cassiopeia.type.core.matchhistory.Participant.summoner_spell_f">
 <code class="descname">summoner_spell_f</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.Participant.summoner_spell_f" title="Permalink to this definition">¶</a></dt>
 <dd><p>SummonerSpell    the participant&#8217;s second summoner spell</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.Participant.timeline">
+<code class="descname">timeline</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.Participant.timeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimeline    the participant&#8217;s timeline</p>
 </dd></dl>
 
 <dl class="method">
@@ -3998,9 +4685,111 @@
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.matchhistory.</code><code class="descname">ParticipantTimeline</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/matchhistory.html#ParticipantTimeline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.core.common.CassiopeiaObject" title="cassiopeia.type.core.common.CassiopeiaObject"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.core.common.CassiopeiaObject</span></code></a></p>
 <dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.ancient_golem_assists_per_min_counts">
+<code class="descname">ancient_golem_assists_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.ancient_golem_assists_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    ancient golem assists per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.ancient_golem_kills_per_min_counts">
+<code class="descname">ancient_golem_kills_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.ancient_golem_kills_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    ancient golem kills per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.assisted_lane_deaths_per_min_deltas">
+<code class="descname">assisted_lane_deaths_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.assisted_lane_deaths_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    assisted lane deaths per minute timeline data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.assisted_lane_kills_per_min_deltas">
+<code class="descname">assisted_lane_kills_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.assisted_lane_kills_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    assisted lane kills per minute timeline data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.baron_assists_per_min_counts">
+<code class="descname">baron_assists_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.baron_assists_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    baron assists per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.baron_kills_per_min_counts">
+<code class="descname">baron_kills_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.baron_kills_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    baron kills per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.creeps_per_min_deltas">
+<code class="descname">creeps_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.creeps_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    creeps per minute timeline data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.cs_diff_per_min_deltas">
+<code class="descname">cs_diff_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.cs_diff_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    creep score difference per minute timeline data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.damage_taken_diff_per_min_deltas">
+<code class="descname">damage_taken_diff_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.damage_taken_diff_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    damage taken difference per minute timeline data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.damage_taken_per_min_deltas">
+<code class="descname">damage_taken_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.damage_taken_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    damage taken per minute timeline data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.dragon_assists_per_min_counts">
+<code class="descname">dragon_assists_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.dragon_assists_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    dragon assists per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.dragon_kills_per_min_counts">
+<code class="descname">dragon_kills_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.dragon_kills_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    dragon kills per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.dto_type">
 <code class="descname">dto_type</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.dto_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>alias of <a class="reference internal" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline" title="cassiopeia.type.core.matchhistory.ParticipantTimeline"><code class="xref py py-class docutils literal"><span class="pre">ParticipantTimeline</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.elder_lizard_assists_per_min_counts">
+<code class="descname">elder_lizard_assists_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.elder_lizard_assists_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    elder lizard assists per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.elder_lizard_kills_per_min_counts">
+<code class="descname">elder_lizard_kills_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.elder_lizard_kills_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    elder lizard kills per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.gold_per_min_deltas">
+<code class="descname">gold_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.gold_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    gold per minute timeline data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.inhibitor_assists_per_min_counts">
+<code class="descname">inhibitor_assists_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.inhibitor_assists_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    inhibitor assists per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.inhibitor_kills_per_min_counts">
+<code class="descname">inhibitor_kills_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.inhibitor_kills_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    inhibitor kills per minute timeline counts</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -4015,11 +4804,59 @@
 <dd><p>Role    the role of this particiant</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.spider_assists_per_min_counts">
+<code class="descname">spider_assists_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.spider_assists_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    vilemaw assists per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.spider_kills_per_min_counts">
+<code class="descname">spider_kills_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.spider_kills_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    vilemaw kills per minute timeline counts</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.to_json">
 <code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.turret_Kills_per_min_deltas">
+<code class="descname">turret_Kills_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.turret_Kills_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    tower kills per minute timeline data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.turret_assists_per_min_counts">
+<code class="descname">turret_assists_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.turret_assists_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    tower assists per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.turret_kills_per_min_counts">
+<code class="descname">turret_kills_per_min_counts</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.turret_kills_per_min_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    tower kills per minute timeline counts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.wards_per_min_deltas">
+<code class="descname">wards_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.wards_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    wards placed per minute timeline data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.xp_diff_per_min_deltas">
+<code class="descname">xp_diff_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.xp_diff_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    experience difference per minute timeline data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchhistory.ParticipantTimeline.xp_per_min_deltas">
+<code class="descname">xp_per_min_deltas</code><a class="headerlink" href="#cassiopeia.type.core.matchhistory.ParticipantTimeline.xp_per_min_deltas" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParticipantTimelineData    experience per minute timeline data</p>
 </dd></dl>
 
 </dd></dl>
@@ -4068,12 +4905,18 @@
 </dd></dl>
 
 </div>
-<div class="section" id="cassiopeia-type-core-matchlist">
-<h2>cassiopeia.type.core.matchlist<a class="headerlink" href="#cassiopeia-type-core-matchlist" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-cassiopeia.type.core.matchlist"></span><dl class="class">
+<div class="section" id="module-cassiopeia.type.core.matchlist">
+<span id="cassiopeia-type-core-matchlist"></span><h2>cassiopeia.type.core.matchlist<a class="headerlink" href="#module-cassiopeia.type.core.matchlist" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
 <dt id="cassiopeia.type.core.matchlist.MatchReference">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.matchlist.</code><code class="descname">MatchReference</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/matchlist.html#MatchReference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.matchlist.MatchReference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.core.common.CassiopeiaObject" title="cassiopeia.type.core.common.CassiopeiaObject"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.core.common.CassiopeiaObject</span></code></a></p>
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchlist.MatchReference.champion">
+<code class="descname">champion</code><a class="headerlink" href="#cassiopeia.type.core.matchlist.MatchReference.champion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Champion    the champion that the summoner played for the summoner that was used to pull this match reference</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="cassiopeia.type.core.matchlist.MatchReference.dto_type">
 <code class="descname">dto_type</code><a class="headerlink" href="#cassiopeia.type.core.matchlist.MatchReference.dto_type" title="Permalink to this definition">¶</a></dt>
@@ -4094,7 +4937,7 @@
 
 <dl class="method">
 <dt id="cassiopeia.type.core.matchlist.MatchReference.match">
-<code class="descname">match</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.matchlist.MatchReference.match" title="Permalink to this definition">¶</a></dt>
+<code class="descname">match</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/matchlist.html#MatchReference.match"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.matchlist.MatchReference.match" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the full information for this match</p>
 <p>return    Match    the match</p>
 </dd></dl>
@@ -4123,6 +4966,12 @@
 <dd><p>Season    the season that this match was played in</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cassiopeia.type.core.matchlist.MatchReference.timestamp">
+<code class="descname">timestamp</code><a class="headerlink" href="#cassiopeia.type.core.matchlist.MatchReference.timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    the timestamp for this match</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="cassiopeia.type.core.matchlist.MatchReference.to_json">
 <code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.matchlist.MatchReference.to_json" title="Permalink to this definition">¶</a></dt>
@@ -4133,9 +4982,9 @@
 </dd></dl>
 
 </div>
-<div class="section" id="cassiopeia-type-core-staticdata">
-<h2>cassiopeia.type.core.staticdata<a class="headerlink" href="#cassiopeia-type-core-staticdata" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-cassiopeia.type.core.staticdata"></span><dl class="class">
+<div class="section" id="module-cassiopeia.type.core.staticdata">
+<span id="cassiopeia-type-core-staticdata"></span><h2>cassiopeia.type.core.staticdata<a class="headerlink" href="#module-cassiopeia.type.core.staticdata" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
 <dt id="cassiopeia.type.core.staticdata.Champion">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.staticdata.</code><code class="descname">Champion</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/staticdata.html#Champion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.staticdata.Champion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.core.common.CassiopeiaObject" title="cassiopeia.type.core.common.CassiopeiaObject"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.core.common.CassiopeiaObject</span></code></a></p>
@@ -4170,6 +5019,18 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.Champion.image">
+<code class="descname">image</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Champion.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Image    the image of this champion</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.Champion.info">
+<code class="descname">info</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Champion.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>ChampionInfo    ratings of what this champion is good/bad at</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.staticdata.Champion.key">
 <code class="descname">key</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Champion.key" title="Permalink to this definition">¶</a></dt>
 <dd><p>str    the identifying key for this champion</p>
@@ -4188,15 +5049,46 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.Champion.passive">
+<code class="descname">passive</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Champion.passive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Passive    this champion&#8217;s passive</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.Champion.recommended_items">
+<code class="descname">recommended_items</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Champion.recommended_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;RecommendedItems&gt;    item recommendations for this champion</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.staticdata.Champion.resource">
 <code class="descname">resource</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Champion.resource" title="Permalink to this definition">¶</a></dt>
 <dd><p>str    the resource this champion uses</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.Champion.skins">
+<code class="descname">skins</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Champion.skins" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Skin&gt;    this champion&#8217;s skins</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.Champion.spells">
+<code class="descname">spells</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Champion.spells" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Spell&gt;    this champion&#8217;s spells</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.Champion.stats">
+<code class="descname">stats</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Champion.stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>ChampionStats    this champion&#8217;s combat stats</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="cassiopeia.type.core.staticdata.Champion.status">
-<code class="descname">status</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.staticdata.Champion.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>ChampionStatus    the current status of this champion (if they are disabled, etc)</p>
+<code class="descname">status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/staticdata.html#Champion.status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.staticdata.Champion.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the status for this champion (whether they are disabled, etc.)</p>
+<p>return      ChampionStatus    the champion&#8217;s status</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -4553,6 +5445,12 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.Item.gold">
+<code class="descname">gold</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Item.gold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gold    price information for this item</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.staticdata.Item.group">
 <code class="descname">group</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Item.group" title="Permalink to this definition">¶</a></dt>
 <dd><p>str    the group for this item</p>
@@ -4571,6 +5469,12 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.Item.image">
+<code class="descname">image</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Item.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Image    this item&#8217;s image</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.staticdata.Item.in_store">
 <code class="descname">in_store</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Item.in_store" title="Permalink to this definition">¶</a></dt>
 <dd><p>bool    well, we don&#8217;t know what this one is. let us know if you figure it out.</p>
@@ -4586,6 +5490,12 @@
 <dt id="cassiopeia.type.core.staticdata.Item.maps">
 <code class="descname">maps</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Item.maps" title="Permalink to this definition">¶</a></dt>
 <dd><p>dict&lt;str, bool&gt;    well, we don&#8217;t know what this one is. let us know if you figure it out.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.Item.meta_data">
+<code class="descname">meta_data</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Item.meta_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>MetaData    meta data about this item</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -4619,6 +5529,12 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.Item.stats">
+<code class="descname">stats</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Item.stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>ItemStats    the stats for this item</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.staticdata.Item.tags">
 <code class="descname">tags</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Item.tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>list&lt;str&gt;    this item&#8217;s tags for sorting items</p>
@@ -4647,6 +5563,12 @@
 <dt id="cassiopeia.type.core.staticdata.ItemSet.dto_type">
 <code class="descname">dto_type</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.ItemSet.dto_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">Block</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.ItemSet.items">
+<code class="descname">items</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.ItemSet.items" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;SetItem&gt;    the items in this item set</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -5109,6 +6031,12 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.MapDetails.image">
+<code class="descname">image</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.MapDetails.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Image    the image of this map</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.staticdata.MapDetails.map">
 <code class="descname">map</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.MapDetails.map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Map    the map</p>
@@ -5125,6 +6053,12 @@
 <code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.staticdata.MapDetails.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.MapDetails.unpurchasable_items">
+<code class="descname">unpurchasable_items</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.MapDetails.unpurchasable_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Item&gt;    the items that can&#8217;t be bought on this map</p>
 </dd></dl>
 
 </dd></dl>
@@ -5149,6 +6083,12 @@
 <dt id="cassiopeia.type.core.staticdata.Mastery.id">
 <code class="descname">id</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Mastery.id" title="Permalink to this definition">¶</a></dt>
 <dd><p>int    the ID of this mastery</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.Mastery.image">
+<code class="descname">image</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Mastery.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Image    this mastery&#8217;s image</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -5241,6 +6181,12 @@
 <dt id="cassiopeia.type.core.staticdata.Passive.dto_type">
 <code class="descname">dto_type</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Passive.dto_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>alias of <a class="reference internal" href="#cassiopeia.type.core.staticdata.Passive" title="cassiopeia.type.core.staticdata.Passive"><code class="xref py py-class docutils literal"><span class="pre">Passive</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.Passive.image">
+<code class="descname">image</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Passive.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Image    the image for the passive</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -5354,6 +6300,12 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.RecommendedItems.item_sets">
+<code class="descname">item_sets</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.RecommendedItems.item_sets" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;ItemSet&gt;    the sets of items that make up this reommended page</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.staticdata.RecommendedItems.map">
 <code class="descname">map</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.RecommendedItems.map" title="Permalink to this definition">¶</a></dt>
 <dd><p>str    the name of the map these recommendations are for</p>
@@ -5415,6 +6367,18 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.Rune.image">
+<code class="descname">image</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Rune.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Image    this rune&#8217;s image</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.Rune.meta_data">
+<code class="descname">meta_data</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Rune.meta_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>MetaData    meta data about this rune</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.staticdata.Rune.name">
 <code class="descname">name</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Rune.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>str    the name of this rune</p>
@@ -5430,6 +6394,12 @@
 <dt id="cassiopeia.type.core.staticdata.Rune.sanitized_description">
 <code class="descname">sanitized_description</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Rune.sanitized_description" title="Permalink to this definition">¶</a></dt>
 <dd><p>str    the sanitized description of this rune</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.Rune.stats">
+<code class="descname">stats</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Rune.stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>ItemStats    the stats for this rune</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -5532,6 +6502,12 @@
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.staticdata.</code><code class="descname">Spell</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/staticdata.html#Spell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.staticdata.Spell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.core.common.CassiopeiaObject" title="cassiopeia.type.core.common.CassiopeiaObject"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.core.common.CassiopeiaObject</span></code></a></p>
 <dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.Spell.alternate_images">
+<code class="descname">alternate_images</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Spell.alternate_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Image&gt;    the alternate images for this spell</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.staticdata.Spell.cooldown_burn">
 <code class="descname">cooldown_burn</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Spell.cooldown_burn" title="Permalink to this definition">¶</a></dt>
 <dd><p>str    a string formatted list of the spell&#8217;s cooldowns by level</p>
@@ -5586,9 +6562,21 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.Spell.image">
+<code class="descname">image</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Spell.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Image    the image for this spell</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.staticdata.Spell.key">
 <code class="descname">key</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Spell.key" title="Permalink to this definition">¶</a></dt>
 <dd><p>str    this spell&#8217;s identifying key</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.Spell.level_tip">
+<code class="descname">level_tip</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Spell.level_tip" title="Permalink to this definition">¶</a></dt>
+<dd><p>LevelTip    the level-up tips for this spell</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -5635,7 +6623,7 @@
 
 <dl class="method">
 <dt id="cassiopeia.type.core.staticdata.Spell.sanitized_tooltip_for_level">
-<code class="descname">sanitized_tooltip_for_level</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.staticdata.Spell.sanitized_tooltip_for_level" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sanitized_tooltip_for_level</code><span class="sig-paren">(</span><em>level</em>, <em>rank</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/staticdata.html#Spell.sanitized_tooltip_for_level"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.staticdata.Spell.sanitized_tooltip_for_level" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the sanitized tooltip for this spell for a specific level/rank</p>
 <p>level     int    the level of the champion
 rank      int    the rank of this spell</p>
@@ -5657,11 +6645,17 @@ rank      int    the rank of this spell</p>
 
 <dl class="method">
 <dt id="cassiopeia.type.core.staticdata.Spell.tooltip_for_level">
-<code class="descname">tooltip_for_level</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.staticdata.Spell.tooltip_for_level" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tooltip_for_level</code><span class="sig-paren">(</span><em>level</em>, <em>rank</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/staticdata.html#Spell.tooltip_for_level"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.staticdata.Spell.tooltip_for_level" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the tooltip for this spell for a specific level/rank</p>
 <p>level     int    the level of the champion
 rank      int    the rank of this spell</p>
 <p>return    str    the tooltip for that rank/level</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.Spell.variables">
+<code class="descname">variables</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.Spell.variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>SpellVariables    the variables that determine this spell&#8217;s damage</p>
 </dd></dl>
 
 </dd></dl>
@@ -5780,9 +6774,21 @@ rank      int    the rank of this spell</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.SummonerSpell.image">
+<code class="descname">image</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.SummonerSpell.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Image    the image for this spell</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.staticdata.SummonerSpell.key">
 <code class="descname">key</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.SummonerSpell.key" title="Permalink to this definition">¶</a></dt>
 <dd><p>str    this spell&#8217;s identifying key</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.SummonerSpell.leveltip">
+<code class="descname">leveltip</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.SummonerSpell.leveltip" title="Permalink to this definition">¶</a></dt>
+<dd><p>LevelTip    the level-up tips for this spell</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -5835,7 +6841,7 @@ rank      int    the rank of this spell</p>
 
 <dl class="method">
 <dt id="cassiopeia.type.core.staticdata.SummonerSpell.sanitized_tooltip_for_level">
-<code class="descname">sanitized_tooltip_for_level</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.staticdata.SummonerSpell.sanitized_tooltip_for_level" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sanitized_tooltip_for_level</code><span class="sig-paren">(</span><em>level</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/staticdata.html#SummonerSpell.sanitized_tooltip_for_level"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.staticdata.SummonerSpell.sanitized_tooltip_for_level" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the sanitized tooltip for this spell for a specific level</p>
 <p>level     int    the level of the champion</p>
 <p>return    str    the sanitized tooltip for that rank/level</p>
@@ -5862,18 +6868,24 @@ rank      int    the rank of this spell</p>
 
 <dl class="method">
 <dt id="cassiopeia.type.core.staticdata.SummonerSpell.tooltip_for_level">
-<code class="descname">tooltip_for_level</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.staticdata.SummonerSpell.tooltip_for_level" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tooltip_for_level</code><span class="sig-paren">(</span><em>level</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/staticdata.html#SummonerSpell.tooltip_for_level"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.staticdata.SummonerSpell.tooltip_for_level" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the tooltip for this spell for a specific level</p>
 <p>level     int    the level of the champion</p>
 <p>return    str    the tooltip for that rank/level</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cassiopeia.type.core.staticdata.SummonerSpell.variables">
+<code class="descname">variables</code><a class="headerlink" href="#cassiopeia.type.core.staticdata.SummonerSpell.variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>SpellVariables    the variables that determine this spell&#8217;s effects</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>
-<div class="section" id="cassiopeia-type-core-stats">
-<h2>cassiopeia.type.core.stats<a class="headerlink" href="#cassiopeia-type-core-stats" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-cassiopeia.type.core.stats"></span><dl class="class">
+<div class="section" id="module-cassiopeia.type.core.stats">
+<span id="cassiopeia-type-core-stats"></span><h2>cassiopeia.type.core.stats<a class="headerlink" href="#module-cassiopeia.type.core.stats" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
 <dt id="cassiopeia.type.core.stats.AggregatedStats">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.stats.</code><code class="descname">AggregatedStats</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/stats.html#AggregatedStats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.stats.AggregatedStats" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.core.common.CassiopeiaObject" title="cassiopeia.type.core.common.CassiopeiaObject"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.core.common.CassiopeiaObject</span></code></a></p>
@@ -6250,6 +7262,18 @@ rank      int    the rank of this spell</p>
 <dd><p>int    how many loses this participant has</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cassiopeia.type.core.stats.StatsSummary.modify_date">
+<code class="descname">modify_date</code><a class="headerlink" href="#cassiopeia.type.core.stats.StatsSummary.modify_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    the date when the stats were last updated (in epoch milliseconds)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.stats.StatsSummary.stats">
+<code class="descname">stats</code><a class="headerlink" href="#cassiopeia.type.core.stats.StatsSummary.stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>AggregatedStats    the aggregated stats (contains pretty much every stat you probably want to access)</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="cassiopeia.type.core.stats.StatsSummary.to_json">
 <code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.stats.StatsSummary.to_json" title="Permalink to this definition">¶</a></dt>
@@ -6272,9 +7296,9 @@ rank      int    the rank of this spell</p>
 </dd></dl>
 
 </div>
-<div class="section" id="cassiopeia-type-core-status">
-<h2>cassiopeia.type.core.status<a class="headerlink" href="#cassiopeia-type-core-status" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-cassiopeia.type.core.status"></span><dl class="class">
+<div class="section" id="module-cassiopeia.type.core.status">
+<span id="cassiopeia-type-core-status"></span><h2>cassiopeia.type.core.status<a class="headerlink" href="#module-cassiopeia.type.core.status" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
 <dt id="cassiopeia.type.core.status.Incident">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.status.</code><code class="descname">Incident</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/status.html#Incident"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.status.Incident" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.core.common.CassiopeiaObject" title="cassiopeia.type.core.common.CassiopeiaObject"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.core.common.CassiopeiaObject</span></code></a></p>
@@ -6282,6 +7306,12 @@ rank      int    the rank of this spell</p>
 <dt id="cassiopeia.type.core.status.Incident.active">
 <code class="descname">active</code><a class="headerlink" href="#cassiopeia.type.core.status.Incident.active" title="Permalink to this definition">¶</a></dt>
 <dd><p>boolean    whether or not this incident is active</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.status.Incident.created">
+<code class="descname">created</code><a class="headerlink" href="#cassiopeia.type.core.status.Incident.created" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime.datetime    when this incident was created</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -6303,6 +7333,12 @@ rank      int    the rank of this spell</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cassiopeia.type.core.status.Incident.updates">
+<code class="descname">updates</code><a class="headerlink" href="#cassiopeia.type.core.status.Incident.updates" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Message&gt;    the updates associated with this incident</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -6319,6 +7355,12 @@ rank      int    the rank of this spell</p>
 <dt id="cassiopeia.type.core.status.Message.content">
 <code class="descname">content</code><a class="headerlink" href="#cassiopeia.type.core.status.Message.content" title="Permalink to this definition">¶</a></dt>
 <dd><p>str    the content of this message</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.status.Message.created">
+<code class="descname">created</code><a class="headerlink" href="#cassiopeia.type.core.status.Message.created" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime.datetime    whent his message was created</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -6346,6 +7388,18 @@ rank      int    the rank of this spell</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cassiopeia.type.core.status.Message.translations">
+<code class="descname">translations</code><a class="headerlink" href="#cassiopeia.type.core.status.Message.translations" title="Permalink to this definition">¶</a></dt>
+<dd><p>dict&lt;translation.locale: Translation&gt;    the translated text of this message</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.status.Message.updated">
+<code class="descname">updated</code><a class="headerlink" href="#cassiopeia.type.core.status.Message.updated" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime.datetime    when this message was last updated</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -6356,6 +7410,12 @@ rank      int    the rank of this spell</p>
 <dt id="cassiopeia.type.core.status.Service.dto_type">
 <code class="descname">dto_type</code><a class="headerlink" href="#cassiopeia.type.core.status.Service.dto_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>alias of <a class="reference internal" href="#cassiopeia.type.core.status.Service" title="cassiopeia.type.core.status.Service"><code class="xref py py-class docutils literal"><span class="pre">Service</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.status.Service.incidents">
+<code class="descname">incidents</code><a class="headerlink" href="#cassiopeia.type.core.status.Service.incidents" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Incident&gt;    the incidents associated with this server</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -6474,6 +7534,12 @@ rank      int    the rank of this spell</p>
 <dd><p>Region    the region of the server is located in</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cassiopeia.type.core.status.ShardStatus.services">
+<code class="descname">services</code><a class="headerlink" href="#cassiopeia.type.core.status.ShardStatus.services" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Service&gt;    the services that this region offers</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="cassiopeia.type.core.status.ShardStatus.to_json">
 <code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.status.ShardStatus.to_json" title="Permalink to this definition">¶</a></dt>
@@ -6512,12 +7578,18 @@ rank      int    the rank of this spell</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cassiopeia.type.core.status.Translation.updated">
+<code class="descname">updated</code><a class="headerlink" href="#cassiopeia.type.core.status.Translation.updated" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime.datetime    when this translation was last updated</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>
-<div class="section" id="cassiopeia-type-core-summoner">
-<h2>cassiopeia.type.core.summoner<a class="headerlink" href="#cassiopeia-type-core-summoner" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-cassiopeia.type.core.summoner"></span><dl class="class">
+<div class="section" id="module-cassiopeia.type.core.summoner">
+<span id="cassiopeia-type-core-summoner"></span><h2>cassiopeia.type.core.summoner<a class="headerlink" href="#module-cassiopeia.type.core.summoner" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
 <dt id="cassiopeia.type.core.summoner.MasteryPage">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.summoner.</code><code class="descname">MasteryPage</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/summoner.html#MasteryPage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.summoner.MasteryPage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.core.common.CassiopeiaObject" title="cassiopeia.type.core.common.CassiopeiaObject"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.core.common.CassiopeiaObject</span></code></a></p>
@@ -6537,6 +7609,12 @@ rank      int    the rank of this spell</p>
 <dt id="cassiopeia.type.core.summoner.MasteryPage.id">
 <code class="descname">id</code><a class="headerlink" href="#cassiopeia.type.core.summoner.MasteryPage.id" title="Permalink to this definition">¶</a></dt>
 <dd><p>int    the id of the mastery page for this summoner</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.summoner.MasteryPage.masteries">
+<code class="descname">masteries</code><a class="headerlink" href="#cassiopeia.type.core.summoner.MasteryPage.masteries" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Mastery&gt;    this mastery page&#8217;s masteries</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -6582,6 +7660,12 @@ rank      int    the rank of this spell</p>
 <dd><p>str    the name of this summoner&#8217;s rune page</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cassiopeia.type.core.summoner.RunePage.runes">
+<code class="descname">runes</code><a class="headerlink" href="#cassiopeia.type.core.summoner.RunePage.runes" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;Rune&gt;    the runes in this rune page</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="cassiopeia.type.core.summoner.RunePage.to_json">
 <code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.summoner.RunePage.to_json" title="Permalink to this definition">¶</a></dt>
@@ -6597,7 +7681,7 @@ rank      int    the rank of this spell</p>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.core.common.CassiopeiaObject" title="cassiopeia.type.core.common.CassiopeiaObject"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.core.common.CassiopeiaObject</span></code></a></p>
 <dl class="method">
 <dt id="cassiopeia.type.core.summoner.Summoner.current_game">
-<code class="descname">current_game</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.current_game" title="Permalink to this definition">¶</a></dt>
+<code class="descname">current_game</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/summoner.html#Summoner.current_game"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.current_game" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the game the summoner is currently in, if they&#8217;re in one</p>
 <p>return    Game    the game they&#8217;re in (or None if they aren&#8217;t in one)</p>
 </dd></dl>
@@ -6616,14 +7700,14 @@ rank      int    the rank of this spell</p>
 
 <dl class="method">
 <dt id="cassiopeia.type.core.summoner.Summoner.league_entries">
-<code class="descname">league_entries</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.league_entries" title="Permalink to this definition">¶</a></dt>
+<code class="descname">league_entries</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/summoner.html#Summoner.league_entries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.league_entries" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the leagues that the summoner belongs to, including only their own entries</p>
 <p>return    list&lt;League&gt;    the leagues that the summoner belongs to</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cassiopeia.type.core.summoner.Summoner.leagues">
-<code class="descname">leagues</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.leagues" title="Permalink to this definition">¶</a></dt>
+<code class="descname">leagues</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/summoner.html#Summoner.leagues"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.leagues" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the leagues that the summoner belongs to. You probably don&#8217;t want to call this with LoadPolicy.eager set.</p>
 <p>return    list&lt;League&gt;   the leagues that the summoner belongs to</p>
 </dd></dl>
@@ -6636,14 +7720,14 @@ rank      int    the rank of this spell</p>
 
 <dl class="method">
 <dt id="cassiopeia.type.core.summoner.Summoner.mastery_pages">
-<code class="descname">mastery_pages</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.mastery_pages" title="Permalink to this definition">¶</a></dt>
+<code class="descname">mastery_pages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/summoner.html#Summoner.mastery_pages"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.mastery_pages" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the summoner&#8217;s mastery pages</p>
 <p>return    list&lt;RunePage&gt;    the summoner&#8217;s mastery pages</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cassiopeia.type.core.summoner.Summoner.match_history">
-<code class="descname">match_history</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.match_history" title="Permalink to this definition">¶</a></dt>
+<code class="descname">match_history</code><span class="sig-paren">(</span><em>begin_index=0</em>, <em>champions=None</em>, <em>ranked_queues=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/summoner.html#Summoner.match_history"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.match_history" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the summoner&#8217;s match history</p>
 <p>begin_index     int                          the game index to start from (default 0)
 champions       Champion | list&lt;Champion&gt;    the champion(s) to limit the results to (default None)
@@ -6653,7 +7737,7 @@ ranked_queue    Queue | list&lt;Queue&gt;          the ranked queue(s) to limit 
 
 <dl class="method">
 <dt id="cassiopeia.type.core.summoner.Summoner.match_list">
-<code class="descname">match_list</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.match_list" title="Permalink to this definition">¶</a></dt>
+<code class="descname">match_list</code><span class="sig-paren">(</span><em>begin_index=-1</em>, <em>begin_time=0</em>, <em>end_time=0</em>, <em>champions=None</em>, <em>ranked_queues=None</em>, <em>seasons=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/summoner.html#Summoner.match_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.match_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the summoner&#8217;s match history</p>
 <p>begin_index     int                          the game index to start from (default -1)
 begin_time      int | datetime               the begin time to use for fetching games (default 0)
@@ -6662,6 +7746,12 @@ champions       Champion | list&lt;Champion&gt;    the champion(s) to limit the 
 ranked_queue    Queue | list&lt;Queue&gt;          the ranked queue(s) to limit the results to (default None)
 seasons         Season | list&lt;Season&gt;        the season(s) to limit the results to (default None)</p>
 <p>return          list&lt;MatchSummary&gt;           the summoner&#8217;s match history</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.summoner.Summoner.modify_date">
+<code class="descname">modify_date</code><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.modify_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    the date this summoner was last modified specified as epoch milliseconds. The following events will update this timestamp: profile icon change, playing the tutorial or advanced tutorial, finishing a game, summoner name change</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -6678,7 +7768,7 @@ seasons         Season | list&lt;Season&gt;        the season(s) to limit the re
 
 <dl class="method">
 <dt id="cassiopeia.type.core.summoner.Summoner.ranked_stats">
-<code class="descname">ranked_stats</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.ranked_stats" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ranked_stats</code><span class="sig-paren">(</span><em>season=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/summoner.html#Summoner.ranked_stats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.ranked_stats" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the summoner&#8217;s ranked stats</p>
 <p>season    Season                             the season to get ranked stats for (None will give current season stats) (default None)</p>
 <p>return    dict&lt;Champion, AggregatedStats&gt;    the summoner&#8217;s ranked stats divided by champion. The entry for None contains combined stats for all champions.</p>
@@ -6686,21 +7776,21 @@ seasons         Season | list&lt;Season&gt;        the season(s) to limit the re
 
 <dl class="method">
 <dt id="cassiopeia.type.core.summoner.Summoner.recent_games">
-<code class="descname">recent_games</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.recent_games" title="Permalink to this definition">¶</a></dt>
+<code class="descname">recent_games</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/summoner.html#Summoner.recent_games"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.recent_games" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the most recent games the summoner played</p>
 <p>return    list&lt;Game&gt;    the summoner&#8217;s recent games</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cassiopeia.type.core.summoner.Summoner.rune_pages">
-<code class="descname">rune_pages</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.rune_pages" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rune_pages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/summoner.html#Summoner.rune_pages"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.rune_pages" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the summoner&#8217;s rune pages</p>
 <p>return    list&lt;RunePage&gt;    the summoner&#8217;s rune pages</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cassiopeia.type.core.summoner.Summoner.stats">
-<code class="descname">stats</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.stats" title="Permalink to this definition">¶</a></dt>
+<code class="descname">stats</code><span class="sig-paren">(</span><em>season=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/summoner.html#Summoner.stats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.stats" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the summoner&#8217;s stats</p>
 <p>season    Season                                 the season to get stats for (None will give current season stats) (default None)</p>
 <p>return    dict&lt;StatSummaryType, StatsSummary&gt;    the summoner&#8217;s stats divided by queue type</p>
@@ -6708,7 +7798,7 @@ seasons         Season | list&lt;Season&gt;        the season(s) to limit the re
 
 <dl class="method">
 <dt id="cassiopeia.type.core.summoner.Summoner.teams">
-<code class="descname">teams</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.teams" title="Permalink to this definition">¶</a></dt>
+<code class="descname">teams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/summoner.html#Summoner.teams"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.summoner.Summoner.teams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the summoner&#8217;s&#8216; teams</p>
 <p>return    list&lt;Team&gt;    the summoner&#8217;s teams</p>
 </dd></dl>
@@ -6723,9 +7813,9 @@ seasons         Season | list&lt;Season&gt;        the season(s) to limit the re
 </dd></dl>
 
 </div>
-<div class="section" id="cassiopeia-type-core-team">
-<h2>cassiopeia.type.core.team<a class="headerlink" href="#cassiopeia-type-core-team" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-cassiopeia.type.core.team"></span><dl class="class">
+<div class="section" id="module-cassiopeia.type.core.team">
+<span id="cassiopeia-type-core-team"></span><h2>cassiopeia.type.core.team<a class="headerlink" href="#module-cassiopeia.type.core.team" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
 <dt id="cassiopeia.type.core.team.MatchSummary">
 <em class="property">class </em><code class="descclassname">cassiopeia.type.core.team.</code><code class="descname">MatchSummary</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/team.html#MatchSummary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.team.MatchSummary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.core.common.CassiopeiaObject" title="cassiopeia.type.core.common.CassiopeiaObject"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.core.common.CassiopeiaObject</span></code></a></p>
@@ -6733,6 +7823,12 @@ seasons         Season | list&lt;Season&gt;        the season(s) to limit the re
 <dt id="cassiopeia.type.core.team.MatchSummary.assists">
 <code class="descname">assists</code><a class="headerlink" href="#cassiopeia.type.core.team.MatchSummary.assists" title="Permalink to this definition">¶</a></dt>
 <dd><p>int    the number of assists the team had</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.team.MatchSummary.date">
+<code class="descname">date</code><a class="headerlink" href="#cassiopeia.type.core.team.MatchSummary.date" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    the date that match was completed specified as epoch milliseconds</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -6779,7 +7875,7 @@ seasons         Season | list&lt;Season&gt;        the season(s) to limit the re
 
 <dl class="method">
 <dt id="cassiopeia.type.core.team.MatchSummary.match">
-<code class="descname">match</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.team.MatchSummary.match" title="Permalink to this definition">¶</a></dt>
+<code class="descname">match</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/team.html#MatchSummary.match"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.team.MatchSummary.match" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the full information for this match</p>
 <p>return    Match    the match</p>
 </dd></dl>
@@ -6871,6 +7967,12 @@ seasons         Season | list&lt;Season&gt;        the season(s) to limit the re
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.team.Team.creation">
+<code class="descname">creation</code><a class="headerlink" href="#cassiopeia.type.core.team.Team.creation" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    the creation date of the team</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.team.Team.dto_type">
 <code class="descname">dto_type</code><a class="headerlink" href="#cassiopeia.type.core.team.Team.dto_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>alias of <a class="reference internal" href="#cassiopeia.type.core.team.Team" title="cassiopeia.type.core.team.Team"><code class="xref py py-class docutils literal"><span class="pre">Team</span></code></a></p>
@@ -6882,18 +7984,48 @@ seasons         Season | list&lt;Season&gt;        the season(s) to limit the re
 <dd><p>int    the team&#8217;s id</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cassiopeia.type.core.team.Team.last_game">
+<code class="descname">last_game</code><a class="headerlink" href="#cassiopeia.type.core.team.Team.last_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    the date and time for the team&#8217;s last game in epoch milliseconds</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.team.Team.last_join">
+<code class="descname">last_join</code><a class="headerlink" href="#cassiopeia.type.core.team.Team.last_join" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    the date and time for when the most recent team member joined in epoch milliseconds</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.team.Team.last_queue">
+<code class="descname">last_queue</code><a class="headerlink" href="#cassiopeia.type.core.team.Team.last_queue" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    the date the team last joined the ranked team queue in epoch milliseconds</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="cassiopeia.type.core.team.Team.league_entries">
-<code class="descname">league_entries</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.team.Team.league_entries" title="Permalink to this definition">¶</a></dt>
+<code class="descname">league_entries</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/team.html#Team.league_entries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.team.Team.league_entries" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the leagues that the summoner belongs to, including only their own entries</p>
 <p>return    list&lt;League&gt;    the leagues that the summoner belongs to</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cassiopeia.type.core.team.Team.leagues">
-<code class="descname">leagues</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.core.team.Team.leagues" title="Permalink to this definition">¶</a></dt>
+<code class="descname">leagues</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/core/team.html#Team.leagues"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.core.team.Team.leagues" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the leagues that the summoner belongs to. You probably don&#8217;t want to call this with LoadPolicy.eager set.</p>
 <p>return    list&lt;League&gt;   the leagues that the summoner belongs to</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.team.Team.match_history">
+<code class="descname">match_history</code><a class="headerlink" href="#cassiopeia.type.core.team.Team.match_history" title="Permalink to this definition">¶</a></dt>
+<dd><p>list&lt;MatchSummary&gt;    the match history of the team</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.team.Team.modify">
+<code class="descname">modify</code><a class="headerlink" href="#cassiopeia.type.core.team.Team.modify" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    the date that team was last modified specified as epoch milliseconds</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -6909,6 +8041,18 @@ seasons         Season | list&lt;Season&gt;        the season(s) to limit the re
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cassiopeia.type.core.team.Team.second_to_last_join">
+<code class="descname">second_to_last_join</code><a class="headerlink" href="#cassiopeia.type.core.team.Team.second_to_last_join" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    the date the second to last member joined specified as epoch milliseconds</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.team.Team.stats">
+<code class="descname">stats</code><a class="headerlink" href="#cassiopeia.type.core.team.Team.stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stats    the team&#8217;s stats</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cassiopeia.type.core.team.Team.status">
 <code class="descname">status</code><a class="headerlink" href="#cassiopeia.type.core.team.Team.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>str    the status of the team</p>
@@ -6918,6 +8062,12 @@ seasons         Season | list&lt;Season&gt;        the season(s) to limit the re
 <dt id="cassiopeia.type.core.team.Team.tag">
 <code class="descname">tag</code><a class="headerlink" href="#cassiopeia.type.core.team.Team.tag" title="Permalink to this definition">¶</a></dt>
 <dd><p>str    the team&#8217;s tag</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.team.Team.third_to_last_join">
+<code class="descname">third_to_last_join</code><a class="headerlink" href="#cassiopeia.type.core.team.Team.third_to_last_join" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    the date the third to last member joined specified as epoch milliseconds</p>
 </dd></dl>
 
 <dl class="method">
@@ -6937,6 +8087,18 @@ seasons         Season | list&lt;Season&gt;        the season(s) to limit the re
 <dt id="cassiopeia.type.core.team.TeamMember.dto_type">
 <code class="descname">dto_type</code><a class="headerlink" href="#cassiopeia.type.core.team.TeamMember.dto_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">TeamMemberInfo</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.team.TeamMember.invite">
+<code class="descname">invite</code><a class="headerlink" href="#cassiopeia.type.core.team.TeamMember.invite" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    the date this team member was invited to team specified as epoch milliseconds</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cassiopeia.type.core.team.TeamMember.join">
+<code class="descname">join</code><a class="headerlink" href="#cassiopeia.type.core.team.TeamMember.join" title="Permalink to this definition">¶</a></dt>
+<dd><p>datetime    the date this team member joined the team specified as epoch milliseconds</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -6974,18 +8136,18 @@ seasons         Season | list&lt;Season&gt;        the season(s) to limit the re
 <li><a class="reference internal" href="#">cassiopeia.type.core</a><ul>
 <li><a class="reference internal" href="#module-cassiopeia.type.core.champion">cassiopeia.type.core.champion</a></li>
 <li><a class="reference internal" href="#module-cassiopeia.type.core.common">cassiopeia.type.core.common</a></li>
-<li><a class="reference internal" href="#cassiopeia-type-core-currentgame">cassiopeia.type.core.currentgame</a></li>
-<li><a class="reference internal" href="#cassiopeia-type-core-featuredgames">cassiopeia.type.core.featuredgames</a></li>
-<li><a class="reference internal" href="#cassiopeia-type-core-game">cassiopeia.type.core.game</a></li>
-<li><a class="reference internal" href="#cassiopeia-type-core-league">cassiopeia.type.core.league</a></li>
-<li><a class="reference internal" href="#cassiopeia-type-core-match">cassiopeia.type.core.match</a></li>
-<li><a class="reference internal" href="#cassiopeia-type-core-matchhistory">cassiopeia.type.core.matchhistory</a></li>
-<li><a class="reference internal" href="#cassiopeia-type-core-matchlist">cassiopeia.type.core.matchlist</a></li>
-<li><a class="reference internal" href="#cassiopeia-type-core-staticdata">cassiopeia.type.core.staticdata</a></li>
-<li><a class="reference internal" href="#cassiopeia-type-core-stats">cassiopeia.type.core.stats</a></li>
-<li><a class="reference internal" href="#cassiopeia-type-core-status">cassiopeia.type.core.status</a></li>
-<li><a class="reference internal" href="#cassiopeia-type-core-summoner">cassiopeia.type.core.summoner</a></li>
-<li><a class="reference internal" href="#cassiopeia-type-core-team">cassiopeia.type.core.team</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.core.currentgame">cassiopeia.type.core.currentgame</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.core.featuredgames">cassiopeia.type.core.featuredgames</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.core.game">cassiopeia.type.core.game</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.core.league">cassiopeia.type.core.league</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.core.match">cassiopeia.type.core.match</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.core.matchhistory">cassiopeia.type.core.matchhistory</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.core.matchlist">cassiopeia.type.core.matchlist</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.core.staticdata">cassiopeia.type.core.staticdata</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.core.stats">cassiopeia.type.core.stats</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.core.status">cassiopeia.type.core.status</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.core.summoner">cassiopeia.type.core.summoner</a></li>
+<li><a class="reference internal" href="#module-cassiopeia.type.core.team">cassiopeia.type.core.team</a></li>
 </ul>
 </li>
 </ul>

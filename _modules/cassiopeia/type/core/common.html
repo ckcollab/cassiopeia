@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.type.core.common &mdash; Cassiopeia 0.0.2 documentation</title>
+    <title>cassiopeia.type.core.common &mdash; Cassiopeia 0.0.4 documentation</title>
     
     <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../../',
-        VERSION:     '0.0.2',
+        VERSION:     '0.0.4',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.2 documentation" href="../../../../index.html" />
+    <link rel="top" title="Cassiopeia 0.0.4 documentation" href="../../../../index.html" />
     <link rel="up" title="Module code" href="../../../index.html" />
    
   
@@ -40,6 +40,8 @@
   <h1>Source code for cassiopeia.type.core.common</h1><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">enum</span>
 <span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">weakref</span>
+<span class="kn">import</span> <span class="nn">functools</span>
 
 <span class="kn">import</span> <span class="nn">cassiopeia.type.api.exception</span>
 
@@ -71,18 +73,29 @@
 
     <span class="k">def</span> <span class="nf">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
-
 </div>
-<div class="viewcode-block" id="lazyproperty"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.champion.lazyproperty">[docs]</a><span class="k">class</span> <span class="nc">lazyproperty</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Makes a property load only once and store the result value to be returned to all later calls</span>
-<span class="sd">    @decorator</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="WeakDict"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.champion.WeakDict">[docs]</a><span class="k">class</span> <span class="nc">WeakDict</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
+    <span class="k">pass</span>
+</div>
+<div class="viewcode-block" id="WeakList"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.champion.WeakList">[docs]</a><span class="k">class</span> <span class="nc">WeakList</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+    <span class="k">pass</span>
+</div>
+<div class="viewcode-block" id="WeakSet"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.champion.WeakSet">[docs]</a><span class="k">class</span> <span class="nc">WeakSet</span><span class="p">(</span><span class="nb">set</span><span class="p">):</span>
+    <span class="k">pass</span>
+</div>
+<span class="n">weak_types</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nb">dict</span><span class="p">:</span> <span class="n">WeakDict</span><span class="p">,</span>
+    <span class="nb">list</span><span class="p">:</span> <span class="n">WeakList</span><span class="p">,</span>
+    <span class="nb">set</span><span class="p">:</span> <span class="n">WeakSet</span>
+<span class="p">}</span>
+
+<div class="viewcode-block" id="LazyProperty"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.champion.LazyProperty">[docs]</a><span class="k">class</span> <span class="nc">LazyProperty</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        method    function    the method to turn into a lazy property</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">method</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">weakref</span><span class="o">.</span><span class="n">WeakKeyDictionary</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">__doc__</span>
 
     <span class="k">def</span> <span class="nf">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
@@ -91,13 +104,34 @@
     <span class="k">def</span> <span class="nf">__delete__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s">&quot;can&#39;t delete attribute&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">obj</span><span class="p">]</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">obj</span><span class="p">]()</span>
         <span class="k">except</span><span class="p">(</span><span class="ne">KeyError</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">obj</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">obj</span><span class="p">]</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">weak_types</span><span class="p">[</span><span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">)](</span><span class="n">result</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="k">pass</span>
 
+            <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">obj</span><span class="p">]</span> <span class="o">=</span> <span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">obj</span><span class="p">]()</span>
+</div>
+<div class="viewcode-block" id="lazyproperty"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.champion.lazyproperty">[docs]</a><span class="k">def</span> <span class="nf">lazyproperty</span><span class="p">(</span><span class="n">method</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Makes a property load only once and store the result value to be returned to all later calls</span>
+
+<span class="sd">    method    function    the method to turn into a lazy property</span>
+
+<span class="sd">    return    function    the method as a lazy property</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">prop</span> <span class="o">=</span> <span class="n">LazyProperty</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="nd">@functools.wraps</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">lazy</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">prop</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">lazy</span>
 </div>
 <div class="viewcode-block" id="immutablemethod"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.champion.immutablemethod">[docs]</a><span class="k">class</span> <span class="nc">immutablemethod</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Makes a method un-deletable and un-repleacable</span>
@@ -116,9 +150,9 @@
         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s">&quot;can&#39;t delete method&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="nd">@functools.wraps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">)</span>
         <span class="k">def</span> <span class="nf">curried</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">curried</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">__doc__</span>
         <span class="k">return</span> <span class="n">curried</span>
 
 </div>

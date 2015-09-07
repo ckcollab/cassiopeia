@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.type.core.staticdata &mdash; Cassiopeia 0.0.2 documentation</title>
+    <title>cassiopeia.type.core.staticdata &mdash; Cassiopeia 0.0.4 documentation</title>
     
     <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../../',
-        VERSION:     '0.0.2',
+        VERSION:     '0.0.4',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.2 documentation" href="../../../../index.html" />
+    <link rel="top" title="Cassiopeia 0.0.4 documentation" href="../../../../index.html" />
     <link rel="up" title="Module code" href="../../../index.html" />
    
   
@@ -605,7 +605,7 @@
         <span class="k">return</span> <span class="n">text</span>
 
     <span class="nd">@cassiopeia.type.core.common.immutablemethod</span>
-    <span class="k">def</span> <span class="nf">tooltip_for_level</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">rank</span><span class="p">):</span>
+<div class="viewcode-block" id="Spell.tooltip_for_level"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.staticdata.Spell.tooltip_for_level">[docs]</a>    <span class="k">def</span> <span class="nf">tooltip_for_level</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">rank</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Gets the tooltip for this spell for a specific level/rank</span>
 
 <span class="sd">        level     int    the level of the champion</span>
@@ -614,9 +614,9 @@
 <span class="sd">        return    str    the tooltip for that rank/level</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__replace_variables</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tooltip</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
-
+</div>
     <span class="nd">@cassiopeia.type.core.common.immutablemethod</span>
-    <span class="k">def</span> <span class="nf">sanitized_tooltip_for_level</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">rank</span><span class="p">):</span>
+<div class="viewcode-block" id="Spell.sanitized_tooltip_for_level"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.staticdata.Spell.sanitized_tooltip_for_level">[docs]</a>    <span class="k">def</span> <span class="nf">sanitized_tooltip_for_level</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">rank</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Gets the sanitized tooltip for this spell for a specific level/rank</span>
 
 <span class="sd">        level     int    the level of the champion</span>
@@ -626,7 +626,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__replace_variables</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sanitized_tooltip</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
 
-</div>
+</div></div>
 <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
 <div class="viewcode-block" id="Champion"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.staticdata.Champion">[docs]</a><span class="k">class</span> <span class="nc">Champion</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">CassiopeiaObject</span><span class="p">):</span>
     <span class="n">dto_type</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Champion</span>
@@ -729,14 +729,17 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">title</span>
 
     <span class="nd">@cassiopeia.type.core.common.immutablemethod</span>
-    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;ChampionStatus    the current status of this champion (if they are disabled, etc)&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Champion.status"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.staticdata.Champion.status">[docs]</a>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets the status for this champion (whether they are disabled, etc.)</span>
+
+<span class="sd">        return      ChampionStatus    the champion&#39;s status</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_champion_status</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
 <span class="c">##################</span>
 <span class="c"># Item Endpoints #</span>
 <span class="c">##################</span>
-</div>
+</div></div>
 <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
 <div class="viewcode-block" id="MetaData"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.staticdata.MetaData">[docs]</a><span class="k">class</span> <span class="nc">MetaData</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">CassiopeiaObject</span><span class="p">):</span>
     <span class="n">dto_type</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">MetaData</span>
@@ -1640,7 +1643,7 @@
         <span class="k">return</span> <span class="n">text</span>
 
     <span class="nd">@cassiopeia.type.core.common.immutablemethod</span>
-    <span class="k">def</span> <span class="nf">tooltip_for_level</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
+<div class="viewcode-block" id="SummonerSpell.tooltip_for_level"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.staticdata.SummonerSpell.tooltip_for_level">[docs]</a>    <span class="k">def</span> <span class="nf">tooltip_for_level</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Gets the tooltip for this spell for a specific level</span>
 
 <span class="sd">        level     int    the level of the champion</span>
@@ -1648,9 +1651,9 @@
 <span class="sd">        return    str    the tooltip for that rank/level</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__replace_variables</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tooltip</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-
+</div>
     <span class="nd">@cassiopeia.type.core.common.immutablemethod</span>
-    <span class="k">def</span> <span class="nf">sanitized_tooltip_for_level</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
+<div class="viewcode-block" id="SummonerSpell.sanitized_tooltip_for_level"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.staticdata.SummonerSpell.sanitized_tooltip_for_level">[docs]</a>    <span class="k">def</span> <span class="nf">sanitized_tooltip_for_level</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Gets the sanitized tooltip for this spell for a specific level</span>
 
 <span class="sd">        level     int    the level of the champion</span>
@@ -1662,7 +1665,7 @@
 <span class="c">###############################</span>
 <span class="c"># Dynamic SQLAlchemy bindings #</span>
 <span class="c">###############################</span>
-</div>
+</div></div>
 <span class="k">def</span> <span class="nf">_sa_rebind_all</span><span class="p">():</span>
     <span class="n">SetItem</span><span class="o">.</span><span class="n">dto_type</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">BlockItem</span>
     <span class="n">ItemSet</span><span class="o">.</span><span class="n">dto_type</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Block</span>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.type.core.team &mdash; Cassiopeia 0.0.2 documentation</title>
+    <title>cassiopeia.type.core.team &mdash; Cassiopeia 0.0.4 documentation</title>
     
     <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../../',
-        VERSION:     '0.0.2',
+        VERSION:     '0.0.4',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.2 documentation" href="../../../../index.html" />
+    <link rel="top" title="Cassiopeia 0.0.4 documentation" href="../../../../index.html" />
     <link rel="up" title="Module code" href="../../../index.html" />
    
   
@@ -145,22 +145,22 @@
         <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">thirdLastJoinDate</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">thirdLastJoinDate</span> <span class="k">else</span> <span class="bp">None</span>
 
     <span class="nd">@cassiopeia.type.core.common.immutablemethod</span>
-    <span class="k">def</span> <span class="nf">leagues</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Team.leagues"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.team.Team.leagues">[docs]</a>    <span class="k">def</span> <span class="nf">leagues</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Gets the leagues that the summoner belongs to. You probably don&#39;t want to call this with LoadPolicy.eager set.</span>
 
 <span class="sd">        return    list&lt;League&gt;   the leagues that the summoner belongs to</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_leagues_by_team</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-
+</div>
     <span class="nd">@cassiopeia.type.core.common.immutablemethod</span>
-    <span class="k">def</span> <span class="nf">league_entries</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Team.league_entries"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.team.Team.league_entries">[docs]</a>    <span class="k">def</span> <span class="nf">league_entries</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Gets the leagues that the summoner belongs to, including only their own entries</span>
 
 <span class="sd">        return    list&lt;League&gt;    the leagues that the summoner belongs to</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_league_entries_by_team</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-</div>
+</div></div>
 <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
 <div class="viewcode-block" id="MatchSummary"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.team.MatchSummary">[docs]</a><span class="k">class</span> <span class="nc">MatchSummary</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">CassiopeiaObject</span><span class="p">):</span>
     <span class="n">dto_type</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">team</span><span class="o">.</span><span class="n">MatchHistorySummary</span>
@@ -229,14 +229,14 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">win</span>
 
     <span class="nd">@cassiopeia.type.core.common.immutablemethod</span>
-    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MatchSummary.match"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.team.MatchSummary.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Gets the full information for this match</span>
 
 <span class="sd">        return    Match    the match</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_match</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
 
-</div>
+</div></div>
 <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
 <div class="viewcode-block" id="Stats"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.team.Stats">[docs]</a><span class="k">class</span> <span class="nc">Stats</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">CassiopeiaObject</span><span class="p">):</span>
     <span class="n">dto_type</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">team</span><span class="o">.</span><span class="n">TeamStatDetail</span>
