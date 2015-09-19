@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.core.summonerapi &mdash; Cassiopeia 0.0.5 documentation</title>
+    <title>cassiopeia.core.summonerapi &mdash; Cassiopeia 0.0.6 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.0.5',
+        VERSION:     '0.0.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.5 documentation" href="../../../index.html" />
+    <link rel="top" title="Cassiopeia 0.0.6 documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" />
    
   
@@ -38,8 +38,6 @@
           <div class="body" role="main">
             
   <h1>Source code for cassiopeia.core.summonerapi</h1><div class="highlight"><pre>
-<span class="kn">import</span> <span class="nn">urllib.parse</span>
-
 <span class="kn">import</span> <span class="nn">cassiopeia.riotapi</span>
 <span class="kn">import</span> <span class="nn">cassiopeia.dto.summonerapi</span>
 <span class="kn">import</span> <span class="nn">cassiopeia.core.requests</span>
@@ -111,8 +109,11 @@
     <span class="k">if</span><span class="p">(</span><span class="n">summoner</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">summoner</span>
 
-    <span class="n">summoner</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">summonerapi</span><span class="o">.</span><span class="n">get_summoners_by_id</span><span class="p">(</span><span class="n">id_</span><span class="p">)[</span><span class="nb">str</span><span class="p">(</span><span class="n">id_</span><span class="p">)]</span>
-    <span class="n">summoner</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">summoner</span><span class="o">.</span><span class="n">Summoner</span><span class="p">(</span><span class="n">summoner</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">summoner</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">summonerapi</span><span class="o">.</span><span class="n">get_summoners_by_id</span><span class="p">(</span><span class="n">id_</span><span class="p">)[</span><span class="nb">str</span><span class="p">(</span><span class="n">id_</span><span class="p">)]</span>
+        <span class="n">summoner</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">summoner</span><span class="o">.</span><span class="n">Summoner</span><span class="p">(</span><span class="n">summoner</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">None</span>
 
     <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">summoner</span><span class="p">,</span> <span class="n">id_</span><span class="p">)</span>
     <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">summoner</span><span class="p">,</span> <span class="n">summoner</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
@@ -129,8 +130,11 @@
     <span class="k">if</span><span class="p">(</span><span class="n">summoner</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">summoner</span>
 
-    <span class="n">summoner</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">summonerapi</span><span class="o">.</span><span class="n">get_summoners_by_name</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="n">name</span><span class="p">))[</span><span class="n">__standardize</span><span class="p">(</span><span class="n">name</span><span class="p">)]</span>
-    <span class="n">summoner</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">summoner</span><span class="o">.</span><span class="n">Summoner</span><span class="p">(</span><span class="n">summoner</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">summoner</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">summonerapi</span><span class="o">.</span><span class="n">get_summoners_by_name</span><span class="p">(</span><span class="n">name</span><span class="p">)[</span><span class="n">__standardize</span><span class="p">(</span><span class="n">name</span><span class="p">)]</span>
+        <span class="n">summoner</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">summoner</span><span class="o">.</span><span class="n">Summoner</span><span class="p">(</span><span class="n">summoner</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">None</span>
 
     <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">summoner</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
     <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">summoner</span><span class="p">,</span> <span class="n">summoner</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
@@ -158,13 +162,17 @@
 
     <span class="c"># Make requests to get them</span>
     <span class="n">new</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">call_with_ensured_size</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">summonerapi</span><span class="o">.</span><span class="n">get_summoners_by_id</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">missing</span><span class="p">)</span>
+    <span class="n">to_store</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">missing</span><span class="p">)):</span>
-        <span class="n">summoner</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">summoner</span><span class="o">.</span><span class="n">Summoner</span><span class="p">(</span><span class="n">new</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">missing</span><span class="p">[</span><span class="n">i</span><span class="p">])])</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">summoner</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">summoner</span><span class="o">.</span><span class="n">Summoner</span><span class="p">(</span><span class="n">new</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">missing</span><span class="p">[</span><span class="n">i</span><span class="p">])])</span>
+            <span class="n">to_store</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">summoner</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="n">summoner</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="n">summoners</span><span class="p">[</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">summoner</span>
-        <span class="n">missing</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">summoner</span>
 
-    <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">missing</span><span class="p">,</span> <span class="p">[</span><span class="n">summoner</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">summoner</span> <span class="ow">in</span> <span class="n">missing</span><span class="p">])</span>
-    <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">missing</span><span class="p">,</span> <span class="p">[</span><span class="n">summoner</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">summoner</span> <span class="ow">in</span> <span class="n">missing</span><span class="p">])</span>
+    <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">to_store</span><span class="p">,</span> <span class="p">[</span><span class="n">summoner</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">summoner</span> <span class="ow">in</span> <span class="n">to_store</span><span class="p">])</span>
+    <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">to_store</span><span class="p">,</span> <span class="p">[</span><span class="n">summoner</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">summoner</span> <span class="ow">in</span> <span class="n">to_store</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">summoners</span>
 </div>
 <div class="viewcode-block" id="get_summoners_by_name"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_summoners_by_name">[docs]</a><span class="k">def</span> <span class="nf">get_summoners_by_name</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
@@ -188,14 +196,18 @@
         <span class="k">return</span> <span class="n">summoners</span>
 
     <span class="c"># Make requests to get them</span>
-    <span class="n">new</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">call_with_ensured_size</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">summonerapi</span><span class="o">.</span><span class="n">get_summoners_by_name</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="p">[</span><span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">missing</span><span class="p">])</span>
+    <span class="n">new</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">call_with_ensured_size</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">summonerapi</span><span class="o">.</span><span class="n">get_summoners_by_name</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">missing</span><span class="p">)</span>
+    <span class="n">to_store</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">missing</span><span class="p">)):</span>
-        <span class="n">summoner</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">summoner</span><span class="o">.</span><span class="n">Summoner</span><span class="p">(</span><span class="n">new</span><span class="p">[</span><span class="n">__standardize</span><span class="p">(</span><span class="n">missing</span><span class="p">[</span><span class="n">i</span><span class="p">])])</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">summoner</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">summoner</span><span class="o">.</span><span class="n">Summoner</span><span class="p">(</span><span class="n">new</span><span class="p">[</span><span class="n">__standardize</span><span class="p">(</span><span class="n">missing</span><span class="p">[</span><span class="n">i</span><span class="p">])])</span>
+            <span class="n">to_store</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">summoner</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="n">summoner</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="n">summoners</span><span class="p">[</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">summoner</span>
-        <span class="n">missing</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">summoner</span>
 
-    <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">missing</span><span class="p">,</span> <span class="p">[</span><span class="n">summoner</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">summoner</span> <span class="ow">in</span> <span class="n">missing</span><span class="p">])</span>
-    <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">missing</span><span class="p">,</span> <span class="p">[</span><span class="n">summoner</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">summoner</span> <span class="ow">in</span> <span class="n">missing</span><span class="p">])</span>
+    <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">to_store</span><span class="p">,</span> <span class="p">[</span><span class="n">summoner</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">summoner</span> <span class="ow">in</span> <span class="n">to_store</span><span class="p">])</span>
+    <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">to_store</span><span class="p">,</span> <span class="p">[</span><span class="n">summoner</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">summoner</span> <span class="ow">in</span> <span class="n">to_store</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">summoners</span>
 </div>
 <div class="viewcode-block" id="get_summoner_name"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_summoner_name">[docs]</a><span class="k">def</span> <span class="nf">get_summoner_name</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>

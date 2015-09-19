@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.riotapi &mdash; Cassiopeia 0.0.5 documentation</title>
+    <title>cassiopeia.riotapi &mdash; Cassiopeia 0.0.6 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.5',
+        VERSION:     '0.0.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.5 documentation" href="index.html" />
+    <link rel="top" title="Cassiopeia 0.0.6 documentation" href="index.html" />
     <link rel="next" title="cassiopeia.core" href="cassiopeia.core.html" />
     <link rel="prev" title="Cassiopeia Documentation" href="index.html" />
    
@@ -222,10 +222,11 @@
 
 <dl class="function">
 <dt id="cassiopeia.riotapi.get_match">
-<code class="descclassname">cassiopeia.riotapi.</code><code class="descname">get_match</code><span class="sig-paren">(</span><em>id_</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/core/matchapi.html#get_match"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.riotapi.get_match" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">cassiopeia.riotapi.</code><code class="descname">get_match</code><span class="sig-paren">(</span><em>id_</em>, <em>include_timeline=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/core/matchapi.html#get_match"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.riotapi.get_match" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a match</p>
-<p><a href="#id11"><span class="problematic" id="id12">id_</span></a>       int | MatchReference      the ID of or reference to the match to get</p>
-<p>return    Match                     the match</p>
+<p><a href="#id11"><span class="problematic" id="id12">id_</span></a>                 int | MatchReference    the ID of or reference to the match to get
+include_timeline    bool                    whether to include timeline data in the returned match</p>
+<p>return              Match                   the match</p>
 </dd></dl>
 
 <dl class="function">
@@ -255,10 +256,11 @@ seasons         Season | list&lt;Season&gt;        the season(s) to limit the re
 
 <dl class="function">
 <dt id="cassiopeia.riotapi.get_matches">
-<code class="descclassname">cassiopeia.riotapi.</code><code class="descname">get_matches</code><span class="sig-paren">(</span><em>ids</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/core/matchapi.html#get_matches"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.riotapi.get_matches" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">cassiopeia.riotapi.</code><code class="descname">get_matches</code><span class="sig-paren">(</span><em>ids</em>, <em>include_timeline=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/core/matchapi.html#get_matches"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.riotapi.get_matches" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a bunch of matches</p>
-<p>ids       list&lt;int&gt; | list&lt;MatchReference&gt;      the IDs of or references to the matches to get</p>
-<p>return    list&lt;Match&gt;                           the matches</p>
+<p>ids                 list&lt;int&gt; | list&lt;MatchReference&gt;    the IDs of or references to the matches to get
+include_timeline    bool                                whether to include timeline data in the returned match</p>
+<p>return              list&lt;Match&gt;                         the matches</p>
 </dd></dl>
 
 <dl class="function">
@@ -643,10 +645,11 @@ seconds_per_epoch    int    the number of seconds per epoch</p>
 
 <dl class="function">
 <dt id="cassiopeia.baseriotapi.get_match">
-<code class="descclassname">cassiopeia.baseriotapi.</code><code class="descname">get_match</code><span class="sig-paren">(</span><em>id_</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/dto/matchapi.html#get_match"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.baseriotapi.get_match" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">cassiopeia.baseriotapi.</code><code class="descname">get_match</code><span class="sig-paren">(</span><em>id_</em>, <em>include_timeline=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/dto/matchapi.html#get_match"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.baseriotapi.get_match" title="Permalink to this definition">¶</a></dt>
 <dd><p><a class="reference external" href="https://developer.riotgames.com/api/methods#!/1014/3442">https://developer.riotgames.com/api/methods#!/1014/3442</a></p>
-<p><a href="#id29"><span class="problematic" id="id30">id_</span></a>       int            the ID of the match to get</p>
-<p>return    MatchDetail    the match</p>
+<p><a href="#id29"><span class="problematic" id="id30">id_</span></a>                 int            the ID of the match to get
+include_timeline    bool           whether to include timeline data in the returned match</p>
+<p>return              MatchDetail    the match</p>
 </dd></dl>
 
 <dl class="function">

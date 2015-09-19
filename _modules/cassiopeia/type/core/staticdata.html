@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.type.core.staticdata &mdash; Cassiopeia 0.0.5 documentation</title>
+    <title>cassiopeia.type.core.staticdata &mdash; Cassiopeia 0.0.6 documentation</title>
     
     <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../../',
-        VERSION:     '0.0.5',
+        VERSION:     '0.0.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.5 documentation" href="../../../../index.html" />
+    <link rel="top" title="Cassiopeia 0.0.6 documentation" href="../../../../index.html" />
     <link rel="up" title="Module code" href="../../../index.html" />
    
   
@@ -1172,7 +1172,7 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">components</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;list&lt;Item&gt;    the components for this item&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">riotapi</span><span class="o">.</span><span class="n">get_items</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">id_</span><span class="p">)</span> <span class="k">for</span> <span class="n">id_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">from_</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_items</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">id_</span><span class="p">)</span> <span class="k">for</span> <span class="n">id_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">from_</span><span class="p">])</span>
 
     <span class="nd">@cassiopeia.type.core.common.lazyproperty</span>
     <span class="k">def</span> <span class="nf">gold</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1263,6 +1263,57 @@
     <span class="k">def</span> <span class="nf">tags</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;list&lt;str&gt;    this item&#39;s tags for sorting items&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tags</span>
+
+    <span class="c"># Left out these: attack_range, percent_time_dead, percent_time_dead_per_level, time_dead, time_dead_per_level, gold_per_ten, starting_gold, percent_xp_bonus, xp_bonus</span>
+    <span class="n">__item_categories</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">&quot;Defense&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;Health&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;base_health&quot;</span><span class="p">,</span> <span class="s">&quot;health&quot;</span><span class="p">,</span> <span class="s">&quot;percent_health&quot;</span><span class="p">,</span> <span class="s">&quot;health_regen&quot;</span><span class="p">,</span> <span class="s">&quot;health_regen_per_level&quot;</span><span class="p">,</span> <span class="s">&quot;bonus_health_regen&quot;</span><span class="p">,</span> <span class="s">&quot;percent_health_regen&quot;</span><span class="p">,</span> <span class="s">&quot;health_per_level&quot;</span><span class="p">,</span> <span class="s">&quot;base_health_regen&quot;</span><span class="p">,</span> <span class="s">&quot;bonus_health&quot;</span><span class="p">],</span>
+            <span class="s">&quot;Armor&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;armor&quot;</span><span class="p">,</span> <span class="s">&quot;bonus_armor&quot;</span><span class="p">,</span> <span class="s">&quot;armor_per_level&quot;</span><span class="p">,</span> <span class="s">&quot;base_armor&quot;</span><span class="p">,</span> <span class="s">&quot;percent_armor&quot;</span><span class="p">],</span>
+            <span class="s">&quot;Magic Resist&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;magic_resist_per_level&quot;</span><span class="p">,</span> <span class="s">&quot;base_magic_resist&quot;</span><span class="p">,</span> <span class="s">&quot;magic_resist&quot;</span><span class="p">,</span> <span class="s">&quot;percent_magic_resist&quot;</span><span class="p">,</span> <span class="s">&quot;bonus_magic_resist&quot;</span><span class="p">],</span>
+            <span class="s">&quot;Tenacity&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;percent_crowd_control_reduction&quot;</span><span class="p">],</span>
+            <span class="s">&quot;Other&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;dodge_chance&quot;</span><span class="p">,</span> <span class="s">&quot;dodge_chance_per_level&quot;</span><span class="p">,</span> <span class="s">&quot;block&quot;</span><span class="p">,</span> <span class="s">&quot;percent_block&quot;</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s">&quot;Attack&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;Damage&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;bonus_attack_damage&quot;</span><span class="p">,</span> <span class="s">&quot;attack_damage&quot;</span><span class="p">,</span> <span class="s">&quot;base_attack_damage&quot;</span><span class="p">,</span> <span class="s">&quot;percent_attack_damage&quot;</span><span class="p">,</span> <span class="s">&quot;percent_total_damage_increase&quot;</span><span class="p">,</span> <span class="s">&quot;attack_damage_per_level&quot;</span><span class="p">],</span>
+            <span class="s">&quot;Critical Strike&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;percent_critical_strike_damage&quot;</span><span class="p">,</span> <span class="s">&quot;critical_strike_chance_level&quot;</span><span class="p">,</span> <span class="s">&quot;critical_strike_damage&quot;</span><span class="p">,</span> <span class="s">&quot;critical_strike_damage_per_level&quot;</span><span class="p">,</span> <span class="s">&quot;critical_strike_chance&quot;</span><span class="p">,</span> <span class="s">&quot;critical_strike_chance_per_level&quot;</span><span class="p">],</span>
+            <span class="s">&quot;Attack Speed&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;percent_attack_speed&quot;</span><span class="p">,</span> <span class="s">&quot;attack_speed&quot;</span><span class="p">,</span> <span class="s">&quot;bonus_attack_speed&quot;</span><span class="p">,</span> <span class="s">&quot;attack_speed_per_level&quot;</span><span class="p">,</span> <span class="s">&quot;base_attack_speed&quot;</span><span class="p">,</span> <span class="s">&quot;percent_attack_speed_per_level&quot;</span><span class="p">],</span>
+            <span class="s">&quot;Life Steal&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;life_steal&quot;</span><span class="p">],</span>
+            <span class="s">&quot;Other&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;armor_penetration&quot;</span><span class="p">,</span> <span class="s">&quot;percent_armor_penetration&quot;</span><span class="p">,</span> <span class="s">&quot;armor_penetration_per_level&quot;</span><span class="p">,</span> <span class="s">&quot;percent_armor_penetration_per_level&quot;</span><span class="p">,</span> <span class="s">&quot;magic_penetration&quot;</span><span class="p">,</span> <span class="s">&quot;percent_magic_penetration&quot;</span><span class="p">,</span> <span class="s">&quot;magic_penetration_per_level&quot;</span><span class="p">,</span> <span class="s">&quot;percent_magic_pen_per_level&quot;</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s">&quot;Magic&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;Ability Power&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;ability_power&quot;</span><span class="p">,</span> <span class="s">&quot;ability_power_per_level&quot;</span><span class="p">,</span> <span class="s">&quot;percent_ability_power&quot;</span><span class="p">],</span>
+            <span class="s">&quot;Cooldown Reduction&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;item_cooldown_reduction&quot;</span><span class="p">,</span> <span class="s">&quot;cooldown_reduction_per_level&quot;</span><span class="p">,</span> <span class="s">&quot;cooldown_reduction&quot;</span><span class="p">],</span>
+            <span class="s">&quot;Spell Vamp&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;spell_vamp&quot;</span><span class="p">],</span>
+            <span class="s">&quot;Mana&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;base_mana&quot;</span><span class="p">,</span> <span class="s">&quot;bonus_mana&quot;</span><span class="p">,</span> <span class="s">&quot;energy_per_level&quot;</span><span class="p">,</span> <span class="s">&quot;energy&quot;</span><span class="p">,</span> <span class="s">&quot;mana_per_level&quot;</span><span class="p">,</span> <span class="s">&quot;mana&quot;</span><span class="p">,</span> <span class="s">&quot;percent_mana&quot;</span><span class="p">],</span>
+            <span class="s">&quot;Mana Regen&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;base_mana_regen&quot;</span><span class="p">,</span> <span class="s">&quot;bonus_mana_regen&quot;</span><span class="p">,</span> <span class="s">&quot;mana_regen_per_level&quot;</span><span class="p">,</span> <span class="s">&quot;percent_mana_regen&quot;</span><span class="p">,</span> <span class="s">&quot;mana_regen&quot;</span><span class="p">,</span> <span class="s">&quot;energy_regen&quot;</span><span class="p">,</span> <span class="s">&quot;energy_regen_per_level&quot;</span><span class="p">],</span>
+            <span class="s">&quot;Other&quot;</span><span class="p">:</span> <span class="p">[]</span>
+        <span class="p">},</span>
+        <span class="s">&quot;Movement&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;Other Movement Items&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;out_of_combat_movespeed&quot;</span><span class="p">,</span> <span class="s">&quot;percent_movespeed&quot;</span><span class="p">,</span> <span class="s">&quot;movespeed_per_level&quot;</span><span class="p">,</span> <span class="s">&quot;movespeed&quot;</span><span class="p">,</span> <span class="s">&quot;percent_movespeed_per_level&quot;</span><span class="p">],</span>
+            <span class="s">&quot;Other&quot;</span><span class="p">:</span> <span class="p">[]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">__boot_ids</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;1001&quot;</span><span class="p">,</span> <span class="s">&quot;3117&quot;</span><span class="p">,</span> <span class="s">&quot;3158&quot;</span><span class="p">,</span> <span class="s">&quot;3111&quot;</span><span class="p">,</span> <span class="s">&quot;3006&quot;</span><span class="p">,</span> <span class="s">&quot;3009&quot;</span><span class="p">,</span> <span class="s">&quot;3020&quot;</span><span class="p">,</span> <span class="s">&quot;3047&quot;</span><span class="p">}</span>
+
+    <span class="nd">@cassiopeia.type.core.common.lazyproperty</span>
+    <span class="k">def</span> <span class="nf">categories</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;list&lt;str&gt;    the shop categories that this item belongs to&quot;&quot;&quot;</span>
+        <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">consumable</span><span class="p">):</span>
+            <span class="n">cats</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;Consumable&quot;</span><span class="p">}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cats</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stats</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">cat_name</span><span class="p">,</span> <span class="n">cat</span> <span class="ow">in</span> <span class="n">Item</span><span class="o">.</span><span class="n">__item_categories</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">for</span> <span class="n">subcat</span><span class="p">,</span> <span class="n">attrs</span> <span class="ow">in</span> <span class="n">cat</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">attrs</span><span class="p">:</span>
+                        <span class="k">if</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">):</span>
+                            <span class="n">cats</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">cat_name</span><span class="p">)</span>
+                            <span class="n">cats</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">subcat</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="ow">in</span> <span class="n">Item</span><span class="o">.</span><span class="n">__boot_ids</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">from_</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">Item</span><span class="o">.</span><span class="n">__boot_ids</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">cats</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;Boots&quot;</span><span class="p">)</span>
+            <span class="n">cats</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s">&quot;Other Movement Items&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">cats</span><span class="p">)</span>
 
 <span class="c">################</span>
 <span class="c"># Map Endpoint #</span>

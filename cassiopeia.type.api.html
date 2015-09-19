@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.type.api &mdash; Cassiopeia 0.0.5 documentation</title>
+    <title>cassiopeia.type.api &mdash; Cassiopeia 0.0.6 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.5',
+        VERSION:     '0.0.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.5 documentation" href="index.html" />
+    <link rel="top" title="Cassiopeia 0.0.6 documentation" href="index.html" />
     <link rel="up" title="cassiopeia.type" href="cassiopeia.type.html" />
     <link rel="next" title="cassiopeia.type.core" href="cassiopeia.type.core.html" />
     <link rel="prev" title="cassiopeia.type" href="cassiopeia.type.html" />
@@ -47,7 +47,9 @@
 <dt id="cassiopeia.type.api.exception.APIError">
 <em class="property">exception </em><code class="descclassname">cassiopeia.type.api.exception.</code><code class="descname">APIError</code><span class="sig-paren">(</span><em>message</em>, <em>error_code</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/exception.html#APIError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.exception.APIError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></p>
-<p>Thrown when the RiotAPI returns an HTTP error code from a call</p>
+<p>&#8221;
+message       str    the error message
+error_code    int    the HTTP error code that was received</p>
 <dl class="attribute">
 <dt id="cassiopeia.type.api.exception.APIError.args">
 <code class="descname">args</code><a class="headerlink" href="#cassiopeia.type.api.exception.APIError.args" title="Permalink to this definition">¶</a></dt>

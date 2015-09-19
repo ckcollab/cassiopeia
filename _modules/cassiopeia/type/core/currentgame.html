@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.type.core.currentgame &mdash; Cassiopeia 0.0.5 documentation</title>
+    <title>cassiopeia.type.core.currentgame &mdash; Cassiopeia 0.0.6 documentation</title>
     
     <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../../',
-        VERSION:     '0.0.5',
+        VERSION:     '0.0.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.5 documentation" href="../../../../index.html" />
+    <link rel="top" title="Cassiopeia 0.0.6 documentation" href="../../../../index.html" />
     <link rel="up" title="Module code" href="../../../index.html" />
    
   
@@ -59,7 +59,7 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">champion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Champion    the champion this participant is playing&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_champion_by_id</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">championid</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">championid</span> <span class="k">else</span> <span class="n">none</span>
+        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_champion_by_id</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">championId</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">championId</span> <span class="k">else</span> <span class="n">none</span>
 
     <span class="nd">@cassiopeia.type.core.common.lazyproperty</span>
     <span class="k">def</span> <span class="nf">masteries</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -74,7 +74,7 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">profile_icon_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;int    the participant&#39;s profile icon&#39;s id&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">profileiconid</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">profileIconId</span>
 
     <span class="nd">@cassiopeia.type.core.common.lazyproperty</span>
     <span class="k">def</span> <span class="nf">runes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -89,27 +89,27 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">summoner_spell_d</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;SummonerSpell    the participant&#39;s first summoner spell&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_summoner_spell</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">spell1id</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">spell1id</span> <span class="k">else</span> <span class="n">none</span>
+        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_summoner_spell</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">spell1Id</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">spell1Id</span> <span class="k">else</span> <span class="n">none</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">summoner_spell_f</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;SummonerSpell    the participant&#39;s second summoner spell&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_summoner_spell</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">spell2id</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">spell2id</span> <span class="k">else</span> <span class="n">none</span>
+        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_summoner_spell</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">spell2Id</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">spell2Id</span> <span class="k">else</span> <span class="n">none</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">summoner</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Summoner    the summoner associated with this participant&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_summoner_by_id</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">summonerid</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">summonerid</span> <span class="k">else</span> <span class="n">none</span>
+        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_summoner_by_id</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">summonerId</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">summonerId</span> <span class="k">else</span> <span class="n">none</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">summoner_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;str    the participant&#39;s summoner name&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">summonername</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">summonerName</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">side</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Side    which side of the map the participant is on&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">side</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">teamid</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">teamid</span> <span class="k">else</span> <span class="n">none</span>
+        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">side</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">teamId</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">teamId</span> <span class="k">else</span> <span class="n">none</span>
 
 </div>
 <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
@@ -122,7 +122,7 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">champion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Champion    the champion that was banned&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_champion_by_id</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">championid</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">championid</span> <span class="k">else</span> <span class="n">none</span>
+        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_champion_by_id</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">championId</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">championId</span> <span class="k">else</span> <span class="n">none</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">pick_turn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -132,7 +132,7 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">side</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Side    which side banned this champion&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">side</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">teamid</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">teamid</span> <span class="k">else</span> <span class="n">none</span>
+        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">side</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">teamId</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">teamId</span> <span class="k">else</span> <span class="n">none</span>
 
 </div>
 <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
@@ -163,57 +163,57 @@
     <span class="nd">@cassiopeia.type.core.common.lazyproperty</span>
     <span class="k">def</span> <span class="nf">bans</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;list&lt;Ban&gt;    the bans for this game&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">ban</span><span class="p">(</span><span class="n">ban</span><span class="p">)</span> <span class="k">for</span> <span class="n">ban</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">bannedchampions</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">Ban</span><span class="p">(</span><span class="n">ban</span><span class="p">)</span> <span class="k">for</span> <span class="n">ban</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">bannedChampions</span><span class="p">]</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;int    the game id&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gameid</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gameId</span>
 
     <span class="nd">@cassiopeia.type.core.common.lazyproperty</span>
     <span class="k">def</span> <span class="nf">duration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;timedelta    current duration of the game&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gamelength</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gameLength</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">mode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;GameMode    what game mode is being played in this game&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">gamemode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gamemode</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gamemode</span> <span class="k">else</span> <span class="n">none</span>
+        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">gamemode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gameMode</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gameMode</span> <span class="k">else</span> <span class="n">none</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">queue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Queue    the queue type for this game&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">for_id</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gamequeueconfigid</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gamequeueconfigid</span> <span class="k">else</span> <span class="n">none</span>
+        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">for_id</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gameQueueConfigId</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gameQueueConfigId</span> <span class="k">else</span> <span class="n">none</span>
 
     <span class="nd">@cassiopeia.type.core.common.lazyproperty</span>
     <span class="k">def</span> <span class="nf">creation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;datetime    the creation timestamp for this game&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gamestarttime</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gamestarttime</span> <span class="k">else</span> <span class="n">none</span>
+        <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gameStartTime</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gameStartTime</span> <span class="k">else</span> <span class="n">none</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;GameType    the game type&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">gametype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gametype</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gametype</span> <span class="k">else</span> <span class="n">none</span>
+        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">gametype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gameType</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gameType</span> <span class="k">else</span> <span class="n">none</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Map    the map for this game&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">mapid</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">mapid</span> <span class="k">else</span> <span class="n">none</span>
+        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">mapId</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">mapId</span> <span class="k">else</span> <span class="n">none</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">observer_token</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;str    the token associated with the observer for this game&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">observers</span><span class="o">.</span><span class="n">encryptionkey</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">observers</span><span class="o">.</span><span class="n">encryptionKey</span>
 
     <span class="nd">@cassiopeia.type.core.common.lazyproperty</span>
     <span class="k">def</span> <span class="nf">participants</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;list&lt;Participant&gt;    the game&#39;s participants&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">participant</span><span class="p">(</span><span class="n">participant</span><span class="p">)</span> <span class="k">for</span> <span class="n">participant</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">participants</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">Participant</span><span class="p">(</span><span class="n">participant</span><span class="p">)</span> <span class="k">for</span> <span class="n">participant</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">participants</span><span class="p">]</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">platform</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Platform    which platform (ie server) the game is being played on&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">platform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">platformid</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">platformid</span> <span class="k">else</span> <span class="n">none</span>
+        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">platform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">platformId</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">platformId</span> <span class="k">else</span> <span class="n">none</span>
 
 <span class="c">###############################</span>
 <span class="c"># Dynamic SQLAlchemy bindings #</span>

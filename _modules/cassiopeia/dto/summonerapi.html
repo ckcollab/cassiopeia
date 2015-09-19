@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.dto.summonerapi &mdash; Cassiopeia 0.0.5 documentation</title>
+    <title>cassiopeia.dto.summonerapi &mdash; Cassiopeia 0.0.6 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.0.5',
+        VERSION:     '0.0.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.5 documentation" href="../../../index.html" />
+    <link rel="top" title="Cassiopeia 0.0.6 documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" />
    
   
@@ -38,6 +38,8 @@
           <div class="body" role="main">
             
   <h1>Source code for cassiopeia.dto.summonerapi</h1><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">urllib.parse</span>
+
 <span class="kn">import</span> <span class="nn">cassiopeia.dto.requests</span>
 <span class="kn">import</span> <span class="nn">cassiopeia.type.dto.summoner</span>
 
@@ -52,7 +54,7 @@
     <span class="k">if</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">summoner_names</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">summoner_names</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">40</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;Can only get up to 40 summoners at once.&quot;</span><span class="p">)</span>
 
-    <span class="n">name_string</span> <span class="o">=</span> <span class="s">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">summoner_names</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">summoner_names</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">summoner_names</span><span class="p">)</span>
+    <span class="n">name_string</span> <span class="o">=</span> <span class="s">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">summoner_names</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">summoner_names</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="n">summoner_names</span><span class="p">)</span>
 
     <span class="c"># Get JSON response</span>
     <span class="n">request</span> <span class="o">=</span> <span class="s">&quot;{version}/summoner/by-name/{names}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">api_versions</span><span class="p">[</span><span class="s">&quot;summoner&quot;</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="n">name_string</span><span class="p">)</span>

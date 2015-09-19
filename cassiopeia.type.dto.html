@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.type.dto &mdash; Cassiopeia 0.0.5 documentation</title>
+    <title>cassiopeia.type.dto &mdash; Cassiopeia 0.0.6 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.5',
+        VERSION:     '0.0.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.5 documentation" href="index.html" />
+    <link rel="top" title="Cassiopeia 0.0.6 documentation" href="index.html" />
     <link rel="up" title="cassiopeia.type" href="cassiopeia.type.html" />
     <link rel="prev" title="cassiopeia.type.core" href="cassiopeia.type.core.html" />
    
@@ -54,7 +54,7 @@ id                   int     champion ID. For static information correlating to 
 rankedPlayEnabled    bool    ranked play enabled flag</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.champion.Champion.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.champion.Champion.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.champion.Champion.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -74,7 +74,7 @@ rankedPlayEnabled    bool    ranked play enabled flag</p>
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.champion.ChampionList.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.champion.ChampionList.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.champion.ChampionList.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -97,7 +97,7 @@ rankedPlayEnabled    bool    ranked play enabled flag</p>
 <p>A Python representation of an object returned by the RiotAPI</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.common.CassiopeiaDto.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/common.html#CassiopeiaDto.to_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.common.CassiopeiaDto.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/common.html#CassiopeiaDto.to_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.common.CassiopeiaDto.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -828,7 +828,7 @@ pickTurn      int    the turn during which the champion was banned
 teamId        int    the ID of the team that banned the champion</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.currentgame.BannedChampion.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.currentgame.BannedChampion.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.currentgame.BannedChampion.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -882,7 +882,7 @@ platformId           str                             the ID of the platform on w
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.currentgame.CurrentGameInfo.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.currentgame.CurrentGameInfo.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.currentgame.CurrentGameInfo.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -905,7 +905,7 @@ summonerName     str              the summoner name of this participant
 teamId           int              the team ID of this participant, indicating the participant&#8217;s team</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.currentgame.CurrentGameParticipant.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.currentgame.CurrentGameParticipant.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.currentgame.CurrentGameParticipant.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -920,7 +920,7 @@ teamId           int              the team ID of this participant, indicating th
 rank         int    the number of points put into this mastery by the user</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.currentgame.Mastery.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.currentgame.Mastery.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.currentgame.Mastery.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -934,7 +934,7 @@ rank         int    the number of points put into this mastery by the user</p>
 <p>encryptionKey    str    key used to decrypt the spectator grid game data for playback</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.currentgame.Observer.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.currentgame.Observer.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.currentgame.Observer.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -949,7 +949,7 @@ rank         int    the number of points put into this mastery by the user</p>
 runeId    int    the ID of the rune</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.currentgame.Rune.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.currentgame.Rune.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.currentgame.Rune.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -968,7 +968,7 @@ pickTurn      int    the turn during which the champion was banned
 teamId        int    the ID of the team that banned the champion</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.featuredgames.BannedChampion.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.featuredgames.BannedChampion.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.featuredgames.BannedChampion.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1004,7 +1004,7 @@ platformId           str                     the ID of the platform on which the
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.featuredgames.FeaturedGameInfo.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.featuredgames.FeaturedGameInfo.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.featuredgames.FeaturedGameInfo.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1031,7 +1031,7 @@ gameList                 list&lt;FeaturedGameInfo&gt;    the list of featured ga
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.featuredgames.FeaturedGames.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.featuredgames.FeaturedGames.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.featuredgames.FeaturedGames.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1045,7 +1045,7 @@ gameList                 list&lt;FeaturedGameInfo&gt;    the list of featured ga
 <p>encryptionKey    str    key used to decrypt the spectator grid game data for playback</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.featuredgames.Observer.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.featuredgames.Observer.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.featuredgames.Observer.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1069,7 +1069,7 @@ pickTurn         int     the turn during which the champion was banned
 teamId           int     the ID of the team that banned the champion</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.featuredgames.Participant.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.featuredgames.Participant.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.featuredgames.Participant.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1124,7 +1124,7 @@ teamId           int             team ID associated with game. Team ID 100 is bl
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.game.Game.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.game.Game.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.game.Game.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1140,7 +1140,7 @@ summonerId    int    summoner id associated with player
 teamId        int    team id associated with player</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.game.Player.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.game.Player.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.game.Player.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1231,7 +1231,7 @@ wardPlaced                         int     number of wards placed
 win                                bool    flag specifying whether or not this game was won</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.game.RawStats.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.game.RawStats.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.game.RawStats.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1270,7 +1270,7 @@ summonerId    int           summoner ID</p>
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.game.RecentGames.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.game.RecentGames.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.game.RecentGames.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1303,7 +1303,7 @@ tier             str                  the league&#8217;s tier (Legal values: CHA
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.league.League.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.league.League.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.league.League.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1327,7 +1327,7 @@ playerOrTeamName    str           the name of the the participant (i.e., summone
 wins                int           the number of wins for the participant</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.league.LeagueEntry.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.league.LeagueEntry.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.league.LeagueEntry.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1344,7 +1344,7 @@ target      int    number of wins required for promotion
 wins        int    number of current wins in the mini series</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.league.MiniSeries.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.league.MiniSeries.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.league.MiniSeries.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1362,7 +1362,7 @@ wins        int    number of current wins in the mini series</p>
 pickTurn      int    turn during which the champion was banned</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.match.BannedChampion.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.BannedChampion.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.BannedChampion.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1396,7 +1396,7 @@ victimId                   int          the victim ID of the event. Only present
 wardType                   str          the ward type of the event. Only present if relevant. (Legal values: SIGHT_WARD, TEEMO_MUSHROOM, UNDEFINED, VISION_WARD, YELLOW_TRINKET, YELLOW_TRINKET_UPGRADE)</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.match.Event.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Event.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Event.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1412,7 +1412,7 @@ participantFrames    dict&lt;str, ParticipantFrame&gt;    map of each participan
 timestamp            int                            represents how many milliseconds into the game the frame occurred</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.match.Frame.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Frame.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Frame.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1427,7 +1427,7 @@ timestamp            int                            represents how many millisec
 rank         int    mastery rank</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.match.Mastery.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Mastery.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Mastery.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1491,7 +1491,7 @@ timeline                 Timeline                     match timeline data (not i
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.match.MatchDetail.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.MatchDetail.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.MatchDetail.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1514,7 +1514,7 @@ teamId                       int                    team ID
 timeline                     ParticipantTimeline    timeline data. Delta fields refer to values for the specified period (e.g., the gold per minute over the first 10 minutes of the game versus the second 20 minutes of the game. Diffs fields refer to the deltas versus the calculated lane opponent(s).</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.match.Participant.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Participant.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Participant.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1537,7 +1537,7 @@ totalGold              int         participant&#8217;s total gold
 xp                     int         experience earned by participant</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.match.ParticipantFrame.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.ParticipantFrame.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.ParticipantFrame.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1552,7 +1552,7 @@ xp                     int         experience earned by participant</p>
 player           Player    player information</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.match.ParticipantIdentity.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.ParticipantIdentity.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.ParticipantIdentity.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1628,7 +1628,7 @@ wardsPlaced                        int     number of wards placed
 winner                             bool    flag indicating whether or not the participant won</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.match.ParticipantStats.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.ParticipantStats.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.ParticipantStats.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1668,7 +1668,7 @@ xpDiffPerMinDeltas                 ParticipantTimelineData    experience differe
 xpPerMinDeltas                     ParticipantTimelineData    experience per minute timeline data</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.match.ParticipantTimeline.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.ParticipantTimeline.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.ParticipantTimeline.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1688,7 +1688,7 @@ twentyToThirty       float                          value per minute from 20 min
 zeroToTen            float                          value per minute from the beginning of the game to 10 min</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.match.ParticipantTimelineData.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.ParticipantTimelineData.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.ParticipantTimelineData.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1705,7 +1705,7 @@ summonerId         int    summoner ID
 summonerName       str    summoner name</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.match.Player.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Player.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Player.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1720,7 +1720,7 @@ summonerName       str    summoner name</p>
 y    int    y position</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.match.Position.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Position.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Position.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1735,7 +1735,7 @@ y    int    y position</p>
 runeId    int    rune ID</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.match.Rune.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Rune.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Rune.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1762,7 +1762,7 @@ vilemawKills            int                     number of times the team killed 
 winner                  bool                    flag indicating whether or not the team won</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.match.Team.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Team.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Team.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1777,7 +1777,7 @@ winner                  bool                    flag indicating whether or not t
 frames           list&lt;Frame&gt;    list of timeline frames for the game</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.match.Timeline.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Timeline.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.match.Timeline.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1795,7 +1795,7 @@ frames           list&lt;Frame&gt;    list of timeline frames for the game</p>
 rank         int    mastery rank</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.matchhistory.Mastery.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Mastery.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Mastery.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1857,7 +1857,7 @@ season                   str                          season match was played (L
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.matchhistory.MatchSummary.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.MatchSummary.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.MatchSummary.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1880,7 +1880,7 @@ teamId                       int                    team ID
 timeline                     ParticipantTimeline    timeline data. Delta fields refer to values for the specified period (e.g., the gold per minute over the first 10 minutes of the game versus the second 20 minutes of the game. Diffs fields refer to the deltas versus the calculated lane opponent(s).</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.matchhistory.Participant.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Participant.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Participant.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1895,7 +1895,7 @@ timeline                     ParticipantTimeline    timeline data. Delta fields 
 player           Player    player information</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.matchhistory.ParticipantIdentity.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.ParticipantIdentity.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.ParticipantIdentity.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -1971,7 +1971,7 @@ wardsPlaced                        int     number of wards placed
 winner                             bool    flag indicating whether or not the participant won</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.matchhistory.ParticipantStats.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.ParticipantStats.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.ParticipantStats.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2011,7 +2011,7 @@ xpDiffPerMinDeltas                 ParticipantTimelineData    experience differe
 xpPerMinDeltas                     ParticipantTimelineData    experience per minute timeline data</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.matchhistory.ParticipantTimeline.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.ParticipantTimeline.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.ParticipantTimeline.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2028,7 +2028,7 @@ twentyToThirty    float    value per minute from 20 min to 30 min
 zeroToTen         float    value per minute from 20 min to 30 min</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.matchhistory.ParticipantTimelineData.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.ParticipantTimelineData.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.ParticipantTimelineData.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2045,7 +2045,7 @@ summonerId         int    summoner ID
 summonerName       str    summoner name</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.matchhistory.Player.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Player.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Player.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2095,7 +2095,7 @@ summonerName       str    summoner name</p>
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.matchhistory.PlayerHistory.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.PlayerHistory.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.PlayerHistory.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2110,7 +2110,7 @@ summonerName       str    summoner name</p>
 runeId    int    rune ID</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.matchhistory.Rune.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Rune.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Rune.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2136,7 +2136,7 @@ totalGames    int                     the number of games provided</p>
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.matchlist.MatchList.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchlist.MatchList.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchlist.MatchList.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2157,7 +2157,7 @@ season        str    the season the match was played in. Legal values: PRESEASON
 timestamp     int    the timestamp for the match</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.matchlist.MatchReference.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchlist.MatchReference.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchlist.MatchReference.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2196,7 +2196,7 @@ stats                   BasicDataStats     stats
 tags                    list[str]          tags</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.BasicData.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.BasicData.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.BasicData.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2274,7 +2274,7 @@ rPercentTimeDeadMod                    float    the rPercentTimeDeadMod
 rPercentTimeDeadModPerLevel            float    the rPercentTimeDeadModPerLevel</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.BasicDataStats.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.BasicDataStats.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.BasicDataStats.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2290,7 +2290,7 @@ recMath    bool               rec math
 type       str                type</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.Block.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Block.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Block.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2305,7 +2305,7 @@ type       str                type</p>
 id       int    item ID</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.BlockItem.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.BlockItem.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.BlockItem.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2341,7 +2341,7 @@ title          str                    title</p>
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.Champion.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Champion.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Champion.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2365,7 +2365,7 @@ version    str                    version</p>
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.ChampionList.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.ChampionList.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.ChampionList.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2399,7 +2399,7 @@ tooltip                 str                    tooltip
 vars                    list&lt;SpellVars&gt;        vars</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.ChampionSpell.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.ChampionSpell.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.ChampionSpell.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2416,7 +2416,7 @@ sell           int     sell price
 total          int     total price</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.Gold.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Gold.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Gold.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2431,7 +2431,7 @@ total          int     total price</p>
 key                str    key</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.Group.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Group.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Group.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2451,7 +2451,7 @@ x         int    x
 y         int    y</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.Image.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Image.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Image.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2468,7 +2468,7 @@ difficulty    int    difficulty rating
 magic         int    magic rating</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.Info.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Info.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Info.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2509,7 +2509,7 @@ tags                    list&lt;str&gt;          tags</p>
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.Item.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Item.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Item.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2528,7 +2528,7 @@ type       str               type
 version    str               version</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.ItemList.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.ItemList.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.ItemList.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2543,7 +2543,7 @@ version    str               version</p>
 tags      list[str]    tags</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.ItemTree.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.ItemTree.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.ItemTree.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2559,7 +2559,7 @@ type       str               type
 version    str               version</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.LanguageStrings.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.LanguageStrings.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.LanguageStrings.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2574,7 +2574,7 @@ version    str               version</p>
 label     list&lt;str&gt;    labels</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.LevelTip.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.LevelTip.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.LevelTip.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2590,7 +2590,7 @@ type       str                      type
 version    str                      version</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.MapData.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MapData.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MapData.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2607,7 +2607,7 @@ mapName                  str          name
 unpurchasableItemList    list&lt;int&gt;    items that can&#8217;t be purchased on this map (IDs)</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.MapDetails.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MapDetails.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MapDetails.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2634,7 +2634,7 @@ sanitizedDescription    list&lt;str&gt;    sanitized description</p>
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.Mastery.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Mastery.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Mastery.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2651,7 +2651,7 @@ type       str                   type
 version    str                   version</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.MasteryList.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MasteryList.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MasteryList.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2667,7 +2667,7 @@ Offense    list&lt;MasteryTreeList&gt;    offense tree
 Utility    list&lt;MasteryTreeList&gt;    utility tree</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.MasteryTree.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MasteryTree.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MasteryTree.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2682,7 +2682,7 @@ Utility    list&lt;MasteryTreeList&gt;    utility tree</p>
 prereq       str    prerequisites</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.MasteryTreeItem.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MasteryTreeItem.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MasteryTreeItem.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2696,7 +2696,7 @@ prereq       str    prerequisites</p>
 <p>masteryTreeItems    list&lt;MasteryTreeItem&gt;    mastery tree items</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.MasteryTreeList.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MasteryTreeList.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MasteryTreeList.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2712,7 +2712,7 @@ tier      str     tier
 type      str     type</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.MetaData.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MetaData.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.MetaData.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2729,7 +2729,7 @@ name                    str      name
 sanitizedDescription    str      sanitized description</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.Passive.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Passive.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Passive.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2751,7 +2751,7 @@ store             str               additional api data drawn from other sources
 v                 str               current version of this file for this realm</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.Realm.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Realm.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Realm.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2771,7 +2771,7 @@ title       str            title
 type        str            type</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.Recommended.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Recommended.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Recommended.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2806,7 +2806,7 @@ stats                   BasicDataStats     stats
 tags                    list&lt;str&gt;          tags</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.Rune.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Rune.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Rune.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2823,7 +2823,7 @@ type       str                type
 version    str                version</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.RuneList.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.RuneList.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.RuneList.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2839,7 +2839,7 @@ name    str    name
 num     int    number</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.Skin.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Skin.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Skin.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2857,7 +2857,7 @@ link         str            link
 ranksWith    str            ranks with</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.SpellVars.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.SpellVars.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.SpellVars.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2890,7 +2890,7 @@ spellblock              float    magic resist
 spellblockperlevel      float    magic resist per level</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.Stats.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Stats.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.Stats.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2926,7 +2926,7 @@ tooltip                 str                    tooltip
 vars                    list&lt;SpellVars&gt;        spell vars</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.SummonerSpell.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.SummonerSpell.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.SummonerSpell.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -2942,7 +2942,7 @@ type       str                         type
 version    str                         version</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.staticdata.SummonerSpellList.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.SummonerSpellList.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.staticdata.SummonerSpellList.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3014,7 +3014,7 @@ totalTurretsKilled             int    totalTurretsKilled
 totalUnrealKills               int    totalUnrealKills</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.stats.AggregatedStats.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.stats.AggregatedStats.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.stats.AggregatedStats.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3029,7 +3029,7 @@ totalUnrealKills               int    totalUnrealKills</p>
 stats    AggregatedStats    aggregated stats associated with the champion.</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.stats.ChampionStats.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.stats.ChampionStats.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.stats.ChampionStats.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3046,7 +3046,7 @@ playerStatSummaryType    str    player stats summary type (Legal values: AramUnr
 wins                     int    number of wins for this queue type</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.stats.PlayerStatsSummary.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.stats.PlayerStatsSummary.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.stats.PlayerStatsSummary.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3061,7 +3061,7 @@ wins                     int    number of wins for this queue type</p>
 summonerId             int                         summoner ID</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.stats.PlayerStatsSummaryList.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.stats.PlayerStatsSummaryList.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.stats.PlayerStatsSummaryList.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3083,7 +3083,7 @@ summonerId    int                    summoner ID</p>
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.stats.RankedStats.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.stats.RankedStats.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.stats.RankedStats.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3103,7 +3103,7 @@ id            int              ID
 updates       list&lt;Message&gt;    updates</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.status.Incident.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.status.Incident.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.status.Incident.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3123,7 +3123,7 @@ translations    list&lt;Translation&gt;    translations
 updated_at      str                  timestamp updated</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.status.Message.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.status.Message.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.status.Message.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3140,7 +3140,7 @@ slug         str               slug
 status       str               legal values: Online, Alert, Offline, Deploying</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.status.Service.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.status.Service.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.status.Service.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3158,7 +3158,7 @@ region_tag    str          region tag
 slug          str          slug</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.status.Shard.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.status.Shard.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.status.Shard.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3177,7 +3177,7 @@ services      list&lt;Service&gt;    services
 slug          str              slug</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.status.ShardStatus.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.status.ShardStatus.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.status.ShardStatus.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3193,7 +3193,7 @@ locale        str    locale
 updated_at    str    timestamp</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.status.Translation.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.status.Translation.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.status.Translation.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3211,7 +3211,7 @@ updated_at    str    timestamp</p>
 rank    int    mastery rank (i.e. the number of points put into this mastery)</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.summoner.Mastery.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.Mastery.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.Mastery.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3234,7 +3234,7 @@ name         str                 mastery page name.</p>
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.summoner.MasteryPage.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.MasteryPage.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.MasteryPage.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3255,7 +3255,7 @@ summonerId    int                  summoner ID</p>
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.summoner.MasteryPages.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.MasteryPages.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.MasteryPages.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3278,7 +3278,7 @@ slots      list&lt;RuneSlot&gt;    collection of rune slots associated with the 
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.summoner.RunePage.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.RunePage.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.RunePage.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3299,7 +3299,7 @@ summonerId    int               summoner ID</p>
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.summoner.RunePages.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.RunePages.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.RunePages.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3314,7 +3314,7 @@ summonerId    int               summoner ID</p>
 runeSlotId    int    rune slot ID.</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.summoner.RuneSlot.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.RuneSlot.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.RuneSlot.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3332,7 +3332,7 @@ revisionDate     int    date summoner was last modified specified as epoch milli
 summonerLevel    int    summoner level associated with the summoner</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.summoner.Summoner.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.Summoner.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.summoner.Summoner.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3359,7 +3359,7 @@ opposingTeamName     str     opposingTeamName
 win                  bool    win</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.team.MatchHistorySummary.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.team.MatchHistorySummary.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.team.MatchHistorySummary.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3374,7 +3374,7 @@ win                  bool    win</p>
 ownerId       int                     ownerId</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.team.Roster.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.team.Roster.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.team.Roster.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3407,7 +3407,7 @@ thirdLastJoinDate                int                          date that third to
 
 <dl class="method">
 <dt id="cassiopeia.type.dto.team.Team.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.team.Team.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.team.Team.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3424,7 +3424,7 @@ playerId      int    playerId
 status        str    status</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.team.TeamMemberInfo.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.team.TeamMemberInfo.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.team.TeamMemberInfo.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>
@@ -3441,7 +3441,7 @@ teamStatType          str    teamStatType
 wins                  int    wins</p>
 <dl class="method">
 <dt id="cassiopeia.type.dto.team.TeamStatDetail.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.team.TeamStatDetail.to_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.team.TeamStatDetail.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a JSON representation of the object</p>
 <p>return    str    a JSON representation of the object</p>
 </dd></dl>

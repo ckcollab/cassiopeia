@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.type.dto.champion &mdash; Cassiopeia 0.0.5 documentation</title>
+    <title>cassiopeia.type.dto.champion &mdash; Cassiopeia 0.0.6 documentation</title>
     
     <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../../',
-        VERSION:     '0.0.5',
+        VERSION:     '0.0.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.5 documentation" href="../../../../index.html" />
+    <link rel="top" title="Cassiopeia 0.0.6 documentation" href="../../../../index.html" />
     <link rel="up" title="Module code" href="../../../index.html" />
    
   
@@ -38,10 +38,11 @@
           <div class="body" role="main">
             
   <h1>Source code for cassiopeia.type.dto.champion</h1><div class="highlight"><pre>
-<span class="kn">import</span> <span class="nn">sqlalchemy</span>
-
 <span class="kn">import</span> <span class="nn">cassiopeia.type.dto.common</span>
 <span class="kn">import</span> <span class="nn">cassiopeia.type.core.common</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">sqlalchemy_imported</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">sqlalchemy</span>
 
 <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
 <div class="viewcode-block" id="Champion"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.champion.Champion">[docs]</a><span class="k">class</span> <span class="nc">Champion</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">CassiopeiaDto</span><span class="p">):</span>
