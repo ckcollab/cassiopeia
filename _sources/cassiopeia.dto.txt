@@ -61,16 +61,6 @@ cassiopeia.dto.matchapi
     :imported-members:
     :show-inheritance:
 
-cassiopeia.dto.matchhistoryapi
-------------------------------
-
-.. automodule:: cassiopeia.dto.matchhistoryapi
-    :members:
-    :undoc-members:
-    :inherited-members:
-    :imported-members:
-    :show-inheritance:
-
 cassiopeia.dto.matchlistapi
 ---------------------------
 

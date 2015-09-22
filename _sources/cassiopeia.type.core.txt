@@ -71,16 +71,6 @@ cassiopeia.type.core.match
     :imported-members:
     :show-inheritance:
 
-cassiopeia.type.core.matchhistory
----------------------------------
-
-.. automodule:: cassiopeia.type.core.matchhistory
-    :members:
-    :undoc-members:
-    :inherited-members:
-    :imported-members:
-    :show-inheritance:
-
 cassiopeia.type.core.matchlist
 ------------------------------
 

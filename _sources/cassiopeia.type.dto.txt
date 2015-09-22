@@ -71,16 +71,6 @@ cassiopeia.type.dto.match
     :imported-members:
     :show-inheritance:
 
-cassiopeia.type.dto.matchhistory
---------------------------------
-
-.. automodule:: cassiopeia.type.dto.matchhistory
-    :members:
-    :undoc-members:
-    :inherited-members:
-    :imported-members:
-    :show-inheritance:
-
 cassiopeia.type.dto.matchlist
 -----------------------------
 

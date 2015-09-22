@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.core &mdash; Cassiopeia 0.0.6 documentation</title>
+    <title>cassiopeia.core &mdash; Cassiopeia 0.0.7 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.6',
+        VERSION:     '0.0.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.6 documentation" href="index.html" />
+    <link rel="top" title="Cassiopeia 0.0.7 documentation" href="index.html" />
     <link rel="up" title="cassiopeia.riotapi" href="cassiopeia.html" />
     <link rel="next" title="cassiopeia.dto" href="cassiopeia.dto.html" />
     <link rel="prev" title="cassiopeia.riotapi" href="cassiopeia.html" />
@@ -159,22 +159,8 @@ include_timeline    bool                    whether to include timeline data in 
 <code class="descclassname">cassiopeia.core.matchapi.</code><code class="descname">get_matches</code><span class="sig-paren">(</span><em>ids</em>, <em>include_timeline=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/core/matchapi.html#get_matches"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.core.matchapi.get_matches" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a bunch of matches</p>
 <p>ids                 list&lt;int&gt; | list&lt;MatchReference&gt;    the IDs of or references to the matches to get
-include_timeline    bool                                whether to include timeline data in the returned match</p>
+include_timeline    bool                                whether to include timeline data in the returned matches</p>
 <p>return              list&lt;Match&gt;                         the matches</p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-cassiopeia.core.matchhistoryapi">
-<span id="cassiopeia-core-matchhistoryapi"></span><h2>cassiopeia.core.matchhistoryapi<a class="headerlink" href="#module-cassiopeia.core.matchhistoryapi" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="cassiopeia.core.matchhistoryapi.get_match_history">
-<code class="descclassname">cassiopeia.core.matchhistoryapi.</code><code class="descname">get_match_history</code><span class="sig-paren">(</span><em>summoner</em>, <em>begin_index=0</em>, <em>champions=None</em>, <em>ranked_queues=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/core/matchhistoryapi.html#get_match_history"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.core.matchhistoryapi.get_match_history" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a summoner&#8217;s match history</p>
-<p>summoner        Summoner                     the summoner to get match history for
-begin_index     int                          the game index to start from (default 0)
-champions       Champion | list&lt;Champion&gt;    the champion(s) to limit the results to (default None)
-ranked_queue    Queue | list&lt;Queue&gt;          the ranked queue(s) to limit the results to (default None)</p>
-<p>return          list&lt;MatchSummary&gt;           the summoner&#8217;s match history</p>
 </dd></dl>
 
 </div>
@@ -498,7 +484,6 @@ season      Season                                 the season to get stats for (
 <li><a class="reference internal" href="#module-cassiopeia.core.gameapi">cassiopeia.core.gameapi</a></li>
 <li><a class="reference internal" href="#module-cassiopeia.core.leagueapi">cassiopeia.core.leagueapi</a></li>
 <li><a class="reference internal" href="#module-cassiopeia.core.matchapi">cassiopeia.core.matchapi</a></li>
-<li><a class="reference internal" href="#module-cassiopeia.core.matchhistoryapi">cassiopeia.core.matchhistoryapi</a></li>
 <li><a class="reference internal" href="#module-cassiopeia.core.matchlistapi">cassiopeia.core.matchlistapi</a></li>
 <li><a class="reference internal" href="#module-cassiopeia.core.requests">cassiopeia.core.requests</a></li>
 <li><a class="reference internal" href="#module-cassiopeia.core.staticdataapi">cassiopeia.core.staticdataapi</a></li>

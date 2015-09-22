@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.type.core.summoner &mdash; Cassiopeia 0.0.6 documentation</title>
+    <title>cassiopeia.type.core.summoner &mdash; Cassiopeia 0.0.7 documentation</title>
     
     <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../../',
-        VERSION:     '0.0.6',
+        VERSION:     '0.0.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.6 documentation" href="../../../../index.html" />
+    <link rel="top" title="Cassiopeia 0.0.7 documentation" href="../../../../index.html" />
     <link rel="up" title="Module code" href="../../../index.html" />
    
   
@@ -244,18 +244,6 @@
 <span class="sd">        return    list&lt;Team&gt;    the summoner&#39;s teams</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_teams_by_summoner</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-</div>
-    <span class="nd">@cassiopeia.type.core.common.immutablemethod</span>
-<div class="viewcode-block" id="Summoner.match_history"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.summoner.Summoner.match_history">[docs]</a>    <span class="k">def</span> <span class="nf">match_history</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">begin_index</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">champions</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ranked_queues</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Gets the summoner&#39;s match history</span>
-
-<span class="sd">        begin_index     int                          the game index to start from (default 0)</span>
-<span class="sd">        champions       Champion | list&lt;Champion&gt;    the champion(s) to limit the results to (default None)</span>
-<span class="sd">        ranked_queue    Queue | list&lt;Queue&gt;          the ranked queue(s) to limit the results to (default None)</span>
-
-<span class="sd">        return          list&lt;MatchSummary&gt;           the summoner&#39;s match history</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_match_history</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">begin_index</span><span class="p">,</span> <span class="n">champions</span><span class="p">,</span> <span class="n">ranked_queues</span><span class="p">)</span>
 </div>
     <span class="nd">@cassiopeia.type.core.common.immutablemethod</span>
 <div class="viewcode-block" id="Summoner.match_list"><a class="viewcode-back" href="../../../../cassiopeia.type.core.html#cassiopeia.type.core.summoner.Summoner.match_list">[docs]</a>    <span class="k">def</span> <span class="nf">match_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">begin_index</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">begin_time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end_time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">champions</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ranked_queues</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">seasons</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>

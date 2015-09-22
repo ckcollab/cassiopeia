@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.type.dto &mdash; Cassiopeia 0.0.6 documentation</title>
+    <title>cassiopeia.type.dto &mdash; Cassiopeia 0.0.7 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.6',
+        VERSION:     '0.0.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.6 documentation" href="index.html" />
+    <link rel="top" title="Cassiopeia 0.0.7 documentation" href="index.html" />
     <link rel="up" title="cassiopeia.type" href="cassiopeia.type.html" />
     <link rel="prev" title="cassiopeia.type.core" href="cassiopeia.type.core.html" />
    
@@ -1785,339 +1785,6 @@ frames           list&lt;Frame&gt;    list of timeline frames for the game</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-cassiopeia.type.dto.matchhistory">
-<span id="cassiopeia-type-dto-matchhistory"></span><h2>cassiopeia.type.dto.matchhistory<a class="headerlink" href="#module-cassiopeia.type.dto.matchhistory" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cassiopeia.type.dto.matchhistory.Mastery">
-<em class="property">class </em><code class="descclassname">cassiopeia.type.dto.matchhistory.</code><code class="descname">Mastery</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/matchhistory.html#Mastery"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Mastery" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
-<p>masteryId    int    mastery ID
-rank         int    mastery rank</p>
-<dl class="method">
-<dt id="cassiopeia.type.dto.matchhistory.Mastery.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Mastery.to_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a JSON representation of the object</p>
-<p>return    str    a JSON representation of the object</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="cassiopeia.type.dto.matchhistory.MatchSummary">
-<em class="property">class </em><code class="descclassname">cassiopeia.type.dto.matchhistory.</code><code class="descname">MatchSummary</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/matchhistory.html#MatchSummary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.MatchSummary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
-<p>mapId                    int                          match map ID
-matchCreation            int                          match creation time. Designates when the team select lobby is created and/or the match is made through match making, not when the game actually starts.
-matchDuration            int                          match duration
-matchId                  int                          ID of the match
-matchMode                str                          match mode (Legal values: CLASSIC, ODIN, ARAM, TUTORIAL, ONEFORALL, ASCENSION, FIRSTBLOOD, KINGPORO)
-matchType                str                          match type (Legal values: CUSTOM_GAME, MATCHED_GAME, TUTORIAL_GAME)
-matchVersion             str                          match version
-participantIdentities    list&lt;ParticipantIdentity&gt;    participant identity information
-participants             list&lt;Participant&gt;            participant information
-platformId               str                          platform ID of the match
-queueType                str                          match queue type (Legal values: CUSTOM, NORMAL_5x5_BLIND, RANKED_SOLO_5x5, RANKED_PREMADE_5x5, BOT_5x5, NORMAL_3x3, RANKED_PREMADE_3x3, NORMAL_5x5_DRAFT, ODIN_5x5_BLIND, ODIN_5x5_DRAFT, BOT_ODIN_5x5, BOT_5x5_INTRO, BOT_5x5_BEGINNER, BOT_5x5_INTERMEDIATE, RANKED_TEAM_3x3, RANKED_TEAM_5x5, BOT_TT_3x3, GROUP_FINDER_5x5, ARAM_5x5, ONEFORALL_5x5, FIRSTBLOOD_1x1, FIRSTBLOOD_2x2, SR_6x6, URF_5x5, ONEFORALL_MIRRORMODE_5x5, BOT_URF_5x5, NIGHTMARE_BOT_5x5_RANK1, NIGHTMARE_BOT_5x5_RANK2, NIGHTMARE_BOT_5x5_RANK5, ASCENSION_5x5, HEXAKILL, KING_PORO_5x5, COUNTER_PICK)
-region                   str                          region where the match was played
-season                   str                          season match was played (Legal values: PRESEASON3, SEASON3, PRESEASON2014, SEASON2014, PRESEASON2015, SEASON2015)</p>
-<dl class="attribute">
-<dt id="cassiopeia.type.dto.matchhistory.MatchSummary.champion_ids">
-<code class="descname">champion_ids</code><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.MatchSummary.champion_ids" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets all champion IDs contained in this object</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cassiopeia.type.dto.matchhistory.MatchSummary.item_ids">
-<code class="descname">item_ids</code><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.MatchSummary.item_ids" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets all item IDs contained in this object</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cassiopeia.type.dto.matchhistory.MatchSummary.mastery_ids">
-<code class="descname">mastery_ids</code><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.MatchSummary.mastery_ids" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets all mastery IDs contained in this object</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cassiopeia.type.dto.matchhistory.MatchSummary.rune_ids">
-<code class="descname">rune_ids</code><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.MatchSummary.rune_ids" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets all rune IDs contained in this object</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cassiopeia.type.dto.matchhistory.MatchSummary.summoner_ids">
-<code class="descname">summoner_ids</code><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.MatchSummary.summoner_ids" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets all summoner IDs contained in this object</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cassiopeia.type.dto.matchhistory.MatchSummary.summoner_spell_ids">
-<code class="descname">summoner_spell_ids</code><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.MatchSummary.summoner_spell_ids" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets all summoner spell IDs contained in this object</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.dto.matchhistory.MatchSummary.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.MatchSummary.to_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a JSON representation of the object</p>
-<p>return    str    a JSON representation of the object</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="cassiopeia.type.dto.matchhistory.Participant">
-<em class="property">class </em><code class="descclassname">cassiopeia.type.dto.matchhistory.</code><code class="descname">Participant</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/matchhistory.html#Participant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Participant" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
-<p>championId                   int                    champion ID
-highestAchievedSeasonTier    str                    highest ranked tier achieved for the previous season, if any, otherwise null. Used to display border in game loading screen. (Legal values: CHALLENGER, MASTER, DIAMOND, PLATINUM, GOLD, SILVER, BRONZE, UNRANKED)
-masteries                    list&lt;Mastery&gt;          list of mastery information
-participantId                int                    participant ID
-runes                        list&lt;Rune&gt;             list of rune information
-spell1Id                     int                    first summoner spell ID
-spell2Id                     int                    second summoner spell ID
-stats                        ParticipantStats       participant statistics
-teamId                       int                    team ID
-timeline                     ParticipantTimeline    timeline data. Delta fields refer to values for the specified period (e.g., the gold per minute over the first 10 minutes of the game versus the second 20 minutes of the game. Diffs fields refer to the deltas versus the calculated lane opponent(s).</p>
-<dl class="method">
-<dt id="cassiopeia.type.dto.matchhistory.Participant.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Participant.to_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a JSON representation of the object</p>
-<p>return    str    a JSON representation of the object</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="cassiopeia.type.dto.matchhistory.ParticipantIdentity">
-<em class="property">class </em><code class="descclassname">cassiopeia.type.dto.matchhistory.</code><code class="descname">ParticipantIdentity</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/matchhistory.html#ParticipantIdentity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.ParticipantIdentity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
-<p>participantId    int       participant ID
-player           Player    player information</p>
-<dl class="method">
-<dt id="cassiopeia.type.dto.matchhistory.ParticipantIdentity.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.ParticipantIdentity.to_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a JSON representation of the object</p>
-<p>return    str    a JSON representation of the object</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="cassiopeia.type.dto.matchhistory.ParticipantStats">
-<em class="property">class </em><code class="descclassname">cassiopeia.type.dto.matchhistory.</code><code class="descname">ParticipantStats</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/matchhistory.html#ParticipantStats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.ParticipantStats" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
-<p>assists                            int     number of assists
-champLevel                         int     champion level achieved
-combatPlayerScore                  int     if game was a dominion game, player&#8217;s combat score, otherwise 0
-deaths                             int     number of deaths
-doubleKills                        int     number of double kills
-firstBloodAssist                   bool    flag indicating if participant got an assist on first blood
-firstBloodKill                     bool    flag indicating if participant got first blood
-firstInhibitorAssist               bool    flag indicating if participant got an assist on the first inhibitor
-firstInhibitorKill                 bool    flag indicating if participant destroyed the first inhibitor
-firstTowerAssist                   bool    flag indicating if participant got an assist on the first tower
-firstTowerKill                     bool    flag indicating if participant destroyed the first tower
-goldEarned                         int     gold earned
-goldSpent                          int     gold spent
-inhibitorKills                     int     number of inhibitor kills
-item0                              int     first item ID
-item1                              int     second item ID
-item2                              int     third item ID
-item3                              int     fourth item ID
-item4                              int     fifth item ID
-item5                              int     sixth item ID
-item6                              int     seventh item ID
-killingSprees                      int     number of killing sprees
-kills                              int     number of kills
-largestCriticalStrike              int     largest critical strike
-largestKillingSpree                int     largest killing spree
-largestMultiKill                   int     largest multi kill
-magicDamageDealt                   int     magical damage dealt
-magicDamageDealtToChampions        int     magical damage dealt to champions
-magicDamageTaken                   int     magic damage taken
-minionsKilled                      int     minions killed
-neutralMinionsKilled               int     neutral minions killed
-neutralMinionsKilledEnemyJungle    int     neutral jungle minions killed in the enemy team&#8217;s jungle
-neutralMinionsKilledTeamJungle     int     neutral jungle minions killed in your team&#8217;s jungle
-nodeCapture                        int     if game was a dominion game, number of node captures
-nodeCaptureAssist                  int     if game was a dominion game, number of node capture assists
-nodeNeutralize                     int     if game was a dominion game, number of node neutralizations
-nodeNeutralizeAssist               int     if game was a dominion game, number of node neutralization assists
-objectivePlayerScore               int     if game was a dominion game, player&#8217;s objectives score, otherwise 0
-pentaKills                         int     number of penta kills
-physicalDamageDealt                int     physical damage dealt
-physicalDamageDealtToChampions     int     physical damage dealt to champions
-physicalDamageTaken                int     physical damage taken
-quadraKills                        int     number of quadra kills
-sightWardsBoughtInGame             int     sight wards purchased
-teamObjective                      int     if game was a dominion game, number of completed team objectives (i.e., quests)
-totalDamageDealt                   int     total damage dealt
-totalDamageDealtToChampions        int     total damage dealt to champions
-totalDamageTaken                   int     total damage taken
-totalHeal                          int     total heal amount
-totalPlayerScore                   int     if game was a dominion game, player&#8217;s total score, otherwise 0
-totalScoreRank                     int     if game was a dominion game, team rank of the player&#8217;s total score (e.g., 1-5)
-totalTimeCrowdControlDealt         int     total dealt crowd control time
-totalUnitsHealed                   int     total units healed
-towerKills                         int     number of tower kills
-tripleKills                        int     number of triple kills
-trueDamageDealt                    int     true damage dealt
-trueDamageDealtToChampions         int     true damage dealt to champions
-trueDamageTaken                    int     true damage taken
-unrealKills                        int     number of unreal kills
-visionWardsBoughtInGame            int     vision wards purchased
-wardsKilled                        int     number of wards killed
-wardsPlaced                        int     number of wards placed
-winner                             bool    flag indicating whether or not the participant won</p>
-<dl class="method">
-<dt id="cassiopeia.type.dto.matchhistory.ParticipantStats.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.ParticipantStats.to_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a JSON representation of the object</p>
-<p>return    str    a JSON representation of the object</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="cassiopeia.type.dto.matchhistory.ParticipantTimeline">
-<em class="property">class </em><code class="descclassname">cassiopeia.type.dto.matchhistory.</code><code class="descname">ParticipantTimeline</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/matchhistory.html#ParticipantTimeline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.ParticipantTimeline" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
-<p>ancientGolemAssistsPerMinCounts    ParticipantTimelineData    ancient golem assists per minute timeline counts
-ancientGolemKillsPerMinCounts      ParticipantTimelineData    ancient golem kills per minute timeline counts
-assistedLaneDeathsPerMinDeltas     ParticipantTimelineData    assisted lane deaths per minute timeline data
-assistedLaneKillsPerMinDeltas      ParticipantTimelineData    assisted lane kills per minute timeline data
-baronAssistsPerMinCounts           ParticipantTimelineData    baron assists per minute timeline counts
-baronKillsPerMinCounts             ParticipantTimelineData    baron kills per minute timeline counts
-creepsPerMinDeltas                 ParticipantTimelineData    creeps per minute timeline data
-csDiffPerMinDeltas                 ParticipantTimelineData    creep score difference per minute timeline data
-damageTakenDiffPerMinDeltas        ParticipantTimelineData    damage taken difference per minute timeline data
-damageTakenPerMinDeltas            ParticipantTimelineData    damage taken per minute timeline data
-dragonAssistsPerMinCounts          ParticipantTimelineData    dragon assists per minute timeline counts
-dragonKillsPerMinCounts            ParticipantTimelineData    dragon kills per minute timeline counts
-elderLizardAssistsPerMinCounts     ParticipantTimelineData    elder lizard assists per minute timeline counts
-elderLizardKillsPerMinCounts       ParticipantTimelineData    elder lizard kills per minute timeline counts
-goldPerMinDeltas                   ParticipantTimelineData    gold per minute timeline data
-inhibitorAssistsPerMinCounts       ParticipantTimelineData    inhibitor assists per minute timeline counts
-inhibitorKillsPerMinCounts         ParticipantTimelineData    inhibitor kills per minute timeline counts
-lane                               str                        participant&#8217;s lane (Legal values: MID, MIDDLE, TOP, JUNGLE, BOT, BOTTOM)
-role                               str                        participant&#8217;s role (Legal values: DUO, NONE, SOLO, DUO_CARRY, DUO_SUPPORT)
-towerAssistsPerMinCounts           ParticipantTimelineData    tower assists per minute timeline counts
-towerKillsPerMinCounts             ParticipantTimelineData    tower kills per minute timeline counts
-towerKillsPerMinDeltas             ParticipantTimelineData    tower kills per minute timeline data
-vilemawAssistsPerMinCounts         ParticipantTimelineData    vilemaw assists per minute timeline counts
-vilemawKillsPerMinCounts           ParticipantTimelineData    vilemaw kills per minute timeline counts
-wardsPerMinDeltas                  ParticipantTimelineData    wards placed per minute timeline data
-xpDiffPerMinDeltas                 ParticipantTimelineData    experience difference per minute timeline data
-xpPerMinDeltas                     ParticipantTimelineData    experience per minute timeline data</p>
-<dl class="method">
-<dt id="cassiopeia.type.dto.matchhistory.ParticipantTimeline.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.ParticipantTimeline.to_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a JSON representation of the object</p>
-<p>return    str    a JSON representation of the object</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="cassiopeia.type.dto.matchhistory.ParticipantTimelineData">
-<em class="property">class </em><code class="descclassname">cassiopeia.type.dto.matchhistory.</code><code class="descname">ParticipantTimelineData</code><span class="sig-paren">(</span><em>dictionary</em>, <em>type_=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/matchhistory.html#ParticipantTimelineData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.ParticipantTimelineData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
-<p>tenToTwenty       float    value per minute from 10 min to 20 min
-thirtyToEnd       float    value per minute from 30 min to the end of the game
-twentyToThirty    float    value per minute from 20 min to 30 min
-zeroToTen         float    value per minute from 20 min to 30 min</p>
-<dl class="method">
-<dt id="cassiopeia.type.dto.matchhistory.ParticipantTimelineData.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.ParticipantTimelineData.to_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a JSON representation of the object</p>
-<p>return    str    a JSON representation of the object</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="cassiopeia.type.dto.matchhistory.Player">
-<em class="property">class </em><code class="descclassname">cassiopeia.type.dto.matchhistory.</code><code class="descname">Player</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/matchhistory.html#Player"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Player" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
-<p>matchHistoryUri    str    match history URI
-profileIcon        int    profile icon ID
-summonerId         int    summoner ID
-summonerName       str    summoner name</p>
-<dl class="method">
-<dt id="cassiopeia.type.dto.matchhistory.Player.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Player.to_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a JSON representation of the object</p>
-<p>return    str    a JSON representation of the object</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="cassiopeia.type.dto.matchhistory.PlayerHistory">
-<em class="property">class </em><code class="descclassname">cassiopeia.type.dto.matchhistory.</code><code class="descname">PlayerHistory</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/matchhistory.html#PlayerHistory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.PlayerHistory" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
-<p>matches    list&lt;MatchSummary&gt;    list of matches for the player</p>
-<dl class="attribute">
-<dt id="cassiopeia.type.dto.matchhistory.PlayerHistory.champion_ids">
-<code class="descname">champion_ids</code><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.PlayerHistory.champion_ids" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets all champiopn IDs contained in this object</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cassiopeia.type.dto.matchhistory.PlayerHistory.item_ids">
-<code class="descname">item_ids</code><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.PlayerHistory.item_ids" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets all item IDs contained in this object</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cassiopeia.type.dto.matchhistory.PlayerHistory.mastery_ids">
-<code class="descname">mastery_ids</code><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.PlayerHistory.mastery_ids" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets all mastery IDs contained in this object</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cassiopeia.type.dto.matchhistory.PlayerHistory.rune_ids">
-<code class="descname">rune_ids</code><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.PlayerHistory.rune_ids" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets all rune IDs contained in this object</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cassiopeia.type.dto.matchhistory.PlayerHistory.summoner_ids">
-<code class="descname">summoner_ids</code><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.PlayerHistory.summoner_ids" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets all summoner IDs contained in this object</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cassiopeia.type.dto.matchhistory.PlayerHistory.summoner_spell_ids">
-<code class="descname">summoner_spell_ids</code><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.PlayerHistory.summoner_spell_ids" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets all summoner spell IDs contained in this object</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.dto.matchhistory.PlayerHistory.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.PlayerHistory.to_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a JSON representation of the object</p>
-<p>return    str    a JSON representation of the object</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="cassiopeia.type.dto.matchhistory.Rune">
-<em class="property">class </em><code class="descclassname">cassiopeia.type.dto.matchhistory.</code><code class="descname">Rune</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/dto/matchhistory.html#Rune"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Rune" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.dto.common.CassiopeiaDto" title="cassiopeia.type.dto.common.CassiopeiaDto"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.dto.common.CassiopeiaDto</span></code></a></p>
-<p>rank      int    rune rank
-runeId    int    rune ID</p>
-<dl class="method">
-<dt id="cassiopeia.type.dto.matchhistory.Rune.to_json">
-<code class="descname">to_json</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.dto.matchhistory.Rune.to_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a JSON representation of the object</p>
-<p>return    str    a JSON representation of the object</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
 <div class="section" id="module-cassiopeia.type.dto.matchlist">
 <span id="cassiopeia-type-dto-matchlist"></span><h2>cassiopeia.type.dto.matchlist<a class="headerlink" href="#module-cassiopeia.type.dto.matchlist" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -3467,7 +3134,6 @@ wins                  int    wins</p>
 <li><a class="reference internal" href="#module-cassiopeia.type.dto.game">cassiopeia.type.dto.game</a></li>
 <li><a class="reference internal" href="#module-cassiopeia.type.dto.league">cassiopeia.type.dto.league</a></li>
 <li><a class="reference internal" href="#module-cassiopeia.type.dto.match">cassiopeia.type.dto.match</a></li>
-<li><a class="reference internal" href="#module-cassiopeia.type.dto.matchhistory">cassiopeia.type.dto.matchhistory</a></li>
 <li><a class="reference internal" href="#module-cassiopeia.type.dto.matchlist">cassiopeia.type.dto.matchlist</a></li>
 <li><a class="reference internal" href="#module-cassiopeia.type.dto.staticdata">cassiopeia.type.dto.staticdata</a></li>
 <li><a class="reference internal" href="#module-cassiopeia.type.dto.stats">cassiopeia.type.dto.stats</a></li>

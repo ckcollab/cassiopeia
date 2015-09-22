@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.dto &mdash; Cassiopeia 0.0.6 documentation</title>
+    <title>cassiopeia.dto &mdash; Cassiopeia 0.0.7 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.6',
+        VERSION:     '0.0.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.6 documentation" href="index.html" />
+    <link rel="top" title="Cassiopeia 0.0.7 documentation" href="index.html" />
     <link rel="up" title="cassiopeia.riotapi" href="cassiopeia.html" />
     <link rel="next" title="cassiopeia.type" href="cassiopeia.type.html" />
     <link rel="prev" title="cassiopeia.core" href="cassiopeia.core.html" />
@@ -152,20 +152,6 @@
 <p><a href="#id1"><span class="problematic" id="id2">id_</span></a>                 int            the ID of the match to get
 include_timeline    bool           whether to include timeline data in the returned match</p>
 <p>return              MatchDetail    the match</p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-cassiopeia.dto.matchhistoryapi">
-<span id="cassiopeia-dto-matchhistoryapi"></span><h2>cassiopeia.dto.matchhistoryapi<a class="headerlink" href="#module-cassiopeia.dto.matchhistoryapi" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="cassiopeia.dto.matchhistoryapi.get_match_history">
-<code class="descclassname">cassiopeia.dto.matchhistoryapi.</code><code class="descname">get_match_history</code><span class="sig-paren">(</span><em>summoner_id</em>, <em>begin_index=0</em>, <em>champion_ids=None</em>, <em>ranked_queues=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/dto/matchhistoryapi.html#get_match_history"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.dto.matchhistoryapi.get_match_history" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://developer.riotgames.com/api/methods#!/1012/3438">https://developer.riotgames.com/api/methods#!/1012/3438</a></p>
-<p>summoner_id      int                the ID of the summoner to get the match history for
-begin_index      int                the game index to start from (default 0)
-champion_ids     int | list&lt;int&gt;    the champion ID(s) to limit the results to (default None)
-ranked_queues    str | list&lt;str&gt;    the ranked queue(s) to limit the results to (&#8220;RANKED_SOLO_5x5&#8221;, &#8220;RANKED_TEAM_3x3&#8221;, &#8220;RANKED_TEAM_5x5&#8221;) (default None)</p>
-<p>return           PlayerHistory      the summoner&#8217;s match history</p>
 </dd></dl>
 
 </div>
@@ -439,7 +425,6 @@ season         str                       the season to get ranked stats for (&#8
 <li><a class="reference internal" href="#module-cassiopeia.dto.gameapi">cassiopeia.dto.gameapi</a></li>
 <li><a class="reference internal" href="#module-cassiopeia.dto.leagueapi">cassiopeia.dto.leagueapi</a></li>
 <li><a class="reference internal" href="#module-cassiopeia.dto.matchapi">cassiopeia.dto.matchapi</a></li>
-<li><a class="reference internal" href="#module-cassiopeia.dto.matchhistoryapi">cassiopeia.dto.matchhistoryapi</a></li>
 <li><a class="reference internal" href="#module-cassiopeia.dto.matchlistapi">cassiopeia.dto.matchlistapi</a></li>
 <li><a class="reference internal" href="#module-cassiopeia.dto.requests">cassiopeia.dto.requests</a></li>
 <li><a class="reference internal" href="#module-cassiopeia.dto.staticdataapi">cassiopeia.dto.staticdataapi</a></li>

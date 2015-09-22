@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.riotapi &mdash; Cassiopeia 0.0.6 documentation</title>
+    <title>cassiopeia.riotapi &mdash; Cassiopeia 0.0.7 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.6',
+        VERSION:     '0.0.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.6 documentation" href="index.html" />
+    <link rel="top" title="Cassiopeia 0.0.7 documentation" href="index.html" />
     <link rel="next" title="cassiopeia.core" href="cassiopeia.core.html" />
     <link rel="prev" title="Cassiopeia Documentation" href="index.html" />
    
@@ -230,17 +230,6 @@ include_timeline    bool                    whether to include timeline data in 
 </dd></dl>
 
 <dl class="function">
-<dt id="cassiopeia.riotapi.get_match_history">
-<code class="descclassname">cassiopeia.riotapi.</code><code class="descname">get_match_history</code><span class="sig-paren">(</span><em>summoner</em>, <em>begin_index=0</em>, <em>champions=None</em>, <em>ranked_queues=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/core/matchhistoryapi.html#get_match_history"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.riotapi.get_match_history" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a summoner&#8217;s match history</p>
-<p>summoner        Summoner                     the summoner to get match history for
-begin_index     int                          the game index to start from (default 0)
-champions       Champion | list&lt;Champion&gt;    the champion(s) to limit the results to (default None)
-ranked_queue    Queue | list&lt;Queue&gt;          the ranked queue(s) to limit the results to (default None)</p>
-<p>return          list&lt;MatchSummary&gt;           the summoner&#8217;s match history</p>
-</dd></dl>
-
-<dl class="function">
 <dt id="cassiopeia.riotapi.get_match_list">
 <code class="descclassname">cassiopeia.riotapi.</code><code class="descname">get_match_list</code><span class="sig-paren">(</span><em>summoner</em>, <em>begin_index=-1</em>, <em>begin_time=0</em>, <em>end_time=0</em>, <em>champions=None</em>, <em>ranked_queues=None</em>, <em>seasons=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/core/matchlistapi.html#get_match_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.riotapi.get_match_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a summoner&#8217;s match history</p>
@@ -259,7 +248,7 @@ seasons         Season | list&lt;Season&gt;        the season(s) to limit the re
 <code class="descclassname">cassiopeia.riotapi.</code><code class="descname">get_matches</code><span class="sig-paren">(</span><em>ids</em>, <em>include_timeline=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/core/matchapi.html#get_matches"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.riotapi.get_matches" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a bunch of matches</p>
 <p>ids                 list&lt;int&gt; | list&lt;MatchReference&gt;    the IDs of or references to the matches to get
-include_timeline    bool                                whether to include timeline data in the returned match</p>
+include_timeline    bool                                whether to include timeline data in the returned matches</p>
 <p>return              list&lt;Match&gt;                         the matches</p>
 </dd></dl>
 
@@ -653,17 +642,6 @@ include_timeline    bool           whether to include timeline data in the retur
 </dd></dl>
 
 <dl class="function">
-<dt id="cassiopeia.baseriotapi.get_match_history">
-<code class="descclassname">cassiopeia.baseriotapi.</code><code class="descname">get_match_history</code><span class="sig-paren">(</span><em>summoner_id</em>, <em>begin_index=0</em>, <em>champion_ids=None</em>, <em>ranked_queues=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/dto/matchhistoryapi.html#get_match_history"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.baseriotapi.get_match_history" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://developer.riotgames.com/api/methods#!/1012/3438">https://developer.riotgames.com/api/methods#!/1012/3438</a></p>
-<p>summoner_id      int                the ID of the summoner to get the match history for
-begin_index      int                the game index to start from (default 0)
-champion_ids     int | list&lt;int&gt;    the champion ID(s) to limit the results to (default None)
-ranked_queues    str | list&lt;str&gt;    the ranked queue(s) to limit the results to (&#8220;RANKED_SOLO_5x5&#8221;, &#8220;RANKED_TEAM_3x3&#8221;, &#8220;RANKED_TEAM_5x5&#8221;) (default None)</p>
-<p>return           PlayerHistory      the summoner&#8217;s match history</p>
-</dd></dl>
-
-<dl class="function">
 <dt id="cassiopeia.baseriotapi.get_match_list">
 <code class="descclassname">cassiopeia.baseriotapi.</code><code class="descname">get_match_list</code><span class="sig-paren">(</span><em>summoner_id</em>, <em>begin_index=0</em>, <em>begin_time=-1</em>, <em>end_time=0</em>, <em>champion_ids=None</em>, <em>ranked_queues=None</em>, <em>seasons=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/dto/matchlistapi.html#get_match_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.baseriotapi.get_match_list" title="Permalink to this definition">¶</a></dt>
 <dd><p><a class="reference external" href="https://developer.riotgames.com/api/methods#!/1013/3439">https://developer.riotgames.com/api/methods#!/1013/3439</a></p>
@@ -880,7 +858,6 @@ seconds_per_epoch    int    the number of seconds per epoch</p>
 <li class="toctree-l2"><a class="reference internal" href="cassiopeia.core.html#module-cassiopeia.core.gameapi">cassiopeia.core.gameapi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cassiopeia.core.html#module-cassiopeia.core.leagueapi">cassiopeia.core.leagueapi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cassiopeia.core.html#module-cassiopeia.core.matchapi">cassiopeia.core.matchapi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cassiopeia.core.html#module-cassiopeia.core.matchhistoryapi">cassiopeia.core.matchhistoryapi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cassiopeia.core.html#module-cassiopeia.core.matchlistapi">cassiopeia.core.matchlistapi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cassiopeia.core.html#module-cassiopeia.core.requests">cassiopeia.core.requests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cassiopeia.core.html#module-cassiopeia.core.staticdataapi">cassiopeia.core.staticdataapi</a></li>
@@ -897,7 +874,6 @@ seconds_per_epoch    int    the number of seconds per epoch</p>
 <li class="toctree-l2"><a class="reference internal" href="cassiopeia.dto.html#module-cassiopeia.dto.gameapi">cassiopeia.dto.gameapi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cassiopeia.dto.html#module-cassiopeia.dto.leagueapi">cassiopeia.dto.leagueapi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cassiopeia.dto.html#module-cassiopeia.dto.matchapi">cassiopeia.dto.matchapi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cassiopeia.dto.html#module-cassiopeia.dto.matchhistoryapi">cassiopeia.dto.matchhistoryapi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cassiopeia.dto.html#module-cassiopeia.dto.matchlistapi">cassiopeia.dto.matchlistapi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cassiopeia.dto.html#module-cassiopeia.dto.requests">cassiopeia.dto.requests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cassiopeia.dto.html#module-cassiopeia.dto.staticdataapi">cassiopeia.dto.staticdataapi</a></li>
@@ -922,7 +898,6 @@ seconds_per_epoch    int    the number of seconds per epoch</p>
 <li class="toctree-l3"><a class="reference internal" href="cassiopeia.type.core.html#module-cassiopeia.type.core.game">cassiopeia.type.core.game</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cassiopeia.type.core.html#module-cassiopeia.type.core.league">cassiopeia.type.core.league</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cassiopeia.type.core.html#module-cassiopeia.type.core.match">cassiopeia.type.core.match</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cassiopeia.type.core.html#module-cassiopeia.type.core.matchhistory">cassiopeia.type.core.matchhistory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cassiopeia.type.core.html#module-cassiopeia.type.core.matchlist">cassiopeia.type.core.matchlist</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cassiopeia.type.core.html#module-cassiopeia.type.core.staticdata">cassiopeia.type.core.staticdata</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cassiopeia.type.core.html#module-cassiopeia.type.core.stats">cassiopeia.type.core.stats</a></li>
@@ -939,7 +914,6 @@ seconds_per_epoch    int    the number of seconds per epoch</p>
 <li class="toctree-l3"><a class="reference internal" href="cassiopeia.type.dto.html#module-cassiopeia.type.dto.game">cassiopeia.type.dto.game</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cassiopeia.type.dto.html#module-cassiopeia.type.dto.league">cassiopeia.type.dto.league</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cassiopeia.type.dto.html#module-cassiopeia.type.dto.match">cassiopeia.type.dto.match</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cassiopeia.type.dto.html#module-cassiopeia.type.dto.matchhistory">cassiopeia.type.dto.matchhistory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cassiopeia.type.dto.html#module-cassiopeia.type.dto.matchlist">cassiopeia.type.dto.matchlist</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cassiopeia.type.dto.html#module-cassiopeia.type.dto.staticdata">cassiopeia.type.dto.staticdata</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cassiopeia.type.dto.html#module-cassiopeia.type.dto.stats">cassiopeia.type.dto.stats</a></li>
