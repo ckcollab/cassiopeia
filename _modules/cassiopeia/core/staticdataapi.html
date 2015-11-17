@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cassiopeia.core.staticdataapi &mdash; Cassiopeia 0.0.8 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="Cassiopeia 0.0.8 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for cassiopeia.core.staticdataapi</h1><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">cassiopeia.riotapi</span>
+<span class="kn">import</span> <span class="nn">cassiopeia.dto.staticdataapi</span>
+<span class="kn">import</span> <span class="nn">cassiopeia.core.requests</span>
+<span class="kn">import</span> <span class="nn">cassiopeia.type.core.common</span>
+<span class="kn">import</span> <span class="nn">cassiopeia.type.core.staticdata</span>
+
+<span class="n">_ignore_runes</span> <span class="o">=</span> <span class="p">{</span><span class="mi">8028</span><span class="p">}</span>
+<span class="n">_ignore_summoner_spells</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">}</span>
+
+<div class="viewcode-block" id="get_champion_by_id"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_champion_by_id">[docs]</a><span class="k">def</span> <span class="nf">get_champion_by_id</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets a champion by ID</span>
+
+<span class="sd">    id_       int         the ID of the champion to get</span>
+
+<span class="sd">    return    Champion    the champion</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">champion</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Champion</span><span class="p">,</span> <span class="n">id_</span><span class="p">,</span> <span class="s">&quot;id&quot;</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">champion</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">champion</span>
+
+    <span class="n">champion</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdataapi</span><span class="o">.</span><span class="n">get_champion</span><span class="p">(</span><span class="n">id_</span><span class="p">)</span>
+
+    <span class="c"># Load required data if loading policy is eager</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">load_policy</span> <span class="ow">is</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">LoadPolicy</span><span class="o">.</span><span class="n">eager</span><span class="p">):</span>
+        <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_items</span><span class="p">()</span> <span class="k">if</span> <span class="n">champion</span><span class="o">.</span><span class="n">item_ids</span> <span class="k">else</span> <span class="bp">None</span>
+
+    <span class="n">champion</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Champion</span><span class="p">(</span><span class="n">champion</span><span class="p">)</span>
+    <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">champion</span><span class="p">,</span> <span class="n">id_</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">champion</span>
+</div>
+<div class="viewcode-block" id="get_champion_by_name"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_champion_by_name">[docs]</a><span class="k">def</span> <span class="nf">get_champion_by_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets a champion by name</span>
+
+<span class="sd">    name      str         the name of the champion to get</span>
+
+<span class="sd">    return    Champion    the champion</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">champions</span> <span class="o">=</span> <span class="n">get_champions</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">champion</span> <span class="ow">in</span> <span class="n">champions</span><span class="p">:</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">champion</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">champion</span>
+    <span class="k">return</span> <span class="bp">None</span>
+</div>
+<div class="viewcode-block" id="get_champions"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_champions">[docs]</a><span class="k">def</span> <span class="nf">get_champions</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Gets all the champions</span>
+
+<span class="sd">    return    list&lt;Champion&gt;    all the champions</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">has_all</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Champion</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">get_all</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Champion</span><span class="p">)</span>
+
+    <span class="n">champions</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdataapi</span><span class="o">.</span><span class="n">get_champions</span><span class="p">()</span>
+
+    <span class="c"># Load required data if loading policy is eager</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">load_policy</span> <span class="ow">is</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">LoadPolicy</span><span class="o">.</span><span class="n">eager</span><span class="p">):</span>
+        <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_items</span><span class="p">()</span> <span class="k">if</span> <span class="n">champions</span><span class="o">.</span><span class="n">item_ids</span> <span class="k">else</span> <span class="bp">None</span>
+
+    <span class="n">champions</span> <span class="o">=</span> <span class="p">[</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Champion</span><span class="p">(</span><span class="n">champ</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">champ</span> <span class="ow">in</span> <span class="n">champions</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+    <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">champions</span><span class="p">,</span> <span class="p">[</span><span class="n">champ</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">champ</span> <span class="ow">in</span> <span class="n">champions</span><span class="p">],</span> <span class="p">[</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Champion</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">champions</span>
+</div>
+<div class="viewcode-block" id="get_champions_by_id"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_champions_by_id">[docs]</a><span class="k">def</span> <span class="nf">get_champions_by_id</span><span class="p">(</span><span class="n">ids</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets a bunch of champions by ID</span>
+
+<span class="sd">    ids       list&lt;int&gt;         the IDs of the champions to get</span>
+
+<span class="sd">    return    list&lt;Champion&gt;    the requested champions</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">get_champions</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Champion</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="s">&quot;id&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="get_champions_by_name"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_champions_by_name">[docs]</a><span class="k">def</span> <span class="nf">get_champions_by_name</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets a bunch of champions by name</span>
+
+<span class="sd">    names     list&lt;str&gt;         the names of the champions to get</span>
+
+<span class="sd">    return    list&lt;Champion&gt;    the requested champions</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="p">{</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">))}</span>
+    
+    <span class="n">champions</span> <span class="o">=</span> <span class="n">get_champions</span><span class="p">()</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">))]</span>
+    <span class="k">for</span> <span class="n">champion</span> <span class="ow">in</span> <span class="n">champions</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">indices</span><span class="p">[</span><span class="n">champion</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+            <span class="n">results</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">champion</span>
+        <span class="k">except</span><span class="p">(</span><span class="ne">KeyError</span><span class="p">):</span>
+            <span class="k">pass</span>
+
+    <span class="k">return</span> <span class="n">results</span>
+</div>
+<div class="viewcode-block" id="get_item"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_item">[docs]</a><span class="k">def</span> <span class="nf">get_item</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets an item</span>
+
+<span class="sd">    id_       int     the ID of the item to get</span>
+
+<span class="sd">    return    Item    the item</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">get_items</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Item</span><span class="p">,</span> <span class="n">id_</span><span class="p">,</span> <span class="s">&quot;id&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="get_items"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_items">[docs]</a><span class="k">def</span> <span class="nf">get_items</span><span class="p">(</span><span class="n">ids</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets a bunch of items (or all of them)</span>
+
+<span class="sd">    ids       list&lt;int&gt;     the IDs of the items to get (or None to get all items) (default None)</span>
+
+<span class="sd">    return    list&lt;Item&gt;    the items</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">ids</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">):</span>
+        <span class="n">get_items</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Item</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="s">&quot;id&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">has_all</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Item</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">get_all</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Item</span><span class="p">)</span>
+
+        <span class="n">items</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdataapi</span><span class="o">.</span><span class="n">get_items</span><span class="p">()</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+
+        <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">],</span> <span class="p">[</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Item</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">items</span>
+</div>
+<div class="viewcode-block" id="get_language_strings"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_language_strings">[docs]</a><span class="k">def</span> <span class="nf">get_language_strings</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Gets the locale-based string replacements for various game constants</span>
+
+<span class="sd">    return    dict&lt;str, str&gt;   the replacements</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdataapi</span><span class="o">.</span><span class="n">get_language_strings</span><span class="p">()</span><span class="o">.</span><span class="n">data</span>
+</div>
+<div class="viewcode-block" id="get_languages"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_languages">[docs]</a><span class="k">def</span> <span class="nf">get_languages</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Gets the valid locales (languages) that can be used with the API</span>
+
+<span class="sd">    return    list&lt;str&gt;    the valid locales</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdataapi</span><span class="o">.</span><span class="n">get_languages</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="get_map_information"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_map_information">[docs]</a><span class="k">def</span> <span class="nf">get_map_information</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Gets specific information about each map</span>
+
+<span class="sd">    return    list&lt;MapDetails&gt;    the map information</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">MapDetails</span><span class="p">(</span><span class="n">map_</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">map_</span> <span class="ow">in</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdataapi</span><span class="o">.</span><span class="n">get_maps</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+</div>
+<div class="viewcode-block" id="get_mastery"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_mastery">[docs]</a><span class="k">def</span> <span class="nf">get_mastery</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets a mastery</span>
+
+<span class="sd">    id_       int        the ID of the mastery to get</span>
+
+<span class="sd">    return    Mastery    the mastery</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mastery</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Mastery</span><span class="p">,</span> <span class="n">id_</span><span class="p">,</span> <span class="s">&quot;id&quot;</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">mastery</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">mastery</span>
+
+    <span class="n">mastery</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdataapi</span><span class="o">.</span><span class="n">get_mastery</span><span class="p">(</span><span class="n">id_</span><span class="p">)</span>
+
+    <span class="c"># Load required data if loading policy is eager</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">load_policy</span> <span class="ow">is</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">LoadPolicy</span><span class="o">.</span><span class="n">eager</span><span class="p">):</span>
+        <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_masteries</span><span class="p">()</span> <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">mastery_ids</span> <span class="k">else</span> <span class="bp">None</span>
+
+    <span class="n">mastery</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Mastery</span><span class="p">(</span><span class="n">mastery</span><span class="p">)</span>
+
+    <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">mastery</span><span class="p">,</span> <span class="n">id_</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mastery</span>
+</div>
+<div class="viewcode-block" id="get_masteries"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_masteries">[docs]</a><span class="k">def</span> <span class="nf">get_masteries</span><span class="p">(</span><span class="n">ids</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets a bunch of masteries (or all of them)</span>
+
+<span class="sd">    ids       list&lt;int&gt;        the IDs of the masteries to get (or None to get all masteries) (default None)</span>
+
+<span class="sd">    return    list&lt;Mastery&gt;    the masteries</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">ids</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">):</span>
+        <span class="n">get_masteries</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Mastery</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="s">&quot;id&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">has_all</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Mastery</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">get_all</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Mastery</span><span class="p">)</span>
+
+        <span class="n">masteries</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdataapi</span><span class="o">.</span><span class="n">get_masteries</span><span class="p">()</span>
+        <span class="n">masteries</span> <span class="o">=</span> <span class="p">[</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Mastery</span><span class="p">(</span><span class="n">mastery</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">mastery</span> <span class="ow">in</span> <span class="n">masteries</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+
+        <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">masteries</span><span class="p">,</span> <span class="p">[</span><span class="n">mastery</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">mastery</span> <span class="ow">in</span> <span class="n">masteries</span><span class="p">],</span> <span class="p">[</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Mastery</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">masteries</span>
+</div>
+<div class="viewcode-block" id="get_realm"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_realm">[docs]</a><span class="k">def</span> <span class="nf">get_realm</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Gets the realm for the current region</span>
+
+<span class="sd">    return    Realm    the realm</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Realm</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdataapi</span><span class="o">.</span><span class="n">get_realm</span><span class="p">())</span>
+</div>
+<div class="viewcode-block" id="get_rune"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_rune">[docs]</a><span class="k">def</span> <span class="nf">get_rune</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets a rune</span>
+
+<span class="sd">    id_       int     the ID of the rune to get</span>
+
+<span class="sd">    return    Rune    the rune</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">id_</span> <span class="ow">in</span> <span class="n">_ignore_runes</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="n">rune</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Rune</span><span class="p">,</span> <span class="n">id_</span><span class="p">,</span> <span class="s">&quot;id&quot;</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">rune</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">rune</span>
+
+    <span class="n">rune</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdataapi</span><span class="o">.</span><span class="n">get_rune</span><span class="p">(</span><span class="n">id_</span><span class="p">)</span>
+    <span class="n">rune</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Rune</span><span class="p">(</span><span class="n">rune</span><span class="p">)</span>
+
+    <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">rune</span><span class="p">,</span> <span class="n">id_</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rune</span>
+</div>
+<div class="viewcode-block" id="get_runes"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_runes">[docs]</a><span class="k">def</span> <span class="nf">get_runes</span><span class="p">(</span><span class="n">ids</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets a bunch of runes (or all of them)</span>
+
+<span class="sd">    ids       list&lt;int&gt;     the IDs of the runes to get (or None to get all runes) (default None)</span>
+
+<span class="sd">    return    list&lt;Rune&gt;    the runes</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">ids</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">):</span>
+        <span class="n">get_runes</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Rune</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="s">&quot;id&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">has_all</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Rune</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">get_all</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Rune</span><span class="p">)</span>
+
+        <span class="n">runes</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdataapi</span><span class="o">.</span><span class="n">get_runes</span><span class="p">()</span>
+        <span class="n">runes</span> <span class="o">=</span> <span class="p">[</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Rune</span><span class="p">(</span><span class="n">rune</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">rune</span> <span class="ow">in</span> <span class="n">runes</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+
+        <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">runes</span><span class="p">,</span> <span class="p">[</span><span class="n">rune</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">rune</span> <span class="ow">in</span> <span class="n">runes</span><span class="p">],</span> <span class="p">[</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Rune</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">runes</span>
+</div>
+<div class="viewcode-block" id="get_summoner_spell"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_summoner_spell">[docs]</a><span class="k">def</span> <span class="nf">get_summoner_spell</span><span class="p">(</span><span class="n">id_</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets a summoner spell</span>
+
+<span class="sd">    id_       int              the ID of the summoner spell to get</span>
+
+<span class="sd">    return    SummonerSpell    the summoner spell</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">id_</span> <span class="ow">in</span> <span class="n">_ignore_summoner_spells</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="n">summoner_spell</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">SummonerSpell</span><span class="p">,</span> <span class="n">id_</span><span class="p">,</span> <span class="s">&quot;id&quot;</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">summoner_spell</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">summoner_spell</span>
+
+    <span class="n">summoner_spell</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdataapi</span><span class="o">.</span><span class="n">get_summoner_spell</span><span class="p">(</span><span class="n">id_</span><span class="p">)</span>
+    <span class="n">summoner_spell</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">SummonerSpell</span><span class="p">(</span><span class="n">summoner_spell</span><span class="p">)</span>
+
+    <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">summoner_spell</span><span class="p">,</span> <span class="n">id_</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">summoner_spell</span>
+</div>
+<div class="viewcode-block" id="get_summoner_spells"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_summoner_spells">[docs]</a><span class="k">def</span> <span class="nf">get_summoner_spells</span><span class="p">(</span><span class="n">ids</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets a bunch of summoner spells (or all of them)</span>
+
+<span class="sd">    ids       list&lt;int&gt;              the IDs of the summoner spells to get (or None to get all summoner spells) (default None)</span>
+
+<span class="sd">    return    list&lt;SummonerSpell&gt;    the summoner spells</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">ids</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">):</span>
+        <span class="n">get_summoner_spells</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">SummonerSpell</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="s">&quot;id&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">has_all</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">SummonerSpell</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">get_all</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">SummonerSpell</span><span class="p">)</span>
+
+        <span class="n">summoner_spells</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdataapi</span><span class="o">.</span><span class="n">get_summoner_spells</span><span class="p">()</span>
+        <span class="n">summoner_spells</span> <span class="o">=</span> <span class="p">[</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">SummonerSpell</span><span class="p">(</span><span class="n">summoner_spell</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">summoner_spell</span> <span class="ow">in</span> <span class="n">summoner_spells</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+
+        <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">summoner_spells</span><span class="p">,</span> <span class="p">[</span><span class="n">summoner_spell</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">summoner_spell</span> <span class="ow">in</span> <span class="n">summoner_spells</span><span class="p">],</span> <span class="p">[</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">SummonerSpell</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">summoner_spells</span>
+</div>
+<div class="viewcode-block" id="get_versions"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_versions">[docs]</a><span class="k">def</span> <span class="nf">get_versions</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Gets the valid versions of the API</span>
+
+<span class="sd">    return    list&lt;str&gt;    the valid versions</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdataapi</span><span class="o">.</span><span class="n">get_versions</span><span class="p">()</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Rob Rua.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

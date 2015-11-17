@@ -1,0 +1,523 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cassiopeia.type.dto.game &mdash; Cassiopeia 0.0.8 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.0.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="top" title="Cassiopeia 0.0.8 documentation" href="../../../../index.html" />
+    <link rel="up" title="Module code" href="../../../index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for cassiopeia.type.dto.game</h1><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">cassiopeia.type.dto.common</span>
+<span class="kn">import</span> <span class="nn">cassiopeia.type.core.common</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">sqlalchemy_imported</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">sqlalchemy</span>
+    <span class="kn">import</span> <span class="nn">sqlalchemy.orm</span>
+
+<span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
+<div class="viewcode-block" id="RawStats"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.game.RawStats">[docs]</a><span class="k">class</span> <span class="nc">RawStats</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">CassiopeiaDto</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    assists                            int     number of assists</span>
+<span class="sd">    barracksKilled                     int     number of enemy inhibitors killed</span>
+<span class="sd">    championsKilled                    int     number of champions killed</span>
+<span class="sd">    combatPlayerScore                  int     the combat player score</span>
+<span class="sd">    consumablesPurchased               int     number of consumables purchased</span>
+<span class="sd">    damageDealtPlayer                  int     total damage dealt</span>
+<span class="sd">    doubleKills                        int     number of double kills</span>
+<span class="sd">    firstBlood                         int     first blood</span>
+<span class="sd">    gold                               int     amount of gold</span>
+<span class="sd">    goldEarned                         int     total gold earned</span>
+<span class="sd">    goldSpent                          int     total gold spent</span>
+<span class="sd">    item0                              int     ID of item 0</span>
+<span class="sd">    item1                              int     ID of item 1</span>
+<span class="sd">    item2                              int     ID of item 2</span>
+<span class="sd">    item3                              int     ID of item 3</span>
+<span class="sd">    item4                              int     ID of item 4</span>
+<span class="sd">    item5                              int     ID of item 5</span>
+<span class="sd">    item6                              int     ID of item 6</span>
+<span class="sd">    itemsPurchased                     int     number of items purchased</span>
+<span class="sd">    killingSprees                      int     number of killing sprees</span>
+<span class="sd">    largestCriticalStrike              int     largest critical strike</span>
+<span class="sd">    largestKillingSpree                int     largest killing spree</span>
+<span class="sd">    largestMultiKill                   int     largest multi kill</span>
+<span class="sd">    legendaryItemsCreated              int     number of tier 3 items built</span>
+<span class="sd">    level                              int     level</span>
+<span class="sd">    magicDamageDealtPlayer             int     total magic damage dealt</span>
+<span class="sd">    magicDamageDealtToChampions        int     total magic damage dealt to champions</span>
+<span class="sd">    magicDamageTaken                   int     total magic damage taken</span>
+<span class="sd">    minionsDenied                      int     total minions denied</span>
+<span class="sd">    minionsKilled                      int     total minions killed</span>
+<span class="sd">    neutralMinionsKilled               int     total neutral minions killed</span>
+<span class="sd">    neutralMinionsKilledEnemyJungle    int     neutral minions killed in enemy jungle</span>
+<span class="sd">    neutralMinionsKilledYourJungle     int     neutral minions killed in own jungle</span>
+<span class="sd">    nexusKilled                        bool    flag specifying if the summoner got the killing blow on the nexus</span>
+<span class="sd">    nodeCapture                        int     number of nodes captured</span>
+<span class="sd">    nodeCaptureAssist                  int     number of node capture assists</span>
+<span class="sd">    nodeNeutralize                     int     number of nodes neutralized</span>
+<span class="sd">    nodeNeutralizeAssist               int     number of node neutralization assists</span>
+<span class="sd">    numDeaths                          int     number of deaths</span>
+<span class="sd">    numItemsBought                     int     number of items bought</span>
+<span class="sd">    objectivePlayerScore               int     objective player score</span>
+<span class="sd">    pentaKills                         int     number of penta kills</span>
+<span class="sd">    physicalDamageDealtPlayer          int     total physical damage dealt</span>
+<span class="sd">    physicalDamageDealtToChampions     int     total physical damage dealt to champions</span>
+<span class="sd">    physicalDamageTaken                int     total physical damage taken</span>
+<span class="sd">    playerPosition                     int     player position</span>
+<span class="sd">    playerRole                         int     player role</span>
+<span class="sd">    quadraKills                        int     number of quadra kills</span>
+<span class="sd">    sightWardsBought                   int     number of sight wards bought</span>
+<span class="sd">    spell1Cast                         int     number of times first champion spell was cast</span>
+<span class="sd">    spell2Cast                         int     number of times second champion spell was cast</span>
+<span class="sd">    spell3Cast                         int     number of times third champion spell was cast</span>
+<span class="sd">    spell4Cast                         int     number of times fourth champion spell was cast</span>
+<span class="sd">    summonSpell1Cast                   int     number of times summoner spell 1 was cast</span>
+<span class="sd">    summonSpell2Cast                   int     number of times summoner spell 2 was cast</span>
+<span class="sd">    superMonsterKilled                 int     number of super monsters killed</span>
+<span class="sd">    team                               int     team</span>
+<span class="sd">    teamObjective                      int     team objectives</span>
+<span class="sd">    timePlayed                         int     time played</span>
+<span class="sd">    totalDamageDealt                   int     total damage dealt</span>
+<span class="sd">    totalDamageDealtToChampions        int     total damage dealt to champions</span>
+<span class="sd">    totalDamageTaken                   int     total damage taken</span>
+<span class="sd">    totalHeal                          int     total healing done</span>
+<span class="sd">    totalPlayerScore                   int     total player score</span>
+<span class="sd">    totalScoreRank                     int     total score rank</span>
+<span class="sd">    totalTimeCrowdControlDealt         int     total crowd control time dealt</span>
+<span class="sd">    totalUnitsHealed                   int     number of units healed</span>
+<span class="sd">    tripleKills                        int     number of triple kills</span>
+<span class="sd">    trueDamageDealtPlayer              int     total true damage dealt</span>
+<span class="sd">    trueDamageDealtToChampions         int     total true damage dealt to champions</span>
+<span class="sd">    trueDamageTaken                    int     total true damage taken</span>
+<span class="sd">    turretsKilled                      int     number of turrets killed</span>
+<span class="sd">    unrealKills                        int     number of unreal kills</span>
+<span class="sd">    victoryPointTotal                  int     total victory points</span>
+<span class="sd">    visionWardsBought                  int     number of vision wards bought</span>
+<span class="sd">    wardKilled                         int     number of wards killed</span>
+<span class="sd">    wardPlaced                         int     number of wards placed</span>
+<span class="sd">    win                                bool    flag specifying whether or not this game was won</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assists</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;assists&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">barracksKilled</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;barracksKilled&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">championsKilled</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;championsKilled&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">combatPlayerScore</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;combatPlayerScore&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">consumablesPurchased</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;consumablesPurchased&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">damageDealtPlayer</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;damageDealtPlayer&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">doubleKills</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;doubleKills&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">firstBlood</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;firstBlood&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gold</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;gold&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">goldEarned</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;goldEarned&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">goldSpent</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;goldSpent&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item0</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;item0&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item1</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;item1&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item2</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;item2&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item3</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;item3&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item4</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;item4&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item5</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;item5&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item6</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;item6&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">itemsPurchased</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;itemsPurchased&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">killingSprees</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;killingSprees&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">largestCriticalStrike</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;largestCriticalStrike&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">largestKillingSpree</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;largestKillingSpree&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">largestMultiKill</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;largestMultiKill&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">legendaryItemsCreated</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;legendaryItemsCreated&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;level&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">magicDamageDealtPlayer</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;magicDamageDealtPlayer&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">magicDamageDealtToChampions</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;magicDamageDealtToChampions&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">magicDamageTaken</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;magicDamageTaken&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">minionsDenied</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;minionsDenied&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">minionsKilled</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;minionsKilled&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">neutralMinionsKilled</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;neutralMinionsKilled&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">neutralMinionsKilledEnemyJungle</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;neutralMinionsKilledEnemyJungle&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">neutralMinionsKilledYourJungle</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;neutralMinionsKilledYourJungle&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nexusKilled</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;nexusKilled&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodeCapture</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;nodeCapture&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodeCaptureAssist</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;nodeCaptureAssist&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodeNeutralize</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;nodeNeutralize&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodeNeutralizeAssist</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;nodeNeutralizeAssist&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numDeaths</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;numDeaths&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numItemsBought</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;numItemsBought&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objectivePlayerScore</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;objectivePlayerScore&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pentaKills</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;pentaKills&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">physicalDamageDealtPlayer</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;physicalDamageDealtPlayer&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">physicalDamageDealtToChampions</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;physicalDamageDealtToChampions&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">physicalDamageTaken</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;physicalDamageTaken&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">playerPosition</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;playerPosition&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">playerRole</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;playerRole&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">quadraKills</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;quadraKills&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sightWardsBought</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;sightWardsBought&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spell1Cast</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;spell1Cast&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spell2Cast</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;spell2Cast&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spell3Cast</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;spell3Cast&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spell4Cast</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;spell4Cast&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">summonSpell1Cast</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;summonSpell1Cast&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">summonSpell2Cast</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;summonSpell2Cast&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">superMonsterKilled</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;superMonsterKilled&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">team</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;team&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teamObjective</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;teamObjective&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timePlayed</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;timePlayed&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalDamageDealt</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;totalDamageDealt&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalDamageDealtToChampions</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;totalDamageDealtToChampions&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalDamageTaken</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;totalDamageTaken&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalHeal</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;totalHeal&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalPlayerScore</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;totalPlayerScore&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalScoreRank</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;totalScoreRank&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalTimeCrowdControlDealt</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;totalTimeCrowdControlDealt&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalUnitsHealed</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;totalUnitsHealed&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tripleKills</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;tripleKills&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trueDamageDealtPlayer</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;trueDamageDealtPlayer&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trueDamageDealtToChampions</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;trueDamageDealtToChampions&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trueDamageTaken</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;trueDamageTaken&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">turretsKilled</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;turretsKilled&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unrealKills</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;unrealKills&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">victoryPointTotal</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;victoryPointTotal&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">visionWardsBought</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;visionWardsBought&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wardKilled</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;wardKilled&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wardPlaced</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;wardPlaced&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">win</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;win&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+
+</div>
+<span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
+<div class="viewcode-block" id="Player"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.game.Player">[docs]</a><span class="k">class</span> <span class="nc">Player</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">CassiopeiaDto</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    championId    int    champion id associated with player</span>
+<span class="sd">    summonerId    int    summoner id associated with player</span>
+<span class="sd">    teamId        int    team id associated with player</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">championId</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;championId&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">summonerId</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;summonerId&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teamId</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;teamId&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+</div>
+<span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
+<div class="viewcode-block" id="Game"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.game.Game">[docs]</a><span class="k">class</span> <span class="nc">Game</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">CassiopeiaDto</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    championId       int             champion ID associated with game</span>
+<span class="sd">    createDate       int             date that end game data was recorded, specified as epoch milliseconds</span>
+<span class="sd">    fellowPlayers    list&lt;Player&gt;    other players associated with the game</span>
+<span class="sd">    gameId           int             game ID</span>
+<span class="sd">    gameMode         str             game mode (Legal values: CLASSIC, ODIN, ARAM, TUTORIAL, ONEFORALL, ASCENSION, FIRSTBLOOD, KINGPORO)</span>
+<span class="sd">    gameType         str             game type (Legal values: CUSTOM_GAME, MATCHED_GAME, TUTORIAL_GAME)</span>
+<span class="sd">    invalid          bool            invalid flag</span>
+<span class="sd">    ipEarned         int             IP Earned</span>
+<span class="sd">    level            int             level</span>
+<span class="sd">    mapId            int             map ID</span>
+<span class="sd">    spell1           int             ID of first summoner spell</span>
+<span class="sd">    spell2           int             ID of second summoner spell</span>
+<span class="sd">    stats            RawStats        statistics associated with the game for this summoner</span>
+<span class="sd">    subType          str             game sub-type (Legal values: NONE, NORMAL, BOT, RANKED_SOLO_5x5, RANKED_PREMADE_3x3, RANKED_PREMADE_5x5, ODIN_UNRANKED, RANKED_TEAM_3x3, RANKED_TEAM_5x5, NORMAL_3x3, BOT_3x3, CAP_5x5, ARAM_UNRANKED_5x5, ONEFORALL_5x5, FIRSTBLOOD_1x1, FIRSTBLOOD_2x2, SR_6x6, URF, URF_BOT, NIGHTMARE_BOT, ASCENSION, HEXAKILL, KING_PORO, COUNTER_PICK)</span>
+<span class="sd">    teamId           int             team ID associated with game. Team ID 100 is blue team. Team ID 300 is purple team.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">championId</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;championId&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">createDate</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;createDate&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fellowPlayers</span> <span class="o">=</span> <span class="p">[(</span><span class="n">Player</span><span class="p">(</span><span class="n">player</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">Player</span><span class="p">)</span> <span class="k">else</span> <span class="n">player</span><span class="p">)</span> <span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;fellowPlayers&quot;</span><span class="p">,</span> <span class="p">[])</span> <span class="k">if</span> <span class="n">player</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameId</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;gameId&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameMode</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;gameMode&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameType</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;gameType&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">invalid</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;invalid&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ipEarned</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;ipEarned&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;level&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mapId</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;mapId&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spell1</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;spell1&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spell2</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;spell2&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;stats&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stats</span> <span class="o">=</span> <span class="n">RawStats</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">if</span> <span class="n">val</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">RawStats</span><span class="p">)</span> <span class="k">else</span> <span class="n">val</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subType</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;subType&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teamId</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;teamId&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">champion_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets all champion IDs contained in this object&quot;&quot;&quot;</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">championId</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fellowPlayers</span><span class="p">:</span>
+            <span class="n">ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">championId</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ids</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">summoner_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets all summoner IDs contained in this object&quot;&quot;&quot;</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fellowPlayers</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">summonerId</span><span class="p">):</span>
+                <span class="n">ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">summonerId</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ids</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">summoner_spell_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets all summoner spell IDs contained in this object&quot;&quot;&quot;</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spell1</span><span class="p">)</span>
+        <span class="n">ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spell2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ids</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">item_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets all item IDs contained in this object&quot;&quot;&quot;</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stats</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">item0</span><span class="p">):</span>
+            <span class="n">ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">item0</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">item1</span><span class="p">):</span>
+            <span class="n">ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">item1</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">item2</span><span class="p">):</span>
+            <span class="n">ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">item2</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">item3</span><span class="p">):</span>
+            <span class="n">ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">item3</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">item4</span><span class="p">):</span>
+            <span class="n">ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">item4</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">item5</span><span class="p">):</span>
+            <span class="n">ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">item5</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">item6</span><span class="p">):</span>
+            <span class="n">ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">item6</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ids</span>
+
+</div>
+<span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
+<div class="viewcode-block" id="RecentGames"><a class="viewcode-back" href="../../../../cassiopeia.type.dto.html#cassiopeia.type.core.game.RecentGames">[docs]</a><span class="k">class</span> <span class="nc">RecentGames</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">CassiopeiaDto</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    games         list&lt;Game&gt;    collection of recent games played (max 10)</span>
+<span class="sd">    summonerId    int           summoner ID</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">games</span> <span class="o">=</span> <span class="p">[(</span><span class="n">Game</span><span class="p">(</span><span class="n">game</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">game</span><span class="p">,</span> <span class="n">Game</span><span class="p">)</span> <span class="k">else</span> <span class="n">game</span><span class="p">)</span> <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;games&quot;</span><span class="p">,</span> <span class="p">[])</span> <span class="k">if</span> <span class="n">game</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">summonerId</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;summonerId&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">champion_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets all champion IDs contained in this object&quot;&quot;&quot;</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">games</span><span class="p">:</span>
+            <span class="n">ids</span> <span class="o">|=</span> <span class="n">game</span><span class="o">.</span><span class="n">champion_ids</span>
+        <span class="k">return</span> <span class="n">ids</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">summoner_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets all summoner IDs contained in this object&quot;&quot;&quot;</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">summonerId</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">games</span><span class="p">:</span>
+            <span class="n">ids</span> <span class="o">|=</span> <span class="n">game</span><span class="o">.</span><span class="n">summoner_ids</span>
+        <span class="k">return</span> <span class="n">ids</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">summoner_spell_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets all sumoner spell IDs contained in this object&quot;&quot;&quot;</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">games</span><span class="p">:</span>
+            <span class="n">ids</span> <span class="o">|=</span> <span class="n">game</span><span class="o">.</span><span class="n">summoner_spell_ids</span>
+        <span class="k">return</span> <span class="n">ids</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">item_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets all item IDs contained in this object&quot;&quot;&quot;</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">games</span><span class="p">:</span>
+            <span class="n">ids</span> <span class="o">|=</span> <span class="n">game</span><span class="o">.</span><span class="n">item_ids</span>
+        <span class="k">return</span> <span class="n">ids</span>
+
+<span class="c">###############################</span>
+<span class="c"># Dynamic SQLAlchemy bindings #</span>
+<span class="c">###############################</span>
+</div>
+<span class="k">def</span> <span class="nf">_sa_bind_raw_stats</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">RawStats</span>
+    <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
+    <span class="k">class</span> <span class="nc">RawStats</span><span class="p">(</span><span class="n">RawStats</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
+        <span class="n">__tablename__</span> <span class="o">=</span> <span class="s">&quot;GameRawStats&quot;</span>
+        <span class="n">assists</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">barracksKilled</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">championsKilled</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">combatPlayerScore</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">consumablesPurchased</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">damageDealtPlayer</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">doubleKills</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">firstBlood</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">gold</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">goldEarned</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">goldSpent</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">item0</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">item1</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">item2</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">item3</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">item4</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">item5</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">item6</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">itemsPurchased</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">killingSprees</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">largestCriticalStrike</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">largestKillingSpree</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">largestMultiKill</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">legendaryItemsCreated</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">level</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">magicDamageDealtPlayer</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">magicDamageDealtToChampions</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">magicDamageTaken</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">minionsDenied</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">minionsKilled</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">neutralMinionsKilled</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">neutralMinionsKilledEnemyJungle</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">neutralMinionsKilledYourJungle</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">nexusKilled</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Boolean</span><span class="p">)</span>
+        <span class="n">nodeCapture</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">nodeCaptureAssist</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">nodeNeutralize</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">nodeNeutralizeAssist</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">numDeaths</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">numItemsBought</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">objectivePlayerScore</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">pentaKills</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">physicalDamageDealtPlayer</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">physicalDamageDealtToChampions</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">physicalDamageTaken</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">playerPosition</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">playerRole</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">quadraKills</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">sightWardsBought</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">spell1Cast</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">spell2Cast</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">spell3Cast</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">spell4Cast</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">summonSpell1Cast</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">summonSpell2Cast</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">superMonsterKilled</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">team</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">teamObjective</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">timePlayed</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">totalDamageDealt</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">totalDamageDealtToChampions</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">totalDamageTaken</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">totalHeal</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">totalPlayerScore</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">totalScoreRank</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">totalTimeCrowdControlDealt</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">totalUnitsHealed</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">tripleKills</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">trueDamageDealtPlayer</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">trueDamageDealtToChampions</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">trueDamageTaken</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">turretsKilled</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">unrealKills</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">victoryPointTotal</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">visionWardsBought</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">wardKilled</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">wardPlaced</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">win</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Boolean</span><span class="p">)</span>
+        <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">_game_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;Game.gameId&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_player</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">Player</span>
+    <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
+    <span class="k">class</span> <span class="nc">Player</span><span class="p">(</span><span class="n">Player</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
+        <span class="n">__tablename__</span> <span class="o">=</span> <span class="s">&quot;GamePlayer&quot;</span>
+        <span class="n">championId</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">summonerId</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">teamId</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">_game_id</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">&quot;Game.gameId&quot;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;CASCADE&quot;</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_game</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">Game</span>
+    <span class="nd">@cassiopeia.type.core.common.inheritdocs</span>
+    <span class="k">class</span> <span class="nc">Game</span><span class="p">(</span><span class="n">Game</span><span class="p">,</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">BaseDB</span><span class="p">):</span>
+        <span class="n">__tablename__</span> <span class="o">=</span> <span class="s">&quot;Game&quot;</span>
+        <span class="n">championId</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">createDate</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">BigInteger</span><span class="p">)</span>
+        <span class="n">fellowPlayers</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s">&quot;cassiopeia.type.dto.game.Player&quot;</span><span class="p">,</span> <span class="n">cascade</span><span class="o">=</span><span class="s">&quot;all, delete-orphan&quot;</span><span class="p">,</span> <span class="n">passive_deletes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">gameId</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">gameMode</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
+        <span class="n">gameType</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
+        <span class="n">invalid</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Boolean</span><span class="p">)</span>
+        <span class="n">ipEarned</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">level</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">mapId</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">spell1</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">spell2</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+        <span class="n">stats</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s">&quot;cassiopeia.type.dto.game.RawStats&quot;</span><span class="p">,</span> <span class="n">uselist</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">cascade</span><span class="o">=</span><span class="s">&quot;all, delete-orphan&quot;</span><span class="p">,</span> <span class="n">passive_deletes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">subType</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
+        <span class="n">teamId</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_sa_bind_all</span><span class="p">():</span>
+    <span class="n">_sa_bind_raw_stats</span><span class="p">()</span>
+    <span class="n">_sa_bind_player</span><span class="p">()</span>
+    <span class="n">_sa_bind_game</span><span class="p">()</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Rob Rua.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

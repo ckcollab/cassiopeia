@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cassiopeia.baseriotapi &mdash; Cassiopeia 0.0.8 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Cassiopeia 0.0.8 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for cassiopeia.baseriotapi</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Accesses the LoL REST API (https://developer.riotgames.com/), returning Python objects matching the exact API spec.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+
+<span class="kn">import</span> <span class="nn">cassiopeia.dto.requests</span>
+<span class="kn">import</span> <span class="nn">cassiopeia.type.api.rates</span>
+<span class="kn">import</span> <span class="nn">cassiopeia.dto.staticdataapi</span>
+<span class="kn">from</span> <span class="nn">cassiopeia.dto.championapi</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">cassiopeia.dto.currentgameapi</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">cassiopeia.dto.featuredgamesapi</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">cassiopeia.dto.gameapi</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">cassiopeia.dto.leagueapi</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">cassiopeia.dto.staticdataapi</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">cassiopeia.dto.statusapi</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">cassiopeia.dto.matchapi</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">cassiopeia.dto.matchlistapi</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">cassiopeia.dto.statsapi</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">cassiopeia.dto.summonerapi</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">cassiopeia.dto.teamapi</span> <span class="kn">import</span> <span class="o">*</span>
+
+<div class="viewcode-block" id="set_api_key"><a class="viewcode-back" href="../../cassiopeia.html#cassiopeia.baseriotapi.set_api_key">[docs]</a><span class="k">def</span> <span class="nf">set_api_key</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Set your API key</span>
+
+<span class="sd">    key    str    the key to use</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">key</span>
+</div>
+<div class="viewcode-block" id="set_region"><a class="viewcode-back" href="../../cassiopeia.html#cassiopeia.baseriotapi.set_region">[docs]</a><span class="k">def</span> <span class="nf">set_region</span><span class="p">(</span><span class="n">region</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Set the region to run API queries against</span>
+
+<span class="sd">    region    str    the region to query against</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">region</span> <span class="o">=</span> <span class="n">region</span>
+</div>
+<div class="viewcode-block" id="print_calls"><a class="viewcode-back" href="../../cassiopeia.html#cassiopeia.baseriotapi.print_calls">[docs]</a><span class="k">def</span> <span class="nf">print_calls</span><span class="p">(</span><span class="n">on</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Sets whether to print calls to stdout as they are made</span>
+
+<span class="sd">    on    bool    the region to query against</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">print_calls</span> <span class="o">=</span> <span class="n">on</span>
+</div>
+<div class="viewcode-block" id="set_rate_limit"><a class="viewcode-back" href="../../cassiopeia.html#cassiopeia.baseriotapi.set_rate_limit">[docs]</a><span class="k">def</span> <span class="nf">set_rate_limit</span><span class="p">(</span><span class="n">calls_per_epoch</span><span class="p">,</span> <span class="n">seconds_per_epoch</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Sets the rate limit for cassiopeia to manage internally</span>
+
+<span class="sd">    calls_per_epoch      int    the number of calls allowed in each epoch</span>
+<span class="sd">    seconds_per_epoch    int    the number of seconds per epoch</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">rate_limiter</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">rates</span><span class="o">.</span><span class="n">SingleRateLimiter</span><span class="p">(</span><span class="n">calls_per_epoch</span><span class="p">,</span> <span class="n">seconds_per_epoch</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="set_rate_limits"><a class="viewcode-back" href="../../cassiopeia.html#cassiopeia.baseriotapi.set_rate_limits">[docs]</a><span class="k">def</span> <span class="nf">set_rate_limits</span><span class="p">(</span><span class="o">*</span><span class="n">limits</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Sets the rate limits for cassiopeia to manage internally</span>
+
+<span class="sd">    *limits    tuple...    the rate limits to apply. Rate limits are of the form (calls_per_epoch, seconds_per_epoch)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">rate_limiter</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">rates</span><span class="o">.</span><span class="n">MultiRateLimiter</span><span class="p">(</span><span class="o">*</span><span class="n">limits</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="set_proxy"><a class="viewcode-back" href="../../cassiopeia.html#cassiopeia.baseriotapi.set_proxy">[docs]</a><span class="k">def</span> <span class="nf">set_proxy</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">80</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Sets a proxy server to tunnel requests to the Riot API through</span>
+
+<span class="sd">    url     str    the URL of the proxy server, without port number or protocol</span>
+<span class="sd">    port    int    the port number to conntect to (default 80)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+        <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">ProxyHandler</span><span class="p">({</span><span class="s">&quot;https&quot;</span><span class="p">:</span> <span class="s">&quot;https://{url}:{port}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">)})</span>
+        <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">install_opener</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">proxy</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">ProxyHandler</span><span class="p">({})</span>
+        <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">install_opener</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">proxy</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="set_locale"><a class="viewcode-back" href="../../cassiopeia.html#cassiopeia.baseriotapi.set_locale">[docs]</a><span class="k">def</span> <span class="nf">set_locale</span><span class="p">(</span><span class="n">locale</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Sets the locale (language) to use for calls to the Riot API. Use get_languages() to find valid locales.</span>
+
+<span class="sd">    locale    str    the locale to use for calls to the API</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">staticdataapi</span><span class="o">.</span><span class="n">_locale</span> <span class="o">=</span> <span class="n">locale</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Rob Rua.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
