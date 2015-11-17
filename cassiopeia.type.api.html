@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.type.api &mdash; Cassiopeia 0.0.7 documentation</title>
+    <title>cassiopeia.type.api &mdash; Cassiopeia 0.0.8 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.7',
+        VERSION:     '0.0.8',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.7 documentation" href="index.html" />
+    <link rel="top" title="Cassiopeia 0.0.8 documentation" href="index.html" />
     <link rel="up" title="cassiopeia.type" href="cassiopeia.type.html" />
     <link rel="next" title="cassiopeia.type.core" href="cassiopeia.type.core.html" />
     <link rel="prev" title="cassiopeia.type" href="cassiopeia.type.html" />
@@ -41,299 +41,14 @@
             
   <div class="section" id="cassiopeia-type-api">
 <h1>cassiopeia.type.api<a class="headerlink" href="#cassiopeia-type-api" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-cassiopeia.type.api.exception">
-<span id="cassiopeia-type-api-exception"></span><h2>cassiopeia.type.api.exception<a class="headerlink" href="#module-cassiopeia.type.api.exception" title="Permalink to this headline">¶</a></h2>
-<dl class="exception">
-<dt id="cassiopeia.type.api.exception.APIError">
-<em class="property">exception </em><code class="descclassname">cassiopeia.type.api.exception.</code><code class="descname">APIError</code><span class="sig-paren">(</span><em>message</em>, <em>error_code</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/exception.html#APIError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.exception.APIError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></p>
-<p>&#8221;
-message       str    the error message
-error_code    int    the HTTP error code that was received</p>
-<dl class="attribute">
-<dt id="cassiopeia.type.api.exception.APIError.args">
-<code class="descname">args</code><a class="headerlink" href="#cassiopeia.type.api.exception.APIError.args" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.exception.APIError.with_traceback">
-<code class="descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.api.exception.APIError.with_traceback" title="Permalink to this definition">¶</a></dt>
-<dd><p>Exception.with_traceback(tb) &#8211;
-set self.__traceback__ to tb and return self.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="exception">
-<dt id="cassiopeia.type.api.exception.CassiopeiaException">
-<em class="property">exception </em><code class="descclassname">cassiopeia.type.api.exception.</code><code class="descname">CassiopeiaException</code><a class="reference internal" href="_modules/cassiopeia/type/api/exception.html#CassiopeiaException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.exception.CassiopeiaException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></p>
-<p>Generic exception for a failure within Cassiopeia</p>
-<dl class="attribute">
-<dt id="cassiopeia.type.api.exception.CassiopeiaException.args">
-<code class="descname">args</code><a class="headerlink" href="#cassiopeia.type.api.exception.CassiopeiaException.args" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.exception.CassiopeiaException.with_traceback">
-<code class="descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cassiopeia.type.api.exception.CassiopeiaException.with_traceback" title="Permalink to this definition">¶</a></dt>
-<dd><p>Exception.with_traceback(tb) &#8211;
-set self.__traceback__ to tb and return self.</p>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="cassiopeia-type-api-exception">
+<h2>cassiopeia.type.api.exception<a class="headerlink" href="#cassiopeia-type-api-exception" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cassiopeia.type.api.rates">
-<span id="cassiopeia-type-api-rates"></span><h2>cassiopeia.type.api.rates<a class="headerlink" href="#module-cassiopeia.type.api.rates" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cassiopeia.type.api.rates.MultiRateLimiter">
-<em class="property">class </em><code class="descclassname">cassiopeia.type.api.rates.</code><code class="descname">MultiRateLimiter</code><span class="sig-paren">(</span><em>*limits</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/rates.html#MultiRateLimiter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.rates.MultiRateLimiter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Handles a multiple rate limits simultaneously, ensuring that calls don&#8217;t exceed them</p>
-<dl class="method">
-<dt id="cassiopeia.type.api.rates.MultiRateLimiter.call">
-<code class="descname">call</code><span class="sig-paren">(</span><em>method=None</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/rates.html#MultiRateLimiter.call"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.rates.MultiRateLimiter.call" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calls a function when the rate limit allows (first come first serve)</p>
-<p>method    function    the function which will be called when the rate limit allows
-<a href="#id1"><span class="problematic" id="id2">*</span></a>args     any...      the arguments to be passed to the functions when it is called</p>
-<p>return    any         the result of the function once it has been called</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.rates.MultiRateLimiter.reset_in">
-<code class="descname">reset_in</code><span class="sig-paren">(</span><em>seconds</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/rates.html#MultiRateLimiter.reset_in"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.rates.MultiRateLimiter.reset_in" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resets the rate limiter after waiting</p>
-<p>seconds    int    the number of seconds to wait before resetting</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.rates.MultiRateLimiter.wait">
-<code class="descname">wait</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/rates.html#MultiRateLimiter.wait"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.rates.MultiRateLimiter.wait" title="Permalink to this definition">¶</a></dt>
-<dd><p>Waits until a call becomes available</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="cassiopeia.type.api.rates.SingleRateLimiter">
-<em class="property">class </em><code class="descclassname">cassiopeia.type.api.rates.</code><code class="descname">SingleRateLimiter</code><span class="sig-paren">(</span><em>calls_per_epoch</em>, <em>seconds_per_epoch</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/rates.html#SingleRateLimiter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.rates.SingleRateLimiter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Handles a single rate limit, ensuring that calls don&#8217;t exceed it</p>
-<dl class="method">
-<dt id="cassiopeia.type.api.rates.SingleRateLimiter.call">
-<code class="descname">call</code><span class="sig-paren">(</span><em>method=None</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/rates.html#SingleRateLimiter.call"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.rates.SingleRateLimiter.call" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calls a function when the rate limit allows (first come first serve)</p>
-<p>method    function    the function which will be called when the rate limit allows
-<a href="#id3"><span class="problematic" id="id4">*</span></a>args     any...      the arguments to be passed to the functions when it is called</p>
-<p>return    any         the result of the function once it has been called</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.rates.SingleRateLimiter.reset_in">
-<code class="descname">reset_in</code><span class="sig-paren">(</span><em>seconds</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/rates.html#SingleRateLimiter.reset_in"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.rates.SingleRateLimiter.reset_in" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resets the rate limiter after waiting</p>
-<p>seconds    int    the number of seconds to wait before resetting</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.rates.SingleRateLimiter.wait">
-<code class="descname">wait</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/rates.html#SingleRateLimiter.wait"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.rates.SingleRateLimiter.wait" title="Permalink to this definition">¶</a></dt>
-<dd><p>Waits until a call becomes available</p>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="cassiopeia-type-api-rates">
+<h2>cassiopeia.type.api.rates<a class="headerlink" href="#cassiopeia-type-api-rates" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cassiopeia.type.api.store">
-<span id="cassiopeia-type-api-store"></span><h2>cassiopeia.type.api.store<a class="headerlink" href="#module-cassiopeia.type.api.store" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cassiopeia.type.api.store.Cache">
-<em class="property">class </em><code class="descclassname">cassiopeia.type.api.store.</code><code class="descname">Cache</code><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#Cache"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.Cache" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.api.store.DataStore" title="cassiopeia.type.api.store.DataStore"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.api.store.DataStore</span></code></a></p>
-<p>In-memory cache of API data</p>
-<dl class="method">
-<dt id="cassiopeia.type.api.store.Cache.get">
-<code class="descname">get</code><span class="sig-paren">(</span><em>class_</em>, <em>keys</em>, <em>key_field</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#Cache.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.Cache.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets objects from the data store</p>
-<p><a href="#id5"><span class="problematic" id="id6">class_</span></a>       type                     the class to get values for
-keys         any | list&lt;any&gt;          the keys that should be used to find the desired values
-key_field    str                      the name of the attribute that the key(s) reference</p>
-<p>return       <a href="#id7"><span class="problematic" id="id8">class_</span></a> | list&lt;<a href="#id9"><span class="problematic" id="id10">class_</span></a>&gt;    the values from storage - None will replace any value that couldn&#8217;t be found</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.store.Cache.get_all">
-<code class="descname">get_all</code><span class="sig-paren">(</span><em>class_</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#Cache.get_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.Cache.get_all" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets all currently stored values for a type</p>
-<p><a href="#id11"><span class="problematic" id="id12">class_</span></a>    type            the class to get values for</p>
-<p>return    list&lt;<a href="#id13"><span class="problematic" id="id14">class_</span></a>&gt;    all stored values for the type</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.store.Cache.has_all">
-<code class="descname">has_all</code><span class="sig-paren">(</span><em>class_</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#Cache.has_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.Cache.has_all" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if the data store has all the values for a type there can be (as reported by the user)</p>
-<p><a href="#id15"><span class="problematic" id="id16">class_</span></a>    type    the class to do the check for</p>
-<p>return    bool    whether all the values are stored</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.store.Cache.iterate">
-<code class="descname">iterate</code><span class="sig-paren">(</span><em>class_</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#Cache.iterate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.Cache.iterate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets an iterator over all currently stored values for a type</p>
-<p><a href="#id17"><span class="problematic" id="id18">class_</span></a>    type                the class to get values for</p>
-<p>return    iterator&lt;<a href="#id19"><span class="problematic" id="id20">class_</span></a>&gt;    and iterator over all stored values for the type</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.store.Cache.store">
-<code class="descname">store</code><span class="sig-paren">(</span><em>objs</em>, <em>keys</em>, <em>complete_sets=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#Cache.store"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.Cache.store" title="Permalink to this definition">¶</a></dt>
-<dd><p>Stores objects in the data store</p>
-<p>objs             any                the objects to store
-keys             any | list&lt;any&gt;    the keys to store those values with
-complete_sets    list&lt;type&gt;         include any types for which it should be marked that all possible values are stored</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="cassiopeia.type.api.store.DataStore">
-<em class="property">class </em><code class="descclassname">cassiopeia.type.api.store.</code><code class="descname">DataStore</code><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#DataStore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.DataStore" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>A place to store data. Used for caching/storing data from API calls</p>
-<dl class="method">
-<dt id="cassiopeia.type.api.store.DataStore.get">
-<code class="descname">get</code><span class="sig-paren">(</span><em>class_</em>, <em>keys</em>, <em>key_field</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#DataStore.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.DataStore.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets objects from the data store</p>
-<p><a href="#id21"><span class="problematic" id="id22">class_</span></a>       type                     the class to get values for
-keys         any | list&lt;any&gt;          the keys that should be used to find the desired values
-key_field    str                      the name of the attribute that the key(s) reference</p>
-<p>return       <a href="#id23"><span class="problematic" id="id24">class_</span></a> | list&lt;<a href="#id25"><span class="problematic" id="id26">class_</span></a>&gt;    the values from storage - None will replace any value that couldn&#8217;t be found</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.store.DataStore.get_all">
-<code class="descname">get_all</code><span class="sig-paren">(</span><em>class_</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#DataStore.get_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.DataStore.get_all" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets all currently stored values for a type</p>
-<p><a href="#id27"><span class="problematic" id="id28">class_</span></a>    type            the class to get values for</p>
-<p>return    list&lt;<a href="#id29"><span class="problematic" id="id30">class_</span></a>&gt;    all stored values for the type</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.store.DataStore.has_all">
-<code class="descname">has_all</code><span class="sig-paren">(</span><em>class_</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#DataStore.has_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.DataStore.has_all" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if the data store has all the values for a type there can be (as reported by the user)</p>
-<p><a href="#id31"><span class="problematic" id="id32">class_</span></a>    type    the class to do the check for</p>
-<p>return    bool    whether all the values are stored</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.store.DataStore.iterate">
-<code class="descname">iterate</code><span class="sig-paren">(</span><em>class_</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#DataStore.iterate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.DataStore.iterate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets an iterator over all currently stored values for a type</p>
-<p><a href="#id33"><span class="problematic" id="id34">class_</span></a>    type                the class to get values for</p>
-<p>return    iterator&lt;<a href="#id35"><span class="problematic" id="id36">class_</span></a>&gt;    and iterator over all stored values for the type</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.store.DataStore.store">
-<code class="descname">store</code><span class="sig-paren">(</span><em>objs</em>, <em>keys</em>, <em>complete_sets=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#DataStore.store"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.DataStore.store" title="Permalink to this definition">¶</a></dt>
-<dd><p>Stores objects in the data store</p>
-<p>objs             any                the objects to store
-keys             any | list&lt;any&gt;    the keys to store those values with
-complete_sets    list&lt;type&gt;         include any types for which it should be marked that all possible values are stored</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="cassiopeia.type.api.store.HasAllStatus">
-<em class="property">class </em><code class="descclassname">cassiopeia.type.api.store.</code><code class="descname">HasAllStatus</code><span class="sig-paren">(</span><em>class_</em>, <em>have_all=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#HasAllStatus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.HasAllStatus" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.api.Base</span></code></p>
-<dl class="attribute">
-<dt id="cassiopeia.type.api.store.HasAllStatus.class_">
-<code class="descname">class_</code><a class="headerlink" href="#cassiopeia.type.api.store.HasAllStatus.class_" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.store.HasAllStatus.get_name">
-<code class="descname">get_name</code><span class="sig-paren">(</span><em>class_</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#HasAllStatus.get_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.HasAllStatus.get_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cassiopeia.type.api.store.HasAllStatus.have_all">
-<code class="descname">have_all</code><a class="headerlink" href="#cassiopeia.type.api.store.HasAllStatus.have_all" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cassiopeia.type.api.store.HasAllStatus.metadata">
-<code class="descname">metadata</code><em class="property"> = MetaData(bind=None)</em><a class="headerlink" href="#cassiopeia.type.api.store.HasAllStatus.metadata" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="cassiopeia.type.api.store.SQLAlchemyDB">
-<em class="property">class </em><code class="descclassname">cassiopeia.type.api.store.</code><code class="descname">SQLAlchemyDB</code><span class="sig-paren">(</span><em>flavor</em>, <em>host</em>, <em>database</em>, <em>username</em>, <em>password</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#SQLAlchemyDB"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.SQLAlchemyDB" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cassiopeia.type.api.store.DataStore" title="cassiopeia.type.api.store.DataStore"><code class="xref py py-class docutils literal"><span class="pre">cassiopeia.type.api.store.DataStore</span></code></a></p>
-<dl class="class">
-<dt id="cassiopeia.type.api.store.SQLAlchemyDB.Iterator">
-<em class="property">class </em><code class="descname">Iterator</code><span class="sig-paren">(</span><em>class_</em>, <em>result</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#SQLAlchemyDB.Iterator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.SQLAlchemyDB.Iterator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.store.SQLAlchemyDB.close">
-<code class="descclassname">SQLAlchemyDB.</code><code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#SQLAlchemyDB.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.SQLAlchemyDB.close" title="Permalink to this definition">¶</a></dt>
-<dd><p>Closes the connection to the database</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.store.SQLAlchemyDB.get">
-<code class="descclassname">SQLAlchemyDB.</code><code class="descname">get</code><span class="sig-paren">(</span><em>class_</em>, <em>keys</em>, <em>key_field</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#SQLAlchemyDB.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.SQLAlchemyDB.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets objects from the data store</p>
-<p><a href="#id37"><span class="problematic" id="id38">class_</span></a>       type                     the class to get values for
-keys         any | list&lt;any&gt;          the keys that should be used to find the desired values
-key_field    str                      the name of the attribute that the key(s) reference</p>
-<p>return       <a href="#id39"><span class="problematic" id="id40">class_</span></a> | list&lt;<a href="#id41"><span class="problematic" id="id42">class_</span></a>&gt;    the values from storage - None will replace any value that couldn&#8217;t be found</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.store.SQLAlchemyDB.get_all">
-<code class="descclassname">SQLAlchemyDB.</code><code class="descname">get_all</code><span class="sig-paren">(</span><em>class_</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#SQLAlchemyDB.get_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.SQLAlchemyDB.get_all" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets all currently stored values for a type</p>
-<p><a href="#id43"><span class="problematic" id="id44">class_</span></a>    type            the class to get values for</p>
-<p>return    list&lt;<a href="#id45"><span class="problematic" id="id46">class_</span></a>&gt;    all stored values for the type</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.store.SQLAlchemyDB.has_all">
-<code class="descclassname">SQLAlchemyDB.</code><code class="descname">has_all</code><span class="sig-paren">(</span><em>class_</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#SQLAlchemyDB.has_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.SQLAlchemyDB.has_all" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if the data store has all the values for a type there can be (as reported by the user)</p>
-<p><a href="#id47"><span class="problematic" id="id48">class_</span></a>    type    the class to do the check for</p>
-<p>return    bool    whether all the values are stored</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.store.SQLAlchemyDB.iterate">
-<code class="descclassname">SQLAlchemyDB.</code><code class="descname">iterate</code><span class="sig-paren">(</span><em>class_</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#SQLAlchemyDB.iterate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.SQLAlchemyDB.iterate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets an iterator over all currently stored values for a type</p>
-<p><a href="#id49"><span class="problematic" id="id50">class_</span></a>    type                the class to get values for</p>
-<p>return    iterator&lt;<a href="#id51"><span class="problematic" id="id52">class_</span></a>&gt;    and iterator over all stored values for the type</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cassiopeia.type.api.store.SQLAlchemyDB.store">
-<code class="descclassname">SQLAlchemyDB.</code><code class="descname">store</code><span class="sig-paren">(</span><em>objs</em>, <em>keys=None</em>, <em>complete_sets=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/type/api/store.html#SQLAlchemyDB.store"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.type.api.store.SQLAlchemyDB.store" title="Permalink to this definition">¶</a></dt>
-<dd><p>Stores objects in the data store</p>
-<p>objs             any                the objects to store
-keys             any | list&lt;any&gt;    the keys to store those values with
-complete_sets    list&lt;type&gt;         include any types for which it should be marked that all possible values are stored</p>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="cassiopeia-type-api-store">
+<h2>cassiopeia.type.api.store<a class="headerlink" href="#cassiopeia-type-api-store" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -346,9 +61,9 @@ complete_sets    list&lt;type&gt;         include any types for which it should 
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">cassiopeia.type.api</a><ul>
-<li><a class="reference internal" href="#module-cassiopeia.type.api.exception">cassiopeia.type.api.exception</a></li>
-<li><a class="reference internal" href="#module-cassiopeia.type.api.rates">cassiopeia.type.api.rates</a></li>
-<li><a class="reference internal" href="#module-cassiopeia.type.api.store">cassiopeia.type.api.store</a></li>
+<li><a class="reference internal" href="#cassiopeia-type-api-exception">cassiopeia.type.api.exception</a></li>
+<li><a class="reference internal" href="#cassiopeia-type-api-rates">cassiopeia.type.api.rates</a></li>
+<li><a class="reference internal" href="#cassiopeia-type-api-store">cassiopeia.type.api.store</a></li>
 </ul>
 </li>
 </ul>
