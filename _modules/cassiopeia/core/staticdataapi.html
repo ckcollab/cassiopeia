@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cassiopeia.core.staticdataapi &mdash; Cassiopeia 0.0.8 documentation</title>
+    <title>cassiopeia.core.staticdataapi &mdash; Cassiopeia 0.0.9 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.0.8',
+        VERSION:     '0.0.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="Cassiopeia 0.0.8 documentation" href="../../../index.html" />
+    <link rel="top" title="Cassiopeia 0.0.9 documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" />
    
   
@@ -44,6 +44,7 @@
 <span class="kn">import</span> <span class="nn">cassiopeia.type.core.common</span>
 <span class="kn">import</span> <span class="nn">cassiopeia.type.core.staticdata</span>
 
+<span class="n">_ignore_items</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1080</span><span class="p">,</span> <span class="mi">2037</span><span class="p">,</span> <span class="mi">2039</span><span class="p">,</span> <span class="mi">2040</span><span class="p">,</span> <span class="mi">3005</span><span class="p">,</span> <span class="mi">3039</span><span class="p">,</span> <span class="mi">3123</span><span class="p">,</span> <span class="mi">3128</span><span class="p">,</span> <span class="mi">3131</span><span class="p">,</span> <span class="mi">3160</span><span class="p">,</span> <span class="mi">3166</span><span class="p">,</span> <span class="mi">3167</span><span class="p">,</span> <span class="mi">3168</span><span class="p">,</span> <span class="mi">3169</span><span class="p">,</span> <span class="mi">3175</span><span class="p">,</span> <span class="mi">3176</span><span class="p">,</span> <span class="mi">3171</span><span class="p">,</span> <span class="mi">3186</span><span class="p">,</span> <span class="mi">3188</span><span class="p">,</span> <span class="mi">3205</span><span class="p">,</span> <span class="mi">3206</span><span class="p">,</span> <span class="mi">3207</span><span class="p">,</span> <span class="mi">3209</span><span class="p">,</span> <span class="mi">3210</span><span class="p">,</span> <span class="mi">3405</span><span class="p">,</span> <span class="mi">3406</span><span class="p">,</span> <span class="mi">3407</span><span class="p">,</span> <span class="mi">3408</span><span class="p">,</span> <span class="mi">3409</span><span class="p">,</span> <span class="mi">3410</span><span class="p">,</span> <span class="mi">3411</span><span class="p">,</span> <span class="mi">3412</span><span class="p">,</span> <span class="mi">3413</span><span class="p">,</span> <span class="mi">3414</span><span class="p">,</span> <span class="mi">3415</span><span class="p">,</span> <span class="mi">3416</span><span class="p">,</span> <span class="mi">3417</span><span class="p">,</span> <span class="mi">3419</span><span class="p">,</span> <span class="mi">3420</span><span class="p">}</span>
 <span class="n">_ignore_runes</span> <span class="o">=</span> <span class="p">{</span><span class="mi">8028</span><span class="p">}</span>
 <span class="n">_ignore_summoner_spells</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">}</span>
 
@@ -136,8 +137,18 @@
 
 <span class="sd">    return    Item    the item</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">get_items</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Item</span><span class="p">,</span> <span class="n">id_</span><span class="p">,</span> <span class="s">&quot;id&quot;</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">id_</span> <span class="ow">in</span> <span class="n">_ignore_items</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="n">item</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">data_store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">staticdata</span><span class="o">.</span><span class="n">Item</span><span class="p">,</span> <span class="n">id_</span><span class="p">,</span> <span class="s">&quot;id&quot;</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">item</span>
+
+    <span class="n">items</span> <span class="o">=</span> <span class="n">cassiopeia</span><span class="o">.</span><span class="n">riotapi</span><span class="o">.</span><span class="n">get_items</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">id_</span><span class="p">,</span> <span class="n">items</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">None</span>
 </div>
 <div class="viewcode-block" id="get_items"><a class="viewcode-back" href="../../../cassiopeia.core.html#cassiopeia.riotapi.get_items">[docs]</a><span class="k">def</span> <span class="nf">get_items</span><span class="p">(</span><span class="n">ids</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets a bunch of items (or all of them)</span>
