@@ -168,10 +168,11 @@ include_timeline    bool                                whether to include timel
 <span id="cassiopeia-core-matchlistapi"></span><h2>cassiopeia.core.matchlistapi<a class="headerlink" href="#module-cassiopeia.core.matchlistapi" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="cassiopeia.core.matchlistapi.get_match_list">
-<code class="descclassname">cassiopeia.core.matchlistapi.</code><code class="descname">get_match_list</code><span class="sig-paren">(</span><em>summoner</em>, <em>begin_index=-1</em>, <em>begin_time=0</em>, <em>end_time=0</em>, <em>champions=None</em>, <em>ranked_queues=None</em>, <em>seasons=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/core/matchlistapi.html#get_match_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.core.matchlistapi.get_match_list" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">cassiopeia.core.matchlistapi.</code><code class="descname">get_match_list</code><span class="sig-paren">(</span><em>summoner</em>, <em>num_matches=0</em>, <em>begin_index=0</em>, <em>begin_time=0</em>, <em>end_time=0</em>, <em>champions=None</em>, <em>ranked_queues=None</em>, <em>seasons=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/core/matchlistapi.html#get_match_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.core.matchlistapi.get_match_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a summoner&#8217;s match history</p>
 <p>summoner        Summoner                     the summoner to get match history for
-begin_index     int                          the game index to start from (default -1)
+num_matches     int                          the maximum number of matches to retrieve. 0 will get as many as possible. (default 0)
+begin_index     int                          the game index to start from (default 0)
 begin_time      int | datetime               the begin time to use for fetching games (default 0)
 end_time        int | datetime               the end time to use for fetching games (default 0)
 champions       Champion | list&lt;Champion&gt;    the champion(s) to limit the results to (default None)

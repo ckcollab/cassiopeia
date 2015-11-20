@@ -2151,6 +2151,7 @@ consumeOnFull           bool               consume on full
 consumed                bool               consumed
 depth                   int                depth
 description             str                description
+effect                  dict&lt;str, str&gt;     effect
 <a href="#id5"><span class="problematic" id="id6">from_</span></a>                   list&lt;str&gt;          from
 gold                    Gold               data dragon includes the gold field for basic data, which is shared by both rune and item. However, only items have a gold field on them, representing their gold cost in the store. Since runes are not sold in the store, they have no gold cost.
 group                   str                group
@@ -2167,6 +2168,7 @@ rune                    MetaData           rune
 sanitizedDescription    str                sanitized description
 specialRecipe           int                special recipe
 stacks                  int                stacks
+stats                   BasicDataStats     stats
 tags                    list&lt;str&gt;          tags</p>
 <dl class="attribute">
 <dt id="cassiopeia.type.dto.staticdata.Item.item_ids">

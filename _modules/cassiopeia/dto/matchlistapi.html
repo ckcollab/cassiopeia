@@ -41,25 +41,27 @@
 <span class="kn">import</span> <span class="nn">cassiopeia.dto.requests</span>
 <span class="kn">import</span> <span class="nn">cassiopeia.type.dto.matchlist</span>
 
-<div class="viewcode-block" id="get_match_list"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.baseriotapi.get_match_list">[docs]</a><span class="k">def</span> <span class="nf">get_match_list</span><span class="p">(</span><span class="n">summoner_id</span><span class="p">,</span> <span class="n">begin_index</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">begin_time</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">end_time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">champion_ids</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ranked_queues</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">seasons</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="viewcode-block" id="get_match_list"><a class="viewcode-back" href="../../../cassiopeia.dto.html#cassiopeia.baseriotapi.get_match_list">[docs]</a><span class="k">def</span> <span class="nf">get_match_list</span><span class="p">(</span><span class="n">summoner_id</span><span class="p">,</span> <span class="n">num_matches</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">begin_index</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">begin_time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end_time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">champion_ids</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ranked_queues</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">seasons</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;https://developer.riotgames.com/api/methods#!/1013/3439</span>
 
 <span class="sd">    summoner_id      int                the ID of the summoner to get the match history for</span>
+<span class="sd">    num_matches      int                the maximum number of matches to retrieve. 0 will get as many as possible. (default 0)</span>
 <span class="sd">    begin_index      int                the game index to start from (default 0)</span>
-<span class="sd">    begin_time       int                the begin time to use for fetching games specified as epoch milliseconds (default -1)</span>
+<span class="sd">    begin_time       int                the begin time to use for fetching games specified as epoch milliseconds (default 0)</span>
 <span class="sd">    end_time         int                the end time to use for fetching games specified as epoch milliseconds (default 0)</span>
 <span class="sd">    champion_ids     int | list&lt;int&gt;    the champion ID(s) to limit the results to (default None)</span>
 <span class="sd">    ranked_queues    str | list&lt;str&gt;    the ranked queue(s) to limit the results to (&quot;RANKED_SOLO_5x5&quot;, &quot;RANKED_TEAM_3x3&quot;, &quot;RANKED_TEAM_5x5&quot;) (default None)</span>
-<span class="sd">    seasons          str | list&lt;str&gt;    the season(s) to limit the results to (&quot;PRESEASON3&quot;, &quot;SEASON3&quot;, &quot;PRESEASON2014&quot;, &quot;SEASON2014&quot;, &quot;PRESEASON2015&quot;, &quot;SEASON2015&quot;) (default None)</span>
+<span class="sd">    seasons          str | list&lt;str&gt;    the season(s) to limit the results to (&quot;PRESEASON3&quot;, &quot;SEASON3&quot;, &quot;PRESEASON2014&quot;, &quot;SEASON2014&quot;, &quot;PRESEASON2015&quot;, &quot;SEASON2015&quot;, &quot;PRESEASON2016&quot;, &quot;SEASON2016&quot;) (default None)</span>
 
 <span class="sd">    return           MatchList          the summoner&#39;s match history</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">request</span> <span class="o">=</span> <span class="s">&quot;{version}/matchlist/by-summoner/{summoner_id}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">cassiopeia</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">api_versions</span><span class="p">[</span><span class="s">&quot;matchlist&quot;</span><span class="p">],</span> <span class="n">summoner_id</span><span class="o">=</span><span class="n">summoner_id</span><span class="p">)</span>
 
     <span class="n">params</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">begin_index</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">num_matches</span><span class="p">):</span>
+        <span class="n">params</span><span class="p">[</span><span class="s">&quot;endIndex&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">begin_index</span> <span class="o">+</span> <span class="n">num_matches</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">begin_index</span> <span class="ow">or</span> <span class="n">num_matches</span><span class="p">):</span>
         <span class="n">params</span><span class="p">[</span><span class="s">&quot;beginIndex&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">begin_index</span>
-        <span class="n">params</span><span class="p">[</span><span class="s">&quot;endIndex&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">begin_index</span> <span class="o">+</span> <span class="mi">20</span>
     <span class="k">if</span><span class="p">(</span><span class="n">begin_time</span><span class="p">):</span>
         <span class="n">params</span><span class="p">[</span><span class="s">&quot;beginTime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">begin_time</span>
     <span class="k">if</span><span class="p">(</span><span class="n">end_time</span><span class="p">):</span>

@@ -159,15 +159,16 @@ include_timeline    bool           whether to include timeline data in the retur
 <span id="cassiopeia-dto-matchlistapi"></span><h2>cassiopeia.dto.matchlistapi<a class="headerlink" href="#module-cassiopeia.dto.matchlistapi" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="cassiopeia.dto.matchlistapi.get_match_list">
-<code class="descclassname">cassiopeia.dto.matchlistapi.</code><code class="descname">get_match_list</code><span class="sig-paren">(</span><em>summoner_id</em>, <em>begin_index=0</em>, <em>begin_time=-1</em>, <em>end_time=0</em>, <em>champion_ids=None</em>, <em>ranked_queues=None</em>, <em>seasons=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/dto/matchlistapi.html#get_match_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.dto.matchlistapi.get_match_list" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">cassiopeia.dto.matchlistapi.</code><code class="descname">get_match_list</code><span class="sig-paren">(</span><em>summoner_id</em>, <em>num_matches=0</em>, <em>begin_index=0</em>, <em>begin_time=0</em>, <em>end_time=0</em>, <em>champion_ids=None</em>, <em>ranked_queues=None</em>, <em>seasons=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cassiopeia/dto/matchlistapi.html#get_match_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cassiopeia.dto.matchlistapi.get_match_list" title="Permalink to this definition">¶</a></dt>
 <dd><p><a class="reference external" href="https://developer.riotgames.com/api/methods#!/1013/3439">https://developer.riotgames.com/api/methods#!/1013/3439</a></p>
 <p>summoner_id      int                the ID of the summoner to get the match history for
+num_matches      int                the maximum number of matches to retrieve. 0 will get as many as possible. (default 0)
 begin_index      int                the game index to start from (default 0)
-begin_time       int                the begin time to use for fetching games specified as epoch milliseconds (default -1)
+begin_time       int                the begin time to use for fetching games specified as epoch milliseconds (default 0)
 end_time         int                the end time to use for fetching games specified as epoch milliseconds (default 0)
 champion_ids     int | list&lt;int&gt;    the champion ID(s) to limit the results to (default None)
 ranked_queues    str | list&lt;str&gt;    the ranked queue(s) to limit the results to (&#8220;RANKED_SOLO_5x5&#8221;, &#8220;RANKED_TEAM_3x3&#8221;, &#8220;RANKED_TEAM_5x5&#8221;) (default None)
-seasons          str | list&lt;str&gt;    the season(s) to limit the results to (&#8220;PRESEASON3&#8221;, &#8220;SEASON3&#8221;, &#8220;PRESEASON2014&#8221;, &#8220;SEASON2014&#8221;, &#8220;PRESEASON2015&#8221;, &#8220;SEASON2015&#8221;) (default None)</p>
+seasons          str | list&lt;str&gt;    the season(s) to limit the results to (&#8220;PRESEASON3&#8221;, &#8220;SEASON3&#8221;, &#8220;PRESEASON2014&#8221;, &#8220;SEASON2014&#8221;, &#8220;PRESEASON2015&#8221;, &#8220;SEASON2015&#8221;, &#8220;PRESEASON2016&#8221;, &#8220;SEASON2016&#8221;) (default None)</p>
 <p>return           MatchList          the summoner&#8217;s match history</p>
 </dd></dl>
 
