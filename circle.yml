@@ -13,5 +13,5 @@ test:
   override:
     # Just do python 2 tests for now since py3 is fine
     #- (deactivate && source ~/virtualenvs/venv-3.5.0/bin/activate && py.test)
-    - (deactivate && source ~/virtualenvs/venv-2.7.5/bin/activate && py.test)
+    - (deactivate && source ~/virtualenvs/venv-2.7.5/bin/activate && pip freeze && py.test)
     - flake8
