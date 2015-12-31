@@ -5,12 +5,6 @@ from cassiopeia import riotapi
 from cassiopeia.type.core.common import LoadPolicy
 
 
-if sys.version_info.major == 2:
-    import future.standard_library
-
-    future.standard_library.install_aliases()
-
-
 RIOT_API_KEY = os.environ.get("RIOT_API_KEY")
 if RIOT_API_KEY:
     riotapi.set_api_key(os.environ["RIOT_API_KEY"])
