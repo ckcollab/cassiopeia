@@ -4,11 +4,14 @@ machine:
 
 dependencies:
   override:
+    - sudo apt-get install libssl-dev
+    - sudo add-apt-repository ppa:fkrull/deadsnakes
+    - sudo apt-get update
+    - sudo apt-get install python2.7
     # Have to upgrade virtualenv to make a virtualenv with python3
-    - (virtualenv ~/virtualenvs/venv-2.7.5 -p /home/ubuntu/.pyenv/versions/2.7.5/bin/python)
+    - (virtualenv ~/virtualenvs/venv-2.7.5 -p /usr/bin/python27)
     - (deactivate && source ~/virtualenvs/venv-3.5.0/bin/activate && pip install -r requirements35.txt)
     - (deactivate && source ~/virtualenvs/venv-2.7.5/bin/activate && pip install -r requirements27.txt)
-    - sudo apt-get install libssl-dev
 
 test:
   override:
