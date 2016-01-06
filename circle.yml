@@ -8,7 +8,7 @@ dependencies:
     - (virtualenv ~/virtualenvs/venv-2.7.5 -p /home/ubuntu/.pyenv/versions/2.7.5/bin/python)
     - (deactivate && source ~/virtualenvs/venv-3.5.0/bin/activate && pip install -r requirements35.txt)
     - (deactivate && source ~/virtualenvs/venv-2.7.5/bin/activate && pip install -r requirements27.txt)
-    - apt-get install libssl-dev
+    - sudo apt-get install libssl-dev
 
 test:
   override:
