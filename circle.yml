@@ -13,7 +13,7 @@ dependencies:
 #    - mkdir ~/Downloads
 #    - cd ~/Downloads/ && wget http://python.org/ftp/python/2.7.5/Python-2.7.5.tgz
 #    - cd ~/Downloads/ && tar -xvf Python-2.7.5.tgz
-    - cd ~/Downloads/Python-2.7.5 && ./configure && make && sudo checkinstall
+#    - cd ~/Downloads/Python-2.7.5 && ./configure && make && sudo checkinstall
     - sudo add-apt-repository ppa:fkrull/deadsnakes -y
     - sudo apt-get update
     - sudo apt-get install python2.7
