@@ -17,7 +17,7 @@ dependencies:
     - sudo add-apt-repository ppa:fkrull/deadsnakes -y
     - sudo apt-get update
     - sudo apt-get install --reinstall python2.7
-    - (virtualenv ~/virtualenvs/venv-2.7.5 -p python2)
+    - (virtualenv ~/virtualenvs/venv-2.7.5 -p /usr/bin/python2)
 #    - (deactivate && source ~/virtualenvs/venv-3.5.0/bin/activate && pip install -r requirements35.txt)
     - (deactivate && source ~/virtualenvs/venv-2.7.5/bin/activate && pip install -r requirements27.txt && deactivate)
     # Then do it for python 3.5.0
