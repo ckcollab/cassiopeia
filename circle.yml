@@ -9,7 +9,7 @@ machine:
 
 dependencies:
   override:
-#    - sudo apt-get install libssl-dev
+    - sudo apt-get install libssl-dev
 #    - mkdir ~/Downloads
 #    - cd ~/Downloads/ && wget http://python.org/ftp/python/2.7.5/Python-2.7.5.tgz
 #    - cd ~/Downloads/ && tar -xvf Python-2.7.5.tgz
